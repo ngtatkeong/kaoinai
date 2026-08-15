@@ -1,0 +1,2342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KaoinAI — AI-Native Data Intelligence</title>
+  <meta name="description" content="KaoinAI brings enterprise data governance, quality, lineage, and AI-powered analytics to SMEs. Previously costing millions, now accessible to all.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050508;
+      --bg-elevated: #0c0c12;
+      --bg-card: #111118;
+      --bg-hover: #181820;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.1);
+      --text: #e8e8ed;
+      --text-secondary: #8a8a98;
+      --text-muted: #555560;
+      --accent: #a855f7;
+      --accent-glow: rgba(168,85,247,0.3);
+      --accent-2: #ec4899;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --info: #3b82f6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+
+    /* ===== NAV ===== */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 9999;
+      height: 60px;
+      background: rgba(5,5,8,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .nav-logo img { height: 52px; width: auto; }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 30px var(--accent-glow);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border-strong);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .mobile-toggle { display: none; background: none; border: none; color: var(--text); cursor: pointer; }
+
+    /* ===== TYPOGRAPHY ===== */
+    .headline-xl {
+      font-size: clamp(36px, 5.5vw, 72px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+
+    .headline-lg {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+    }
+
+    .headline-md {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .subhead {
+      font-size: clamp(15px, 1.8vw, 18px);
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-width: 640px;
+    }
+
+    .overline {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 24px 60px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(168,85,247,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(168,85,247,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .hero-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+    }
+
+    .hero-glow-1 { width: 500px; height: 500px; background: rgba(168,85,247,0.15); top: -100px; right: -100px; }
+    .hero-glow-2 { width: 400px; height: 400px; background: rgba(236,72,153,0.1); bottom: -50px; left: -50px; }
+
+    .hero-bg-img {
+      position: absolute;
+      right: -10%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 55vw;
+      max-width: 900px;
+      opacity: 0.35;
+      pointer-events: none;
+      z-index: 1;
+      mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, transparent 100%);
+    }
+    .hero-glow-2 { width: 400px; height: 400px; background: rgba(236,72,153,0.1); bottom: -50px; left: -50px; }
+
+    .hero-content { position: relative; z-index: 2; max-width: 900px; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 99px;
+      background: rgba(168,85,247,0.1);
+      border: 1px solid rgba(168,85,247,0.2);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 32px;
+    }
+
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero h1 { margin-bottom: 24px; }
+    .hero h1 span { color: var(--accent); }
+
+    .hero p { margin: 0 auto 36px; }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ===== SECTIONS ===== */
+    .section { padding: 120px 24px; position: relative; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    /* ===== APP MOCKUP ===== */
+    .app-mockup {
+      margin-top: 64px;
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    .mock-browser {
+      background: var(--bg-card);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(168,85,247,0.1), 0 20px 80px rgba(0,0,0,0.5);
+    }
+
+    .mock-browser-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-elevated);
+    }
+
+    .mock-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .mock-dot-r { background: #ff5f57; }
+    .mock-dot-y { background: #febc2e; }
+    .mock-dot-g { background: #28c840; }
+
+    .mock-url {
+      flex: 1;
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .mock-app-body {
+      display: flex;
+      min-height: 420px;
+    }
+
+    .mock-sidebar {
+      width: 200px;
+      background: var(--bg-elevated);
+      border-right: 1px solid var(--border);
+      padding: 16px 12px;
+      flex-shrink: 0;
+    }
+
+    .mock-sidebar-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding: 0 4px;
+    }
+
+    .mock-sidebar-logo img { height: 32px; }
+
+    .mock-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+      transition: all 0.15s;
+    }
+
+    .mock-nav-item:hover, .mock-nav-item.active {
+      background: rgba(168,85,247,0.1);
+      color: var(--text);
+    }
+
+    .mock-nav-item.active {
+      border-left: 2px solid var(--accent);
+    }
+
+    .mock-main {
+      flex: 1;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .mock-main-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .mock-main-header h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .mock-main-header span {
+      font-size: 10px;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .mock-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .mock-stat {
+      background: var(--bg-hover);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .mock-stat-label {
+      font-size: 10px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .mock-stat-value {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .mock-stat-sub {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .mock-card {
+      background: var(--bg-hover);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .mock-card-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .mock-health-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .mock-health-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+    }
+
+    .mock-health-dot.ok { background: var(--success); box-shadow: 0 0 6px var(--success); }
+    .mock-health-dot.warn { background: var(--warning); }
+
+    .mock-health-label {
+      font-size: 11px;
+      color: var(--text-secondary);
+      width: 60px;
+    }
+
+    .mock-health-detail {
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    .mock-progress {
+      height: 4px;
+      background: var(--bg);
+      border-radius: 2px;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    .mock-progress-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .mock-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+    }
+
+    .mock-table th {
+      text-align: left;
+      padding: 8px;
+      color: var(--text-muted);
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mock-table td {
+      padding: 8px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mock-badge-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    .mock-badge-blue { background: rgba(59,130,246,0.15); color: #60a5fa; }
+    .mock-badge-red { background: rgba(239,68,68,0.15); color: #f87171; }
+    .mock-badge-green { background: rgba(34,197,94,0.15); color: #4ade80; }
+
+    .mock-input-area {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .mock-textarea {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 12px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      resize: none;
+      min-height: 44px;
+    }
+
+    .mock-btn-send {
+      width: 44px; height: 44px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+    }
+
+    .mock-chips {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .mock-chip {
+      padding: 4px 10px;
+      border-radius: 99px;
+      font-size: 10px;
+      color: var(--text-secondary);
+      background: var(--bg);
+      border: 1px solid var(--border);
+    }
+
+    .mock-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    .mock-tab {
+      padding: 8px 16px;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+    }
+
+    .mock-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .mock-code {
+      background: var(--bg);
+      border-radius: 8px;
+      padding: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-secondary);
+      overflow-x: auto;
+    }
+
+    .mock-code .kw { color: #c084fc; }
+    .mock-code .str { color: #4ade80; }
+    .mock-code .num { color: #fbbf24; }
+
+    /* ===== FEATURE CARDS ===== */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(168,85,247,0.2);
+      transform: translateY(-4px);
+    }
+
+    .feature-card:hover::before { opacity: 1; }
+
+    .feature-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(236,72,153,0.1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      border: 1px solid rgba(168,85,247,0.15);
+    }
+
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .feature-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ===== STORY SECTION ===== */
+    .story-section {
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-elevated) 100%);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .story-visual {
+      position: relative;
+    }
+
+    .story-visual::before {
+      content: '';
+      position: absolute;
+      inset: -20px;
+      background: radial-gradient(circle, rgba(168,85,247,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .story-quote {
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+
+    .story-quote span {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .story-body {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .story-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 32px;
+    }
+
+    .story-stat {
+      text-align: center;
+    }
+
+    .story-stat-num {
+      font-size: 32px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .story-stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ===== SCREENSHOT SHOWCASE ===== */
+    .showcase {
+      background: var(--bg-elevated);
+    }
+
+    .showcase-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .showcase-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .showcase-item.reverse {
+      direction: rtl;
+    }
+
+    .showcase-item.reverse > * {
+      direction: ltr;
+    }
+
+    .showcase-text h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .showcase-text p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .showcase-list {
+      list-style: none;
+    }
+
+    .showcase-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding: 6px 0;
+    }
+
+    .showcase-check {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: rgba(34,197,94,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .showcase-check svg { width: 10px; height: 10px; }
+
+    /* ===== PRICING ===== */
+    .pricing-card {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    .pricing-top {
+      padding: 48px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pricing-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .pricing-title {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .pricing-price {
+      font-size: 56px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .pricing-price span {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .pricing-sub {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-top: 8px;
+    }
+
+    .pricing-features {
+      padding: 32px 48px;
+    }
+
+    .pricing-features ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .pf-check {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: rgba(34,197,94,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .pricing-cta {
+      padding: 0 48px 40px;
+      text-align: center;
+    }
+
+    .pricing-cta .btn {
+      padding: 14px 36px;
+      font-size: 15px;
+    }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      text-align: center;
+      padding: 140px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(168,85,247,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .cta-section p {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 32px;
+      position: relative;
+    }
+
+    .cta-form {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      max-width: 440px;
+      margin: 0 auto 16px;
+      position: relative;
+    }
+
+    .cta-form input {
+      flex: 1;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-card);
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+    }
+
+    .cta-form input:focus { border-color: var(--accent); }
+    .cta-form input::placeholder { color: var(--text-muted); }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+      padding: 48px 24px 24px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(4, 1fr);
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .footer-brand img { height: 42px; margin-bottom: 12px; }
+    .footer-brand p { font-size: 12px; color: var(--text-muted); line-height: 1.5; max-width: 240px; }
+
+    .footer-col h4 { font-size: 11px; font-weight: 700; color: var(--text); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { font-size: 12px; color: var(--text-muted); transition: color 0.2s; }
+    .footer-col a:hover { color: var(--accent); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .footer-bottom a { color: var(--text-muted); margin-left: 20px; transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--accent); }
+
+    /* ===== REVEAL ANIMATION ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .story-grid { grid-template-columns: 1fr; gap: 40px; }
+      .showcase-item { grid-template-columns: 1fr; }
+      .showcase-item.reverse { direction: ltr; }
+      .mock-stats { grid-template-columns: repeat(2, 1fr); }
+      .mock-sidebar { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: 80px 24px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .hero { padding-top: 80px; }
+      .pricing-features ul { grid-template-columns: 1fr; }
+      .cta-form { flex-direction: column; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-bottom a { margin: 0 10px; }
+      .story-stats { gap: 16px; }
+    }
+
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(5,5,8,0.98);
+      z-index: 9998;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+    }
+
+    .mobile-overlay.active { display: flex; }
+    .mobile-overlay a { font-size: 24px; font-weight: 600; color: var(--text); }
+    .mobile-close { position: absolute; top: 20px; right: 24px; background: none; border: none; font-size: 32px; color: var(--text); cursor: pointer; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(2deg); }
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: var(--accent); }
+    }
+    @keyframes orbit {
+      0% { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+      100% { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+    }
+    @keyframes pulseRing {
+      0% { transform: scale(0.8); opacity: 0.8; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    @keyframes meshMove {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+
+    /* Hero typing headline */
+    .hero-typing {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid var(--accent);
+      animation: typing 2.5s steps(30, end) forwards, blink 0.8s step-end infinite;
+      display: inline-block;
+      max-width: fit-content;
+    }
+
+    /* Floating elements */
+    .float { animation: float 4s ease-in-out infinite; }
+    .float-delay-1 { animation: float 5s ease-in-out infinite 0.5s; }
+    .float-delay-2 { animation: float 6s ease-in-out infinite 1s; }
+
+    /* Animated gradient border on feature cards */
+    .feature-card::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 17px;
+      padding: 1px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2), var(--accent));
+      background-size: 300% 300%;
+      animation: gradientShift 4s ease infinite;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .feature-card:hover::after { opacity: 1; }
+
+    /* Shimmer effect on buttons */
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      background-size: 200% 100%;
+      animation: shimmer 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* Mesh gradient background for CTA */
+    .cta-section {
+      background: 
+        radial-gradient(ellipse at 20% 30%, rgba(168,85,247,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(236,72,153,0.06) 0%, transparent 50%),
+        var(--bg);
+    }
+
+    /* Animated orbs in hero */
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-orb-1 {
+      width: 8px; height: 8px;
+      background: var(--accent);
+      box-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent-glow);
+      animation: orbit 20s linear infinite, pulse 2s ease-in-out infinite;
+    }
+    .hero-orb-2 {
+      width: 6px; height: 6px;
+      background: var(--accent-2);
+      box-shadow: 0 0 15px var(--accent-2), 0 0 30px rgba(236,72,153,0.3);
+      animation: orbit 25s linear infinite reverse, pulse 2.5s ease-in-out infinite;
+    }
+    .hero-orb-3 {
+      width: 10px; height: 10px;
+      background: var(--success);
+      box-shadow: 0 0 25px var(--success), 0 0 50px rgba(34,197,94,0.3);
+      animation: orbit 30s linear infinite, pulse 3s ease-in-out infinite;
+    }
+
+    /* Parallax mesh overlay */
+    .mesh-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+    .mesh-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      animation: meshMove 15s ease-in-out infinite;
+    }
+    .mesh-blob-1 { width: 400px; height: 400px; background: rgba(168,85,247,0.12); top: 10%; left: 20%; animation-delay: 0s; }
+    .mesh-blob-2 { width: 300px; height: 300px; background: rgba(236,72,153,0.1); top: 60%; right: 10%; animation-delay: -5s; }
+    .mesh-blob-3 { width: 250px; height: 250px; background: rgba(59,130,246,0.08); bottom: 20%; left: 50%; animation-delay: -10s; }
+
+    /* Scroll progress bar */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      z-index: 10000;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* Enhanced reveal animations */
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-up.visible { opacity: 1; transform: translateY(0); }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+    /* Magnetic hover effect on nav links */
+    .nav-links a {
+      position: relative;
+      transition: color 0.3s, transform 0.2s ease;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 50%;
+      width: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+    .nav-links a:hover::after { width: 100%; left: 0; }
+    .nav-links a:hover { transform: translateY(-1px); }
+
+    /* Showcase image hover zoom */
+    .showcase-item .mock-browser {
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+    }
+    .showcase-item:hover .mock-browser {
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: 0 0 0 1px rgba(168,85,247,0.15), 0 30px 100px rgba(0,0,0,0.6);
+    }
+
+    /* Pricing card glow pulse */
+    .pricing-card {
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .pricing-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 60px rgba(168,85,247,0.15), 0 20px 80px rgba(0,0,0,0.5);
+    }
+
+    /* Stats counter animation placeholder */
+    .story-stat-num {
+      transition: transform 0.3s ease;
+    }
+    .story-stat-num:hover {
+      transform: scale(1.1);
+    }
+
+    /* ===== SITE INTRO ===== */
+    .site-intro {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: introFade 1s cubic-bezier(0.16, 1, 0.3, 1) 4s forwards;
+      pointer-events: none;
+    }
+    .site-intro-logo {
+      height: 180px;
+      width: auto;
+      animation: introScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+    }
+    .site-intro-tagline {
+      margin-top: 24px;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      opacity: 0;
+      animation: introFadeIn 0.6s ease 1s forwards;
+    }
+    .site-intro-line {
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--accent-2), transparent);
+      margin-top: 32px;
+      animation: introLineGrow 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards;
+    }
+    @keyframes introFade {
+      from { opacity: 1; visibility: visible; }
+      to { opacity: 0; visibility: hidden; }
+    }
+    .site-intro-skip {
+      position: absolute;
+      bottom: 60px;
+      padding: 8px 24px;
+      border-radius: 99px;
+      background: transparent;
+      border: 1px solid rgba(168,85,247,0.3);
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0;
+      animation: introFadeIn 0.5s ease 1.5s forwards;
+      pointer-events: auto;
+    }
+    .site-intro-skip:hover {
+      border-color: var(--accent);
+      color: var(--text);
+      background: rgba(168,85,247,0.1);
+    }
+    @keyframes introScale {
+      from { transform: scale(0.6); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    @keyframes introFadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes introLineGrow {
+      from { width: 0; }
+      to { width: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Site Intro -->
+  <div class="site-intro" id="siteIntro">
+    <img src="logo-namecard.png" class="site-intro-logo" alt="KaoinAI">
+    <p class="site-intro-tagline">Intelligence for All</p>
+    <div class="site-intro-line"></div>
+    <button class="site-intro-skip" id="introSkip">Skip Intro</button>
+  </div>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Nav -->
+  <header class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo"><img src="logo.png" alt="KaoinAI"></a>
+      <nav class="nav-links">
+        <a href="#story">Our Story</a>
+        <a href="#services">Services</a>
+        <a href="#features">Platform</a>
+        <a href="#showcase">Product Visuals</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#cta" class="btn btn-primary" style="padding: 8px 18px; font-size: 12px;">Start Free</a>
+      </nav>
+      <button class="mobile-toggle" onclick="openMenu()" aria-label="Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-overlay" id="mobileMenu">
+    <button class="mobile-close" onclick="closeMenu()">&times;</button>
+    <a href="#story" onclick="closeMenu()">Our Story</a>
+    <a href="#services" onclick="closeMenu()">Services</a>
+    <a href="#features" onclick="closeMenu()">Platform</a>
+    <a href="#showcase" onclick="closeMenu()">Product Visuals</a>
+    <a href="#pricing" onclick="closeMenu()">Pricing</a>
+    <a href="#cta" class="btn btn-primary" onclick="closeMenu()">Start Free Trial</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <img src="images/hero-bg.png" class="hero-bg-img" alt="">
+    <div class="mesh-overlay">
+      <div class="mesh-blob mesh-blob-1"></div>
+      <div class="mesh-blob mesh-blob-2"></div>
+      <div class="mesh-blob mesh-blob-3"></div>
+    </div>
+    <div class="hero-orb hero-orb-1" style="top:30%; left:45%;"></div>
+    <div class="hero-orb hero-orb-2" style="top:50%; left:55%;"></div>
+    <div class="hero-orb hero-orb-3" style="top:40%; left:40%;"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <div class="hero-badge-dot"></div>
+        AI-Native Data Intelligence Platform
+      </div>
+      <h1 class="headline-xl reveal" style="min-height: 1.2em;">
+        The Data Platform<br>
+        <span class="hero-typing">Built by AI, For You.</span>
+      </h1>
+      <p class="subhead reveal reveal-delay-1">
+        KaoinAI is the first data intelligence platform that actually understands your business.
+        Ask questions in plain English. Get answers in seconds. Govern your data automatically.
+      </p>
+      <div class="hero-actions reveal reveal-delay-2">
+        <a href="#cta" class="btn btn-primary">Start Free Trial</a>
+        <a href="#showcase" class="btn btn-ghost">See It In Action</a>
+      </div>
+    </div>
+
+    <!-- Dashboard Mockup -->
+    <div class="app-mockup reveal reveal-delay-3">
+      <div class="mock-browser">
+        <div class="mock-browser-header">
+          <div class="mock-dot mock-dot-r"></div>
+          <div class="mock-dot mock-dot-y"></div>
+          <div class="mock-dot mock-dot-g"></div>
+          <div class="mock-url">localhost:5173/dashboard</div>
+        </div>
+        <div class="mock-app-body">
+          <div class="mock-sidebar">
+            <div class="mock-sidebar-logo"><img src="logo.png" alt="KaoinAI"></div>
+            <div class="mock-nav-item active"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg> Dashboard</div>
+            <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Ask Data</div>
+            <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/></svg> Catalog</div>
+            <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7.5" cy="15.5" r="5.5"/><circle cx="17" cy="8" r="3"/></svg> Lineage</div>
+            <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Quality</div>
+            <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Governance</div>
+          </div>
+          <div class="mock-main">
+            <div class="mock-main-header">
+              <h3>Dashboard</h3>
+              <span>v19.2.0-enterprise</span>
+            </div>
+            <div class="mock-stats">
+              <div class="mock-stat">
+                <div class="mock-stat-label">Tables</div>
+                <div class="mock-stat-value">2,847</div>
+                <div class="mock-stat-sub">in catalog</div>
+              </div>
+              <div class="mock-stat">
+                <div class="mock-stat-label">Columns</div>
+                <div class="mock-stat-value">18,432</div>
+                <div class="mock-stat-sub">documented</div>
+              </div>
+              <div class="mock-stat">
+                <div class="mock-stat-label">Open Alerts</div>
+                <div class="mock-stat-value" style="color: var(--warning);">23</div>
+                <div class="mock-stat-sub">schema drift</div>
+              </div>
+              <div class="mock-stat">
+                <div class="mock-stat-label">Quality Score</div>
+                <div class="mock-stat-value" style="color: var(--success);">87%</div>
+                <div class="mock-stat-sub">overall</div>
+              </div>
+            </div>
+            <div class="mock-card">
+              <div class="mock-card-title">System Health</div>
+              <div class="mock-health-row">
+                <div class="mock-health-dot ok"></div>
+                <span class="mock-health-label">API</span>
+                <div class="mock-progress"><div class="mock-progress-fill" style="width: 100%"></div></div>
+                <span class="mock-health-detail">Healthy</span>
+              </div>
+              <div class="mock-health-row">
+                <div class="mock-health-dot ok"></div>
+                <span class="mock-health-label">Database</span>
+                <div class="mock-progress"><div class="mock-progress-fill" style="width: 95%"></div></div>
+                <span class="mock-health-detail">Connected</span>
+              </div>
+              <div class="mock-health-row">
+                <div class="mock-health-dot ok"></div>
+                <span class="mock-health-label">LLM</span>
+                <div class="mock-progress"><div class="mock-progress-fill" style="width: 100%"></div></div>
+                <span class="mock-health-detail">Ready</span>
+              </div>
+              <div class="mock-health-row">
+                <div class="mock-health-dot warn"></div>
+                <span class="mock-health-label">Neo4j</span>
+                <div class="mock-progress"><div class="mock-progress-fill" style="width: 60%"></div></div>
+                <span class="mock-health-detail">Reconnecting</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="section story-section" id="story">
+    <div class="section-inner">
+      <div class="story-grid">
+        <div class="story-visual reveal">
+          <img src="images/governance-shield.png" style="width:100%; border-radius:16px; box-shadow:0 20px 80px rgba(0,0,0,0.5); margin-bottom:20px;" alt="">
+          <div class="mock-browser" style="max-width: 480px; margin: 0 auto;">
+            <div class="mock-browser-header">
+              <div class="mock-dot mock-dot-r"></div>
+              <div class="mock-dot mock-dot-y"></div>
+              <div class="mock-dot mock-dot-g"></div>
+              <div class="mock-url">localhost:5173/ask</div>
+            </div>
+            <div style="padding: 16px;">
+              <div class="mock-input-area">
+                <div class="mock-textarea">Show me top 10 customers by revenue this quarter</div>
+                <div class="mock-btn-send"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+              </div>
+              <div class="mock-chips">
+                <div class="mock-chip">Which customers ordered out-of-stock parts?</div>
+                <div class="mock-chip">Monthly sales trend</div>
+                <div class="mock-chip">Top vendors by PO value</div>
+              </div>
+              <div class="mock-card" style="margin-top: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                  <span style="font-size: 11px; font-weight: 600; color: var(--text);">Results (10 rows · 340 ms)</span>
+                  <div style="display: flex; gap: 12px;">
+                    <span style="font-size: 10px; color: var(--accent); border-bottom: 1px solid var(--accent); padding-bottom: 2px;">Results</span>
+                    <span style="font-size: 10px; color: var(--text-muted);">SQL</span>
+                    <span style="font-size: 10px; color: var(--text-muted);">Explain</span>
+                  </div>
+                </div>
+                <table class="mock-table">
+                  <thead><tr><th>Customer</th><th>Revenue</th><th>Orders</th></tr></thead>
+                  <tbody>
+                    <tr><td>Acme Corp</td><td>$1,245,000</td><td>142</td></tr>
+                    <tr><td>Global Tech</td><td>$980,500</td><td>98</td></tr>
+                    <tr><td>Asia Pacific</td><td>$876,200</td><td>87</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="overline reveal">Why We Built This</p>
+          <h2 class="story-quote reveal">
+            Big companies have armies of data engineers.<br>
+            <span>You have KaoinAI.</span>
+          </h2>
+          <p class="story-body reveal reveal-delay-1">
+            We spent years watching SMEs struggle with the same problem: they generate massive amounts of valuable data every day, but they can't afford the half-million-dollar tools and dedicated teams that enterprises use to manage it.
+          </p>
+          <p class="story-body reveal reveal-delay-1">
+            So we built something different. KaoinAI combines a large language model with a complete data governance engine — catalog, lineage, quality, PII detection, and risk scoring — in one platform that sets up in minutes, not months.
+          </p>
+          <p class="story-body reveal reveal-delay-1">
+            No SQL required. No consultants. No six-figure budgets. Just connect your database and start asking questions.
+          </p>
+          <div class="story-stats reveal reveal-delay-2">
+            <div class="story-stat">
+              <div class="story-stat-num">14</div>
+              <div class="story-stat-label">Modules</div>
+            </div>
+            <div class="story-stat">
+              <div class="story-stat-num">95%</div>
+              <div class="story-stat-label">Auto-Docs</div>
+            </div>
+            <div class="story-stat">
+              <div class="story-stat-num">&lt;1s</div>
+              <div class="story-stat-label">Query Speed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="section-inner">
+      <div style="text-align: center; margin-bottom: 64px;">
+        <p class="overline reveal">Consulting</p>
+        <h2 class="headline-lg reveal">Expertise. On demand.</h2>
+        <p class="subhead reveal" style="margin: 16px auto 0;">
+          Years of enterprise data governance experience, now available to SMEs.
+        </p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>DG / DQ Consultancy</h3>
+          <p>End-to-end data governance and data quality advisory for organisations building their data foundation from scratch or scaling existing programs. We help you design governance frameworks, define data quality standards, implement PII detection strategies, and establish MDM practices — all tailored to your industry and regulatory environment. Whether you need a DAMA-aligned roadmap or a pragmatic start-up approach, we bring hands-on experience from running enterprise-grade DG programs.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>CTO as a Service</h3>
+          <p>Fractional CTO support for SMEs that need senior data and AI leadership without the full-time overhead. We advise on data architecture, AI strategy, vendor selection, and team build-out. From evaluating whether you need a data warehouse or a lakehouse, to defining your first AI use case, to hiring your initial data team — we act as your technical co-founder for data. Ideal for companies raising funding or scaling past their first data hire.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Professional Services</h3>
+          <p>Hands-on implementation, integration, and training to get your data platform live and your team productive. We handle database connector setup, catalog ingestion, lineage mapping, quality rule configuration, and custom dbt model development. Includes knowledge transfer sessions so your team can self-manage the platform post-deployment. We also deliver executive briefings and board-level data strategy presentations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section" id="features">
+    <div class="section-inner">
+      <div style="text-align: center; margin-bottom: 64px;">
+        <p class="overline reveal">Platform</p>
+        <h2 class="headline-lg reveal">Everything. In one place.</h2>
+        <p class="subhead reveal" style="margin: 16px auto 0;">
+          14 modules. One interface. Zero configuration required.
+        </p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>Ask Data</h3>
+          <p>Ask questions in plain English. "Top 10 customers by revenue." KaoinAI generates the SQL, runs it, and returns a clean data table with an AI explanation of how the answer was derived.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/></svg>
+          </div>
+          <h3>Smart Catalog</h3>
+          <p>AI auto-documents every table and column. Search by business term — "revenue" — and find InvcHead.InvoiceAmt even if you never knew the table name. 95%+ documentation coverage in days.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><circle cx="7.5" cy="15.5" r="5.5"/><circle cx="17" cy="8" r="3"/></svg>
+          </div>
+          <h3>Data Lineage</h3>
+          <p>Trace any column end-to-end. See how CustNum flows from Customer → OrderHed → InvcHead. Understand upstream sources, downstream impact, and what breaks if you change a schema.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+          </div>
+          <h3>Data Quality</h3>
+          <p>4-dimension scoring across Completeness, Uniqueness, Timeliness, and Consistency. Visual radar chart. Issue table with severity. Run analysis with one click — no DB queries needed.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3>PII Scanner</h3>
+          <p>Automatically detect sensitive columns — emails, phone numbers, IDs — across your entire catalog. View sensitivity levels (Critical/High/Medium) and downstream propagation risk.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3>Auto-Insights</h3>
+          <p>Proactive anomaly detection, trend analysis, and correlation discovery. The system watches your data 24/7 and surfaces insights before you even know to ask.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+          </div>
+          <h3>Risk Scoring</h3>
+          <p>Column-level impact analysis. Select any column and get a risk score (0-100) for what breaks if you rename, remove, or change it. AI explains the business impact and safe migration path.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Governance</h3>
+          <p>Role-based access control, audit logs, and compliance reporting. Know who queried what, when. Export SOX, GDPR, and HIPAA reports for auditors in one click.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+          </div>
+          <h3>NL dbt Builder</h3>
+          <p>Describe transformations in English: "Create a customer RFM segmentation model." KaoinAI writes the SQL, YAML, and tests. Deploy to dbt Cloud with one click.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase -->
+  <section class="section showcase" id="showcase">
+    <div class="section-inner">
+      <div class="showcase-header">
+        <p class="overline reveal">Inside the App</p>
+        <h2 class="headline-lg reveal">See what your team will use<br>every single day.</h2>
+      </div>
+
+      <!-- Ask Data -->
+      <div class="showcase-item reveal">
+        <div class="showcase-text">
+          <h3>Ask Data — Natural Language Queries</h3>
+          <p>Type questions in plain English. KaoinAI understands context, handles follow-ups, and generates correct SQL with proper JOINs. Results come back in a clean data table with tabs for SQL code and AI explanations.</p>
+          <ul class="showcase-list">
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Contextual follow-ups — "Now show me which products they ordered"</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Smart disambiguation — knows "Addison" is a customer, not vendor</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Conversation history with re-run capability</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>5 example chips to get started instantly</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mock-browser">
+            <div class="mock-browser-header">
+              <div class="mock-dot mock-dot-r"></div>
+              <div class="mock-dot mock-dot-y"></div>
+              <div class="mock-dot mock-dot-g"></div>
+              <div class="mock-url">localhost:5173/ask</div>
+            </div>
+            <div style="padding: 16px;">
+              <div class="mock-input-area">
+                <div class="mock-textarea">Show me monthly sales trends for 2024 by product category</div>
+                <div class="mock-btn-send"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+              </div>
+              <div class="mock-chips">
+                <div class="mock-chip">Top 10 customers by revenue</div>
+                <div class="mock-chip">Vendors with late deliveries</div>
+                <div class="mock-chip">Open orders past due</div>
+              </div>
+              <div class="mock-card">
+                <div class="mock-tabs">
+                  <div class="mock-tab active">Results (12)</div>
+                  <div class="mock-tab">SQL</div>
+                  <div class="mock-tab">AI Explain</div>
+                </div>
+                <table class="mock-table">
+                  <thead><tr><th>Month</th><th>Category</th><th>Sales</th></tr></thead>
+                  <tbody>
+                    <tr><td>Jan 2024</td><td>Electronics</td><td>$420,500</td></tr>
+                    <tr><td>Jan 2024</td><td>Hardware</td><td>$180,200</td></tr>
+                    <tr><td>Feb 2024</td><td>Electronics</td><td>$398,100</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Quality -->
+      <div class="showcase-item reverse reveal">
+        <div class="showcase-text">
+          <h3>Data Quality — 4-Dimension Scoring</h3>
+          <p>Run a complete quality analysis across your catalog with one click. KaoinAI scores every table on Completeness, Uniqueness, Timeliness, and Consistency — then visualizes it in a radar chart with a detailed issues table.</p>
+          <ul class="showcase-list">
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Zero live DB queries — works from catalog metadata only</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Color-coded score badges (green ≥80, amber ≥60, red &lt;60)</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Issues table with table, dimension, score, and detail</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>DAMA/GDPR-aligned dimension definitions</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mock-browser">
+            <div class="mock-browser-header">
+              <div class="mock-dot mock-dot-r"></div>
+              <div class="mock-dot mock-dot-y"></div>
+              <div class="mock-dot mock-dot-g"></div>
+              <div class="mock-url">localhost:5173/quality</div>
+            </div>
+            <div style="padding: 16px;">
+              <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 16px;">
+                <div class="mock-stat" style="text-align: center;">
+                  <div style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--success); color: var(--success); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin: 0 auto 4px;">87</div>
+                  <div class="mock-stat-label">Overall</div>
+                </div>
+                <div class="mock-stat" style="text-align: center;">
+                  <div style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--success); color: var(--success); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin: 0 auto 4px;">91</div>
+                  <div class="mock-stat-label">Complete</div>
+                </div>
+                <div class="mock-stat" style="text-align: center;">
+                  <div style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--warning); color: var(--warning); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin: 0 auto 4px;">72</div>
+                  <div class="mock-stat-label">Unique</div>
+                </div>
+                <div class="mock-stat" style="text-align: center;">
+                  <div style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--success); color: var(--success); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin: 0 auto 4px;">85</div>
+                  <div class="mock-stat-label">Timely</div>
+                </div>
+                <div class="mock-stat" style="text-align: center;">
+                  <div style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--warning); color: var(--warning); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin: 0 auto 4px;">68</div>
+                  <div class="mock-stat-label">Consistent</div>
+                </div>
+              </div>
+              <div class="mock-card">
+                <div class="mock-card-title">Quality Issues (3 found)</div>
+                <table class="mock-table">
+                  <thead><tr><th>Table</th><th>Dimension</th><th>Score</th></tr></thead>
+                  <tbody>
+                    <tr><td>Erp.Customer</td><td><span class="mock-badge-tag mock-badge-blue">Uniqueness</span></td><td style="color: var(--danger); font-weight: 700;">52</td></tr>
+                    <tr><td>Erp.Vendor</td><td><span class="mock-badge-tag mock-badge-blue">Consistency</span></td><td style="color: var(--warning); font-weight: 700;">61</td></tr>
+                    <tr><td>Erp.PartBin</td><td><span class="mock-badge-tag mock-badge-blue">Timeliness</span></td><td style="color: var(--warning); font-weight: 700;">58</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Lineage -->
+      <div class="showcase-item reveal">
+        <div class="showcase-text">
+          <h3>Data Lineage — Trace Every Column</h3>
+          <p>Select any table and instantly see upstream sources and downstream consumers. Visual flow diagram with color-coded arrows. Plus AI-generated insights explaining what the table does and what breaks if it changes.</p>
+          <ul class="showcase-list">
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>4 tabs: FK Lineage, Column Impact, Data Flows, PII Discovery</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Predefined ERP flows: Order-to-Cash, Procure-to-Pay, Inventory</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Shortest join path finder between any two tables</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>AI Lineage Insight — explains business context and risks</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mock-browser">
+            <div class="mock-browser-header">
+              <div class="mock-dot mock-dot-r"></div>
+              <div class="mock-dot mock-dot-y"></div>
+              <div class="mock-dot mock-dot-g"></div>
+              <div class="mock-url">localhost:5173/lineage</div>
+            </div>
+            <div style="padding: 16px;">
+              <div style="display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 16px;">
+                <div style="padding: 8px 16px; font-size: 11px; font-weight: 500; color: var(--accent); border-bottom: 2px solid var(--accent);">FK Lineage</div>
+                <div style="padding: 8px 16px; font-size: 11px; color: var(--text-muted);">Column Impact</div>
+                <div style="padding: 8px 16px; font-size: 11px; color: var(--text-muted);">Data Flows</div>
+                <div style="padding: 8px 16px; font-size: 11px; color: var(--text-muted);">PII Discovery</div>
+              </div>
+              <div class="mock-card">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+                  <div style="padding: 6px 12px; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.2); border-radius: 6px; font-size: 11px; color: #4ade80; font-family: 'JetBrains Mono', monospace;">Erp.Customer</div>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  <div style="padding: 6px 12px; background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.2); border-radius: 6px; font-size: 11px; color: #c084fc; font-family: 'JetBrains Mono', monospace;">Erp.OrderHed</div>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  <div style="padding: 6px 12px; background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.2); border-radius: 6px; font-size: 11px; color: #fbbf24; font-family: 'JetBrains Mono', monospace;">Erp.InvcHead</div>
+                </div>
+                <div style="padding: 12px; background: rgba(59,130,246,0.05); border: 1px solid rgba(59,130,246,0.1); border-radius: 8px;">
+                  <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/></svg>
+                    <span style="font-size: 10px; font-weight: 700; color: #60a5fa; text-transform: uppercase; letter-spacing: 0.05em;">AI Lineage Insight</span>
+                  </div>
+                  <p style="font-size: 11px; color: var(--text-secondary); line-height: 1.5;">
+                    <strong>Customer.CustNum</strong> is the master customer identifier. It flows into OrderHed as a foreign key when orders are placed, then into InvcHead when those orders are invoiced. <strong>Changing this column format would break order entry, invoicing, and all revenue reports.</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Catalog -->
+      <div class="showcase-item reverse reveal">
+        <div class="showcase-text">
+          <h3>Smart Catalog — Auto-Documented</h3>
+          <p>Search across all tables by name, column, or business concept. Click any table to see AI-generated descriptions, column documentation with PII sensitivity flags, primary/foreign key indicators, and relationship mappings.</p>
+          <ul class="showcase-list">
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Semantic search — "revenue" finds InvcHead.InvoiceAmt</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Column flags: PK, FK, PII sensitivity badges</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Relationship view with direction and join columns</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Blue info box with AI-generated table description</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mock-browser">
+            <div class="mock-browser-header">
+              <div class="mock-dot mock-dot-r"></div>
+              <div class="mock-dot mock-dot-y"></div>
+              <div class="mock-dot mock-dot-g"></div>
+              <div class="mock-url">localhost:5173/catalog</div>
+            </div>
+            <div style="padding: 16px;">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" style="position: absolute; margin-left: 10px;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.34-4.34"/></svg>
+                <div style="flex: 1; padding: 8px 12px 8px 32px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; font-size: 12px; color: var(--text-muted);">Search tables by keyword...</div>
+              </div>
+              <div class="mock-card" style="padding: 0; overflow: hidden;">
+                <table class="mock-table">
+                  <thead><tr><th>Table</th><th>Business Name</th><th>Columns</th></tr></thead>
+                  <tbody>
+                    <tr><td style="font-family: 'JetBrains Mono', monospace; font-size: 10px;">Erp.Customer</td><td>Customer Master</td><td>24</td></tr>
+                    <tr><td style="font-family: 'JetBrains Mono', monospace; font-size: 10px;">Erp.OrderHed</td><td>Order Header</td><td>36</td></tr>
+                    <tr><td style="font-family: 'JetBrains Mono', monospace; font-size: 10px;">Erp.InvcHead</td><td>Invoice Header</td><td>42</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- PII Scanner -->
+      <div class="showcase-item reveal">
+        <div class="showcase-text">
+          <h3>PII Scanner — Auto-Detect Sensitive Data</h3>
+          <p>Scan your entire data estate in minutes. KaoinAI automatically identifies Personally Identifiable Information across every column — emails, phone numbers, SSNs, credit cards, and more — with confidence scoring and regulatory tagging.</p>
+          <ul class="showcase-list">
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>50+ PII patterns out of the box — GDPR, HIPAA, PCI-DSS ready</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Confidence scoring per column — trainable with feedback</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Auto-generate compliance reports for auditors</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Masking recommendations with one-click apply</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mock-browser">
+            <div class="mock-browser-header">
+              <div class="mock-dot mock-dot-r"></div>
+              <div class="mock-dot mock-dot-y"></div>
+              <div class="mock-dot mock-dot-g"></div>
+              <div class="mock-url">localhost:5173/pii-scanner</div>
+            </div>
+            <div class="mock-app-body">
+              <div class="mock-sidebar">
+                <div class="mock-sidebar-logo"><img src="logo.png" alt="KaoinAI"></div>
+                <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg> Dashboard</div>
+                <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Ask Data</div>
+                <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/></svg> Catalog</div>
+                <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7.5" cy="15.5" r="5.5"/><circle cx="17" cy="8" r="3"/></svg> Lineage</div>
+                <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Quality</div>
+                <div class="mock-nav-item active"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> PII Scanner</div>
+              </div>
+              <div class="mock-main">
+                <div class="mock-main-header">
+                  <h3>PII Scan Results</h3>
+                  <span>Last scan: 2h ago</span>
+                </div>
+                <div class="mock-stats" style="grid-template-columns: repeat(3, 1fr);">
+                  <div class="mock-stat">
+                    <div class="mock-stat-label">Tables Scanned</div>
+                    <div class="mock-stat-value">1,247</div>
+                  </div>
+                  <div class="mock-stat">
+                    <div class="mock-stat-label">PII Columns</div>
+                    <div class="mock-stat-value" style="color: var(--danger);">342</div>
+                  </div>
+                  <div class="mock-stat">
+                    <div class="mock-stat-label">Compliance</div>
+                    <div class="mock-stat-value" style="color: var(--warning);">72%</div>
+                  </div>
+                </div>
+                <div class="mock-card" style="padding: 0; overflow: hidden;">
+                  <table class="mock-table">
+                    <thead><tr><th>Column</th><th>Type</th><th>Confidence</th></tr></thead>
+                    <tbody>
+                      <tr><td>customer_email</td><td><span class="mock-badge-tag mock-badge-red">Email</span></td><td>99.2%</td></tr>
+                      <tr><td>ssn_hash</td><td><span class="mock-badge-tag mock-badge-red">SSN</span></td><td>97.8%</td></tr>
+                      <tr><td>phone_mobile</td><td><span class="mock-badge-tag mock-badge-red">Phone</span></td><td>94.5%</td></tr>
+                      <tr><td>cc_number</td><td><span class="mock-badge-tag mock-badge-red">PCI</span></td><td>98.1%</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Risk Scoring -->
+      <div class="showcase-item reverse reveal">
+        <div class="showcase-text">
+          <h3>Risk Scoring — Quantify Data Risk</h3>
+          <p>Every table gets a risk score based on data sensitivity, access patterns, quality issues, and compliance gaps. Prioritize remediation efforts with data-driven risk rankings that update automatically.</p>
+          <ul class="showcase-list">
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Composite risk score — sensitivity × quality × exposure</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Top-risk tables surfaced with drill-down</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Trend tracking — risk going up or down over time</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Export risk registers for audit and compliance</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mock-browser">
+            <div class="mock-browser-header">
+              <div class="mock-dot mock-dot-r"></div>
+              <div class="mock-dot mock-dot-y"></div>
+              <div class="mock-dot mock-dot-g"></div>
+              <div class="mock-url">localhost:5173/risk</div>
+            </div>
+            <div style="padding: 16px;">
+              <div class="mock-stats" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 16px;">
+                <div class="mock-stat">
+                  <div class="mock-stat-label">High Risk</div>
+                  <div class="mock-stat-value" style="color: var(--danger);">18</div>
+                </div>
+                <div class="mock-stat">
+                  <div class="mock-stat-label">Medium Risk</div>
+                  <div class="mock-stat-value" style="color: var(--warning);">64</div>
+                </div>
+                <div class="mock-stat">
+                  <div class="mock-stat-label">Low Risk</div>
+                  <div class="mock-stat-value" style="color: var(--success);">2,165</div>
+                </div>
+              </div>
+              <div class="mock-card" style="padding: 0; overflow: hidden;">
+                <table class="mock-table">
+                  <thead><tr><th>Table</th><th>Risk Score</th><th>Factor</th></tr></thead>
+                  <tbody>
+                    <tr><td>Erp.Customer</td><td><span style="color: var(--danger); font-weight: 700;">94</span></td><td>PII + Low Quality</td></tr>
+                    <tr><td>Erp.Payment</td><td><span style="color: var(--danger); font-weight: 700;">91</span></td><td>PCI + No Masking</td></tr>
+                    <tr><td>Erp.Employee</td><td><span style="color: var(--warning); font-weight: 700;">78</span></td><td>SSN + Wide Access</td></tr>
+                    <tr><td>Erp.OrderDtl</td><td><span style="color: var(--warning); font-weight: 700;">62</span></td><td>Missing FK</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Governance -->
+      <div class="showcase-item reveal">
+        <div class="showcase-text">
+          <h3>Governance — Policy Engine</h3>
+          <p>Define data policies as code. KaoinAI enforces them automatically — from retention rules and access controls to quality thresholds and PII masking. Every violation is tracked, alerted, and routed to the right owner.</p>
+          <ul class="showcase-list">
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Policy-as-code with version control integration</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Auto-enforcement — blocks, masks, or alerts on violation</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Owner assignment with SLA tracking</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Full audit trail for every policy decision</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mock-browser">
+            <div class="mock-browser-header">
+              <div class="mock-dot mock-dot-r"></div>
+              <div class="mock-dot mock-dot-y"></div>
+              <div class="mock-dot mock-dot-g"></div>
+              <div class="mock-url">localhost:5173/governance</div>
+            </div>
+            <div style="padding: 16px;">
+              <div class="mock-card">
+                <div class="mock-card-title">Active Policies</div>
+                <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                  <span class="mock-badge-tag mock-badge-green">12 Active</span>
+                  <span class="mock-badge-tag mock-badge-red">3 Violations</span>
+                  <span class="mock-badge-tag mock-badge-blue">2 Pending</span>
+                </div>
+                <div class="mock-health-row">
+                  <div class="mock-health-dot ok"></div>
+                  <div class="mock-health-label">Retention</div>
+                  <div class="mock-progress"><div class="mock-progress-fill" style="width: 100%;"></div></div>
+                </div>
+                <div class="mock-health-row">
+                  <div class="mock-health-dot ok"></div>
+                  <div class="mock-health-label">Access Ctrl</div>
+                  <div class="mock-progress"><div class="mock-progress-fill" style="width: 100%;"></div></div>
+                </div>
+                <div class="mock-health-row">
+                  <div class="mock-health-dot warn"></div>
+                  <div class="mock-health-label">PII Mask</div>
+                  <div class="mock-progress"><div class="mock-progress-fill" style="width: 65%;"></div></div>
+                </div>
+                <div class="mock-health-row">
+                  <div class="mock-health-dot warn"></div>
+                  <div class="mock-health-label">Quality</div>
+                  <div class="mock-progress"><div class="mock-progress-fill" style="width: 72%;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Schema Shifts -->
+      <div class="showcase-item reverse reveal">
+        <div class="showcase-text">
+          <h3>Schema Shifts — Drift Detection</h3>
+          <p>Catch breaking schema changes before they break your dashboards. KaoinAI continuously monitors your database schemas and alerts you the moment a column is dropped, a type changes, or a table is renamed.</p>
+          <ul class="showcase-list">
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Real-time schema monitoring with diff view</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Impact analysis — which reports will break?</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Baseline snapshots with rollback suggestions</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Slack / Teams / Email alerts on critical drift</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mock-browser">
+            <div class="mock-browser-header">
+              <div class="mock-dot mock-dot-r"></div>
+              <div class="mock-dot mock-dot-y"></div>
+              <div class="mock-dot mock-dot-g"></div>
+              <div class="mock-url">localhost:5173/schema-shifts</div>
+            </div>
+            <div style="padding: 16px;">
+              <div class="mock-card" style="margin-bottom: 8px;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                  <span class="mock-badge-tag mock-badge-red">BREAKING</span>
+                  <span style="font-size: 11px; color: var(--text-muted);">Erp.OrderHed — 2h ago</span>
+                </div>
+                <div class="mock-code" style="font-size: 10px; line-height: 1.6;">
+                  <span style="color: var(--danger);">- COLUMN "TotalAmount" DECIMAL(18,2)</span><br>
+                  <span style="color: var(--success);">+ COLUMN "TotalAmount" VARCHAR(50)</span>
+                </div>
+              </div>
+              <div class="mock-card" style="margin-bottom: 8px;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                  <span class="mock-badge-tag mock-badge-blue">WARNING</span>
+                  <span style="font-size: 11px; color: var(--text-muted);">Erp.Customer — 5h ago</span>
+                </div>
+                <div class="mock-code" style="font-size: 10px; line-height: 1.6;">
+                  <span style="color: var(--warning);">! COLUMN "Phone" dropped (PII)</span>
+                </div>
+              </div>
+              <div class="mock-card">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                  <span class="mock-badge-tag mock-badge-green">INFO</span>
+                  <span style="font-size: 11px; color: var(--text-muted);">Erp.Product — 1d ago</span>
+                </div>
+                <div class="mock-code" style="font-size: 10px; line-height: 1.6;">
+                  <span style="color: var(--success);">+ COLUMN "SKU" VARCHAR(20)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Auto-Insights -->
+      <div class="showcase-item reveal">
+        <div class="showcase-text">
+          <h3>Auto-Insights — AI-Powered Discovery</h3>
+          <p>KaoinAI continuously analyzes your data and surfaces insights you might have missed — trending metrics, anomalies, correlations, and recommendations. It's like having a data analyst that never sleeps.</p>
+          <ul class="showcase-list">
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Anomaly detection on any numeric column</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Trend analysis with forecasting</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Correlation discovery across tables</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Natural language insight summaries</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mock-browser">
+            <div class="mock-browser-header">
+              <div class="mock-dot mock-dot-r"></div>
+              <div class="mock-dot mock-dot-y"></div>
+              <div class="mock-dot mock-dot-g"></div>
+              <div class="mock-url">localhost:5173/insights</div>
+            </div>
+            <div style="padding: 16px;">
+              <div class="mock-card" style="border-left: 2px solid var(--accent);">
+                <div style="font-size: 11px; color: var(--accent); font-weight: 600; margin-bottom: 4px;">TREND DETECTED</div>
+                <div style="font-size: 12px; color: var(--text);">Invoice volume dropped 23% in the last 7 days vs prior week.</div>
+                <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">Erp.InvcHead — Auto-generated 2h ago</div>
+              </div>
+              <div class="mock-card" style="border-left: 2px solid var(--danger);">
+                <div style="font-size: 11px; color: var(--danger); font-weight: 600; margin-bottom: 4px;">ANOMALY</div>
+                <div style="font-size: 12px; color: var(--text);">Customer "Addison" has 12x more orders than their 6-month average.</div>
+                <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">Erp.Customer — Auto-generated 4h ago</div>
+              </div>
+              <div class="mock-card" style="border-left: 2px solid var(--success);">
+                <div style="font-size: 11px; color: var(--success); font-weight: 600; margin-bottom: 4px;">CORRELATION</div>
+                <div style="font-size: 12px; color: var(--text);">Late deliveries strongly correlate with vendor location = Overseas.</div>
+                <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">Erp.Vendor + Erp.RcvDtl — Auto-generated 1d ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alerts -->
+      <div class="showcase-item reverse reveal">
+        <div class="showcase-text">
+          <h3>Alerts — Intelligent Notifications</h3>
+          <p>Never miss what matters. KaoinAI's alert engine monitors your data 24/7 and notifies the right people through the right channels — with full context, recommended actions, and one-click resolution.</p>
+          <ul class="showcase-list">
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Multi-channel delivery — Slack, Teams, Email, Webhook</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Smart routing — alerts go to data owners, not everyone</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Alert grouping — related issues bundled into incidents</li>
+            <li><div class="showcase-check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Resolution tracking with SLA dashboards</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mock-browser">
+            <div class="mock-browser-header">
+              <div class="mock-dot mock-dot-r"></div>
+              <div class="mock-dot mock-dot-y"></div>
+              <div class="mock-dot mock-dot-g"></div>
+              <div class="mock-url">localhost:5173/alerts</div>
+            </div>
+            <div style="padding: 16px;">
+              <div class="mock-tabs">
+                <div class="mock-tab active">Open (7)</div>
+                <div class="mock-tab">Resolved</div>
+                <div class="mock-tab">Settings</div>
+              </div>
+              <div class="mock-card" style="margin-bottom: 8px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+                  <span class="mock-badge-tag mock-badge-red">CRITICAL</span>
+                  <span style="font-size: 10px; color: var(--text-muted);">12m ago</span>
+                </div>
+                <div style="font-size: 12px; color: var(--text);">Schema drift detected: Erp.OrderHed.TotalAmount type changed</div>
+              </div>
+              <div class="mock-card" style="margin-bottom: 8px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+                  <span class="mock-badge-tag mock-badge-red">CRITICAL</span>
+                  <span style="font-size: 10px; color: var(--text-muted);">2h ago</span>
+                </div>
+                <div style="font-size: 12px; color: var(--text);">PII column unmasked: Erp.Customer.ssn_hash</div>
+              </div>
+              <div class="mock-card">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+                  <span class="mock-badge-tag mock-badge-blue">WARNING</span>
+                  <span style="font-size: 10px; color: var(--text-muted);">5h ago</span>
+                </div>
+                <div style="font-size: 12px; color: var(--text);">Quality score dropped below 70% for Erp.Invoice</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section" id="pricing">
+    <div class="section-inner">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <p class="overline reveal">Pricing</p>
+        <h2 class="headline-lg reveal">Start free. No catch.</h2>
+        <p class="subhead reveal" style="margin: 12px auto 0;">Every module. Every feature. Zero credit card required.</p>
+      </div>
+      <div class="pricing-card reveal">
+        <div class="pricing-top">
+          <div class="pricing-eyebrow">Free Trial</div>
+          <div class="pricing-title">Full Platform Access</div>
+          <div class="pricing-price">$0<span>/month</span></div>
+          <div class="pricing-sub">All 14 modules included. No limits. No credit card.</div>
+        </div>
+        <div class="pricing-features">
+          <ul>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Ask Data (NL Queries)</li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Smart Catalog</li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Data Lineage</li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Data Quality (4D Scoring)</li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>PII Scanner</li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Auto-Insights</li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Risk Scoring</li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Governance & Audit</li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>NL dbt Builder</li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Schema Shift Alerts</li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>ESG Analytics</li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Role-Based Access</li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>My Access Portal</li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Admin Panel</li>
+          </ul>
+        </div>
+        <div class="pricing-cta">
+          <a href="#cta" class="btn btn-primary">Start Your Free Trial</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section" id="cta">
+    <img src="images/neural-brain.png" style="position:absolute; right:-5%; top:50%; transform:translateY(-50%); width:300px; opacity:0.25; pointer-events:none; z-index:0;" alt="">
+    <h2 class="reveal">Ready to see your data<br>differently?</h2>
+    <p class="reveal reveal-delay-1">Join SMEs using KaoinAI to turn raw data into decisions — without the enterprise price tag.</p>
+    <form class="cta-form reveal reveal-delay-2" onsubmit="event.preventDefault(); this.innerHTML='<div style=\'color: var(--success); font-size: 16px;\'>Thanks! We will be in touch soon.</div>';">
+      <input type="email" placeholder="your@company.com" required>
+      <button type="submit" class="btn btn-primary">Get Started</button>
+    </form>
+    <p class="reveal reveal-delay-2" style="font-size: 12px; color: var(--text-muted);">Free trial &middot; No credit card &middot; Cancel anytime</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="logo.png" alt="KaoinAI">
+          <p>AI-native data intelligence for businesses of every size. Built in Kuala Lumpur, deployed worldwide.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#features">Platform</a></li>
+            <li><a href="#showcase">Product Visuals</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="#">Data Governance</a></li>
+            <li><a href="#">Data Quality</a></li>
+            <li><a href="#">PII Detection</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">API Reference</a></li>
+            <li><a href="#">Community</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 KaoinAI. All rights reserved.</p>
+        <div>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll progress bar
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = (scrollTop / scrollHeight) * 100;
+      document.getElementById('scrollProgress').style.width = progress + '%';
+    });
+
+    // Enhanced intersection observer with stagger
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Stagger animation for grids
+    document.querySelectorAll('.features-grid, .story-grid, .showcase-item').forEach(grid => {
+      const children = grid.querySelectorAll('.reveal, .reveal-up');
+      children.forEach((child, i) => {
+        child.style.transitionDelay = (i * 0.08) + 's';
+      });
+    });
+
+    function openMenu() {
+      document.getElementById('mobileMenu').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      document.getElementById('mobileMenu').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Remove intro overlay from DOM after animation
+    setTimeout(() => {
+      const intro = document.getElementById('siteIntro');
+      if (intro) intro.remove();
+    }, 6000);
+
+    // Skip intro button
+    const skipBtn = document.getElementById('introSkip');
+    if (skipBtn) {
+      skipBtn.addEventListener('click', () => {
+        const intro = document.getElementById('siteIntro');
+        if (intro) {
+          intro.style.animation = 'none';
+          intro.style.opacity = '0';
+          intro.style.visibility = 'hidden';
+          setTimeout(() => intro.remove(), 300);
+        }
+      });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>
