@@ -70,7 +70,7 @@
       padding: 0 24px;
     }
 
-    .nav-logo img { height: 52px; width: auto; }
+    .nav-logo img { height: 64px; width: auto; }
 
     .nav-links {
       display: flex;
@@ -172,7 +172,7 @@
       justify-content: center;
       padding: 100px 24px 60px;
       position: relative;
-      overflow: hidden;
+      
       text-align: center;
     }
 
@@ -240,10 +240,66 @@
     }
 
     .hero h1 { margin-bottom: 24px; }
-    .hero h1 span { color: var(--accent); }
+    .hero h1 .hero-typing { color: var(--accent); }
 
     .hero p { margin: 0 auto 36px; }
 
+    .hero-etymology {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin: -12px auto 24px;
+      letter-spacing: 0.04em;
+    }
+    .hero-etymology .greek {
+      font-family: 'Times New Roman', 'GFS Didot', Georgia, serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+    }
+    .koin-block {
+      margin: 48px 0 32px;
+      text-align: left;
+    }
+    .koin-greek {
+      font-family: 'Times New Roman', 'GFS Didot', Georgia, serif;
+      font-size: 42px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text);
+      letter-spacing: 0.08em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .koin-greek::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+      margin-top: 14px;
+      border-radius: 1px;
+    }
+    .koin-meaning {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+    }
+    .koin-body {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 520px;
+    }
+    .koin-body strong {
+      color: var(--text);
+      font-weight: 600;
+    }
     .hero-actions {
       display: flex;
       gap: 16px;
@@ -268,7 +324,7 @@
       background: var(--bg-card);
       border-radius: 16px;
       border: 1px solid var(--border);
-      overflow: hidden;
+      
       box-shadow: 0 0 0 1px rgba(168,85,247,0.1), 0 20px 80px rgba(0,0,0,0.5);
     }
 
@@ -341,7 +397,7 @@
     .mock-main {
       flex: 1;
       padding: 20px;
-      overflow: hidden;
+      
     }
 
     .mock-main-header {
@@ -442,7 +498,7 @@
       height: 4px;
       background: var(--bg);
       border-radius: 2px;
-      overflow: hidden;
+      
       flex: 1;
     }
 
@@ -579,7 +635,7 @@
       padding: 28px;
       transition: all 0.3s ease;
       position: relative;
-      overflow: hidden;
+      
     }
 
     .feature-card::before {
@@ -667,6 +723,16 @@
       color: var(--text-secondary);
       line-height: 1.7;
       margin-bottom: 20px;
+    }
+
+    .story-body strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .story-body em {
+      color: var(--accent);
+      font-style: italic;
     }
 
     .story-stats {
@@ -765,7 +831,7 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 24px;
-      overflow: hidden;
+      
       position: relative;
     }
 
@@ -857,12 +923,51 @@
       font-size: 15px;
     }
 
+    /* ===== URGENCY BADGES ===== */
+    .urgency-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .urgency-limited {
+      background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.1));
+      color: #f87171;
+      border: 1px solid rgba(239,68,68,0.25);
+      animation: pulse-urgency 2s infinite;
+    }
+    .urgency-new {
+      background: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(236,72,153,0.1));
+      color: var(--accent);
+      border: 1px solid rgba(168,85,247,0.25);
+    }
+    @keyframes pulse-urgency {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.3); }
+      50% { box-shadow: 0 0 0 6px rgba(239,68,68,0); }
+    }
+    .urgency-note {
+      text-align: center;
+      padding: 16px 48px 0;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .urgency-note strong {
+      color: #f87171;
+      font-weight: 600;
+    }
     /* ===== CTA ===== */
     .cta-section {
       text-align: center;
       padding: 140px 24px;
       position: relative;
-      overflow: hidden;
+      
     }
 
     .cta-section::before {
@@ -934,7 +1039,7 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .footer-brand img { height: 42px; margin-bottom: 12px; }
+    .footer-brand img { height: 56px; margin-bottom: 12px; }
     .footer-brand p { font-size: 12px; color: var(--text-muted); line-height: 1.5; max-width: 240px; }
 
     .footer-col h4 { font-size: 11px; font-weight: 700; color: var(--text); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
@@ -1051,10 +1156,10 @@
 
     /* Hero typing headline */
     .hero-typing {
-      overflow: hidden;
-      white-space: nowrap;
+      
+      
       border-right: 2px solid var(--accent);
-      animation: typing 2.5s steps(30, end) forwards, blink 0.8s step-end infinite;
+      animation: blink 0.8s step-end infinite;
       display: inline-block;
       max-width: fit-content;
     }
@@ -1087,7 +1192,7 @@
     /* Shimmer effect on buttons */
     .btn-primary {
       position: relative;
-      overflow: hidden;
+      
     }
     .btn-primary::after {
       content: '';
@@ -1233,6 +1338,10 @@
       pointer-events: none;
     }
     .site-intro-logo {
+      height: 280px;
+      width: auto;
+      animation: introScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+    }
       height: 180px;
       width: auto;
       animation: introScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
@@ -1279,6 +1388,11 @@
       color: var(--text);
       background: rgba(168,85,247,0.1);
     }
+
+    /* Form message states */
+    .form-success { color: var(--success); }
+    .form-error { color: var(--danger); }
+    .form-loading { opacity: 0.7; pointer-events: none; }
     @keyframes introScale {
       from { transform: scale(0.6); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
@@ -1291,9 +1405,92 @@
       from { width: 0; }
       to { width: 200px; }
     }
+
+    /* ===== LANGUAGE SWITCHER ===== */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 16px;
+    }
+    .lang-btn {
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { border-color: var(--accent); color: var(--text); }
+    .lang-btn.active { background: rgba(168,85,247,0.15); color: var(--accent); border-color: var(--accent); }
+    .lang-btn[data-lang="zh"] { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+
+    /* ===== RESPONSIVE IMPROVEMENTS ===== */
+    @media (max-width: 768px) {
+      .hero { padding: 80px 16px 40px; min-height: auto; }
+      .headline-xl { font-size: 32px; }
+      .headline-lg { font-size: 26px; }
+      .site-intro-logo { height: 120px; }
+      .story-grid { gap: 32px; }
+      .showcase-item { gap: 24px; margin-bottom: 48px; }
+      .pricing-top { padding: 32px 24px; }
+      .pricing-features { padding: 24px; }
+      .pricing-features ul { grid-template-columns: 1fr; }
+      .cta-section { padding: 80px 16px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .mock-stats { grid-template-columns: repeat(2, 1fr); }
+      .lang-switcher { margin-left: 0; margin-top: 8px; }
+    }
+    @media (max-width: 480px) {
+      .nav-inner { padding: 0 16px; }
+      .section { padding: 60px 16px; }
+      .hero-etymology {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin: -12px auto 24px;
+      letter-spacing: 0.04em;
+    }
+    .hero-etymology .greek {
+      font-family: 'Times New Roman', 'GFS Didot', Georgia, serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+    }
+    .hero-actions { flex-direction: column; width: 100%; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .features-grid { grid-template-columns: 1fr; }
+      .site-intro-logo { height: 100px; }
+      .site-intro-tagline { font-size: 14px; }
+    }
+    /* Language change toast */
+    #langToast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 24px;
+      border-radius: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 500;
+      z-index: 10000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
   </style>
 </head>
 <body>
+  <div id="langToast"></div>
 
   <!-- Site Intro -->
   <div class="site-intro" id="siteIntro">
@@ -1310,12 +1507,18 @@
     <div class="nav-inner">
       <a href="#" class="nav-logo"><img src="logo.png" alt="KaoinAI"></a>
       <nav class="nav-links">
-        <a href="#story">Our Story</a>
-        <a href="#services">Services</a>
-        <a href="#features">Platform</a>
-        <a href="#showcase">Product Visuals</a>
-        <a href="#pricing">Pricing</a>
+        <a href="#story" data-i18n="nav_story">Our Story</a>
+        <a href="#services" data-i18n="nav_services">Services</a>
+        <a href="#features" data-i18n="nav_platform">Platform</a>
+        <a href="#showcase" data-i18n="nav_visuals">Product Visuals</a>
+        <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
         <a href="#cta" class="btn btn-primary" style="padding: 8px 18px; font-size: 12px;">Start Free</a>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" data-lang="id" onclick="setLang('id')">ID</button>
+          <button class="lang-btn" data-lang="ms" onclick="setLang('ms')">MS</button>
+          <button class="lang-btn" data-lang="zh" onclick="setLang('zh')">简</button>
+        </div>
       </nav>
       <button class="mobile-toggle" onclick="openMenu()" aria-label="Menu">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -1325,12 +1528,18 @@
 
   <div class="mobile-overlay" id="mobileMenu">
     <button class="mobile-close" onclick="closeMenu()">&times;</button>
-    <a href="#story" onclick="closeMenu()">Our Story</a>
-    <a href="#services" onclick="closeMenu()">Services</a>
-    <a href="#features" onclick="closeMenu()">Platform</a>
-    <a href="#showcase" onclick="closeMenu()">Product Visuals</a>
-    <a href="#pricing" onclick="closeMenu()">Pricing</a>
-    <a href="#cta" class="btn btn-primary" onclick="closeMenu()">Start Free Trial</a>
+    <a href="#story" onclick="closeMenu()" data-i18n="nav_story">Our Story</a>
+    <a href="#services" onclick="closeMenu()" data-i18n="nav_services">Services</a>
+    <a href="#features" onclick="closeMenu()" data-i18n="nav_platform">Platform</a>
+    <a href="#showcase" onclick="closeMenu()" data-i18n="nav_visuals">Product Visuals</a>
+    <a href="#pricing" onclick="closeMenu()" data-i18n="nav_pricing">Pricing</a>
+    <a href="#cta" class="btn btn-primary" onclick="closeMenu()" data-i18n="nav_start">Start Free Trial</a>
+    <div class="lang-switcher" style="margin-top:20px;">
+      <button class="lang-btn active" data-lang="en" onclick="setLang('en');closeMenu()">EN</button>
+      <button class="lang-btn" data-lang="id" onclick="setLang('id');closeMenu()">ID</button>
+      <button class="lang-btn" data-lang="ms" onclick="setLang('ms');closeMenu()">MS</button>
+      <button class="lang-btn" data-lang="zh" onclick="setLang('zh');closeMenu()">简</button>
+    </div>
   </div>
 
   <!-- Hero -->
@@ -1351,19 +1560,17 @@
     <div class="hero-content">
       <div class="hero-badge reveal">
         <div class="hero-badge-dot"></div>
-        AI-Native Data Intelligence Platform
+        <span data-i18n="hero_badge">AI-Native Data Intelligence Platform</span>
       </div>
       <h1 class="headline-xl reveal" style="min-height: 1.2em;">
-        The Data Platform<br>
-        <span class="hero-typing">Built by AI, For You.</span>
+        <span data-i18n="hero_title">The Data Platform</span><br>
+        <span class="hero-typing" data-i18n="hero_title_accent">Built by AI, For You.</span>
       </h1>
-      <p class="subhead reveal reveal-delay-1">
-        KaoinAI is the first data intelligence platform that actually understands your business.
-        Ask questions in plain English. Get answers in seconds. Govern your data automatically.
-      </p>
+      <div class="hero-etymology reveal reveal-delay-1" data-i18n="hero_etymology">κοινή — common, shared.</div>
+      <p class="subhead reveal reveal-delay-1" data-i18n="hero_sub">Ask your data anything. Get answers instantly. Governed automatically. No SQL. No consultants. No enterprise price tag.</p>
       <div class="hero-actions reveal reveal-delay-2">
-        <a href="#cta" class="btn btn-primary">Start Free Trial</a>
-        <a href="#showcase" class="btn btn-ghost">See It In Action</a>
+        <a href="#cta" class="btn btn-primary" data-i18n="hero_cta_primary">Start Free Trial</a>
+        <a href="#showcase" class="btn btn-ghost" data-i18n="hero_cta_secondary">See It In Action</a>
       </div>
     </div>
 
@@ -1379,65 +1586,65 @@
         <div class="mock-app-body">
           <div class="mock-sidebar">
             <div class="mock-sidebar-logo"><img src="logo.png" alt="KaoinAI"></div>
-            <div class="mock-nav-item active"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg> Dashboard</div>
-            <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Ask Data</div>
-            <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/></svg> Catalog</div>
-            <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7.5" cy="15.5" r="5.5"/><circle cx="17" cy="8" r="3"/></svg> Lineage</div>
-            <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Quality</div>
-            <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Governance</div>
+            <div class="mock-nav-item active"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg data-i18n="mock_dashboard"> Dashboard</div>
+            <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg data-i18n="mock_ask_data"> Ask Data</div>
+            <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/></svg data-i18n="mock_catalog"> Catalog</div>
+            <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7.5" cy="15.5" r="5.5"/><circle cx="17" cy="8" r="3"/></svg data-i18n="mock_lineage"> Lineage</div>
+            <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg data-i18n="mock_quality"> Quality</div>
+            <div class="mock-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg data-i18n="mock_governance"> Governance</div>
           </div>
           <div class="mock-main">
             <div class="mock-main-header">
-              <h3>Dashboard</h3>
+              <h3 data-i18n="mock_dashboard">Dashboard</h3>
               <span>v19.2.0-enterprise</span>
             </div>
             <div class="mock-stats">
               <div class="mock-stat">
-                <div class="mock-stat-label">Tables</div>
+                <div class="mock-stat-label" data-i18n="mock_tables">Tables</div>
                 <div class="mock-stat-value">2,847</div>
-                <div class="mock-stat-sub">in catalog</div>
+                <div class="mock-stat-sub" data-i18n="mock_in_catalog">in catalog</div>
               </div>
               <div class="mock-stat">
-                <div class="mock-stat-label">Columns</div>
+                <div class="mock-stat-label" data-i18n="mock_columns">Columns</div>
                 <div class="mock-stat-value">18,432</div>
-                <div class="mock-stat-sub">documented</div>
+                <div class="mock-stat-sub" data-i18n="mock_documented">documented</div>
               </div>
               <div class="mock-stat">
-                <div class="mock-stat-label">Open Alerts</div>
+                <div class="mock-stat-label" data-i18n="mock_open_alerts">Open Alerts</div>
                 <div class="mock-stat-value" style="color: var(--warning);">23</div>
-                <div class="mock-stat-sub">schema drift</div>
+                <div class="mock-stat-sub" data-i18n="mock_schema_drift">schema drift</div>
               </div>
               <div class="mock-stat">
-                <div class="mock-stat-label">Quality Score</div>
+                <div class="mock-stat-label" data-i18n="mock_quality_score">Quality Score</div>
                 <div class="mock-stat-value" style="color: var(--success);">87%</div>
-                <div class="mock-stat-sub">overall</div>
+                <div class="mock-stat-sub" data-i18n="mock_overall">overall</div>
               </div>
             </div>
             <div class="mock-card">
-              <div class="mock-card-title">System Health</div>
+              <div class="mock-card-title" data-i18n="mock_system_health">System Health</div>
               <div class="mock-health-row">
                 <div class="mock-health-dot ok"></div>
-                <span class="mock-health-label">API</span>
+                <span class="mock-health-label" data-i18n="mock_api">API</span>
                 <div class="mock-progress"><div class="mock-progress-fill" style="width: 100%"></div></div>
-                <span class="mock-health-detail">Healthy</span>
+                <span class="mock-health-detail" data-i18n="mock_healthy">Healthy</span>
               </div>
               <div class="mock-health-row">
                 <div class="mock-health-dot ok"></div>
-                <span class="mock-health-label">Database</span>
+                <span class="mock-health-label" data-i18n="mock_database">Database</span>
                 <div class="mock-progress"><div class="mock-progress-fill" style="width: 95%"></div></div>
-                <span class="mock-health-detail">Connected</span>
+                <span class="mock-health-detail" data-i18n="mock_connected">Connected</span>
               </div>
               <div class="mock-health-row">
                 <div class="mock-health-dot ok"></div>
-                <span class="mock-health-label">LLM</span>
+                <span class="mock-health-label" data-i18n="mock_llm">LLM</span>
                 <div class="mock-progress"><div class="mock-progress-fill" style="width: 100%"></div></div>
-                <span class="mock-health-detail">Ready</span>
+                <span class="mock-health-detail" data-i18n="mock_ready">Ready</span>
               </div>
               <div class="mock-health-row">
                 <div class="mock-health-dot warn"></div>
-                <span class="mock-health-label">Neo4j</span>
+                <span class="mock-health-label" data-i18n="mock_neo4j">Neo4j</span>
                 <div class="mock-progress"><div class="mock-progress-fill" style="width: 60%"></div></div>
-                <span class="mock-health-detail">Reconnecting</span>
+                <span class="mock-health-detail" data-i18n="mock_reconnecting">Reconnecting</span>
               </div>
             </div>
           </div>
@@ -1491,20 +1698,15 @@
           </div>
         </div>
         <div>
-          <p class="overline reveal">Why We Built This</p>
+          <p class="overline reveal" data-i18n="story_overline">Why We Built This</p>
           <h2 class="story-quote reveal">
-            Big companies have armies of data engineers.<br>
-            <span>You have KaoinAI.</span>
+            <span data-i18n="story_quote">Big companies have armies of data engineers.</span><br>
+            <span data-i18n="story_quote_accent">You have KaoinAI.</span>
           </h2>
-          <p class="story-body reveal reveal-delay-1">
-            We spent years watching SMEs struggle with the same problem: they generate massive amounts of valuable data every day, but they can't afford the half-million-dollar tools and dedicated teams that enterprises use to manage it.
-          </p>
-          <p class="story-body reveal reveal-delay-1">
-            So we built something different. KaoinAI combines a large language model with a complete data governance engine — catalog, lineage, quality, PII detection, and risk scoring — in one platform that sets up in minutes, not months.
-          </p>
-          <p class="story-body reveal reveal-delay-1">
-            No SQL required. No consultants. No six-figure budgets. Just connect your database and start asking questions.
-          </p>
+          <p class="story-body reveal reveal-delay-1" data-i18n="story_p1">We spent years watching growing businesses struggle: generating massive volumes of valuable data every day, yet locked out by exorbitant tools, complex architectures, and specialized data teams that only tech giants can afford.</p>
+          <p class="story-body reveal reveal-delay-1" data-i18n="story_p2">So, we built KaoinAI — an all-in-one data intelligence platform that unifies natural language search, automated cataloging, data quality scoring, and enterprise-grade governance into a single system that deploys in minutes.</p>
+          <p class="story-body reveal reveal-delay-1" data-i18n="story_p3">Our name is rooted in history. In the ancient world, <em>Koine</em> (κοινή) was the historic <em>lingua franca</em> — the universal common language that bridged cultures, dissolved barriers, and democratized the exchange of knowledge. Its plural form, <em>koinai</em> (κοιναί), meaning "shared commons," directly inspired <strong>KaoinAI</strong>.</p>
+          <p class="story-body reveal reveal-delay-1" data-i18n="story_p4">This is our core philosophy: <strong>AI should be shared for all, not just a chosen few.</strong> Advanced data governance and AI intelligence should never be the exclusive privilege of Fortune 500 monopolies. They should be a common standard — empowering every business to speak the language of their data and make confident, data-driven decisions.</p>
           <div class="story-stats reveal reveal-delay-2">
             <div class="story-stat">
               <div class="story-stat-num">14</div>
@@ -1528,9 +1730,9 @@
   <section class="section" id="services">
     <div class="section-inner">
       <div style="text-align: center; margin-bottom: 64px;">
-        <p class="overline reveal">Consulting</p>
-        <h2 class="headline-lg reveal">Expertise. On demand.</h2>
-        <p class="subhead reveal" style="margin: 16px auto 0;">
+        <p class="overline reveal" data-i18n="services_overline">Consulting</p>
+        <h2 class="headline-lg reveal" data-i18n="services_title">Expertise. On demand.</h2>
+        <p class="subhead reveal" style="margin: 16px auto 0;" data-i18n="services_sub">
           Years of enterprise data governance experience, now available to SMEs.
         </p>
       </div>
@@ -1539,22 +1741,22 @@
           <div class="feature-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <h3>DG / DQ Consultancy</h3>
-          <p>End-to-end data governance and data quality advisory for organisations building their data foundation from scratch or scaling existing programs. We help you design governance frameworks, define data quality standards, implement PII detection strategies, and establish MDM practices — all tailored to your industry and regulatory environment. Whether you need a DAMA-aligned roadmap or a pragmatic start-up approach, we bring hands-on experience from running enterprise-grade DG programs.</p>
+          <h3 data-i18n="service_dg_title">DG / DQ Consultancy</h3>
+          <p data-i18n="service_dg_desc">End-to-end data governance and data quality advisory for organisations building their data foundation from scratch or scaling existing programs. We help you design governance frameworks, define data quality standards, implement PII detection strategies, and establish MDM practices — all tailored to your industry and regulatory environment. Whether you need a DAMA-aligned roadmap or a pragmatic start-up approach, we bring hands-on experience from running enterprise-grade DG programs.</p>
         </div>
         <div class="feature-card reveal reveal-delay-1">
           <div class="feature-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
-          <h3>CTO as a Service</h3>
-          <p>Fractional CTO support for SMEs that need senior data and AI leadership without the full-time overhead. We advise on data architecture, AI strategy, vendor selection, and team build-out. From evaluating whether you need a data warehouse or a lakehouse, to defining your first AI use case, to hiring your initial data team — we act as your technical co-founder for data. Ideal for companies raising funding or scaling past their first data hire.</p>
+          <h3 data-i18n="service_cto_title">CTO as a Service</h3>
+          <p data-i18n="service_cto_desc">Fractional CTO support for SMEs that need senior data and AI leadership without the full-time overhead. We advise on data architecture, AI strategy, vendor selection, and team build-out. From evaluating whether you need a data warehouse or a lakehouse, to defining your first AI use case, to hiring your initial data team — we act as your technical co-founder for data. Ideal for companies raising funding or scaling past their first data hire.</p>
         </div>
         <div class="feature-card reveal reveal-delay-2">
           <div class="feature-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
           </div>
-          <h3>Professional Services</h3>
-          <p>Hands-on implementation, integration, and training to get your data platform live and your team productive. We handle database connector setup, catalog ingestion, lineage mapping, quality rule configuration, and custom dbt model development. Includes knowledge transfer sessions so your team can self-manage the platform post-deployment. We also deliver executive briefings and board-level data strategy presentations.</p>
+          <h3 data-i18n="service_pro_title">Professional Services</h3>
+          <p data-i18n="service_pro_desc">Hands-on implementation, integration, and training to get your data platform live and your team productive. We handle database connector setup, catalog ingestion, lineage mapping, quality rule configuration, and custom dbt model development. Includes knowledge transfer sessions so your team can self-manage the platform post-deployment. We also deliver executive briefings and board-level data strategy presentations.</p>
         </div>
       </div>
     </div>
@@ -1564,9 +1766,9 @@
   <section class="section" id="features">
     <div class="section-inner">
       <div style="text-align: center; margin-bottom: 64px;">
-        <p class="overline reveal">Platform</p>
-        <h2 class="headline-lg reveal">Everything. In one place.</h2>
-        <p class="subhead reveal" style="margin: 16px auto 0;">
+        <p class="overline reveal" data-i18n="features_overline">Platform</p>
+        <h2 class="headline-lg reveal" data-i18n="features_title">Everything. In one place.</h2>
+        <p class="subhead reveal" style="margin: 16px auto 0;" data-i18n="features_sub">
           14 modules. One interface. Zero configuration required.
         </p>
       </div>
@@ -1830,7 +2032,7 @@
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" style="position: absolute; margin-left: 10px;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.34-4.34"/></svg>
                 <div style="flex: 1; padding: 8px 12px 8px 32px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; font-size: 12px; color: var(--text-muted);">Search tables by keyword...</div>
               </div>
-              <div class="mock-card" style="padding: 0; overflow: hidden;">
+              <div class="mock-card" style="padding: 0; ">
                 <table class="mock-table">
                   <thead><tr><th>Table</th><th>Business Name</th><th>Columns</th></tr></thead>
                   <tbody>
@@ -1893,7 +2095,7 @@
                     <div class="mock-stat-value" style="color: var(--warning);">72%</div>
                   </div>
                 </div>
-                <div class="mock-card" style="padding: 0; overflow: hidden;">
+                <div class="mock-card" style="padding: 0; ">
                   <table class="mock-table">
                     <thead><tr><th>Column</th><th>Type</th><th>Confidence</th></tr></thead>
                     <tbody>
@@ -1945,7 +2147,7 @@
                   <div class="mock-stat-value" style="color: var(--success);">2,165</div>
                 </div>
               </div>
-              <div class="mock-card" style="padding: 0; overflow: hidden;">
+              <div class="mock-card" style="padding: 0; ">
                 <table class="mock-table">
                   <thead><tr><th>Table</th><th>Risk Score</th><th>Factor</th></tr></thead>
                   <tbody>
@@ -2132,9 +2334,9 @@
             </div>
             <div style="padding: 16px;">
               <div class="mock-tabs">
-                <div class="mock-tab active">Open (7)</div>
-                <div class="mock-tab">Resolved</div>
-                <div class="mock-tab">Settings</div>
+                <div class="mock-tab active" data-i18n="mock_tab_open">Open (7)</div>
+                <div class="mock-tab" data-i18n="mock_tab_resolved">Resolved</div>
+                <div class="mock-tab" data-i18n="mock_tab_settings">Settings</div>
               </div>
               <div class="mock-card" style="margin-bottom: 8px;">
                 <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
@@ -2169,36 +2371,43 @@
     <div class="section-inner">
       <div style="text-align: center; margin-bottom: 48px;">
         <p class="overline reveal">Pricing</p>
-        <h2 class="headline-lg reveal">Start free. No catch.</h2>
-        <p class="subhead reveal" style="margin: 12px auto 0;">Every module. Every feature. Zero credit card required.</p>
+        <h2 class="headline-lg reveal" data-i18n="pricing_title">Start free. No catch.</h2>
+        <p class="subhead reveal" style="margin: 12px auto 0;" data-i18n="pricing_sub">Every module. Every feature. Zero credit card required.</p>
       </div>
       <div class="pricing-card reveal">
         <div class="pricing-top">
-          <div class="pricing-eyebrow">Free Trial</div>
-          <div class="pricing-title">Full Platform Access</div>
-          <div class="pricing-price">$0<span>/month</span></div>
-          <div class="pricing-sub">All 14 modules included. No limits. No credit card.</div>
+          <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 4px;">
+            <span class="urgency-badge urgency-new" data-i18n="urgency_new">New Launch</span>
+            <span class="urgency-badge urgency-limited" data-i18n="urgency_limited">Limited Time Only</span>
+          </div>
+          <div class="pricing-eyebrow" data-i18n="pricing_eyebrow">Free Trial</div>
+          <div class="pricing-title" data-i18n="pricing_plan_title">Full Platform Access</div>
+          <div class="pricing-price">$0<span data-i18n="pricing_period">/month</span></div>
+          <div class="pricing-sub" data-i18n="pricing_desc">All 14 modules included. No limits. No credit card.</div>
         </div>
         <div class="pricing-features">
           <ul>
-            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Ask Data (NL Queries)</li>
-            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Smart Catalog</li>
-            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Data Lineage</li>
-            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Data Quality (4D Scoring)</li>
-            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>PII Scanner</li>
-            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Auto-Insights</li>
-            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Risk Scoring</li>
-            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Governance & Audit</li>
-            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>NL dbt Builder</li>
-            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Schema Shift Alerts</li>
-            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>ESG Analytics</li>
-            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Role-Based Access</li>
-            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>My Access Portal</li>
-            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Admin Panel</li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span data-i18n="feat_ask_data">Ask Data (NL Queries)</span></li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span data-i18n="feat_smart_catalog">Smart Catalog</span></li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span data-i18n="feat_data_lineage">Data Lineage</span></li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span data-i18n="feat_data_quality">Data Quality (4D Scoring)</span></li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span data-i18n="feat_pii_scanner">PII Scanner</span></li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span data-i18n="feat_auto_insights">Auto-Insights</span></li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span data-i18n="feat_risk_scoring">Risk Scoring</span></li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span data-i18n="feat_governance">Governance & Audit</span></li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span data-i18n="feat_nl_dbt">NL dbt Builder</span></li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span data-i18n="feat_schema_shifts">Schema Shift Alerts</span></li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span data-i18n="feat_esg">ESG Analytics</span></li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span data-i18n="feat_rbac">Role-Based Access</span></li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span data-i18n="feat_my_access">My Access Portal</span></li>
+            <li><div class="pf-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span data-i18n="feat_admin">Admin Panel</span></li>
           </ul>
         </div>
+        <div class="urgency-note" data-i18n="urgency_note">
+          <strong>Open to limited & selected customers only.</strong> Grab your chance now before slots run out.
+        </div>
         <div class="pricing-cta">
-          <a href="#cta" class="btn btn-primary">Start Your Free Trial</a>
+          <a href="#cta" class="btn btn-primary" data-i18n="pricing_cta">Grab Your Chance Now</a>
         </div>
       </div>
     </div>
@@ -2207,13 +2416,15 @@
   <!-- CTA -->
   <section class="section cta-section" id="cta">
     <img src="images/neural-brain.png" style="position:absolute; right:-5%; top:50%; transform:translateY(-50%); width:300px; opacity:0.25; pointer-events:none; z-index:0;" alt="">
-    <h2 class="reveal">Ready to see your data<br>differently?</h2>
-    <p class="reveal reveal-delay-1">Join SMEs using KaoinAI to turn raw data into decisions — without the enterprise price tag.</p>
-    <form class="cta-form reveal reveal-delay-2" onsubmit="event.preventDefault(); this.innerHTML='<div style=\'color: var(--success); font-size: 16px;\'>Thanks! We will be in touch soon.</div>';">
-      <input type="email" placeholder="your@company.com" required>
-      <button type="submit" class="btn btn-primary">Get Started</button>
+    <h2 class="reveal" data-i18n="cta_title">Ready to see your data differently?</h2>
+    <p class="reveal reveal-delay-1" data-i18n="cta_sub">Join SMEs using KaoinAI to turn raw data into decisions — without the enterprise price tag.</p>
+    <form class="cta-form reveal reveal-delay-2" id="signupForm" action="https://formspree.io/f/xyegdyyj" method="POST">
+      <input type="email" name="email" placeholder="your@company.com" required>
+      <input type="hidden" name="_subject" value="New KaoinAI signup">
+      <button type="submit" class="btn btn-primary" id="signupBtn" data-i18n="cta_button">Get Started</button>
     </form>
-    <p class="reveal reveal-delay-2" style="font-size: 12px; color: var(--text-muted);">Free trial &middot; No credit card &middot; Cancel anytime</p>
+    <div id="signupMessage" style="margin-top: 16px; font-size: 14px; font-weight: 600; min-height: 24px;"></div>
+    <p class="reveal reveal-delay-2" style="font-size: 12px; color: var(--text-muted); margin-top: 8px;" data-i18n="cta_fine">Free trial &middot; No credit card &middot; Cancel anytime</p>
   </section>
 
   <!-- Footer -->
@@ -2227,14 +2438,14 @@
         <div class="footer-col">
           <h4>Product</h4>
           <ul>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#features">Platform</a></li>
-            <li><a href="#showcase">Product Visuals</a></li>
-            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#services" data-i18n="nav_services">Services</a></li>
+            <li><a href="#features" data-i18n="nav_platform">Platform</a></li>
+            <li><a href="#showcase" data-i18n="nav_visuals">Product Visuals</a></li>
+            <li><a href="#pricing" data-i18n="nav_pricing">Pricing</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Solutions</h4>
+          <h4 data-i18n="footer_solutions">Solutions</h4>
           <ul>
             <li><a href="#">Data Governance</a></li>
             <li><a href="#">Data Quality</a></li>
@@ -2242,7 +2453,7 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Resources</h4>
+          <h4 data-i18n="footer_resources">Resources</h4>
           <ul>
             <li><a href="#">Documentation</a></li>
             <li><a href="#">API Reference</a></li>
@@ -2250,9 +2461,9 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Company</h4>
+          <h4 data-i18n="footer_company">Company</h4>
           <ul>
-            <li><a href="#story">Our Story</a></li>
+            <li><a href="#story" data-i18n="nav_story">Our Story</a></li>
             <li><a href="#">Careers</a></li>
             <li><a href="#">Contact</a></li>
           </ul>
@@ -2261,9 +2472,9 @@
       <div class="footer-bottom">
         <p>&copy; 2025 KaoinAI. All rights reserved.</p>
         <div>
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Cookies</a>
+          <a href="#" data-i18n="footer_privacy">Privacy</a>
+          <a href="#" data-i18n="footer_terms">Terms</a>
+          <a href="#" data-i18n="footer_cookies">Cookies</a>
         </div>
       </div>
     </div>
@@ -2336,6 +2547,508 @@
         const target = document.querySelector(href);
         if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
+    });
+  </script>
+
+
+  <!-- Formspree AJAX Handler -->
+  <script>
+    (function() {
+      const form = document.getElementById('signupForm');
+      const btn = document.getElementById('signupBtn');
+      const msg = document.getElementById('signupMessage');
+      if (!form) return;
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Show loading state
+        btn.classList.add('form-loading');
+        btn.textContent = 'Sending...';
+        msg.textContent = '';
+        msg.className = '';
+
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(function(response) {
+          btn.classList.remove('form-loading');
+          if (response.ok) {
+            // Success
+            msg.textContent = 'Thanks! We will be in touch soon.';
+            msg.className = 'form-success';
+            form.reset();
+            btn.textContent = 'Get Started';
+          } else {
+            // Formspree returned an error
+            response.json().then(function(data) {
+              if (data.errors) {
+                msg.textContent = data.errors.map(function(err) { return err.message; }).join(', ');
+              } else {
+                msg.textContent = 'Oops! Something went wrong. Please try again.';
+              }
+              msg.className = 'form-error';
+              btn.textContent = 'Get Started';
+            });
+          }
+        })
+        .catch(function(error) {
+          btn.classList.remove('form-loading');
+          msg.textContent = 'Oops! Something went wrong. Please try again.';
+          msg.className = 'form-error';
+          btn.textContent = 'Get Started';
+        });
+      });
+    })();
+  </script>
+  <script>
+    const i18n = {
+      en: {
+        nav_story: `Our Story`,
+        nav_services: `Services`,
+        nav_platform: `Platform`,
+        nav_visuals: `Product Visuals`,
+        nav_pricing: `Pricing`,
+        nav_start: `Start Free`,
+        mock_dashboard: `Dashboard`,
+        mock_ask_data: `Ask Data`,
+        mock_catalog: `Catalog`,
+        mock_lineage: `Lineage`,
+        mock_quality: `Quality`,
+        mock_governance: `Governance`,
+        mock_tables: `Tables`,
+        mock_columns: `Columns`,
+        mock_open_alerts: `Open Alerts`,
+        mock_quality_score: `Quality Score`,
+        mock_in_catalog: `in catalog`,
+        mock_documented: `documented`,
+        mock_schema_drift: `schema drift`,
+        mock_overall: `overall`,
+        mock_system_health: `System Health`,
+        mock_api: `API`,
+        mock_database: `Database`,
+        mock_llm: `LLM`,
+        mock_neo4j: `Neo4j`,
+        mock_healthy: `Healthy`,
+        mock_connected: `Connected`,
+        mock_ready: `Ready`,
+        mock_reconnecting: `Reconnecting`,
+        mock_tab_open: `Open (7)`,
+        mock_tab_resolved: `Resolved`,
+        mock_tab_settings: `Settings`,
+        hero_badge: `AI-Native Data Intelligence Platform`,
+        hero_etymology: `κοινή · koinai — common, shared for all.`,
+        koin_meaning: `The Lingua Franca of Data. For Everyone.`,
+        koin_body: `Our name comes from the Greek <em>koinē</em> — the historic lingua franca of the ancient world that democratized knowledge across cultures. Its plural form, <em>koinai</em> ("shared commons"), directly inspired <strong>KaoinAI</strong>. We believe enterprise-grade AI and data governance must be shared for all, not just a chosen few.`,
+        hero_title: `The Data Platform`,
+        hero_title_accent: `Built by AI, For You.`,
+        hero_sub: `Ask your data anything. Get answers instantly. Governed automatically. No SQL. No consultants. No enterprise price tag.`,
+        hero_cta_primary: `Start Free Trial`,
+        hero_cta_secondary: `See It In Action`,
+        story_overline: `Why We Built This`,
+        story_quote: `Big companies have armies of data engineers.`,
+        story_quote_accent: `You have KaoinAI.`,
+        story_p1: `We spent years watching growing businesses struggle: generating massive volumes of valuable data every day, yet locked out by exorbitant tools, complex architectures, and specialized data teams that only tech giants can afford.`,
+        story_p2: `So, we built KaoinAI — an all-in-one data intelligence platform that unifies natural language search, automated cataloging, data quality scoring, and enterprise-grade governance into a single system that deploys in minutes.`,
+        story_p3: `Our name is rooted in history. In the ancient world, <em>Koine</em> (κοινή) was the historic <em>lingua franca</em> — the universal common language that bridged cultures, dissolved barriers, and democratized the exchange of knowledge. Its plural form, <em>koinai</em> (κοιναί), meaning "shared commons," directly inspired <strong>KaoinAI</strong>.`,
+        story_p4: `This is our core philosophy: <strong>AI should be shared for all, not just a chosen few.</strong> Advanced data governance and AI intelligence should never be the exclusive privilege of Fortune 500 monopolies. They should be a common standard — empowering every business to speak the language of their data and make confident, data-driven decisions.`,
+        services_overline: `Consulting`,
+        services_title: `Expertise. On demand.`,
+        services_sub: `Years of enterprise data governance experience, now available to SMEs.`,
+        service_dg_title: `DG / DQ Consultancy`,
+        service_dg_desc: `End-to-end data governance and data quality advisory for organisations building their data foundation from scratch or scaling existing programs. We help you design governance frameworks, define data quality standards, implement PII detection strategies, and establish MDM practices — all tailored to your industry and regulatory environment. Whether you need a DAMA-aligned roadmap or a pragmatic start-up approach, we bring hands-on experience from running enterprise-grade DG programs.`,
+        service_cto_title: `CTO as a Service`,
+        service_cto_desc: `Fractional CTO support for SMEs that need senior data and AI leadership without the full-time overhead. We advise on data architecture, AI strategy, vendor selection, and team build-out. From evaluating whether you need a data warehouse or a lakehouse, to defining your first AI use case, to hiring your initial data team — we act as your technical co-founder for data. Ideal for companies raising funding or scaling past their first data hire.`,
+        service_pro_title: `Professional Services`,
+        service_pro_desc: `Hands-on implementation, integration, and training to get your data platform live and your team productive. We handle database connector setup, catalog ingestion, lineage mapping, quality rule configuration, and custom dbt model development. Includes knowledge transfer sessions so your team can self-manage the platform post-deployment. We also deliver executive briefings and board-level data strategy presentations.`,
+        features_overline: `Platform`,
+        features_title: `Everything. In one place.`,
+        features_sub: `14 modules. One interface. Zero configuration required.`,
+        cta_title: `Ready to see your data differently?`,
+        cta_sub: `Join SMEs using KaoinAI to turn raw data into decisions — without the enterprise price tag.`,
+        cta_button: `Get Started`,
+        cta_fine: `Free trial · No credit card · Cancel anytime`,
+        pricing_title: `Start free. No catch.`,
+        pricing_sub: `Every module. Every feature. Zero credit card required.`,
+        pricing_cta: `Grab Your Chance Now`,
+pricing_eyebrow: `Free Trial`,
+        pricing_plan_title: `Full Platform Access`,
+        pricing_period: `/month`,
+        pricing_desc: `All 14 modules included. No limits. No credit card.`,
+        urgency_new: `New Launch`,
+        urgency_limited: `Limited Time Only`,
+        urgency_note: `Open to limited & selected customers only. Grab your chance now before slots run out.`,
+        feat_ask_data: `Ask Data (NL Queries)`,
+        feat_smart_catalog: `Smart Catalog`,
+        feat_data_lineage: `Data Lineage`,
+        feat_data_quality: `Data Quality (4D Scoring)`,
+        feat_pii_scanner: `PII Scanner`,
+        feat_auto_insights: `Auto-Insights`,
+        feat_risk_scoring: `Risk Scoring`,
+        feat_governance: `Governance & Audit`,
+        feat_nl_dbt: `NL dbt Builder`,
+        feat_schema_shifts: `Schema Shift Alerts`,
+        feat_esg: `ESG Analytics`,
+        feat_rbac: `Role-Based Access`,
+        feat_my_access: `My Access Portal`,
+        feat_admin: `Admin Panel`,
+        footer_product: `Product`,
+        footer_solutions: `Solutions`,
+        footer_resources: `Resources`,
+        footer_company: `Company`,
+        footer_privacy: `Privacy`,
+        footer_terms: `Terms`,
+        footer_cookies: `Cookies`,
+      },
+      id: {
+        nav_story: `Cerita Kami`,
+        nav_services: `Layanan`,
+        nav_platform: `Platform`,
+        nav_visuals: `Visual Produk`,
+        nav_pricing: `Harga`,
+        nav_start: `Mulai Gratis`,
+        mock_dashboard: `Dasbor`,
+        mock_ask_data: `Tanya Data`,
+        mock_catalog: `Katalog`,
+        mock_lineage: `Garis Keturunan`,
+        mock_quality: `Kualitas`,
+        mock_governance: `Tata Kelola`,
+        mock_tables: `Tabel`,
+        mock_columns: `Kolom`,
+        mock_open_alerts: `Peringatan Terbuka`,
+        mock_quality_score: `Skor Kualitas`,
+        mock_in_catalog: `dalam katalog`,
+        mock_documented: `didokumentasikan`,
+        mock_schema_drift: `perubahan skema`,
+        mock_overall: `keseluruhan`,
+        mock_system_health: `Kesehatan Sistem`,
+        mock_api: `API`,
+        mock_database: `Pangkalan Data`,
+        mock_llm: `LLM`,
+        mock_neo4j: `Neo4j`,
+        mock_healthy: `Sehat`,
+        mock_connected: `Terhubung`,
+        mock_ready: `Siap`,
+        mock_reconnecting: `Menyambungkan`,
+        mock_tab_open: `Terbuka (7)`,
+        mock_tab_resolved: `Terselesaikan`,
+        mock_tab_settings: `Pengaturan`,
+        hero_badge: `Platform Kecerdasan Data Berbasis AI`,
+        hero_etymology: `κοινή · koinai — umum, bersama untuk semua.`,
+        koin_meaning: `Lingua Franca Data. Untuk Semua Orang.`,
+        koin_body: `Nama kami berasal dari bahasa Yunani <em>koinē</em> — lingua franca bersejarah dunia kuno yang mendemokratisasi pengetahuan lintas budaya. Bentuk jamaknya, <em>koinai</em> ("milik bersama"), secara langsung menginspirasi <strong>KaoinAI</strong>. Kami meyakini bahwa AI dan tata kelola data kelas enterprise harus dibagikan untuk semua orang, bukan hanya untuk segelintir pihak terpilih.`,
+        hero_title: `Platform Data`,
+        hero_title_accent: `Dibangun oleh AI, Untuk Anda.`,
+        hero_sub: `Tanya apa saja pada data Anda. Dapatkan jawaban seketika. Dikelola secara otomatis. Tanpa SQL. Tanpa konsultan. Tanpa label harga perusahaan.`,
+        hero_cta_primary: `Mulai Uji Coba Gratis`,
+        hero_cta_secondary: `Lihat dalam Aksi`,
+        story_overline: `Mengapa Kami Membangun Ini`,
+        story_quote: `Perusahaan besar memiliki pasukan insinyur data.`,
+        story_quote_accent: `Anda punya KaoinAI.`,
+        story_p1: `Kami menghabiskan bertahun-tahun menyaksikan bisnis yang sedang berkembang kesulitan: menghasilkan volume data berharga setiap hari, namun terhalang oleh biaya alat yang sangat mahal dan tim data khusus yang hanya mampu dimiliki korporasi raksasa.`,
+        story_p2: `Oleh karena itu, kami membangun KaoinAI — platform kecerdasan data terintegrasi yang menyatukan pencarian bahasa alami, katalogisasi otomatis, skor kualitas data, dan tata kelola tingkat enterprise dalam satu sistem yang siap pakai dalam hitungan menit.`,
+        story_p3: `Nama kami berakar dari sejarah. Di dunia kuno, <em>Koine</em> (κοινή) adalah <em>lingua franca</em> — bahasa bersama universal yang meruntuhkan sekat, menghubungkan berbagai bangsa, dan mendemokratisasi pertukaran pengetahuan. Bentuk jamaknya, <em>koinai</em> (κοιναί) yang bermakna "milik bersama", secara langsung menginspirasi nama <strong>KaoinAI</strong>.`,
+        story_p4: `Inilah filosofi utama kami: <strong>AI harus dibagikan untuk semua orang, bukan hanya untuk segelintir pihak terpilih.</strong> Kecerdasan AI dan tata kelola data kelas enterprise tidak boleh menjadi hak istimewa eksklusif perusahaan Fortune 500 saja. Ini harus menjadi standar umum — memberdayakan setiap bisnis untuk memahami data mereka dan mengambil keputusan dengan percaya diri.`,
+        services_overline: `Konsultasi`,
+        services_title: `Keahlian. Sesuai Permintaan.`,
+        services_sub: `Pengalaman tata kelola data perusahaan selama bertahun-tahun, kini tersedia untuk SME.`,
+        service_dg_title: `Konsultasi DG / DQ`,
+        service_dg_desc: `Penasihat tata kelola data dan kualitas data ujung ke ujung untuk organisasi yang membangun fondasi data dari nol atau meningkatkan program yang ada. Kami membantu Anda merancang kerangka tata kelola, menetapkan standar kualitas data, menerapkan strategi deteksi PII, dan menetapkan praktik MDM — semuanya disesuaikan dengan industri dan lingkungan regulasi Anda.`,
+        service_cto_title: `CTO sebagai Layanan`,
+        service_cto_desc: `Dukungan CTO parsial untuk SME yang membutuhkan kepemimpinan data dan AI senior tanpa biaya penuh waktu. Kami memberikan saran tentang arsitektur data, strategi AI, pemilihan vendor, dan pembentukan tim. Dari mengevaluasi apakah Anda memerlukan data warehouse atau lakehouse, hingga mendefinisikan kasus penggunaan AI pertama Anda — kami bertindak sebagai co-founder teknis Anda untuk data.`,
+        service_pro_title: `Layanan Profesional`,
+        service_pro_desc: `Implementasi, integrasi, dan pelatihan langsung untuk membuat platform data Anda aktif dan tim Anda produktif. Kami menangani pengaturan konektor database, ingest katalog, pemetaan garis keturunan, konfigurasi aturan kualitas, dan pengembangan model dbt kustom. Termasuk sesi transfer pengetahuan sehingga tim Anda dapat mengelola platform secara mandiri pasca-penyebaran.`,
+        features_overline: `Platform`,
+        features_title: `Semuanya. Dalam Satu Tempat.`,
+        features_sub: `14 modul. Satu antarmuka. Konfigurasi nol diperlukan.`,
+        cta_title: `Siap melihat data Anda secara berbeda?`,
+        cta_sub: `Bergabung dengan SME yang menggunakan KaoinAI untuk mengubah data mentah menjadi keputusan — tanpa label harga perusahaan.`,
+        cta_button: `Mulai`,
+        cta_fine: `Uji coba gratis · Tanpa kartu kredit · Batal kapan saja`,
+        pricing_title: `Mulai gratis. Tanpa syarat.`,
+        pricing_sub: `Setiap modul. Setiap fitur. Tanpa kartu kredit diperlukan.`,
+        pricing_cta: `Ambil Kesempatan Anda Sekarang`,
+pricing_eyebrow: `Uji Coba Gratis`,
+        pricing_plan_title: `Akses Platform Penuh`,
+        pricing_period: `/bulan`,
+        pricing_desc: `Semua 14 modul termasuk. Tanpa batas. Tanpa kartu kredit.`,
+        urgency_new: `Peluncuran Baru`,
+        urgency_limited: `Waktu Terbatas`,
+        urgency_note: `Hanya terbuka untuk pelanggan terbatas & terpilih. Ambil kesempatan Anda sekarang sebelum slot habis.`,
+        feat_ask_data: `Tanya Data (Kueri NL)`,
+        feat_smart_catalog: `Katalog Pintar`,
+        feat_data_lineage: `Garis Keturunan Data`,
+        feat_data_quality: `Kualitas Data (Skor 4D)`,
+        feat_pii_scanner: `Pemindai PII`,
+        feat_auto_insights: `Wawasan Otomatis`,
+        feat_risk_scoring: `Penilaian Risiko`,
+        feat_governance: `Tata Kelola & Audit`,
+        feat_nl_dbt: `Pembangun NL dbt`,
+        feat_schema_shifts: `Peringatan Perubahan Skema`,
+        feat_esg: `Analitik ESG`,
+        feat_rbac: `Akses Berbasis Peran`,
+        feat_my_access: `Portal Akses Saya`,
+        feat_admin: `Panel Admin`,
+        footer_product: `Produk`,
+        footer_solutions: `Solusi`,
+        footer_resources: `Sumber Daya`,
+        footer_company: `Perusahaan`,
+        footer_privacy: `Privasi`,
+        footer_terms: `Ketentuan`,
+        footer_cookies: `Cookie`,
+      },
+      ms: {
+        nav_story: `Kisah Kami`,
+        nav_services: `Perkhidmatan`,
+        nav_platform: `Platform`,
+        nav_visuals: `Visual Produk`,
+        nav_pricing: `Harga`,
+        nav_start: `Mula Percuma`,
+        mock_dashboard: `Papan Pemuka`,
+        mock_ask_data: `Tanya Data`,
+        mock_catalog: `Katalog`,
+        mock_lineage: `Keturunan`,
+        mock_quality: `Kualiti`,
+        mock_governance: `Tadbir Urus`,
+        mock_tables: `Jadual`,
+        mock_columns: `Lajur`,
+        mock_open_alerts: `Amaran Terbuka`,
+        mock_quality_score: `Skor Kualiti`,
+        mock_in_catalog: `dalam katalog`,
+        mock_documented: `didokumenkan`,
+        mock_schema_drift: `peralihan skema`,
+        mock_overall: `keseluruhan`,
+        mock_system_health: `Kesihatan Sistem`,
+        mock_api: `API`,
+        mock_database: `Pangkalan Data`,
+        mock_llm: `LLM`,
+        mock_neo4j: `Neo4j`,
+        mock_healthy: `Sihat`,
+        mock_connected: `Disambung`,
+        mock_ready: `Sedia`,
+        mock_reconnecting: `Menyambung semula`,
+        mock_tab_open: `Terbuka (7)`,
+        mock_tab_resolved: `Diselesaikan`,
+        mock_tab_settings: `Tetapan`,
+        hero_badge: `Platform Kecerdasan Data Berasaskan AI`,
+        hero_etymology: `κοινή · koinai — biasa, dikongsi untuk semua.`,
+        koin_meaning: `Lingua Franca Data. Untuk Semua.`,
+        koin_body: `Nama kami berasal daripada bahasa Greek <em>koinē</em> — lingua franca bersejarah dunia purba yang mendemokratikan perkongsian ilmu merentas budaya. Bentuk jamaknya, <em>koinai</em> ("perkongsian bersama"), secara langsung memberi inspirasi kepada <strong>KaoinAI</strong>. Kami percaya bahawa AI dan tadbir urus data gred perusahaan mesti dikongsi untuk semua, bukan hanya untuk segelintir yang terpilih.`,
+        hero_title: `Platform Data`,
+        hero_title_accent: `Dibina oleh AI, Untuk Anda.`,
+        hero_sub: `Tanya apa-apa pada data anda. Dapatkan jawapan serta-merta. Ditadbir secara automatik. Tiada SQL. Tiada perunding. Tiada label harga perusahaan.`,
+        hero_cta_primary: `Mula Percubaan Percuma`,
+        hero_cta_secondary: `Lihat Dalam Tindakan`,
+        story_overline: `Mengapa Kami Membina Ini`,
+        story_quote: `Syarikat besar mempunyai tentera jurutera data.`,
+        story_quote_accent: `Anda ada KaoinAI.`,
+        story_p1: `Kami menghabiskan bertahun-tahun melihat perniagaan yang berkembang bergelut: menjana jumlah data berharga setiap hari, namun disekat oleh kos alatan yang terlalu mahal dan pasukan data khusus yang hanya mampu dibiayai gergasi teknologi.`,
+        story_p2: `Oleh itu, kami membina KaoinAI — platform kecerdasan data semua-dalam-satu yang menggabungkan carian bahasa semula jadi, pengkatalogan automatik, penskoran kualiti data, dan tadbir urus gred perusahaan ke dalam satu sistem yang siap dalam beberapa minit.`,
+        story_p3: `Nama kami berakar daripada sejarah purba. Pada zaman dahulu, <em>Koine</em> (κοινή) merupakan <em>lingua franca</em> — bahasa perantara bersama yang merapatkan jurang budaya, meruntuhkan halangan, dan mendemokratikan perkongsian ilmu. Bentuk jamaknya, <em>koinai</em> (κοιναί) yang bermaksud "perkongsian bersama", secara langsung memberi inspirasi kepada nama <strong>KaoinAI</strong>.`,
+        story_p4: `Inilah falsafah teras kami: <strong>AI harus dikongsi untuk semua, bukan hanya untuk segelintir yang terpilih.</strong> Tadbir urus data dan kecerdasan AI gred perusahaan tidak sepatutnya menjadi keistimewaan eksklusif syarikat Fortune 500 sahaja. Ia harus menjadi standard bersama — memperkasakan setiap perniagaan untuk memahami data mereka dan membuat keputusan dengan yakin.`,
+        services_overline: `Perundingan`,
+        services_title: `Kepakaran. Bila-Bila Masa.`,
+        services_sub: `Pengalaman tadbir urus data perusahaan selama bertahun-tahun, kini tersedia untuk SME.`,
+        service_dg_title: `Perundingan DG / DQ`,
+        service_dg_desc: `Perundingan tadbir urus data dan kualiti data menyeluruh untuk organisasi yang membina asas data daripada sifar atau meningkatkan program sedia ada. Kami membantu anda mereka bentuk rangka kerja tadbir urus, menentukan standard kualiti data, melaksanakan strategi pengesanan PII, dan menubuhkan amalan MDM — semuanya disesuaikan dengan industri dan persekitaran kawal selia anda.`,
+        service_cto_title: `CTO sebagai Perkhidmatan`,
+        service_cto_desc: `Sokongan CTO separuh masa untuk SME yang memerlukan kepimpinan data dan AI kanan tanpa kos sepenuh masa. Kami memberikan nasihat mengenai seni bina data, strategi AI, pemilihan vendor, dan pembinaan pasukan. Dari menilai sama ada anda memerlukan gudang data atau lakehouse, hingga menentukan kes penggunaan AI pertama anda — kami bertindak sebagai pengasas teknikal anda untuk data.`,
+        service_pro_title: `Perkhidmatan Profesional`,
+        service_pro_desc: `Pelaksanaan, integrasi, dan latihan hands-on untuk mendapatkan platform data anda aktif dan pasukan anda produktif. Kami mengendalikan penyediaan penyambut pangkalan data, ingest katalog, pemetaan keturunan, konfigurasi peraturan kualiti, dan pembangunan model dbt tersuai. Termasuk sesi pemindahan pengetahuan supaya pasukan anda dapat menguruskan platform secara sendiri selepas penyebaran.`,
+        features_overline: `Platform`,
+        features_title: `Semuanya. Dalam Satu Tempat.`,
+        features_sub: `14 modul. Satu antara muka. Tiada konfigurasi diperlukan.`,
+        cta_title: `Bersedia untuk melihat data anda secara berbeza?`,
+        cta_sub: `Sertai SME yang menggunakan KaoinAI untuk mengubah data mentah kepada keputusan — tanpa label harga perusahaan.`,
+        cta_button: `Mula`,
+        cta_fine: `Percubaan percuma · Tiada kad kredit · Batal bila-bila masa`,
+        pricing_title: `Mula percuma. Tanpa syarat.`,
+        pricing_sub: `Setiap modul. Setiap ciri. Tiada kad kredit diperlukan.`,
+        pricing_cta: `Rebut Peluang Anda Sekarang`,
+pricing_eyebrow: `Percubaan Percuma`,
+        pricing_plan_title: `Akses Platform Penuh`,
+        pricing_period: `/bulan`,
+        pricing_desc: `Semua 14 modul disertakan. Tiada had. Tiada kad kredit.`,
+        urgency_new: `Pelancaran Baharu`,
+        urgency_limited: `Masa Terhad`,
+        urgency_note: `Hanya terbuka untuk pelanggan terhad & terpilih. Rebut peluang anda sekarang sebelum slot habis.`,
+        feat_ask_data: `Tanya Data (Kueri NL)`,
+        feat_smart_catalog: `Katalog Pintar`,
+        feat_data_lineage: `Keturunan Data`,
+        feat_data_quality: `Kualiti Data (Skor 4D)`,
+        feat_pii_scanner: `Pengimbas PII`,
+        feat_auto_insights: `Wawasan Auto`,
+        feat_risk_scoring: `Penskoran Risiko`,
+        feat_governance: `Tadbir Urus & Audit`,
+        feat_nl_dbt: `Pembina NL dbt`,
+        feat_schema_shifts: `Amaran Peralihan Skema`,
+        feat_esg: `Analitik ESG`,
+        feat_rbac: `Akses Berasaskan Peranan`,
+        feat_my_access: `Portal Akses Saya`,
+        feat_admin: `Panel Pentadbir`,
+        footer_product: `Produk`,
+        footer_solutions: `Penyelesaian`,
+        footer_resources: `Sumber`,
+        footer_company: `Syarikat`,
+        footer_privacy: `Privasi`,
+        footer_terms: `Terma`,
+        footer_cookies: `Kuki`,
+      },
+      zh: {
+        nav_story: `我们的故事`,
+        nav_services: `服务`,
+        nav_platform: `平台`,
+        nav_visuals: `产品展示`,
+        nav_pricing: `定价`,
+        nav_start: `免费开始`,
+        mock_dashboard: `仪表板`,
+        mock_ask_data: `智能问答`,
+        mock_catalog: `目录`,
+        mock_lineage: `血缘`,
+        mock_quality: `质量`,
+        mock_governance: `治理`,
+        mock_tables: `表`,
+        mock_columns: `列`,
+        mock_open_alerts: `未处理告警`,
+        mock_quality_score: `质量评分`,
+        mock_in_catalog: `已录入`,
+        mock_documented: `已记录`,
+        mock_schema_drift: `架构变更`,
+        mock_overall: `总体`,
+        mock_system_health: `系统健康`,
+        mock_api: `API`,
+        mock_database: `数据库`,
+        mock_llm: `LLM`,
+        mock_neo4j: `Neo4j`,
+        mock_healthy: `健康`,
+        mock_connected: `已连接`,
+        mock_ready: `就绪`,
+        mock_reconnecting: `重连中`,
+        mock_tab_open: `未处理（7）`,
+        mock_tab_resolved: `已解决`,
+        mock_tab_settings: `设置`,
+        hero_badge: `AI原生数据智能平台`,
+        hero_etymology: `κοινή · koinai — 普惠共享，人人皆享。`,
+        koin_meaning: `数据的通用语，为人人而生。`,
+        koin_body: `我们的名字源自希腊语 <em>koinē</em>——古代世界打破地域隔阂、实现知识普惠的<strong>通用语（Lingua Franca）</strong>。其复数形式 <em>koinai</em>（意为“共同体、共享之物”），正是 <strong>KaoinAI</strong> 名字的由来。我们坚信：企业级 AI 与数据治理应当人人共享，而非少数寡头的特权。`,
+        hero_title: `数据平台`,
+        hero_title_accent: `由AI构建，为您服务。`,
+        hero_sub: `向您的数据提出任何问题。即刻获得答案。自动治理。无需SQL。无需顾问。无需企业级价格。`,
+        hero_cta_primary: `开始免费试用`,
+        hero_cta_secondary: `观看演示`,
+        story_overline: `我们的初衷与理念`,
+        story_quote: `大公司拥有庞大的数据工程师团队。`,
+        story_quote_accent: `您拥有KaoinAI。`,
+        story_p1: `多年来，我们目睹众多成长型企业面临困境：他们每天都在产生海量极具价值的数据，却因高昂的工具成本和庞大的专业数据团队门槛而被拒之门外。`,
+        story_p2: `因此，我们打造了KaoinAI——一个一体化的数据智能与治理平台，将自然语言数据问答、自动元数据目录、数据质量评分和企业级合规治理融为一体，数分钟内即可轻松部署。`,
+        story_p3: `我们的名字深深植根于历史。在古代世界，<em>Koine</em>（通用希腊语，κοινή）是著名的<strong>通用语（Lingua Franca）</strong>——一种打破地域界限、连接多元文明并让知识普惠大众的共同语言。其复数形式 <em>koinai</em>（κοιναí，意为“共同体、共享之物”），正是 <strong>KaoinAI</strong> 名字的由来。`,
+        story_p4: `这正是我们始终坚守的哲学：<strong>AI 应当人人共享，而非少数寡头的特权。</strong> 企业级数据治理与人工智能不应只是世界500强专属的壁垒，而应成为所有企业触手可及的通用力量——让每一家有远见的企业都能与自己的数据对话，自信驱动商业决策。`,
+        services_overline: `咨询`,
+        services_title: `专业能力，随需而动。`,
+        services_sub: `多年企业级数据治理经验，现已向中小企业开放。`,
+        service_dg_title: `DG / DQ 咨询`,
+        service_dg_desc: `为从零开始构建数据基础或扩展现有计划的组织提供端到端数据治理和数据质量咨询。我们帮助您设计治理框架、定义数据质量标准、实施PII检测策略并建立主数据管理实践——全部根据您的行业和监管环境量身定制。`,
+        service_cto_title: `CTO即服务`,
+        service_cto_desc: `为需要资深数据和AI领导力的中小企业提供兼职CTO支持，无需全职成本。我们为数据架构、AI战略、供应商选择和团队建设提供建议。从评估您需要数据仓库还是数据湖仓，到定义您的首个AI用例——我们充当您的数据技术联合创始人。`,
+        service_pro_title: `专业服务`,
+        service_pro_desc: `提供实践实施、集成和培训，让您的数据平台上线并提高团队生产力。我们处理数据库连接器设置、目录导入、血缘映射、质量规则配置和自定义dbt模型开发。包括知识转移课程，使您的团队能够在部署后自行管理平台。`,
+        features_overline: `平台`,
+        features_title: `一切。尽在一处。`,
+        features_sub: `14个模块。一个界面。零配置。`,
+        cta_title: `准备好以不同方式看待数据了吗？`,
+        cta_sub: `加入使用KaoinAI将原始数据转化为决策的中小企业行列——无需企业级价格标签。`,
+        cta_button: `立即开始`,
+        cta_fine: `免费试用 · 无需信用卡 · 随时取消`,
+        pricing_title: `免费开始。无任何附加条件。`,
+        pricing_sub: `所有模块。所有功能。无需信用卡。`,
+        pricing_cta: `立即把握机会`,
+pricing_eyebrow: `免费试用`,
+        pricing_plan_title: `完整平台访问`,
+        pricing_period: `/月`,
+        pricing_desc: `包含全部14个模块。无限制。无需信用卡。`,
+        urgency_new: `全新发布`,
+        urgency_limited: `限时优惠`,
+        urgency_note: `仅限有限及精选客户。名额有限，立即把握机会。`,
+        feat_ask_data: `智能问答（自然语言查询）`,
+        feat_smart_catalog: `智能目录`,
+        feat_data_lineage: `数据血缘`,
+        feat_data_quality: `数据质量（4D评分）`,
+        feat_pii_scanner: `PII扫描器`,
+        feat_auto_insights: `自动洞察`,
+        feat_risk_scoring: `风险评分`,
+        feat_governance: `治理与审计`,
+        feat_nl_dbt: `自然语言dbt构建器`,
+        feat_schema_shifts: `架构变更告警`,
+        feat_esg: `ESG分析`,
+        feat_rbac: `基于角色的访问`,
+        feat_my_access: `我的访问门户`,
+        feat_admin: `管理面板`,
+        footer_product: `产品`,
+        footer_solutions: `解决方案`,
+        footer_resources: `资源`,
+        footer_company: `公司`,
+        footer_privacy: `隐私`,
+        footer_terms: `条款`,
+        footer_cookies: `Cookie`,
+      }
+    };
+
+    let currentLang = localStorage.getItem('kaoinai-lang') || 'en';
+
+    function setLang(lang) {
+      const langNames = { en: 'English', id: 'Bahasa Indonesia', ms: 'Bahasa Melayu', zh: '中文' };
+      const toast = document.getElementById('langToast');
+      if (toast) {
+        toast.textContent = 'Changing language to ' + (langNames[lang] || lang) + '...';
+        toast.style.opacity = '1';
+      }
+
+      currentLang = lang;
+      localStorage.setItem('kaoinai-lang', lang);
+      document.documentElement.lang = lang;
+
+      // Update active button
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      // Update all elements with data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (i18n[lang] && i18n[lang][key]) {
+          const text = i18n[lang][key];
+          if (el.tagName === 'INPUT' && el.placeholder) {
+            el.placeholder = text;
+          } else if (text.includes('<') && text.includes('>')) {
+            el.innerHTML = text;
+          } else {
+            el.textContent = text;
+          }
+        }
+      });
+
+      // Update hero title accent
+      const heroTitle = document.querySelector('.hero h1');
+      if (heroTitle) {
+        const accentSpan = heroTitle.querySelector('.hero-typing');
+        if (accentSpan && i18n[lang] && i18n[lang].hero_title_accent) {
+          accentSpan.textContent = i18n[lang].hero_title_accent;
+        }
+      }
+
+      if (toast) {
+        setTimeout(() => { toast.textContent = 'Language changed to ' + (langNames[lang] || lang); }, 800);
+        setTimeout(() => { toast.style.opacity = '0'; }, 2500);
+      }
+    }
+
+    // Initialize language on load
+    document.addEventListener('DOMContentLoaded', () => {
+      setLang(currentLang);
     });
   </script>
 </body>
