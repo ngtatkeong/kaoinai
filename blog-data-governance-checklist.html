@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The 2026 AI Data Governance &amp; Multi-Country PDPA Checklist (SG, MY, ID) — KaoinAI</title>
+  <meta name="title" content="The 2026 AI Data Governance &amp; Multi-Country PDPA Checklist (SG, MY, ID)">
+  <meta name="description" content="Official regulatory compliance and technical data governance checklist for Singapore (PDPC), Malaysia (JPDP Act 709 &amp; 2024 Amendments), and Indonesia (UU PDP 27/2022). Make your enterprise data fit for purpose for AI.">
+  <meta name="keywords" content="AI and data, AI data governance checklist, PDPA Singapore checklist, PDPA Malaysia Act 709 2024 amendments, UU PDP Indonesia checklist, AI-ready data governance, KaoinAI">
+  <link rel="canonical" href="https://kaoinai.com/blog-data-governance-checklist.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kaoinai.com/blog-data-governance-checklist.html">
+  <meta property="og:site_name" content="KaoinAI">
+  <meta property="og:title" content="The 2026 AI Data Governance &amp; Multi-Country PDPA Checklist (SG, MY, ID)">
+  <meta property="og:description" content="Official statutory checklist for Singapore PDPC, Malaysia JPDP, Indonesia UU PDP, and Technical Baseline Data Governance.">
+  <meta property="og:image" content="https://kaoinai.com/images/governance-shield.webp">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="logo.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+
+  <!-- Schema.org BlogPosting -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The 15-Minute Data Governance Checklist Every Fast-Growing SME Needs in 2026",
+    "image": "https://kaoinai.com/images/governance-shield.webp",
+    "author": {
+      "@type": "Organization",
+      "name": "KaoinAI Security Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "KaoinAI",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://kaoinai.com/logo.png"
+      }
+    },
+    "datePublished": "2026-08-18",
+    "description": "A practical 15-minute data governance audit checklist for SMEs to verify PII compliance, data lineage, and quality."
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #050508;
+      --bg-card: #111118;
+      --border: rgba(255,255,255,0.08);
+      --text: #e8e8ed;
+      --text-secondary: #9ca3af;
+      --accent: #a855f7;
+      --cyan: #06b6d4;
+      --success: #22c55e;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    .progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: linear-gradient(90deg, var(--cyan), var(--accent));
+      width: 0%; z-index: 2000; transition: width 0.1s ease;
+    }
+
+    /* Nav */
+    .nav {
+      position: sticky; top: 0; z-index: 1000;
+      height: 88px;
+      background: rgba(7, 7, 11, 0.88); backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1240px; margin: 0 auto; padding: 0 32px;
+      height: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: inline-flex; align-items: center;
+      text-decoration: none;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+    }
+    .nav-logo:hover { transform: scale(1.04); opacity: 0.95; }
+    .nav-logo img { width: 72px; height: 72px; min-width: 72px; border-radius: 16px; object-fit: contain; box-shadow: 0 4px 22px rgba(0,0,0,0.45); }
+    .nav-links { display: flex; align-items: center; gap: 32px; font-size: 13.5px; font-weight: 500; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .mobile-toggle { display: none; background: none; border: none; color: var(--text); cursor: pointer; }
+    .mobile-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(7, 7, 11, 0.98); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 20px; padding: 32px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .mobile-overlay.active { opacity: 1; pointer-events: auto; }
+    .mobile-overlay a { font-size: 18px; font-weight: 600; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+    .mobile-overlay a:hover { color: #fff; }
+    .mobile-close { position: absolute; top: 24px; right: 28px; background: none; border: none; color: #fff; font-size: 32px; cursor: pointer; }
+    @media (max-width: 1080px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+    }
+
+    /* Language Switcher */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 16px;
+    }
+    .lang-btn {
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { border-color: var(--accent); color: var(--text); }
+    .lang-btn.active { background: rgba(168,85,247,0.15); color: var(--accent); border-color: var(--accent); }
+    .lang-btn[data-lang="zh"] { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+
+    .btn {
+      padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 13px;
+      background: linear-gradient(135deg, var(--accent), #7c3aed); color: #fff;
+    }
+
+    .article-container { max-width: 820px; margin: 40px auto 100px; padding: 0 24px; }
+    .breadcrumbs { font-size: 13px; color: var(--text-secondary); margin-bottom: 24px; }
+    .breadcrumbs a:hover { color: var(--accent); }
+    .article-header h1 {
+      font-size: 36px; font-weight: 900; line-height: 1.25; margin-bottom: 16px; color: #fff;
+    }
+    .article-meta {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+      gap: 16px; font-size: 14px; color: var(--text-secondary);
+      margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border);
+    }
+    .social-shares { display: flex; align-items: center; gap: 8px; }
+    .share-btn {
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+      color: var(--text); padding: 6px 12px; border-radius: 6px; font-size: 12px;
+      font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+      transition: all 0.2s;
+    }
+    .share-btn:hover { background: rgba(168, 85, 247, 0.2); border-color: var(--accent); color: #fff; }
+
+    .hero-img-wrap {
+      margin-bottom: 40px; border-radius: 16px; overflow: hidden; border: 1px solid var(--border);
+    }
+    .hero-img-wrap img { width: 100%; height: auto; display: block; }
+    
+    .article-body h2 {
+      font-size: 22px; font-weight: 800; margin: 36px 0 16px; color: #fff;
+      border-left: 4px solid var(--cyan); padding-left: 12px;
+    }
+    .article-body p { font-size: 16px; color: #d1d5db; margin-bottom: 18px; }
+
+    /* Tab Switcher for Regulatory Jurisdictions */
+    .jurisdiction-tabs {
+      display: flex;
+      gap: 10px;
+      margin: 28px 0 32px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scrollbar-width: none;
+    }
+    .jurisdiction-tabs::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      padding: 12px 20px;
+      border-radius: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tab-btn:hover {
+      border-color: var(--cyan);
+      color: #fff;
+    }
+    .tab-btn.active {
+      background: rgba(6, 182, 212, 0.12);
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+    .tab-btn .badge-count {
+      font-size: 11px;
+      background: rgba(255,255,255,0.1);
+      padding: 2px 7px;
+      border-radius: 12px;
+      color: #fff;
+    }
+
+    /* Regulator Authority Notice Box */
+    .authority-box {
+      background: rgba(168, 85, 247, 0.06);
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 30px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .authority-box.sg {
+      background: rgba(6, 182, 212, 0.06);
+      border-color: rgba(6, 182, 212, 0.3);
+    }
+    .authority-box.my {
+      background: rgba(234, 179, 8, 0.06);
+      border-color: rgba(234, 179, 8, 0.3);
+    }
+    .authority-box.id {
+      background: rgba(239, 68, 68, 0.06);
+      border-color: rgba(239, 68, 68, 0.3);
+    }
+    .authority-icon { font-size: 28px; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+    .authority-content h4 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .authority-content p { font-size: 13.5px; color: var(--text-secondary); margin-bottom: 6px; line-height: 1.6; }
+    .authority-content .penalty-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #ef4444;
+      background: rgba(239, 68, 68, 0.1);
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      margin-top: 4px;
+    }
+
+    /* Progress Tracker */
+    .tracker-card {
+      background: #0f0f17;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .tracker-left h4 { font-size: 15px; color: #fff; margin-bottom: 4px; }
+    .tracker-left p { font-size: 13px; color: var(--text-secondary); margin: 0; }
+    .tracker-bar-wrap { width: 180px; height: 10px; background: rgba(255,255,255,0.08); border-radius: 5px; overflow: hidden; }
+    .tracker-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--cyan), var(--success)); transition: width 0.3s ease; }
+    .download-btn {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border-strong);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .download-btn:hover {
+      background: rgba(6, 182, 212, 0.15);
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+
+    /* Interactive Check Card */
+    .check-card {
+      background: #0f0f17;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 18px;
+      cursor: pointer;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: all 0.2s;
+    }
+    .check-card:hover {
+      border-color: rgba(6, 182, 212, 0.4);
+      transform: translateY(-1px);
+    }
+    .check-card.checked {
+      background: rgba(34, 197, 94, 0.08);
+      border-color: var(--success);
+    }
+    .custom-checkbox {
+      width: 22px; height: 22px; border-radius: 6px;
+      border: 2px solid var(--text-secondary);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+      font-size: 14px; color: #fff; font-weight: bold;
+    }
+    .check-card.checked .custom-checkbox {
+      background: var(--success); border-color: var(--success);
+    }
+    .check-info { flex: 1; }
+    .check-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .check-info h4 {
+      font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 0;
+    }
+    .statute-tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--cyan);
+      background: rgba(6, 182, 212, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(6, 182, 212, 0.25);
+    }
+    .check-info p { font-size: 14px; color: var(--text-secondary); margin-bottom: 8px; line-height: 1.55; }
+    .technical-hint {
+      font-size: 12.5px;
+      color: #cbd5e1;
+      background: rgba(255,255,255,0.03);
+      padding: 8px 12px;
+      border-radius: 6px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .article-cta {
+      background: linear-gradient(135deg, #16122c, #1f1338);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      border-radius: 16px; padding: 40px 32px; text-align: center; margin-top: 60px;
+    }
+    .article-cta h3 { font-size: 24px; margin-bottom: 10px; color: #fff; }
+    .article-cta p { color: var(--text-secondary); margin-bottom: 20px; font-size: 15px; }
+
+    .related-section { margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--border); }
+    .related-section h3 { font-size: 20px; font-weight: 800; margin-bottom: 24px; color: #fff; }
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .related-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px; transition: all 0.2s;
+    }
+    .related-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .related-card h4 { font-size: 15px; color: #fff; margin-bottom: 8px; }
+    .related-card p { font-size: 13px; color: var(--text-secondary); margin: 0; }
+
+    #toast {
+      position: fixed; bottom: 24px; right: 24px; background: #1e1b4b;
+      border: 1px solid var(--accent); color: #fff; padding: 10px 18px;
+      border-radius: 8px; font-size: 13px; opacity: 0; transform: translateY(20px);
+      transition: all 0.3s; z-index: 9999;
+    }
+    #toast.show { opacity: 1; transform: translateY(0); }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 30px; text-align: center;
+      color: var(--text-secondary); font-size: 13px;
+    }
+
+    @media (max-width: 768px) {
+      .related-grid { grid-template-columns: 1fr; }
+      .article-header h1 { font-size: 28px; }
+      .tracker-card { flex-direction: column; align-items: flex-start; }
+      .tracker-bar-wrap { width: 100%; }
+    }
+
+    @media print {
+      .nav, .progress-bar, .social-shares, .jurisdiction-tabs, .tracker-card, .article-cta, .related-section, footer, #toast {
+        display: none !important;
+      }
+      body { background: #fff !important; color: #000 !important; }
+      .article-container { max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+      .check-card { border: 1px solid #ccc !important; background: #fff !important; color: #000 !important; break-inside: avoid; }
+      .check-info h4 { color: #000 !important; }
+      .check-info p { color: #333 !important; }
+      .statute-tag { border: 1px solid #999 !important; color: #000 !important; }
+      .authority-box { border: 1px solid #999 !important; background: #f9f9f9 !important; color: #000 !important; }
+      .authority-content h4 { color: #000 !important; }
+      .authority-content p { color: #333 !important; }
+    }
+  </style>
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://kaoinai.com/blog-data-governance-checklist.html">
+  <meta name="twitter:title" content="The 2026 SME Data Governance & PDPA Checklist (SG, MY, ID) — KaoinAI">
+  <meta name="twitter:description" content="Validated multi-country regulatory data governance checklist for Singapore (PDPC), Malaysia (JPDP Act 709), and Indonesia (UU PDP 27/2022).">
+  <meta name="twitter:image" content="https://kaoinai.com/logo-namecard.png">
+</head>
+<body>
+
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Nav -->
+  <header class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="KaoinAI Home">
+        <img src="logo.webp" alt="KaoinAI - AI Data Intelligence Platform" width="72" height="72" decoding="async">
+      </a>
+      <nav class="nav-links">
+        <a href="index.html#story">Our Story</a>
+        <a href="index.html#features">DataSense Platform</a>
+        <a href="index.html#personas">Who It's For</a>
+        <a href="index.html#use-cases">Industries</a>
+        <a href="index.html#services">Consulting</a>
+        <a href="demo.html">Live Demo</a>
+        <a href="roi-calculator.html">ROI Calculator</a>
+        <a href="blog.html" class="active" style="color: #fff; font-weight: 600;">Blog</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#cta" class="btn">Start Free</a>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" data-lang="id" onclick="setLang('id')">ID</button>
+          <button class="lang-btn" data-lang="ms" onclick="setLang('ms')">MS</button>
+          <button class="lang-btn" data-lang="zh" onclick="setLang('zh')">简</button>
+        </div>
+      </nav>
+      <button class="mobile-toggle" onclick="openMenu()" aria-label="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay" id="mobileMenu">
+    <button class="mobile-close" onclick="closeMenu()">&times;</button>
+    <a href="index.html#story" onclick="closeMenu()">Our Story</a>
+    <a href="index.html#features" onclick="closeMenu()">DataSense Platform</a>
+    <a href="index.html#personas" onclick="closeMenu()">Who It's For</a>
+    <a href="index.html#use-cases" onclick="closeMenu()">Industries</a>
+    <a href="index.html#services" onclick="closeMenu()">Consulting</a>
+    <a href="demo.html" onclick="closeMenu()">Live Demo</a>
+    <a href="roi-calculator.html" onclick="closeMenu()">ROI Calculator</a>
+    <a href="audit.html" onclick="closeMenu()" style="color: #06b6d4;">Free Data Audit</a>
+    <a href="blog.html" onclick="closeMenu()">Blog &amp; Insights</a>
+    <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
+    <a href="index.html#cta" class="btn btn-primary" onclick="closeMenu()">Start Free Trial</a>
+    <div class="lang-switcher" style="margin-top:20px;">
+      <button class="lang-btn active" data-lang="en" onclick="setLang('en');closeMenu()">EN</button>
+      <button class="lang-btn" data-lang="id" onclick="setLang('id');closeMenu()">ID</button>
+      <button class="lang-btn" data-lang="ms" onclick="setLang('ms');closeMenu()">MS</button>
+      <button class="lang-btn" data-lang="zh" onclick="setLang('zh');closeMenu()">简</button>
+    </div>
+  </div>
+
+  <main class="article-container">
+    <div class="breadcrumbs">
+      <a href="https://www.linkedin.com/company/kaoinai-pte-ltd" target="_blank" rel="noopener noreferrer">LinkedIn</a> &nbsp;|&nbsp; <a href="index.html">Home</a> &rarr; <a href="blog.html">Blog</a> &rarr; <span>Regulatory Compliance & Data Governance</span>
+    </div>
+
+    <header class="article-header">
+      <h1>The 2026 SME Data Governance &amp; PDPA Checklist (Singapore, Malaysia &amp; Indonesia)</h1>
+      <div class="article-meta">
+        <div>
+          <span>By <strong>KaoinAI Security &amp; Compliance Team</strong></span> &bull; <span>Verified against Official Regulators</span> &bull; <span>August 2026</span>
+        </div>
+        <div class="social-shares">
+          <button class="share-btn" onclick="shareLinkedIn()">💼 Share</button>
+          <button class="share-btn" onclick="shareTwitter()">🐦 Tweet</button>
+          <button class="share-btn" onclick="copyArticleLink()">🔗 Copy Link</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero-img-wrap">
+      <img src="images/governance-shield.webp" alt="Data Governance & Compliance Security">
+    </div>
+
+    <article class="article-body">
+      <p>Data protection regulations across Southeast Asia have entered an aggressive enforcement era in 2025–2026. Growing businesses, startups, and SMEs can no longer rely on informal spreadsheets, unmonitored staging databases, or unmasked PII records.</p>
+      
+      <p>Below is a <strong>statutory-grounded compliance and technical data governance checklist</strong>, organized by jurisdiction and verified against official regulator publications (<strong>PDPC Singapore</strong>, <strong>JPDP Malaysia</strong>, and <strong>Indonesia UU PDP</strong>). Select your operating jurisdiction below to review required safeguards:</p>
+
+      <!-- Jurisdiction Tab Selector -->
+      <div class="jurisdiction-tabs">
+        <button class="tab-btn active" onclick="switchJurisdiction('sg', this)">
+          🇸🇬 Singapore (PDPC) <span class="badge-count">11 Obligations</span>
+        </button>
+        <button class="tab-btn" onclick="switchJurisdiction('my', this)">
+          🇲🇾 Malaysia (JPDP Act 709) <span class="badge-count">2024 Amendments</span>
+        </button>
+        <button class="tab-btn" onclick="switchJurisdiction('id', this)">
+          🇮🇩 Indonesia (UU PDP 27/2022) <span class="badge-count">Law 27/2022</span>
+        </button>
+        <button class="tab-btn" onclick="switchJurisdiction('tech', this)">
+          ⚙️ Technical Architecture <span class="badge-count">Lineage &amp; Quality</span>
+        </button>
+      </div>
+
+      <!-- Live Interactive Progress & Download Bar -->
+      <div class="tracker-card">
+        <div class="tracker-left">
+          <h4 id="trackerTitle">🇸🇬 Singapore PDPA Readiness: 0 / 11 Items Completed</h4>
+          <p id="trackerDesc">Click items below to mark completed safeguards.</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <div class="tracker-bar-wrap">
+            <div class="tracker-bar-fill" id="trackerFill"></div>
+          </div>
+          <button class="download-btn" onclick="printChecklist()" title="Print or save current interactive checklist">
+            🖨️ Print Interactive Checklist
+          </button>
+          <a href="downloads/2026-Data-Governance-AI-Readiness-Handbook.pdf" download="2026-Data-Governance-AI-Readiness-Handbook.pdf" class="download-btn" style="background: rgba(124, 58, 237, 0.2); border: 1px solid var(--accent); color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;" title="Download full peer-reviewed statutory handbook">
+            📄 Download Official PDF Handbook ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- TAB 1: SINGAPORE (PDPC - 11 OBLIGATIONS) -->
+      <!-- ========================================== -->
+      <div id="section-sg" class="jurisdiction-section">
+        <div class="authority-box sg">
+          <div class="authority-icon">🏛️</div>
+          <div class="authority-content">
+            <h4>Governing Regulator: Personal Data Protection Commission (PDPC Singapore)</h4>
+            <p><strong>Primary Legislation:</strong> Personal Data Protection Act 2012 (PDPA) &amp; Personal Data Protection (Amendment) Act. Applies to all private sector organizations collecting, using, or disclosing personal data in Singapore.</p>
+            <span class="penalty-tag">⚠️ Statutory Penalties: Up to 10% of annual turnover in Singapore (for turnover &gt; S$10M) or S$1,000,000</span>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'sg')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>1. Accountability Obligation &amp; DPO Designation</h4>
+              <span class="statute-tag">PDPA § 11(3)</span>
+            </div>
+            <p>Appoint at least one designated Data Protection Officer (DPO) and make the DPO's business contact information publicly accessible (e.g. on website footer or privacy policy).</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Publish DPO email, establish internal data protection policies, and document personal data inventories across all databases.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'sg')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>2. Notification &amp; Consent Obligation</h4>
+              <span class="statute-tag">PDPA § 13–20</span>
+            </div>
+            <p>Notify data subjects of the explicit business purposes before collecting personal data, obtain affirmative opt-in consent, and provide a clear mechanism to withdraw consent.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Implement cookie/data consent banners with timestamped database logging of consent state and purpose scope.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'sg')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>3. Purpose Limitation Obligation</h4>
+              <span class="statute-tag">PDPA § 18</span>
+            </div>
+            <p>Collect, use, or disclose personal data strictly for purposes that a reasonable person would consider appropriate in the circumstances.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Restrict analytics teams from joining sensitive customer PII with unconsented external marketing datasets.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'sg')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>4. Accuracy Obligation</h4>
+              <span class="statute-tag">PDPA § 23</span>
+            </div>
+            <p>Make reasonable efforts to ensure personal data is accurate and complete if it is likely to be used to make decisions affecting the individual or disclosed to another organization.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Deploy 4D data quality monitors to catch duplicate records, missing values, and corrupted data syncs in real time.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'sg')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>5. Protection Obligation (Security Safeguards)</h4>
+              <span class="statute-tag">PDPA § 24</span>
+            </div>
+            <p>Implement reasonable security arrangements (technical, administrative, physical) to prevent unauthorized access, collection, use, copying, alteration, or disposal.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Enforce AES-256 encryption at rest, TLS 1.3 in transit, automated PII column masking, and Role-Based Access Control (RBAC).</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'sg')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>6. Retention Limitation Obligation</h4>
+              <span class="statute-tag">PDPA § 25</span>
+            </div>
+            <p>Cease retention of personal data documents or purge identifiers as soon as the purpose for collection is no longer served and retention is no longer necessary for legal or business reasons.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Set up automated retention policies and scheduled data anonymization/purge jobs for inactive customer tables.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'sg')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>7. Transfer Limitation Obligation (Cross-Border)</h4>
+              <span class="statute-tag">PDPA § 26</span>
+            </div>
+            <p>Ensure that personal data transferred outside of Singapore receives a standard of protection comparable to that under the PDPA (e.g. via Standard Contractual Clauses or Binding Corporate Rules).</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Audit third-party SaaS tools and cloud hosting regions (AWS/GCP/Azure) to verify data sovereignty and transfer clauses.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'sg')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>8. Access &amp; Correction Obligation</h4>
+              <span class="statute-tag">PDPA § 21–22</span>
+            </div>
+            <p>Provide individuals upon request with access to their personal data and records of how it has been used or disclosed in the past 12 months, and correct inaccuracies promptly.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Maintain immutable data access audit logs and automated lineage to identify all downstream repositories containing the user's data.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'sg')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>9. Mandatory Data Breach Notification</h4>
+              <span class="statute-tag">PDPA § 26B–26E</span>
+            </div>
+            <p>Notify PDPC within <strong>3 calendar days (72 hours)</strong> if a data breach results in, or is likely to result in, significant harm, or affects <strong>500 or more individuals</strong>. Affected individuals must also be notified as soon as practicable.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Establish automated incident response alerts when unusual mass-export or anomalous query volume triggers in the warehouse.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'sg')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>10. Data Portability Obligation</h4>
+              <span class="statute-tag">PDPA § 26F</span>
+            </div>
+            <p>Transmit an individual's personal data to another organization in a commonly used machine-readable format (JSON, CSV) upon authorized request.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Implement structured export endpoints for customer profiles and transactional history.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'sg')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>11. Data Intermediary / Processor Oversight</h4>
+              <span class="statute-tag">PDPA § 4(2)</span>
+            </div>
+            <p>Ensure that data intermediaries processing data on your behalf (vendors, cloud providers) have signed Data Processing Agreements (DPAs) with strict security guarantees.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Maintain vendor risk logs and verify SOC 2 / ISO 27001 certifications across all database integration vendors.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- TAB 2: MALAYSIA (JPDP - ACT 709 & 2024 AMENDMENTS) -->
+      <!-- ========================================== -->
+      <div id="section-my" class="jurisdiction-section" style="display: none;">
+        <div class="authority-box my">
+          <div class="authority-icon">🏛️</div>
+          <div class="authority-content">
+            <h4>Governing Regulator: Jabatan Perlindungan Data Peribadi (JPDP Malaysia)</h4>
+            <p><strong>Primary Legislation:</strong> Personal Data Protection Act 2010 (Act 709) and the <strong>Personal Data Protection (Amendment) Act 2024 (Act A1727)</strong>. Applies to all commercial transactions processing personal data in Malaysia.</p>
+            <span class="penalty-tag">⚠️ Statutory Penalties: Fines up to RM 1,000,000 and/or imprisonment up to 3 years</span>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'my')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>1. General Principle &amp; Lawful Consent</h4>
+              <span class="statute-tag">PDPA Act 709 § 6</span>
+            </div>
+            <p>Process personal data only with explicit consent from the data subject, or where processing is strictly necessary for the performance of a contract.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Maintain central consent registries and ensure sensitive data (health, biometric, religious) has explicit written authorization.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'my')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>2. Notice &amp; Choice Principle (Bilingual Requirement)</h4>
+              <span class="statute-tag">PDPA Act 709 § 7</span>
+            </div>
+            <p>Provide clear written notice in <strong>both Bahasa Melayu and English</strong> detailing the data collected, purpose, third-party disclosures, and contact details for data inquiries.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Deploy dual-language privacy policies and in-app terms on all Malaysian consumer and SME touchpoints.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'my')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>3. Security Principle &amp; Direct Processor Liability</h4>
+              <span class="statute-tag">Act A1727 § 9</span>
+            </div>
+            <p>The 2024 Amendments impose <strong>direct legal obligations on Data Processors</strong> to implement robust technical and organizational security measures to prevent loss, misuse, or unauthorized access.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Ensure database connections, ETL jobs, and data warehouse instances enforce RBAC and end-to-end encryption.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'my')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>4. Mandatory Data Protection Officer (DPO) Appointment</h4>
+              <span class="statute-tag">Act A1727 § 12A (2024 Amendment)</span>
+            </div>
+            <p>Qualifying Data Controllers and Processors must appoint a <strong>Data Protection Officer (DPO) who is ordinarily resident in Malaysia</strong> (present &ge; 180 days/year) and notify the Commissioner.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Register the appointed DPO with JPDP and empower the DPO with access to internal audit logs and lineage maps.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'my')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>5. Mandatory Data Breach Notification Regime</h4>
+              <span class="statute-tag">Act A1727 § 12B (2024 Amendment)</span>
+            </div>
+            <p>Notify the Personal Data Protection Commissioner <strong>as soon as practicable / within 72 hours</strong> of a suspected breach if it poses significant harm to data subjects. Failure to notify carries fines up to <strong>RM 250,000</strong>.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Configure automated anomaly tripwires on production databases to detect unauthorized bulk queries or exfiltration immediately.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'my')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>6. Cross-Border Data Transfer Due Diligence</h4>
+              <span class="statute-tag">Act A1727 § 129</span>
+            </div>
+            <p>The old whitelist has been replaced. Organizations must conduct internal assessments to ensure recipient overseas jurisdictions have substantially similar data protection laws.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Document cross-border data flows and enforce data residency configurations in ASEAN cloud regions (e.g. MY/SG).</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'my')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>7. Retention &amp; Data Integrity Principles</h4>
+              <span class="statute-tag">PDPA Act 709 § 10–11</span>
+            </div>
+            <p>Destroy or permanently delete personal data once the commercial purpose is fulfilled, and take reasonable steps to ensure data is accurate, complete, and not misleading.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Run automated data deduplication routines and automated data purge workflows on customer CRM tables.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- TAB 3: INDONESIA (UU PDP - LAW NO. 27/2022) -->
+      <!-- ========================================== -->
+      <div id="section-id" class="jurisdiction-section" style="display: none;">
+        <div class="authority-box id">
+          <div class="authority-icon">🏛️</div>
+          <div class="authority-content">
+            <h4>Governing Regulator: Lembaga Pelindungan Data Pribadi (Kominfo / Lembaga PDP Indonesia)</h4>
+            <p><strong>Primary Legislation:</strong> Undang-Undang Republik Indonesia Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi (UU PDP). Fully enforceable across all public and private entities operating in Indonesia.</p>
+            <span class="penalty-tag">⚠️ Sanctions: Administrative fines up to 2% of annual revenue; Criminal penalties up to 6 years prison &amp; IDR 60 Billion</span>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'id')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>1. Legal Basis &amp; Explicit Consent (Dasar Pemrosesan)</h4>
+              <span class="statute-tag">UU PDP Pasal 20</span>
+            </div>
+            <p>Processing must be grounded in valid legal basis: explicit written/digital consent, contractual obligation, legal obligation, vital interests, or legitimate interest.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Store digital consent records with cryptographic timestamping in your Indonesian customer database.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'id')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>2. Data Subject Rights (Hak Subjek Data Pribadi)</h4>
+              <span class="statute-tag">UU PDP Pasal 5–15</span>
+            </div>
+            <p>Support statutory rights including: Right to information, Right to access and copy, Right to rectify/correct, <strong>Right to erasure/deletion (Hak Penghapusan)</strong>, and Right to data portability.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Build automated "Right to be Forgotten" deletion scripts that cascade across all relational tables and reporting marts.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'id')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>3. Mandatory DPO / Pejabat PDP Appointment</h4>
+              <span class="statute-tag">UU PDP Pasal 53</span>
+            </div>
+            <p>Mandatory appointment of a Data Protection Officer (Pejabat Pelindungan Data Pribadi) if processing involves public service, systematic large-scale monitoring, or specific/sensitive data (NIK, health, biometric, financial).</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Assign internal compliance lead or certified DPO and integrate DPO review into database architecture changes.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'id')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>4. Mandatory 72-Hour Breach Notification (3x24 Jam)</h4>
+              <span class="statute-tag">UU PDP Pasal 46</span>
+            </div>
+            <p>In the event of a personal data failure or breach, Data Controllers must deliver written notification within <strong>maximum 3 x 24 hours (72 hours)</strong> to the PDP Agency and affected data subjects.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Maintain real-time database audit logging to capture IP, user, and affected records in the event of an exfiltration attempt.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'id')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>5. Data Protection Impact Assessment (DPIA / Analisis Dampak)</h4>
+              <span class="statute-tag">UU PDP Pasal 34</span>
+            </div>
+            <p>Conduct a mandatory DPIA before implementing high-risk data processing activities, automated decision-making (AI profiling), or large-scale sensitive data integration.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Document risk vectors prior to training internal AI models or connecting large customer data tables to external APIs.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'id')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>6. Technical Security &amp; Pseudonymization</h4>
+              <span class="statute-tag">UU PDP Pasal 35–39</span>
+            </div>
+            <p>Ensure confidentiality, integrity, and availability of personal data using state-of-the-art encryption, access controls, and pseudonymization/masking techniques.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Automatically mask NIK, bank account numbers, and phone numbers in non-production environments.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'id')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>7. Cross-Border Data Transfer Requirements</h4>
+              <span class="statute-tag">UU PDP Pasal 56</span>
+            </div>
+            <p>Transfer personal data outside Indonesia only if the recipient country has an equal or higher data protection level, or if binding contractual agreements / explicit user consent is secured.</p>
+            <div class="technical-hint">💡 <strong>Technical Action:</strong> Ensure primary data stores reside within Indonesia (Jakarta cloud regions) or have verified cross-border DPA execution.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- TAB 4: TECHNICAL DATA GOVERNANCE STACK -->
+      <!-- ========================================== -->
+      <div id="section-tech" class="jurisdiction-section" style="display: none;">
+        <div class="authority-box">
+          <div class="authority-icon">⚙️</div>
+          <div class="authority-content">
+            <h4>Modern Engineering Baseline: DAMA-DMBOK2 &amp; Automated Pipeline Governance</h4>
+            <p>Beyond legal compliance, fast-growing SMEs require automated technical safeguards to prevent silent data corruption, broken executive dashboards, and uncontrolled data sprawl.</p>
+            <span class="penalty-tag" style="color: var(--cyan); border-color: rgba(6,182,212,0.3); background: rgba(6,182,212,0.1);">⚡ Engineering Standard: Automated Continuous Observability</span>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'tech')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>1. Centralized Asset Catalog &amp; Metadata Registry</h4>
+              <span class="statute-tag">Asset Discovery</span>
+            </div>
+            <p>Maintain an auto-updating central catalog of every table, view, column, and pipeline transformation active across your warehouses (PostgreSQL, MySQL, Snowflake, ClickHouse, BigQuery).</p>
+            <div class="technical-hint">💡 <strong>KaoinAI Solution:</strong> DataSense connects in 5 minutes and auto-indexes your entire database schema with zero manual documentation.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'tech')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>2. Column-Level Automated Lineage Graph</h4>
+              <span class="statute-tag">Impact Analysis</span>
+            </div>
+            <p>Trace dependencies down to the individual column level. If an engineering team drops or renames a column, instantly know which executive dashboards and downstream tables break.</p>
+            <div class="technical-hint">💡 <strong>KaoinAI Solution:</strong> Automated interactive lineage maps trace data from raw ingestion to BI reports with zero SQL parsing overhead.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'tech')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>3. 4D Data Quality &amp; Anomaly Monitoring</h4>
+              <span class="statute-tag">Data Observability</span>
+            </div>
+            <p>Continuously monitor the 4 critical dimensions: <strong>Freshness</strong> (sync stalls), <strong>Volume</strong> (missing rows), <strong>Distribution</strong> (null spikes/outliers), and <strong>Schema Drift</strong>.</p>
+            <div class="technical-hint">💡 <strong>KaoinAI Solution:</strong> ML-powered threshold detection alerts your engineering team in Slack before stakeholders notice bad numbers.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'tech')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>4. Automated PII Discovery &amp; Dynamic Masking</h4>
+              <span class="statute-tag">Privacy Engineering</span>
+            </div>
+            <p>Automatically classify sensitive columns (NRIC, MyKad, NIK, credit cards, emails, salaries) and mask them dynamically based on user role and permissions.</p>
+            <div class="technical-hint">💡 <strong>KaoinAI Solution:</strong> Native AI classification tags PII on discovery and enforces strict RBAC for non-privileged querying.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'tech')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>5. Conversational Querying with Built-in Security (Ask Data AI)</h4>
+              <span class="statute-tag">Self-Service AI</span>
+            </div>
+            <p>Empower business leaders to ask questions in plain English (e.g. <em>"Show monthly gross margin by channel"</em>) while guaranteeing query safety, zero hallucinations, and RBAC isolation.</p>
+            <div class="technical-hint">💡 <strong>KaoinAI Solution:</strong> Plain English translates to dialect-specific SQL with schema-linked AST verification and strict role validation.</div>
+          </div>
+        </div>
+
+        <div class="check-card" onclick="toggleItem(this, 'tech')">
+          <div class="custom-checkbox">✓</div>
+          <div class="check-info">
+            <div class="check-header-row">
+              <h4>6. CI/CD Schema Change Guard</h4>
+              <span class="statute-tag">Production Defense</span>
+            </div>
+            <p>Integrate database schema checks into your developer CI/CD pull request pipeline to block breaking database migrations before deployment.</p>
+            <div class="technical-hint">💡 <strong>KaoinAI Solution:</strong> Pre-deployment column risk analysis evaluates downstream blast radius before migrations hit production.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article CTA Section -->
+      <div class="article-cta">
+        <h3>Automate Your Entire Data Governance &amp; PDPA Compliance with DataSense</h3>
+        <p>Connect your database in 5 minutes. DataSense continuously maps lineage, detects 4D quality anomalies, masks PII, and generates compliance-ready audit trails automatically.</p>
+        <a href="index.html#cta" class="btn" style="padding: 12px 28px; font-size: 15px;">Start Your Free Trial (5-Min Setup)</a>
+      </div>
+
+      <div class="related-section">
+        <h3>Related Guides &amp; Regulatory Resources</h3>
+        <div class="related-grid">
+          <a href="audit.html" class="related-card">
+            <h4>Free SME Data Health Audit Tool &rarr;</h4>
+            <p>Calculate your company's data governance maturity score in under 2 minutes.</p>
+          </a>
+          <a href="blog-waste-enterprise-tools.html" class="related-card">
+            <h4>Why Most SMEs Waste $50,000 on Enterprise Tools &rarr;</h4>
+            <p>Cut data governance and observability costs by 80% with AI-native architecture.</p>
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div id="toast"></div>
+
+  <footer>
+    <p>&copy; 2026 KaoinAI Pte Ltd. All rights reserved. &nbsp;|&nbsp; <a href="index.html">Home</a> &nbsp;|&nbsp; <a href="demo.html">Live Demo</a> &nbsp;|&nbsp; <a href="roi-calculator.html">ROI Calculator</a> &nbsp;|&nbsp; <a href="audit.html">Free Audit</a> &nbsp;|&nbsp; <a href="blog.html">Blog</a> &nbsp;|&nbsp; <a href="index.html#faq">FAQ</a> &nbsp;|&nbsp; <a href="https://www.linkedin.com/company/kaoinai-pte-ltd" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      document.getElementById('progressBar').style.width = scrolled + '%';
+    });
+
+    let currentJurisdiction = 'sg';
+    const totalCounts = {
+      sg: 11,
+      my: 7,
+      id: 7,
+      tech: 6
+    };
+
+    const sectionTitles = {
+      sg: "🇸🇬 Singapore PDPA Readiness",
+      my: "🇲🇾 Malaysia PDPA (Act 709) Readiness",
+      id: "🇮🇩 Indonesia UU PDP (Law 27/2022) Readiness",
+      tech: "⚙️ Technical Governance Readiness"
+    };
+
+    function switchJurisdiction(jur, btn) {
+      currentJurisdiction = jur;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      document.querySelectorAll('.jurisdiction-section').forEach(sec => sec.style.display = 'none');
+      const targetSec = document.getElementById('section-' + jur);
+      if (targetSec) targetSec.style.display = 'block';
+
+      updateTracker();
+    }
+
+    function toggleItem(card, jur) {
+      card.classList.toggle('checked');
+      updateTracker();
+      
+      const total = totalCounts[jur];
+      const checked = document.querySelectorAll(`#section-${jur} .check-card.checked`).length;
+      if (checked === total) {
+        showToast(`🎉 Outstanding! All ${total} items completed for ${sectionTitles[jur]}!`);
+      }
+    }
+
+    function updateTracker() {
+      const jur = currentJurisdiction;
+      const total = totalCounts[jur];
+      const checked = document.querySelectorAll(`#section-${jur} .check-card.checked`).length;
+      const percent = Math.round((checked / total) * 100);
+
+      document.getElementById('trackerTitle').textContent = `${sectionTitles[jur]}: ${checked} / ${total} Items Completed (${percent}%)`;
+      document.getElementById('trackerFill').style.width = percent + '%';
+    }
+
+    function printChecklist() {
+      window.print();
+    }
+
+    function shareLinkedIn() {
+      const url = encodeURIComponent(window.location.href);
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+    }
+
+    function shareTwitter() {
+      const url = encodeURIComponent(window.location.href);
+      const text = encodeURIComponent(document.title);
+      window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+    }
+
+    function copyArticleLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        showToast("🔗 Checklist link copied to clipboard!");
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3500);
+    }
+
+    function openMenu() {
+      const m = document.getElementById('mobileMenu');
+      if (m) m.classList.add('active');
+    }
+    function closeMenu() {
+      const m = document.getElementById('mobileMenu');
+      if (m) m.classList.remove('active');
+    }
+
+    function setLang(lang) {
+      localStorage.setItem('kaoinai-lang', lang);
+      window.location.href = 'index.html?lang=' + lang;
+    }
+    (function() {
+      const savedLang = localStorage.getItem('kaoinai-lang') || 'en';
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === savedLang);
+      });
+      updateTracker();
+    })();
+  </script>
+
+  <script src="telemetry.js" defer></script>
+</body>
+</html>

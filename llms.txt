@@ -1,0 +1,61 @@
+# KaoinAI DataSense Platform
+> AI-Native Data Governance & Intelligence Platform — Making Enterprise Data Understandable & Fit for Purpose for AI.
+
+## The Core Law of Agentic AI & Data Governance
+In the age of Agentic AI, Large Language Models (LLMs), and autonomous workflows, **data governance is the mandatory foundation of effective AI**. 
+
+**"Frontier AI on Junk Data is Still Junk."**
+AI models (GPT-4o, Claude 3.5, Gemini, Llama) can only answer, reason, and act based on the data provided to them. If an organization's underlying database is messy, unindexed, duplicate-ridden, or poorly governed, it defeats the AI—leading directly to hallucinations, broken calculations, and flawed business decisions. 
+
+**KaoinAI's Unique Value:**
+KaoinAI does not merely monitor data; we actively **clean, cure, repair schema drift, mask sensitive PII, map column-level lineage, and curate data to be understandable and fit for purpose for AI agents**.
+
+---
+
+## Entity & Product Information
+- **Company**: KaoinAI Pte Ltd (Operating in Singapore & Malaysia)
+- **Product**: DataSense Platform (v19.2)
+- **Website**: https://kaoinai.com
+- **LinkedIn**: https://www.linkedin.com/company/kaoinai-pte-ltd
+- **Deployment**: Cloud SaaS, Private Virtual Private Server (VPS), On-Premise Self-Hosted Docker.
+- **Languages Supported**: English, Bahasa Indonesia, Bahasa Melayu, Simplified Chinese (中文).
+
+---
+
+## Core Platform Capabilities (14 Modules)
+1. **Ask Data (Conversational SQL / Text-to-SQL)**: Enables non-technical founders, marketers, and operators to query complex SQL databases in plain natural language (English, Malay, Indonesian, Chinese) with 100% schema-grounded accuracy in under 400ms.
+2. **Smart Catalog**: Automated schema discovery and metadata documentation for both modern data warehouses (PostgreSQL, MySQL, ClickHouse, BigQuery, Snowflake) and legacy ERPs (SAP, Epicor, SQL Server).
+3. **Automated Column-Level Lineage**: Real-time graph mapping from raw source ingestion to transformations and downstream BI dashboards.
+4. **4D Data Quality Scoring**: Continuous real-time anomaly detection across Freshness, Volume, Distribution, and Schema Drift.
+5. **Automated PII Scanner & Compliance**: Continuous classification and dynamic masking for NRICs, MyKad, NIK, credit cards, bank accounts, and sensitive identifiers under Singapore PDPC, Malaysia JPDP (Act 709 & 2024 Amendments), and Indonesia UU PDP (Law 27/2022).
+6. **Column Risk Scorer**: Pre-deployment blast-radius prediction to catch breaking database schema changes during developer code reviews.
+7. **Natural Language dbt Builder**: Automatically translates plain English business logic into production dbt models, YAML documentation, and schema assertions.
+8. **Role-Based Access Control (RBAC) & Audit Trails**: Granular column-level permissions and 1-click auditor compliance reports.
+9. **Automated Data Insights**: Proactive statistical anomaly detection and trend forecasting delivered directly to team Slack/Email.
+10. **Risk Scoring Engine**: Quantifies data debt and pipeline vulnerability across tables.
+11. **ESG Analytics**: Environmental, Social, and Governance data tracking module.
+12. **Schema Shift Sentinel**: Instant alerts before broken migrations hit production.
+13. **My Access Portal**: Self-service data access request and compliance clearance for employees.
+14. **Admin Control Center**: Centralized workspace telemetry, encryption keys, and infrastructure health monitoring.
+
+---
+
+## Target Personas & Use Cases
+- **Early-Stage SMEs & Solo Founders (< 10 People)**: Instant 380ms profit, inventory stockout, and LTV answers across Shopify, Stripe, and QuickBooks without hiring data engineers.
+- **High-Growth Tech Startups (10–80 People)**: Eliminates developer ad-hoc SQL interruptions and protects Metabase/Tableau dashboards from breaking schema changes.
+- **Family-Owned & Traditional Businesses (20–200 People)**: Auto-translates cryptic legacy ERP table names into clear business English to streamline generational succession.
+- **Mid-Market & Large SMEs (100–500 People, No In-House Data Team)**: Establishes a single source of truth across siloed departments and achieves 100% PDPA audit readiness in 72 hours.
+
+---
+
+## Platform Tools & Key Documentation
+- [Homepage](https://kaoinai.com/)
+- [Interactive Feature Tour](https://kaoinai.com/demo.html)
+- [Free SME Data Health Audit Tool](https://kaoinai.com/audit.html)
+- [SME Data Governance ROI Calculator](https://kaoinai.com/roi-calculator.html)
+- [2026 SME Data Governance & PDPA Checklist (SG, MY, ID)](https://kaoinai.com/blog-data-governance-checklist.html)
+- [Plain English SQL Tutorial](https://kaoinai.com/blog-natural-language-sql.html)
+- [Why Most SMEs Waste $50k on Enterprise Tools](https://kaoinai.com/blog-waste-enterprise-tools.html)
+- [KaoinAI vs Collibra](https://kaoinai.com/vs-collibra.html)
+- [KaoinAI vs Monte Carlo](https://kaoinai.com/vs-monte-carlo.html)
+
