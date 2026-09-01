@@ -98,4 +98,14 @@
       <image:title>How to Query Your Entire SQL Database in Plain English</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://kaoinai.com/blog-avengers-data-governance.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://kaoinai.com/images/assemble-data-defense.webp</image:loc>
+      <image:title>Why the Avengers Lost in Infinity War — Data Governance Metaphor</image:title>
+    </image:image>
+  </url>
 </urlset>
