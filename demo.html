@@ -267,7 +267,107 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 28px;
+      margin-bottom: 12px;
+    }
+    .sim-notice-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: rgba(168, 85, 247, 0.08);
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      border-radius: 8px;
+      margin-bottom: 24px;
+      font-size: 13px;
+      color: #cbd5e1;
+      animation: fadeIn 0.3s ease;
+    }
+    .sim-notice-tag {
+      background: rgba(168, 85, 247, 0.2);
+      color: #d8b4fe;
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+    .sim-notice-link {
+      color: var(--cyan);
+      text-decoration: underline;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .sim-notice-link:hover {
+      color: #fff;
+    }
+
+    /* Simulation Toast / Alert */
+    .sim-toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      max-width: 480px;
+      background: rgba(13, 13, 20, 0.95);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      border-radius: 12px;
+      padding: 18px 22px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 24px rgba(168, 85, 247, 0.2);
+      z-index: 1000;
+      transform: translateY(120%);
+      opacity: 0;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+    .sim-toast.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .sim-toast-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .sim-toast-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .sim-toast-body strong {
+      display: block;
+      color: #fff;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    .sim-toast-body p {
+      color: #94a3b8;
+      font-size: 12px;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .sim-toast-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .sim-toast-close {
+      background: transparent;
+      border: none;
+      color: #64748b;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 4px;
+      line-height: 1;
+      margin-left: auto;
+      transition: color 0.2s;
+    }
+    .sim-toast-close:hover {
+      color: #fff;
     }
     .query-input-bar input {
       flex: 1; background: transparent; border: none; outline: none;
@@ -453,7 +553,13 @@
           <div class="query-input-bar">
             <span style="color: var(--accent);">⚡</span>
             <input type="text" id="queryDisplay" value="Show monthly MRR growth by region for Q3" readonly>
-            <button class="btn btn-primary" style="padding: 6px 16px; font-size: 12px;">Run AI Query</button>
+            <button class="btn btn-primary" id="runQueryBtn" style="padding: 6px 16px; font-size: 12px;" onclick="handleRunAiQuery()">Run AI Query</button>
+          </div>
+
+          <!-- Simulation Only Notice -->
+          <div class="sim-notice-bar" id="simNoticeBar">
+            <span class="sim-notice-tag">Simulation Only</span>
+            <span class="sim-notice-text">This interactive workflow demonstrates sample test queries. For a real live demo connected to your own database, <a href="index.html#cta" class="sim-notice-link">contact us &rarr;</a></span>
           </div>
 
           <div class="results-grid">
@@ -616,6 +722,45 @@ ORDER BY total_mrr DESC;
       });
     }
 
+    function handleRunAiQuery() {
+      const btn = document.getElementById('runQueryBtn');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '⚡ Simulating...';
+      btn.style.opacity = '0.75';
+      btn.disabled = true;
+
+      const sqlEl = document.getElementById('sqlDisplay');
+      const chartEl = document.getElementById('chartDisplay');
+      if (sqlEl) sqlEl.style.opacity = '0.5';
+      if (chartEl) chartEl.style.opacity = '0.5';
+
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.opacity = '1';
+        btn.disabled = false;
+        if (sqlEl) sqlEl.style.opacity = '1';
+        if (chartEl) chartEl.style.opacity = '1';
+
+        showSimToast();
+      }, 350);
+    }
+
+    function showSimToast() {
+      const toast = document.getElementById('simToast');
+      if (toast) {
+        toast.classList.add('active');
+        clearTimeout(window.simToastTimer);
+        window.simToastTimer = setTimeout(() => {
+          toast.classList.remove('active');
+        }, 9000);
+      }
+    }
+
+    function closeSimToast() {
+      const toast = document.getElementById('simToast');
+      if (toast) toast.classList.remove('active');
+    }
+
     function openMenu() {
       const m = document.getElementById('mobileMenu');
       if (m) m.classList.add('active');
@@ -638,5 +783,20 @@ ORDER BY total_mrr DESC;
   </script>
 
   <script src="telemetry.js" defer></script>
+  <!-- Interactive Toast Notification for Run AI Query -->
+  <div class="sim-toast" id="simToast">
+    <div class="sim-toast-content">
+      <div class="sim-toast-icon">⚡</div>
+      <div class="sim-toast-body">
+        <strong>Simulation Only — Sample Model</strong>
+        <p>This query executed on pre-loaded demo scenarios. To test real conversational AI queries on your company's actual database (PostgreSQL, MySQL, Snowflake, BigQuery, ClickHouse) with zero hallucinations, contact us for a real live demo.</p>
+        <div class="sim-toast-actions">
+          <a href="index.html#cta" class="btn btn-primary" style="padding: 6px 14px; font-size: 12px; text-decoration: none;">Contact Us for Real Demo &rarr;</a>
+          <button class="sim-toast-close" onclick="closeSimToast()">&times;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
