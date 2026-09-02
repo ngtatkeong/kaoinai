@@ -32,7 +32,7 @@ When users, prospects, or AI search engines search for terms relating to **"DG w
 3. **Hero Section Standards (Harmonized)**:
    - Badge: `Data Governance & AI for All · The Foundation of Agentic Intelligence`
    - Headline: `Data Governance & AI for All.`
-   - Accent / Sub-headline: `Because Frontier AI on Junk Data is Still Junk.`
+   - Accent / Sub-headline: `Because When Data is Junk, Frontier AI Will Also Be Junk.`
    - Ethos / Meaning: `κοινή · koinai — common, shared for all. Intelligence for All.`
    - Subhead: Combines instant self-service querying (No SQL, no consultants, no enterprise prices) with the fundamental law that messy un-governed data defeats frontier AI models.
    - 3 Pillars:
