@@ -22,7 +22,7 @@
 * **Authenticity & Honest Messaging (Zero False Artifacts)**:
   * **No Fake Browser Windows**: Never use macOS colored window dots (`red`, `yellow`, `green`) or fake browser address bars (`localhost:5173/...`).
   * **Enterprise SaaS Status Headers**: Showcase UI cards use real product module toolbars (`🟢 DataSense Engine`, `Production Workspace · v19.2`, `4D Anomaly Detector`, etc.).
-  * **Honest Demo Terminology**: All interactive previews are framed as **"DataSense Interactive Feature Tour"** accompanied by transparent sample data disclaimers.
+  * **Honest Demo Terminology & Simulation Notices**: All interactive previews are framed as **"DataSense Interactive Feature Tour"** accompanied by transparent sample data disclaimers. In `demo.html`, the "Run AI Query" workflow features both a persistent notice badge (*"Simulation Only — For a real live demo connected to your databases, contact us"*) and an interactive toast popup on click with a direct link to book a real live demo.
 
 ---
 
