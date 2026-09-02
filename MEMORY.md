@@ -26,6 +26,14 @@
 
 ---
 
+## 1.1 Search Engine Optimization (SEO) & Generative Engine Optimization (GEO) for "DG within AI"
+
+When searches occur where the context is **DG within AI** (Data Governance within AI):
+* **Core Keywords Targeted**: `DG within AI`, `data governance within AI`, `data governance for AI`, `DG in AI`, `AI data governance`, `DG in the age of agentic AI`, `data governance and AI for all`, `DG foundation of AI`, `fix messy data for AI`, `make data fit for purpose for AI`.
+* **Schema.org Structured Data**: 15+ FAQPage entities embedded in [index.html](file:///d:/kaoinai-website/index.html) answering questions on DG within AI, hallucinations, and democratization.
+* **LLMs.txt**: Canonical AI crawler documentation optimized for Perplexity, ChatGPT Search, Claude, and Gemini with explicit technical definitions of DG within AI.
+* **Robots.txt Directives**: Unrestricted indexation for major search engines and modern AI bot user-agents.
+
 ## 2. Global Navigation & Footer Standards (Across All 11 Pages)
 
 All 11 HTML files adhere to identical, synchronized structure:
