@@ -13,6 +13,7 @@
 
 * **Hero Section Dual Core Thesis (Harmonized)**:
   * **Data Governance & AI for All**: Democratic, accessible data governance and conversational intelligence for every enterprise, SME, and team—no SQL, no consultants, no enterprise price tag.
+  * **Hero Subhead Value Proposition**: Directly articulates that Data Governance (DG) is indispensable for AI today because frontier models hallucinate on dirty data—yet legacy enterprise DG software and consulting implementations demand six-figure budgets that are cost-prohibitive for SMEs. KaoinAI breaks this barrier: delivering automated, AI-native data governance, real-time quality curing, and verified intelligence at a fraction of the cost.
   * **Good Data Governance is the Foundation of AI**: In the age of AI agents and LLMs, AI only knows how to answer with your data. If data is messy, unindexed, or ungoverned, frontier models hallucinate and produce junk decisions.
   * **KaoinAI Autonomous Curing**: We don't just monitor data—we clean, cure, repair schema drift, mask PII, and make data understandable and fit for purpose for AI.
   * **Phonetic Pronunciation & Ethos**: Hero badge and pronunciation bar feature `KaoinAI [Kay-on A.I.]` · `κοινή · koinai — common, shared for all. Intelligence for All.`
