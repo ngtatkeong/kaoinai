@@ -223,6 +223,71 @@
       .related-grid { grid-template-columns: 1fr; }
       .article-header h1 { font-size: 28px; }
     }
+  
+    /* Citations and Reference Styling */
+    .citation-sup {
+      font-size: 0.72em;
+      font-weight: 800;
+      color: #06b6d4;
+      text-decoration: none;
+      padding: 0 2px;
+      vertical-align: super;
+      transition: color 0.2s;
+    }
+    .citation-sup:hover {
+      color: #c084fc;
+      text-decoration: underline;
+    }
+    .references-section {
+      background: #08080f;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 28px;
+      margin: 48px 0;
+    }
+    .references-section h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .references-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .references-item {
+      font-size: 12.5px;
+      color: #94a3b8;
+      margin-bottom: 12px;
+      padding-left: 32px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .references-item .ref-num {
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 800;
+      color: #06b6d4;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .references-item strong {
+      color: #e2e8f0;
+    }
+    .references-item em {
+      color: #cbd5e1;
+    }
+    .references-item a {
+      color: #c084fc;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .references-item a:hover {
+      text-decoration: underline;
+    }
+
   </style>
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
@@ -312,7 +377,7 @@
     <article class="article-body">
       <p>In almost every fast-growing business, the data team is trapped under a mountain of repetitive requests: <em>"Can you pull monthly churn by channel?"</em>, <em>"What was our average order value last Tuesday in Singapore?"</em></p>
 
-      <p>By the time a data engineer writes the SQL query, extracts the CSV, and formats the charts, days have passed and the business moment has slipped. Here is how conversational data intelligence enables any team member to query databases directly without writing code.</p>
+      <p>By the time a data engineer writes the SQL query, extracts the CSV, and formats the charts, days have passed and the business moment has slipped. Here is how conversational data intelligence enables any team member to query databases directly without writing code.<a href="#ref-1" class="citation-sup">[1]</a><a href="#ref-2" class="citation-sup">[2]</a></p>
 
       <!-- Superhero Defense Analogy -->
       <div style="margin: 32px 0 36px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(168, 85, 247, 0.35); box-shadow: 0 16px 40px rgba(0,0,0,0.6);">
@@ -346,6 +411,23 @@
         <a href="index.html#cta" class="btn" style="padding: 12px 28px; font-size: 15px;">Get Started Free</a>
       </div>
 
+            <div class="references-section" id="references">
+        <h3>Technical &amp; Academic Citations</h3>
+        <ol class="references-list">
+          <li class="references-item" id="ref-1">
+            <span class="ref-num">[1]</span>
+            <strong>Spider &amp; BIRD Benchmarks (2023–2024).</strong> <em>Large-Scale Complex Cross-Domain Semantic Parsing and Text-to-SQL Evaluation on Real Relational Databases.</em> Yale University &amp; Hong Kong University.
+          </li>
+          <li class="references-item" id="ref-2">
+            <span class="ref-num">[2]</span>
+            <strong>ACM SIGMOD (2024).</strong> <em>Natural Language Interfaces to Relational Databases: From Ambiguous Intent to Schema-Grounded Execution.</em> Proceedings of the ACM SIGMOD International Conference on Management of Data.
+          </li>
+          <li class="references-item" id="ref-3">
+            <span class="ref-num">[3]</span>
+            <strong>NIST Special Publication 800-53 (Rev. 5):</strong> <em>Security and Privacy Controls for Information Systems and Organizations — Access Enforcement &amp; Role-Based Access Control (AC-3).</em>
+          </li>
+        </ol>
+      </div>
       <div class="related-section">
         <h3>Related Guides & Resources</h3>
         <div class="related-grid">

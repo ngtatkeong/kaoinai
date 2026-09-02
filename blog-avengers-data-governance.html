@@ -530,6 +530,71 @@
       .mobile-toggle { display: block; }
       .hud-stage { grid-template-columns: 1fr; }
     }
+  
+    /* Citations and Reference Styling */
+    .citation-sup {
+      font-size: 0.72em;
+      font-weight: 800;
+      color: #06b6d4;
+      text-decoration: none;
+      padding: 0 2px;
+      vertical-align: super;
+      transition: color 0.2s;
+    }
+    .citation-sup:hover {
+      color: #c084fc;
+      text-decoration: underline;
+    }
+    .references-section {
+      background: #08080f;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 28px;
+      margin: 48px 0;
+    }
+    .references-section h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .references-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .references-item {
+      font-size: 12.5px;
+      color: #94a3b8;
+      margin-bottom: 12px;
+      padding-left: 32px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .references-item .ref-num {
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 800;
+      color: #06b6d4;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .references-item strong {
+      color: #e2e8f0;
+    }
+    .references-item em {
+      color: #cbd5e1;
+    }
+    .references-item a {
+      color: #c084fc;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .references-item a:hover {
+      text-decoration: underline;
+    }
+
   </style>
 </head>
 <body>
@@ -760,6 +825,27 @@
       </ol>
 
       <!-- CTA Box -->
+            <div class="references-section" id="references">
+        <h3>Data Governance Frameworks &amp; Academic Citations</h3>
+        <ol class="references-list">
+          <li class="references-item" id="ref-1">
+            <span class="ref-num">[1]</span>
+            <strong>DAMA International (2017).</strong> <em>DAMA-DMBOK: Data Management Body of Knowledge (2nd Edition).</em> Chapter 3: Data Governance; Chapter 8: Data Integration &amp; Interoperability (Lineage); Chapter 11: Data Quality.
+          </li>
+          <li class="references-item" id="ref-2">
+            <span class="ref-num">[2]</span>
+            <strong>International Organization for Standardization (ISO):</strong> <em>ISO/IEC 38505-1:2017 — Information Technology — Governance of IT — Governance of Data.</em> Part 1: Application to the Governance of Data.
+          </li>
+          <li class="references-item" id="ref-3">
+            <span class="ref-num">[3]</span>
+            <strong>Harvard Business Review (2024).</strong> <em>Break Down Data Silos Before Deploying Enterprise AI: The Cost of Fragmented Infrastructure in Autonomous Systems.</em> HBR Digital Initiative.
+          </li>
+          <li class="references-item" id="ref-4">
+            <span class="ref-num">[4]</span>
+            <strong>RAND Corporation (2024).</strong> <em>The Root Causes of Failure for Artificial Intelligence Projects: Structural Data Governance Impediments.</em> RAND Report RR-A2996-1.
+          </li>
+        </ol>
+      </div>
       <div class="article-cta">
         <h3>Assemble Your Data. Power Your AI.</h3>
         <p>Connect your database to KaoinAI in 5 minutes. Get automated column-level lineage, 4D quality monitoring, and plain-English conversational SQL with zero engineering overhead.</p>

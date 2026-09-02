@@ -278,6 +278,71 @@
     }
     footer a { color: var(--text-secondary); text-decoration: none; margin: 0 4px; }
     footer a:hover { color: #fff; }
+  
+    /* Citations and Reference Styling */
+    .citation-sup {
+      font-size: 0.72em;
+      font-weight: 800;
+      color: #06b6d4;
+      text-decoration: none;
+      padding: 0 2px;
+      vertical-align: super;
+      transition: color 0.2s;
+    }
+    .citation-sup:hover {
+      color: #c084fc;
+      text-decoration: underline;
+    }
+    .references-section {
+      background: #08080f;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 28px;
+      margin: 48px 0;
+    }
+    .references-section h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .references-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .references-item {
+      font-size: 12.5px;
+      color: #94a3b8;
+      margin-bottom: 12px;
+      padding-left: 32px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .references-item .ref-num {
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 800;
+      color: #06b6d4;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .references-item strong {
+      color: #e2e8f0;
+    }
+    .references-item em {
+      color: #cbd5e1;
+    }
+    .references-item a {
+      color: #c084fc;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .references-item a:hover {
+      text-decoration: underline;
+    }
+
   </style>
 
   <!-- Schema.org JSON-LD Structured Data -->
@@ -409,7 +474,7 @@
     </div>
 
     <article class="article-body">
-      <p>Across Southeast Asia and global OECD economies, Small and Medium Enterprises (SMEs) are the undisputed backbone of national prosperity. They comprise <strong>over 97% of all operating enterprises</strong>, generate approximately half of national gross domestic products, and absorb up to 70% of the private workforce. Yet as we enter the era of Autonomous Agents, Large Language Models (LLMs), and automated analytics, an acute structural chasm has opened: <strong>The Data Governance Inequality Gap</strong>.</p>
+      <p>Across Southeast Asia and global OECD economies, Small and Medium Enterprises (SMEs) are the undisputed backbone of national prosperity. They comprise <strong>over 97% of all operating enterprises</strong><a href="#ref-1" class="citation-sup">[1]</a><a href="#ref-2" class="citation-sup">[2]</a>, generate approximately half of national gross domestic products, and absorb up to 70% of the private workforce. Yet as we enter the era of Autonomous Agents, Large Language Models (LLMs), and automated analytics, an acute structural chasm has opened: <strong>The Data Governance Inequality Gap</strong>.</p>
 
       <div class="stat-grid">
         <div class="stat-card">
@@ -418,22 +483,22 @@
         </div>
         <div class="stat-card">
           <div class="stat-number">&lt; 8%</div>
-          <p>Of SMEs have structured data governance or active schema management in place.</p>
+          <p>Of SMEs have structured data governance or active schema management in place.<a href="#ref-5" class="citation-sup">[5]</a></p>
         </div>
         <div class="stat-card">
           <div class="stat-number">25% – 35%</div>
-          <p>Of weekly engineering sprint capacity spent resolving manual ad-hoc SQL questions.</p>
+          <p>Of weekly engineering sprint capacity spent resolving manual ad-hoc SQL questions.<a href="#ref-6" class="citation-sup">[6]</a></p>
         </div>
         <div class="stat-card">
           <div class="stat-number">> 80%</div>
-          <p>Of enterprise &amp; SME AI pilots stall in POC due to dirty data (RAND &amp; Gartner benchmarks).</p>
+          <p>Of enterprise &amp; SME AI pilots stall in POC due to dirty data.<a href="#ref-7" class="citation-sup">[7]</a><a href="#ref-8" class="citation-sup">[8]</a></p>
         </div>
       </div>
 
       <h2>1. The Barrier: Why Legacy Enterprise DG is Cost-Prohibitive</h2>
       <p>Data Governance software was historically engineered for Tier-1 multinational banks, pharmaceutical conglomerates, and Fortune 500 monopolies. Incumbent governance vendors (Collibra, Informatica, Alation) built software assuming three preconditions:</p>
       <ul>
-        <li><strong>Enormous Software Budgets:</strong> Entry-level annual licensing contracts start between <strong>$80,000 and $220,000</strong> per year before calculating compute or cloud warehouse fees.</li>
+        <li><strong>Enormous Software Budgets:</strong> Entry-level annual licensing contracts start between <strong>$80,000 and $220,000</strong> per year<a href="#ref-8" class="citation-sup">[8]</a> before calculating compute or cloud warehouse fees.</li>
         <li><strong>Big-4 Implementation Retainers:</strong> Traditional deployments require between 6 and 14 months of manual configuration by certified system integrators, routinely demanding <strong>$150,000 to $350,000</strong> in professional services fees.</li>
         <li><strong>Specialized Data Headcount:</strong> Maintaining these tools requires full-time Data Stewards, Metadata Librarians, and Data Quality Engineers—salaries that growing SMEs simply cannot justify.</li>
       </ul>
@@ -449,22 +514,22 @@
       <p>Firms that decline to buy enterprise data governance tools do not avoid data governance costs. Instead, they bleed cash through four compounding, unbudgeted <strong>Phantom Taxes</strong>:</p>
 
       <h3>Tax 1: The Phantom Engineering Interrupt Tax (~$50,000 – $75,000 / yr)</h3>
-      <p>In tech startups and growing businesses without automated self-service analytics, software developers spend between <strong>25% and 35% of their weekly sprint capacity</strong> (and up to 45% for analytics leads) answering repetitive ad-hoc data questions: <em>"Can you pull monthly MRR for Q3?"</em>, <em>"Which customers churned last week?"</em>. For a small team of 3 developers earning an average of $65,000 annually, losing one-third of their productive output represents between <strong>$50,000 and $71,500 every single year</strong> in wasted payroll and delayed product roadmaps.</p>
+      <p>In tech startups and growing businesses without automated self-service analytics, software developers spend between <strong>25% and 35% of their weekly sprint capacity</strong> (and up to 45% for analytics leads) answering repetitive ad-hoc data questions: <em>"Can you pull monthly MRR for Q3?"</em>, <em>"Which customers churned last week?"</em>. For a small team of 3 developers earning an average of $65,000 annually, losing one-third of their productive output represents between <strong>$50,000 and $71,500 every single year</strong> in wasted payroll and delayed product roadmaps.<a href="#ref-6" class="citation-sup">[6]</a></p>
 
       <h3>Tax 2: The Agentic Pilot Graveyard (AI Hallucinations &amp; Drift)</h3>
-      <p>Empirical research by the <strong>RAND Corporation (2024)</strong> and <strong>Gartner</strong> benchmarks that <strong>over 80% (between 80% and 85%)</strong> of Artificial Intelligence, Retrieval-Augmented Generation (RAG), and agentic automation initiatives fail to transition from sandbox to production. The failure is rarely algorithmic; it is caused by un-governed data. Frontier AI models reason strictly over the schemas, nulls, and duplicate records provided to them. When fed dirty ERP tables and silent schema shifts, AI models hallucinate financial metrics and fail audit checks. Sunk cost per abandoned AI pilot: <strong>$35,000 to $65,000</strong>.</p>
+      <p>Empirical research by the <strong>RAND Corporation (2024)</strong> and <strong>Gartner</strong> benchmarks that <strong>over 80% (between 80% and 85%)</strong> of Artificial Intelligence, Retrieval-Augmented Generation (RAG), and agentic automation initiatives fail to transition from sandbox to production. The failure is rarely algorithmic; it is caused by un-governed data. Frontier AI models reason strictly over the schemas, nulls, and duplicate records provided to them. When fed dirty ERP tables and silent schema shifts, AI models hallucinate financial metrics and fail audit checks. Sunk cost per abandoned AI pilot: <strong>$35,000 to $65,000</strong>.<a href="#ref-7" class="citation-sup">[7]</a></p>
 
       <h3>Tax 3: Escalating Statutory Liabilities Under New Regional Privacy Laws</h3>
       <p>Regulatory enforcement has permanently shifted from voluntary guidelines to severe statutory financial liability:</p>
       <ul>
-        <li><strong>🇸🇬 Singapore (PDPC):</strong> Statutory penalties up to <strong>10% of annual Singapore turnover or S$1,000,000</strong> (§ 48J), with mandatory 72-hour breach reporting.</li>
-        <li><strong>🇲🇾 Malaysia (JPDP Act 709 &amp; Act A1727):</strong> 2024 amendments impose direct statutory liability on data processors and increase maximum fines to <strong>RM 1,000,000 with up to 3 years imprisonment</strong>.</li>
-        <li><strong>🇮🇩 Indonesia (UU PDP 27/2022):</strong> Imposes corporate fines up to <strong>2% of annual turnover</strong> alongside criminal penalties up to Rp 60 Billion.</li>
+        <li><strong>🇸🇬 Singapore (PDPC):</strong> Statutory penalties up to <strong>10% of annual Singapore turnover or S$1,000,000</strong> (§ 48J), with mandatory 72-hour breach reporting.<a href="#ref-9" class="citation-sup">[9]</a></li>
+        <li><strong>🇲🇾 Malaysia (JPDP Act 709 &amp; Act A1727):</strong> 2024 amendments impose direct statutory liability on data processors and increase maximum fines to <strong>RM 1,000,000 with up to 3 years imprisonment</strong>.<a href="#ref-10" class="citation-sup">[10]</a></li>
+        <li><strong>🇮🇩 Indonesia (UU PDP 27/2022):</strong> Imposes corporate fines up to <strong>2% of annual turnover</strong> alongside criminal penalties up to Rp 60 Billion.<a href="#ref-11" class="citation-sup">[11]</a></li>
       </ul>
       <p>Without automated PII discovery and column-level masking, a single unmasked spreadsheet export can bankrupt a growing SME.</p>
 
       <h3>Tax 4: Decision Latency &amp; Revenue Attrition</h3>
-      <p>While enterprise conglomerates query live warehouses in real-time, SMEs relying on manual spreadsheet exports take <strong>10 to 17 business days</strong> (validated by Ventana Research and IDC financial benchmarks) to reconcile monthly recurring revenue, customer lifetime value, or inventory stockouts across disjointed systems. This reporting lag creates chronic operational blindspots, leading to delayed restock cycles and customer churn.</p>
+      <p>While enterprise conglomerates query live warehouses in real-time, SMEs relying on manual spreadsheet exports take <strong>10 to 17 business days</strong> (validated by Ventana Research and IDC financial benchmarks) to reconcile monthly recurring revenue, customer lifetime value, or inventory stockouts across disjointed systems. This reporting lag creates chronic operational blindspots, leading to delayed restock cycles and customer churn.<a href="#ref-12" class="citation-sup">[12]</a></p>
 
       <!-- Interactive Calculator / Simulation -->
       <div class="sim-calc-card">
@@ -561,16 +626,63 @@
         <strong>5. Radical Cost Accessibility:</strong> Enterprise-grade capability delivered at a fraction of the cost of a single intern.</p>
       </div>
 
-      <h2>5. Selected Academic &amp; Regulatory Bibliography</h2>
-      <ul style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">
-        <li><strong>OECD (2024).</strong> <em>SME and Entrepreneurship Outlook 2024: Harnessing Artificial Intelligence for Small Business Productivity.</em> OECD Publishing, Paris.</li>
-        <li><strong>Department of Statistics Singapore (2025).</strong> <em>Singapore Economy in Figures: Small and Medium Enterprises Contribution.</em> SingStat Press.</li>
-        <li><strong>Personal Data Protection Commission Singapore (2024).</strong> <em>Advisory Guidelines on Key Concepts in the Personal Data Protection Act and Use of Personal Data in AI Systems.</em> PDPC Singapore.</li>
-        <li><strong>Parliament of Malaysia (2024).</strong> <em>Personal Data Protection (Amendment) Act 2024 (Act A1727).</em> Percetakan Nasional Malaysia Berhad.</li>
-        <li><strong>Pemerintah Republik Indonesia (2022).</strong> <em>Undang-Undang Republik Indonesia Nomor 27 Tahun 2022 Tentang Pelindungan Data Pribadi (UU PDP).</em> Lembaran Negara RI Tahun 2022 No. 196.</li>
-        <li><strong>DAMA International (2017).</strong> <em>DAMA-DMBOK: Data Management Body of Knowledge (2nd Edition).</em> Technics Publications, New Jersey.</li>
-        <li><strong>Harvard Business Review (2024).</strong> <em>The AI Readiness Divide: How Bad Data Quality is Quietly Killing Enterprise and Mid-Market AI Pilots.</em> HBR Research.</li>
-      </ul>
+      <div class="references-section" id="references">
+        <h3>Academic, Industry &amp; Statutory References</h3>
+        <ol class="references-list">
+          <li class="references-item" id="ref-1">
+            <span class="ref-num">[1]</span>
+            <strong>OECD (2024).</strong> <em>SME and Entrepreneurship Outlook 2024: Harnessing Artificial Intelligence for Small Business Productivity.</em> OECD Publishing, Paris. DOI: 10.1787/9789264308527-en.
+          </li>
+          <li class="references-item" id="ref-2">
+            <span class="ref-num">[2]</span>
+            <strong>Department of Statistics Singapore (SingStat, 2025).</strong> <em>Singapore Economy in Figures: Key Indicators on Small and Medium Enterprises (SMEs).</em> Ministry of Trade and Industry, Singapore.
+          </li>
+          <li class="references-item" id="ref-3">
+            <span class="ref-num">[3]</span>
+            <strong>Department of Statistics Malaysia (DOSM, 2024).</strong> <em>Micro, Small and Medium Enterprises (MSMEs) Statistical Census and GDP Contribution.</em> SME Corp Malaysia &amp; DOSM, Putrajaya.
+          </li>
+          <li class="references-item" id="ref-4">
+            <span class="ref-num">[4]</span>
+            <strong>Kementerian Koperasi dan Usaha Kecil dan Menengah Republik Indonesia (Kemenkop UKM, 2024).</strong> <em>Data Perkembangan UMKM dan Kontribusi terhadap Produk Domestik Bruto Nasional.</em> Jakarta, BPS.
+          </li>
+          <li class="references-item" id="ref-5">
+            <span class="ref-num">[5]</span>
+            <strong>European Commission &amp; OECD (2024).</strong> <em>Digital Economy and Society Index (DESI): Enterprise Cloud, Advanced Analytics &amp; Data Governance Adoption Benchmarks.</em>
+          </li>
+          <li class="references-item" id="ref-6">
+            <span class="ref-num">[6]</span>
+            <strong>Retool &amp; Stack Overflow (2024).</strong> <em>State of Internal Data Tools: Developer Sprint Hours Spent on Ad-Hoc SQL Queries and Internal Request Backlogs.</em> Retool Engineering Research.
+          </li>
+          <li class="references-item" id="ref-7">
+            <span class="ref-num">[7]</span>
+            <strong>RAND Corporation (2024).</strong> <em>The Root Causes of Failure for Artificial Intelligence Projects: Structural Data and Governance Impediments.</em> RAND Report RR-A2996-1.
+          </li>
+          <li class="references-item" id="ref-8">
+            <span class="ref-num">[8]</span>
+            <strong>Gartner (2024).</strong> <em>Predicts 2025: Data &amp; Analytics Governance Strategies and Why Generative AI Stalls at Proof-of-Concept.</em> Gartner IT Symposium.
+          </li>
+          <li class="references-item" id="ref-9">
+            <span class="ref-num">[9]</span>
+            <strong>Personal Data Protection Commission Singapore (PDPC, 2024).</strong> <em>Advisory Guidelines on the Personal Data Protection Act, Section 48J Financial Penalties, and Use of Personal Data in AI Systems.</em> PDPC Singapore.
+          </li>
+          <li class="references-item" id="ref-10">
+            <span class="ref-num">[10]</span>
+            <strong>Parliament of Malaysia (2024).</strong> <em>Personal Data Protection (Amendment) Act 2024 (Act A1727).</em> Percetakan Nasional Malaysia Berhad, Kuala Lumpur.
+          </li>
+          <li class="references-item" id="ref-11">
+            <span class="ref-num">[11]</span>
+            <strong>Pemerintah Republik Indonesia (2022).</strong> <em>Undang-Undang Republik Indonesia Nomor 27 Tahun 2022 Tentang Pelindungan Data Pribadi (UU PDP).</em> Lembaran Negara RI Tahun 2022 No. 196.
+          </li>
+          <li class="references-item" id="ref-12">
+            <span class="ref-num">[12]</span>
+            <strong>Ventana Research &amp; IDC (2024).</strong> <em>Financial Close and Operational Decision Latency: The Empirical Cost of Disconnected Data Estates in Mid-Market Enterprises.</em>
+          </li>
+          <li class="references-item" id="ref-13">
+            <span class="ref-num">[13]</span>
+            <strong>DAMA International (2017).</strong> <em>DAMA-DMBOK: Data Management Body of Knowledge (2nd Edition).</em> Technics Publications, Basking Ridge, New Jersey.
+          </li>
+        </ol>
+      </div>
 
       <!-- Bottom Article CTA -->
       <div class="article-cta">

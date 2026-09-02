@@ -407,6 +407,71 @@
       .authority-content h4 { color: #000 !important; }
       .authority-content p { color: #333 !important; }
     }
+  
+    /* Citations and Reference Styling */
+    .citation-sup {
+      font-size: 0.72em;
+      font-weight: 800;
+      color: #06b6d4;
+      text-decoration: none;
+      padding: 0 2px;
+      vertical-align: super;
+      transition: color 0.2s;
+    }
+    .citation-sup:hover {
+      color: #c084fc;
+      text-decoration: underline;
+    }
+    .references-section {
+      background: #08080f;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 28px;
+      margin: 48px 0;
+    }
+    .references-section h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .references-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .references-item {
+      font-size: 12.5px;
+      color: #94a3b8;
+      margin-bottom: 12px;
+      padding-left: 32px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .references-item .ref-num {
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 800;
+      color: #06b6d4;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .references-item strong {
+      color: #e2e8f0;
+    }
+    .references-item em {
+      color: #cbd5e1;
+    }
+    .references-item a {
+      color: #c084fc;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .references-item a:hover {
+      text-decoration: underline;
+    }
+
   </style>
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
@@ -974,6 +1039,39 @@
         <a href="index.html#cta" class="btn" style="padding: 12px 28px; font-size: 15px;">Start Your Free Trial (5-Min Setup)</a>
       </div>
 
+            <div class="references-section" id="statutory-references">
+        <h3>Official Statutory References &amp; Regulatory Citations</h3>
+        <ol class="references-list">
+          <li class="references-item" id="stat-sg-1">
+            <span class="ref-num">[1]</span>
+            <strong>Republic of Singapore:</strong> <em>Personal Data Protection Act 2012 (Act 26 of 2012, Revised Edition 2020).</em> Section 48J (Financial Penalties) &amp; Section 26D (Mandatory Data Breach Notification). Available at Singapore Statutes Online.
+          </li>
+          <li class="references-item" id="stat-sg-2">
+            <span class="ref-num">[2]</span>
+            <strong>Personal Data Protection Commission Singapore (PDPC):</strong> <em>Advisory Guidelines on Key Concepts in the Personal Data Protection Act (Revised 2024) &amp; Advisory Guidelines on the Use of Personal Data in AI Systems.</em>
+          </li>
+          <li class="references-item" id="stat-my-1">
+            <span class="ref-num">[3]</span>
+            <strong>Laws of Malaysia:</strong> <em>Personal Data Protection Act 2010 (Act 709).</em> Enacted 2010, Jabatan Perlindungan Data Peribadi (JPDP Malaysia).
+          </li>
+          <li class="references-item" id="stat-my-2">
+            <span class="ref-num">[4]</span>
+            <strong>Parliament of Malaysia:</strong> <em>Personal Data Protection (Amendment) Act 2024 (Act A1727).</em> Introducing Section 12A (DPO), Section 12B (Breach Notification), Section 68A (Data Processor Liability), and maximum penalties of RM 1,000,000.
+          </li>
+          <li class="references-item" id="stat-id-1">
+            <span class="ref-num">[5]</span>
+            <strong>Pemerintah Republik Indonesia:</strong> <em>Undang-Undang Republik Indonesia Nomor 27 Tahun 2022 Tentang Pelindungan Data Pribadi (UU PDP).</em> Lembaran Negara Republik Indonesia Tahun 2022 Nomor 196.
+          </li>
+          <li class="references-item" id="stat-intl-1">
+            <span class="ref-num">[6]</span>
+            <strong>International Organization for Standardization:</strong> <em>ISO/IEC 42001:2023 — Information Technology — Artificial Intelligence — Management System (AIMS).</em> ISO, Geneva.
+          </li>
+          <li class="references-item" id="stat-intl-2">
+            <span class="ref-num">[7]</span>
+            <strong>International Organization for Standardization:</strong> <em>ISO/IEC 38505-1:2017 — Information Technology — Governance of IT — Governance of Data — Part 1: Application of ISO/IEC 38500 to the Governance of Data.</em>
+          </li>
+        </ol>
+      </div>
       <div class="related-section">
         <h3>Related Guides &amp; Regulatory Resources</h3>
         <div class="related-grid">
