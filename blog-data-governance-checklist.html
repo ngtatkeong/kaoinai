@@ -472,6 +472,199 @@
       text-decoration: underline;
     }
 
+  
+    /* ==========================================================================
+       COUNTRY-SPECIFIC DATA INVENTORY & DPIA ENGINE STYLING
+       ========================================================================== */
+    .statutory-engine-box {
+      background: #080811;
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      border-radius: 18px;
+      padding: 30px;
+      margin: 36px 0 44px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+    .engine-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 18px;
+    }
+    .engine-title-wrap h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .engine-title-wrap p {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .sim-tag-badge {
+      background: rgba(168, 85, 247, 0.2);
+      border: 1px solid rgba(168, 85, 247, 0.45);
+      color: #d8b4fe;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 4px;
+      letter-spacing: 0.06em;
+    }
+
+    /* Sub-tabs for Inventory vs DPIA */
+    .engine-nav-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .engine-nav-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .engine-nav-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+    }
+    .engine-nav-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(168, 85, 247, 0.4);
+    }
+
+    /* Data Inventory Table */
+    .inventory-table-wrap {
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #050508;
+      margin-bottom: 20px;
+    }
+    .inventory-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.5px;
+      text-align: left;
+    }
+    .inventory-table th {
+      background: rgba(168, 85, 247, 0.16);
+      color: #fff;
+      padding: 12px 14px;
+      font-weight: 700;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      white-space: nowrap;
+    }
+    .inventory-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: #cbd5e1;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    .inventory-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .badge-legal {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      color: #38bdf8;
+    }
+    .badge-sensitive {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #f87171;
+    }
+
+    /* DPIA Assessment Wizard Box */
+    .dpia-wizard-card {
+      background: #06060c;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .dpia-step-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .dpia-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .dpia-field-group label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+    .dpia-field-group select, .dpia-field-group input {
+      width: 100%;
+      background: #090912;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: #fff;
+      font-size: 13px;
+      outline: none;
+    }
+    .dpia-result-banner {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 10px;
+      padding: 18px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .dpia-result-left h5 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #34d399;
+      margin-bottom: 4px;
+    }
+    .dpia-result-left p {
+      font-size: 12.5px;
+      color: #cbd5e1;
+      margin: 0;
+    }
+
   </style>
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
@@ -605,6 +798,115 @@
       </div>
 
       <!-- ========================================== -->
+      
+      <!-- ==================================================================== -->
+      <!-- INTERACTIVE STATUTORY COMPLIANCE SUITE: DATA INVENTORY & DPIA ENGINE  -->
+      <!-- ==================================================================== -->
+      <div class="statutory-engine-box" id="statutoryEngine">
+        <div class="engine-header-row">
+          <div class="engine-title-wrap">
+            <h3 id="engineMainTitle">
+              <span id="engineFlag">🇸🇬</span> 
+              <span id="engineTitleText">Singapore PDPC Statutory Data Inventory Map (DIM) &amp; DPIA</span>
+            </h3>
+            <p id="engineSubText">
+              Mandated under Singapore PDPA Accountability Obligation &amp; Section 48J. Automatically adapts statutory columns and impact assessments based on your selected country.
+            </p>
+          </div>
+          <span class="sim-tag-badge">Interactive Simulation Engine</span>
+        </div>
+
+        <!-- Sub-Tabs: Data Inventory vs DPIA -->
+        <div class="engine-nav-tabs">
+          <button class="engine-nav-btn active" id="subtab-inventory" onclick="switchEngineView('inventory')">
+            📋 1. Statutory Data Inventory Map (RoPA)
+          </button>
+          <button class="engine-nav-btn" id="subtab-dpia" onclick="switchEngineView('dpia')">
+            🛡️ 2. Data Protection Impact Assessment (DPIA)
+          </button>
+        </div>
+
+        <!-- VIEW 1: DATA INVENTORY MAP -->
+        <div id="view-inventory">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+            <span style="font-size: 13px; color: var(--text-secondary);" id="inventorySummaryDesc">
+              Showing active database asset catalog mapped to official statutory fields:
+            </span>
+            <button class="download-btn" style="padding: 6px 14px; font-size: 12px;" onclick="simulateAddInventoryRow()">
+              + Add Simulated Data Asset
+            </button>
+          </div>
+
+          <div class="inventory-table-wrap">
+            <table class="inventory-table" id="inventoryTable">
+              <thead id="inventoryThead">
+                <!-- Dynamically populated based on active country -->
+              </thead>
+              <tbody id="inventoryTbody">
+                <!-- Dynamically populated based on active country -->
+              </tbody>
+            </table>
+          </div>
+          <div style="font-size: 11.5px; color: #94a3b8; font-style: italic;">
+            💡 <strong>KaoinAI Automated Solution:</strong> DataSense connects directly to your databases and automatically compiles this inventory map in under 5 minutes without manual spreadsheet entry.
+          </div>
+        </div>
+
+        <!-- VIEW 2: DPIA ASSESSMENT WIZARD -->
+        <div id="view-dpia" style="display: none;">
+          <div class="dpia-wizard-card">
+            <div class="dpia-step-title" id="dpiaTitle">
+              ⚖️ Singapore PDPC 6-Phase Data Protection Impact Assessment (DPIA) Screener
+            </div>
+            <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 20px;" id="dpiaDesc">
+              Evaluate whether a new data pipeline, AI/LLM model deployment, or cloud migration triggers statutory high-risk thresholds under your jurisdiction:
+            </p>
+
+            <div class="dpia-grid">
+              <div class="dpia-field-group">
+                <label id="dpiaLabel1">System / AI Workload Purpose</label>
+                <select id="dpiaInput1" onchange="runDpiaEvaluation()">
+                  <option value="ai">Conversational Text-to-SQL / AI Agent</option>
+                  <option value="marketing">Customer Segmentation &amp; Retargeting</option>
+                  <option value="billing">Automated Payment &amp; Invoicing Pipeline</option>
+                  <option value="internal">Internal Operational Metrics Dashboard</option>
+                </select>
+              </div>
+
+              <div class="dpia-field-group">
+                <label id="dpiaLabel2">Data Categories Ingested</label>
+                <select id="dpiaInput2" onchange="runDpiaEvaluation()">
+                  <option value="sensitive">Sensitive PII (NRIC, MyKad, NIK, Bank Accounts)</option>
+                  <option value="standard">Standard Contact Info (Name, Business Email)</option>
+                  <option value="aggregated">Aggregated / Anonymized Analytics Metrics</option>
+                </select>
+              </div>
+
+              <div class="dpia-field-group">
+                <label id="dpiaLabel3">Third-Party Intermediaries / Cloud Hosting</label>
+                <select id="dpiaInput3" onchange="runDpiaEvaluation()">
+                  <option value="external">External Multi-Tenant Cloud / LLM API</option>
+                  <option value="onprem">Self-Hosted Dedicated Docker / Private VPS</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Dynamic Result Output -->
+            <div class="dpia-result-banner" id="dpiaResultBanner">
+              <div class="dpia-result-left">
+                <h5 id="dpiaResultStatus">Status: MODERATE STATUTORY RISK — MITIGATIONS REQUIRED</h5>
+                <p id="dpiaResultAdvice">
+                  Processing sensitive personal data via external LLMs requires dynamic query-time masking and signed Data Processing Agreements (DPA) under PDPA § 4(2).
+                </p>
+              </div>
+              <a href="demo.html" class="btn" style="padding: 8px 18px; font-size: 12px; background: var(--accent); color: #fff; text-decoration: none; border-radius: 999px;">
+                Test Live PII Masking &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- TAB 1: SINGAPORE (PDPC - 11 OBLIGATIONS) -->
       <!-- ========================================== -->
       <div id="section-sg" class="jurisdiction-section">
@@ -1102,6 +1404,7 @@
     });
 
     let currentJurisdiction = 'sg';
+    document.addEventListener('DOMContentLoaded', () => { renderStatutoryEngine('sg'); });
     const totalCounts = {
       sg: 11,
       my: 7,
@@ -1116,6 +1419,238 @@
       tech: "⚙️ Technical Governance Readiness"
     };
 
+    
+    // ==========================================================================
+    // DYNAMIC STATUTORY DATA INVENTORY & DPIA LOGIC (SG, MY, ID)
+    // ==========================================================================
+    let currentEngineView = 'inventory';
+
+    const countryData = {
+      sg: {
+        flag: "🇸🇬",
+        title: "Singapore PDPC Statutory Data Inventory Map (DIM) & DPIA",
+        sub: "Mandated under PDPA Accountability Obligation, Section 48J, and PDPC Advisory Guidelines on AI Systems.",
+        dpiaHeading: "⚖️ Singapore PDPC 6-Phase Data Protection Impact Assessment (DPIA) Screener",
+        dpiaSub: "Evaluates AI workloads, automated decision scoring, and cross-border transfer risks against the 11 PDPC Obligations.",
+        headers: [
+          "Data Asset / Database",
+          "Personal Data Categories",
+          "Purpose of Collection (PDPA § 13–18)",
+          "Legal Basis (§ 13/15/15B)",
+          "Data Intermediary (§ 4(2))",
+          "Retention Period (§ 25)"
+        ],
+        rows: [
+          [
+            "<strong>PostgreSQL: users_master</strong><br><span style='font-size:11px;color:#94a3b8;'>Production E-Commerce</span>",
+            "<span class='badge-sensitive'>NRIC / FIN</span>, Full Name, Phone, Delivery Address",
+            "Customer identity verification & delivery fulfillment",
+            "<span class='badge-legal'>Explicit Consent § 13</span>",
+            "Stripe Payments (DPA Signed & SOC 2)",
+            "7 years after account closure (Inland Revenue Act)"
+          ],
+          [
+            "<strong>ClickHouse: agentic_query_log</strong><br><span style='font-size:11px;color:#94a3b8;'>Conversational SQL Logs</span>",
+            "Employee Email, Natural Language Queries, Role ID",
+            "Internal workflow automation & prompt execution",
+            "<span class='badge-legal'>Business Improvement § 15B</span>",
+            "KaoinAI Self-Hosted Instance (Zero-Egress)",
+            "90 days rolling TTL with automated purging"
+          ],
+          [
+            "<strong>S3 Bucket: candidate_resumes</strong><br><span style='font-size:11px;color:#94a3b8;'>HR & Recruiting Pipeline</span>",
+            "Salaries, Employment History, Contact Details",
+            "Job application screening & talent evaluation",
+            "<span class='badge-legal'>Consent § 13</span>",
+            "Greenhouse Cloud (Standard Contractual Clauses § 26)",
+            "1 year post-rejection with auto-destruction"
+          ]
+        ]
+      },
+      my: {
+        flag: "🇲🇾",
+        title: "Malaysia JPDP Personal Data System Register & Section 68A Audit",
+        sub: "Mandated under PDPA Act 709 Section 14, Security Standard 2015, and 2024 Amendment Act A1727.",
+        dpiaHeading: "⚖️ Malaysia JPDP Privacy Impact Assessment (PIA) & Act A1727 Screener",
+        dpiaSub: "Evaluates direct data processor liabilities (Section 68A), sensitive data justifications (Section 40), and 72-hour breach response.",
+        headers: [
+          "Data System Identifier",
+          "Classes of Data (General vs Sensitive § 4)",
+          "Commercial Purpose",
+          "Bilingual Notice Status (BM/EN § 7)",
+          "Data Processor & DPA (§ 68A)",
+          "Retention Standard (Rule 5)"
+        ],
+        rows: [
+          [
+            "<strong>MySQL: my_customer_db</strong><br><span style='font-size:11px;color:#94a3b8;'>Retail Transaction DB</span>",
+            "<span class='badge-sensitive'>MyKad (IC Number)</span>, Name, Mobile, Billing Address",
+            "Commercial sales and loyalty program",
+            "<span class='badge-legal'>Bilingual Notice Verified (BM/EN)</span>",
+            "AWS Malaysia Region (Section 68A DPA Executed)",
+            "7 years (Income Tax Act 1967 Compliance)"
+          ],
+          [
+            "<strong>MongoDB: biometric_logs</strong><br><span style='font-size:11px;color:#94a3b8;'>Smart Office Check-in</span>",
+            "<span class='badge-sensitive'>Sensitive Data: Facial Biometrics</span>",
+            "Physical premise access control",
+            "<span class='badge-legal'>Explicit Written Consent § 40</span>",
+            "Internal On-Premises Server (No 3rd-party vendor)",
+            "Deleted immediately upon employee resignation"
+          ],
+          [
+            "<strong>PostgreSQL: analytics_warehouse</strong><br><span style='font-size:11px;color:#94a3b8;'>Business Intelligence</span>",
+            "Transaction IDs, Anonymized User Spend, Category",
+            "Market basket analysis & inventory forecasting",
+            "<span class='badge-legal'>Exempt (Anonymized Data)</span>",
+            "KaoinAI DataSense (On-Prem / Dynamic Masking)",
+            "Indefinite (De-identified historical trends)"
+          ]
+        ]
+      },
+      id: {
+        flag: "🇮🇩",
+        title: "Indonesia UU PDP Catatan Aktivitas Pemrosesan Data & DPIA (Pasal 31 & 34)",
+        sub: "Wajib berdasarkan UU No. 27 Tahun 2022 Pasal 31 & 34 dengan denda hingga 2% omzet tahunan dan pidana penjara 6 tahun.",
+        dpiaHeading: "⚖️ Indonesia UU PDP Penilaian Dampak Pelindungan Data Pribadi (DPIA Pasal 34)",
+        dpiaSub: "Wajib untuk pemrosesan berisiko tinggi: pemrosesan otomatisasi / AI profiling, data spesifik Pasal 16, atau transfer lintas batas.",
+        headers: [
+          "Nama Sistem / Database",
+          "Kategori Data (Umum vs Spesifik Pasal 16)",
+          "Dasar Pemrosesan (Pasal 20)",
+          "Pengendali & Prosesor Data (Pasal 31)",
+          "Transfer Luar Negeri (Pasal 56)",
+          "Masa Retensi & Penghapusan (Pasal 43-44)"
+        ],
+        rows: [
+          [
+            "<strong>PostgreSQL: db_pengguna_id</strong><br><span style='font-size:11px;color:#94a3b8;'>Layanan Pelanggan Nasional</span>",
+            "<span class='badge-sensitive'>Data Spesifik: NIK, Data Rekening</span>, Nama, No. HP",
+            "<span class='badge-legal'>Persetujuan Sah Tertulis Pasal 20(2)a</span>",
+            "PT KaoinAI Solusi Indonesia (Pengendali Data)",
+            "Lokal (Pusat Data Nasional / Indonesia Data Center)",
+            "5 tahun setelah penutupan akun sesuai UU ITE"
+          ],
+          [
+            "<strong>ClickHouse: ai_scoring_pipeline</strong><br><span style='font-size:11px;color:#94a3b8;'>AI Credit Scoring Model</span>",
+            "<span class='badge-sensitive'>Data Spesifik: Keuangan Pribadi</span>, Skor Transaksi",
+            "<span class='badge-legal'>Kewajiban Perjanjian Pasal 20(2)b</span>",
+            "Prosesor Data Terdaftar (DPA Mengikat Pasal 31)",
+            "Wilayah Hukum Setara (Binding Corporate Rules Pasal 56)",
+            "Dihapus otomatis setelah evaluasi pinjaman selesai"
+          ],
+          [
+            "<strong>MinIO: arsip_dokumen_hr</strong><br><span style='font-size:11px;color:#94a3b8;'>Sistem SDM Karyawan</span>",
+            "Kartu Keluarga (KK), NPWP, Riwayat Kesehatan",
+            "<span class='badge-legal'>Kewajiban Hukum Ketenagakerjaan</span>",
+            "Tim Internal HRD (Role-Based Access Control)",
+            "Penyimpanan Lokal Terenkripsi AES-256",
+            "10 tahun setelah masa kerja berakhir"
+          ]
+        ]
+      }
+    };
+
+    function switchEngineView(view) {
+      currentEngineView = view;
+      document.getElementById('subtab-inventory').classList.toggle('active', view === 'inventory');
+      document.getElementById('subtab-dpia').classList.toggle('active', view === 'dpia');
+      document.getElementById('view-inventory').style.display = (view === 'inventory') ? 'block' : 'none';
+      document.getElementById('view-dpia').style.display = (view === 'dpia') ? 'block' : 'none';
+    }
+
+    function renderStatutoryEngine(jur) {
+      if (jur === 'tech') jur = 'sg'; // Default tech to SG regulatory baseline
+      const data = countryData[jur] || countryData['sg'];
+
+      // Update Titles
+      document.getElementById('engineFlag').textContent = data.flag;
+      document.getElementById('engineTitleText').textContent = data.title;
+      document.getElementById('engineSubText').textContent = data.sub;
+      document.getElementById('dpiaTitle').textContent = data.dpiaHeading;
+      document.getElementById('dpiaDesc').textContent = data.dpiaSub;
+
+      // Render Table Headers
+      const thead = document.getElementById('inventoryThead');
+      thead.innerHTML = '<tr>' + data.headers.map(h => `<th>${h}</th>`).join('') + '</tr>';
+
+      // Render Table Rows
+      const tbody = document.getElementById('inventoryTbody');
+      tbody.innerHTML = data.rows.map(row => {
+        return '<tr>' + row.map(cell => `<td>${cell}</td>`).join('') + '</tr>';
+      }).join('');
+
+      runDpiaEvaluation();
+    }
+
+    function simulateAddInventoryRow() {
+      const tbody = document.getElementById('inventoryTbody');
+      const newRow = document.createElement('tr');
+      newRow.style.background = 'rgba(168, 85, 247, 0.1)';
+      
+      const jur = (currentJurisdiction === 'my' || currentJurisdiction === 'id') ? currentJurisdiction : 'sg';
+      if (jur === 'sg') {
+        newRow.innerHTML = `
+          <td><strong>Stripe: transactions_v2</strong><br><span style='font-size:11px;color:#94a3b8;'>Simulated Payment Queue</span></td>
+          <td><span class='badge-sensitive'>Credit Card Masked</span>, Customer Email</td>
+          <td>Payment authorization & fraud prevention</td>
+          <td><span class='badge-legal'>Contract Performance § 15</span></td>
+          <td>Stripe Inc. (DPA § 4(2))</td>
+          <td>5 years financial statutory standard</td>
+        `;
+      } else if (jur === 'my') {
+        newRow.innerHTML = `
+          <td><strong>PostgreSQL: payment_events</strong><br><span style='font-size:11px;color:#94a3b8;'>Simulated Payment Engine</span></td>
+          <td><span class='badge-sensitive'>Payment Token</span>, IC Hash</td>
+          <td>Direct transaction processing</td>
+          <td><span class='badge-legal'>BM & EN Notice Verified § 7</span></td>
+          <td>Payment Gateway Provider (Section 68A)</td>
+          <td>7 years statutory audit retention</td>
+        `;
+      } else {
+        newRow.innerHTML = `
+          <td><strong>MySQL: transaksi_gateway</strong><br><span style='font-size:11px;color:#94a3b8;'>Simulasi Transaksi</span></td>
+          <td><span class='badge-sensitive'>Data Keuangan Spesifik</span>, ID Akun</td>
+          <td><span class='badge-legal'>Perjanjian Bisnis Pasal 20(2)b</span></td>
+          <td>Payment Gateway Nasional Terdaftar</td>
+          <td>Lokal (Indonesia)</td>
+          <td>5 tahun sesuai aturan Bank Indonesia</td>
+        `;
+      }
+
+      tbody.insertBefore(newRow, tbody.firstChild);
+      showToast("✨ Simulated Data Asset successfully inventoried and mapped to statutory columns!");
+    }
+
+    function runDpiaEvaluation() {
+      const type = document.getElementById('dpiaInput1').value;
+      const data = document.getElementById('dpiaInput2').value;
+      const host = document.getElementById('dpiaInput3').value;
+      const banner = document.getElementById('dpiaResultBanner');
+      const status = document.getElementById('dpiaResultStatus');
+      const advice = document.getElementById('dpiaResultAdvice');
+
+      if (data === 'sensitive' && host === 'external') {
+        banner.style.background = 'rgba(239, 68, 68, 0.1)';
+        banner.style.borderColor = 'rgba(239, 68, 68, 0.4)';
+        status.style.color = '#f87171';
+        status.textContent = 'STATUS: HIGH STATUTORY RISK — IMMEDIATE SAFEGUARDS REQUIRED';
+        advice.textContent = 'Feeding unmasked sensitive PII to external cloud/LLM endpoints violates regional data export laws (SG PDPA § 26, MY Act A1727 § 129, ID UU PDP § 56). Dynamic query-time masking and DPA execution must be enforced.';
+      } else if (data === 'sensitive' || type === 'ai') {
+        banner.style.background = 'rgba(245, 158, 11, 0.1)';
+        banner.style.borderColor = 'rgba(245, 158, 11, 0.4)';
+        status.style.color = '#fbbf24';
+        status.textContent = 'STATUS: MODERATE RISK — DPO APPROVAL & RBAC AUDIT REQUIRED';
+        advice.textContent = 'AI processing and automated profiling require a formal DPIA risk assessment, active schema drift sentinels, and strict Role-Based Access Control (RBAC).';
+      } else {
+        banner.style.background = 'rgba(16, 185, 129, 0.08)';
+        banner.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+        status.style.color = '#34d399';
+        status.textContent = 'STATUS: LOW STATUTORY RISK — COMPLIANT BASELINE';
+        advice.textContent = 'Aggregated metrics and self-hosted workflows meet statutory baseline requirements. Continue scheduled 4D data quality monitoring.';
+      }
+    }
+
     function switchJurisdiction(jur, btn) {
       currentJurisdiction = jur;
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -1126,6 +1661,7 @@
       if (targetSec) targetSec.style.display = 'block';
 
       updateTracker();
+      renderStatutoryEngine(jur);
     }
 
     function toggleItem(card, jur) {

@@ -67,7 +67,7 @@ All 11 HTML files adhere to identical, synchronized structure:
 | [blog.html](file:///d:/kaoinai-website/blog.html) | Knowledge Base & Articles | Searchable, category-filtered engineering and SME governance blog with newsletter capture. |
 | [blog-sme-data-governance-ai-cost-research.html](file:///d:/kaoinai-website/blog-sme-data-governance-ai-cost-research.html) | SME Data Inequality Research Whitepaper | Deep empirical study on the 4 hidden phantom taxes costing SMEs $75k+ annually, why 99% are priced out of legacy DG, and why democratizing DG within AI is urgent. Includes interactive phantom tax simulator. |
 | [blog-avengers-data-governance.html](file:///d:/kaoinai-website/blog-avengers-data-governance.html) | Avengers Data Governance & AI Metaphor | Viral strategic analysis with interactive animated HUD battle simulator comparing Infinity War failure to Endgame victory. |
-| [blog-data-governance-checklist.html](file:///d:/kaoinai-website/blog-data-governance-checklist.html) | 15-Minute Audit Checklist | Interactive 4-tab checklist for Singapore (PDPC), Malaysia (Act 709/Act A1727), and Indonesia (UU PDP 27/2022) with direct PDF download. |
+| [blog-data-governance-checklist.html](file:///d:/kaoinai-website/blog-data-governance-checklist.html) | 15-Minute Audit Checklist & Statutory Engine | Interactive 4-tab checklist and dynamic country-specific Data Inventory Map & DPIA engine for Singapore (PDPC DIM & 6-Phase DPIA), Malaysia (JPDP System Register & PIA), and Indonesia (UU PDP 27/2022 Pasal 31 RoPA & Pasal 34 DPIA). Includes printable PDF download. |
 | [blog-natural-language-sql.html](file:///d:/kaoinai-website/blog-natural-language-sql.html) | Plain English SQL Guide | Tutorial on conversational data querying with zero hallucinations, RBAC enforcement, and superhero defense comparison. |
 | [blog-waste-enterprise-tools.html](file:///d:/kaoinai-website/blog-waste-enterprise-tools.html) | SME Cost Guide | Detailed breakdown of why SMEs overspend $50k+ on legacy enterprise stacks and how AI-native tooling solves it. |
 | [vs-collibra.html](file:///d:/kaoinai-website/vs-collibra.html) | Comparison: KaoinAI vs Collibra | Detailed B2B feature, pricing, and deployment breakdown targeting mid-market & SMEs. |
@@ -77,7 +77,7 @@ All 11 HTML files adhere to identical, synchronized structure:
 
 ## 4. Peer-Reviewed & Statutory PDF Publications
 
-1. [downloads/2026-Data-Governance-AI-Readiness-Handbook.pdf](file:///d:/kaoinai-website/downloads/2026-Data-Governance-AI-Readiness-Handbook.pdf): Publication-grade PDF handbook grounded in Singapore PDPC, Malaysia JPDP Act 709 / Act A1727, Indonesia UU PDP 27/2022, ISO/IEC 42001:2023, DAMA-DMBOK2, and peer-reviewed academic literature.
+1. [downloads/2026-Data-Governance-AI-Readiness-Handbook.pdf](file:///d:/kaoinai-website/downloads/2026-Data-Governance-AI-Readiness-Handbook.pdf): Publication-grade PDF handbook grounded in Singapore PDPC, Malaysia JPDP Act 709 / Act A1727, Indonesia UU PDP 27/2022, ISO/IEC 42001:2023, DAMA-DMBOK2, including full country-specific Data Inventory and DPIA statutory matrices.
 2. [downloads/2026-SME-Data-Governance-AI-Democratization-Report.pdf](file:///d:/kaoinai-website/downloads/2026-SME-Data-Governance-AI-Democratization-Report.pdf): Working paper (WP-2026-04) analyzing the macroeconomic SME Data Inequality Gap, 4 phantom taxes costing SMEs $75,000+ annually, and the 5 architectural pillars of democratized DG within AI.
 
 ---
