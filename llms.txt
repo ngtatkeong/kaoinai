@@ -62,6 +62,8 @@ In modern enterprise architectures, **DG within AI (Data Governance within AI)**
 - [Interactive Feature Tour](https://kaoinai.com/demo.html)
 - [Free SME Data Health Audit Tool](https://kaoinai.com/audit.html)
 - [SME Data Governance ROI Calculator](https://kaoinai.com/roi-calculator.html)
+- [Empirical Research: The SME Data Inequality Gap & The Economic Urgency of Democratizing DG within AI](https://kaoinai.com/blog-sme-data-governance-ai-cost-research.html)
+- [Download: 2026 SME Data Governance & AI Democratization Report (PDF)](https://kaoinai.com/downloads/2026-SME-Data-Governance-AI-Democratization-Report.pdf)
 - [2026 SME Data Governance & PDPA Checklist (SG, MY, ID)](https://kaoinai.com/blog-data-governance-checklist.html)
 - [Why the Avengers Lost in Infinity War & Why Bad Data Defeats AI](https://kaoinai.com/blog-avengers-data-governance.html)
 - [Plain English SQL Tutorial](https://kaoinai.com/blog-natural-language-sql.html)

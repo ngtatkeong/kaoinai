@@ -55,15 +55,16 @@ All 11 HTML files adhere to identical, synchronized structure:
 
 ---
 
-## 3. Production Page Inventory (11 Pages)
+## 3. Production Page Inventory (12 Pages)
 
 | File | Page Purpose | Key Features & Implementation |
 | :--- | :--- | :--- |
-| [index.html](file:///d:/kaoinai-website/index.html) | Homepage & Main Hub | Hero ("Data Governance & AI for All"), Story, DataSense Platform, SME Personas, Day-in-the-Life, 10 UI Showcase Cards, "Why Bad Data Defeats Good AI" visual section, Pricing, Interactive FAQ, CTA. |
-| [demo.html](file:///d:/kaoinai-website/demo.html) | Interactive Feature Tour | Query generator simulator (Natural Language &rarr; SQL), Automated Column Lineage Graph, 4D Data Quality Monitor. |
+| [index.html](file:///d:/kaoinai-website/index.html) | Homepage & Main Hub | Hero ("Data Governance & AI for All"), Story, DataSense Platform, SME Personas, Day-in-the-Life, 12 Simulated UI Mockup Browsers, "Why Bad Data Defeats Good AI" visual section, Pricing, Interactive FAQ, CTA. |
+| [demo.html](file:///d:/kaoinai-website/demo.html) | Interactive Feature Tour | Query generator simulator (Natural Language &rarr; SQL), Automated Column Lineage Graph, 4D Data Quality Monitor with dual simulation notices and interactive contact toast. |
 | [roi-calculator.html](file:///d:/kaoinai-website/roi-calculator.html) | SME ROI Savings Engine | Real-time interactive sliders (Team size, SQL tickets, legacy tool spend, pipeline outages) with instant annual ROI output. |
 | [audit.html](file:///d:/kaoinai-website/audit.html) | Free SME Data Health Audit | 5-step interactive governance & PII assessment wizard with instant diagnostic score and recommendations. |
 | [blog.html](file:///d:/kaoinai-website/blog.html) | Knowledge Base & Articles | Searchable, category-filtered engineering and SME governance blog with newsletter capture. |
+| [blog-sme-data-governance-ai-cost-research.html](file:///d:/kaoinai-website/blog-sme-data-governance-ai-cost-research.html) | SME Data Inequality Research Whitepaper | Deep empirical study on the 4 hidden phantom taxes costing SMEs $75k+ annually, why 99% are priced out of legacy DG, and why democratizing DG within AI is urgent. Includes interactive phantom tax simulator. |
 | [blog-avengers-data-governance.html](file:///d:/kaoinai-website/blog-avengers-data-governance.html) | Avengers Data Governance & AI Metaphor | Viral strategic analysis with interactive animated HUD battle simulator comparing Infinity War failure to Endgame victory. |
 | [blog-data-governance-checklist.html](file:///d:/kaoinai-website/blog-data-governance-checklist.html) | 15-Minute Audit Checklist | Interactive 4-tab checklist for Singapore (PDPC), Malaysia (Act 709/Act A1727), and Indonesia (UU PDP 27/2022) with direct PDF download. |
 | [blog-natural-language-sql.html](file:///d:/kaoinai-website/blog-natural-language-sql.html) | Plain English SQL Guide | Tutorial on conversational data querying with zero hallucinations, RBAC enforcement, and superhero defense comparison. |
@@ -73,7 +74,14 @@ All 11 HTML files adhere to identical, synchronized structure:
 
 ---
 
-## 4. Technical Architecture, Verification & Deployment Suite
+## 4. Peer-Reviewed & Statutory PDF Publications
+
+1. [downloads/2026-Data-Governance-AI-Readiness-Handbook.pdf](file:///d:/kaoinai-website/downloads/2026-Data-Governance-AI-Readiness-Handbook.pdf): Publication-grade PDF handbook grounded in Singapore PDPC, Malaysia JPDP Act 709 / Act A1727, Indonesia UU PDP 27/2022, ISO/IEC 42001:2023, DAMA-DMBOK2, and peer-reviewed academic literature.
+2. [downloads/2026-SME-Data-Governance-AI-Democratization-Report.pdf](file:///d:/kaoinai-website/downloads/2026-SME-Data-Governance-AI-Democratization-Report.pdf): Working paper (WP-2026-04) analyzing the macroeconomic SME Data Inequality Gap, 4 phantom taxes costing SMEs $75,000+ annually, and the 5 architectural pillars of democratized DG within AI.
+
+---
+
+## 5. Technical Architecture, Verification & Deployment Suite
 
 * **Zero Dependencies**: Pure HTML5, Modern CSS (Custom properties, grid, flex, clamp, backdrop filters), and Vanilla ES6 JavaScript.
 * **Production Repository**: `https://github.com/ngtatkeong/kaoinai.git` (`main` branch)
@@ -81,7 +89,7 @@ All 11 HTML files adhere to identical, synchronized structure:
 * **Custom Reusable Skill**:
   * Installed at `.agents/skills/kaoinai-platform-workflow/SKILL.md` and global `~/.gemini/config/skills/kaoinai-platform-workflow/SKILL.md`.
 * **Automated Audit Suite**:
-  * `scratch/full_site_audit.py`: Validates 0 broken links, 0 broken images, 0 broken anchors, 100% nav/footer consistency, and valid Schema.org JSON-LD across all 11 pages.
+  * `scratch/full_site_audit.py`: Validates 0 broken links, 0 broken images, 0 broken anchors, 100% nav/footer consistency, and valid Schema.org JSON-LD across all 12 production pages.
 * **Production Deployment Cycle**:
   1. Local push: `git push origin main`
   2. VPS pull: `cd /opt/kaionai-site && git pull origin main && chown -R www-data:www-data /opt/kaionai-site && systemctl reload nginx`
