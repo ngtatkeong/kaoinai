@@ -55,11 +55,12 @@ All 11 HTML files adhere to identical, synchronized structure:
 
 ---
 
-## 3. Production Page Inventory (12 Pages)
+## 3. Production Page Inventory (13 Pages)
 
 | File | Page Purpose | Key Features & Implementation |
 | :--- | :--- | :--- |
-| [index.html](file:///d:/kaoinai-website/index.html) | Homepage & Main Hub | Hero ("Data Governance & AI for All"), Story, DataSense Platform, SME Personas, Day-in-the-Life, 12 Simulated UI Mockup Browsers, "Why Bad Data Defeats Good AI" visual section, Pricing, Interactive FAQ, CTA. |
+| [index.html](file:///d:/kaoinai-website/index.html) | Homepage & Main Hub | Primary ranking authority for "DG and AI". Hero ("DG and AI for All"), Story, DataSense Platform, SME Personas, Day-in-the-Life, 12 Simulated UI Mockup Browsers, "Why Bad Data Defeats Good AI" visual section, Pricing, Interactive FAQ, CTA. |
+| [dg-and-ai.html](file:///d:/kaoinai-website/dg-and-ai.html) | Definitive DG and AI Authority Guide | Exact-match SEO landing page for "DG and AI". Featured definition block, comparison grid (AI Without DG vs. DG and AI Unified), 5 architectural pillars, interactive simulation console, and dedicated FAQPage Schema. |
 | [demo.html](file:///d:/kaoinai-website/demo.html) | Interactive Feature Tour | Query generator simulator (Natural Language &rarr; SQL), Automated Column Lineage Graph, 4D Data Quality Monitor with dual simulation notices and interactive contact toast. |
 | [roi-calculator.html](file:///d:/kaoinai-website/roi-calculator.html) | SME ROI Savings Engine | Real-time interactive sliders (Team size, SQL tickets, legacy tool spend, pipeline outages) with instant annual ROI output. |
 | [audit.html](file:///d:/kaoinai-website/audit.html) | Free SME Data Health Audit | 5-step interactive governance & PII assessment wizard with instant diagnostic score and recommendations. |

@@ -118,4 +118,15 @@
       <image:title>The SME Data Inequality Gap: Economic Research on DG and AI Access</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://kaoinai.com/dg-and-ai.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://kaoinai.com/images/bad-data-vs-good-ai.webp</image:loc>
+      <image:title>DG and AI: The Mandatory Foundation of Enterprise Intelligence</image:title>
+      <image:caption>DG and AI Guide: Why data governance is indispensable for artificial intelligence</image:caption>
+    </image:image>
+  </url>
 </urlset>
