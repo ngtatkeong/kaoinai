@@ -186,6 +186,22 @@
       background: #10b981;
       box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
     }
+    .sim-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      color: #d8b4fe;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
     .mock-url {
       font-size: 11px;
       color: var(--text-muted);
@@ -521,19 +537,19 @@
       <div class="sim-app-header">
         <div class="mock-app-status">
           <span class="mock-status-dot"></span>
-          <span>DataSense Interactive Console</span>
+          <span>DataSense Interactive Console (Simulation)</span>
         </div>
-        <div class="mock-url">Sample Workspace · PostgreSQL / ClickHouse</div>
+        <div class="mock-url"><span class="sim-pill-badge">SIMULATION MODE</span>Sample Workspace · PostgreSQL / ClickHouse</div>
       </div>
       <div class="sim-tabs">
         <button class="sim-tab-btn active" onclick="switchTab('nlq', this)">
-          💬 Plain-English SQL Query
+          💬 Plain-English SQL Query (Simulation)
         </button>
         <button class="sim-tab-btn" onclick="switchTab('lineage', this)">
-          🗺️ Automated Lineage Graph
+          🗺️ Automated Lineage Graph (Simulation)
         </button>
         <button class="sim-tab-btn" onclick="switchTab('quality', this)">
-          🛡️ 4D Data Quality & PII Scan
+          🛡️ 4D Data Quality & PII Scan (Simulation)
         </button>
       </div>
 
@@ -598,6 +614,10 @@ ORDER BY total_mrr DESC;
 
         <!-- Tab 2: Lineage Graph -->
         <div id="tab-lineage" style="display: none;">
+          <div class="sim-notice-bar">
+            <span class="sim-notice-tag">Simulation Only</span>
+            <span class="sim-notice-text">Interactive lineage graph simulation. For real-time automated lineage connected to your databases, <a href="index.html#cta" class="sim-notice-link">contact us &rarr;</a></span>
+          </div>
           <h3 style="font-size: 18px; color: #fff; margin-bottom: 8px;">End-to-End Automated Lineage Map</h3>
           <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 30px;">
             KaoinAI tracks dependencies automatically from ingestion to executive KPI dashboards.
@@ -628,6 +648,10 @@ ORDER BY total_mrr DESC;
 
         <!-- Tab 3: Quality & PII -->
         <div id="tab-quality" style="display: none;">
+          <div class="sim-notice-bar">
+            <span class="sim-notice-tag">Simulation Only</span>
+            <span class="sim-notice-text">Simulated PII discovery & anomaly audit. For real live compliance scans on your database, <a href="index.html#cta" class="sim-notice-link">contact us &rarr;</a></span>
+          </div>
           <h3 style="font-size: 18px; color: #fff; margin-bottom: 8px;">Automated PII Discovery & Anomaly Audit</h3>
           <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 24px;">
             Real-time compliance monitoring actively scanning tables for exposed customer information.
