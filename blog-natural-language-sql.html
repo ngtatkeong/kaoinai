@@ -1,29 +1,26 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>How to Query AI and Data in Plain English [Conversational SQL Guide] — KaoinAI</title>
-  <meta name="title" content="How to Query AI and Data in Plain English [Conversational SQL Guide]">
-  <meta name="description" content="Learn how non-technical teams query complex databases in plain English using schema-grounded AI text-to-SQL. Eliminate hallucinations and get verified answers.">
-  <meta name="keywords" content="AI and data, AI text to SQL, conversational data analytics, query SQL in plain English, AI data governance, KaoinAI">
-  <link rel="canonical" href="https://kaoinai.com/blog-natural-language-sql.html">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://kaoinai.com/blog-natural-language-sql.html">
-  <meta property="og:site_name" content="KaoinAI">
-  <meta property="og:title" content="How to Query AI and Data in Plain English [Conversational SQL Guide]">
-  <meta property="og:description" content="Eliminate SQL ticketing backlogs. Turn plain English questions into verified SQL queries and charts in seconds.">
-  <meta property="og:image" content="https://kaoinai.com/images/blog-ai-query.jpg">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/webp" href="logo.webp">
-  <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
-
-  <!-- Schema.org BlogPosting -->
-  <script type="application/ld+json">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>How to Query AI and Data in Plain English [Conversational SQL Guide] — KaoinAI</title>
+<meta content="How to Query AI and Data in Plain English [Conversational SQL Guide]" name="title"/>
+<meta content="Learn how non-technical teams query complex databases in plain English using schema-grounded AI text-to-SQL. Eliminate hallucinations and get verified answers." name="description"/>
+<meta content="AI and data, AI text to SQL, conversational data analytics, query SQL in plain English, AI data governance, KaoinAI" name="keywords"/>
+<link href="https://kaoinai.com/blog-natural-language-sql.html" rel="canonical"/>
+<!-- Open Graph -->
+<meta content="article" property="og:type"/>
+<meta content="https://kaoinai.com/blog-natural-language-sql.html" property="og:url"/>
+<meta content="KaoinAI" property="og:site_name"/>
+<meta content="How to Query AI and Data in Plain English [Conversational SQL Guide]" property="og:title"/>
+<meta content="Eliminate SQL ticketing backlogs. Turn plain English questions into verified SQL queries and charts in seconds." property="og:description"/>
+<meta content="https://kaoinai.com/images/blog-ai-query.jpg" property="og:image"/>
+<!-- Favicon -->
+<link href="logo.webp" rel="icon" type="image/webp"/>
+<link href="logo.png" rel="icon" sizes="32x32" type="image/png"/>
+<!-- Schema.org BlogPosting -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -45,13 +42,11 @@
     "description": "Learn how non-technical teams use conversational AI to query SQL databases in plain English and generate instant visual charts."
   }
   </script>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <style>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --bg: #050508;
       --bg-card: #111118;
@@ -289,168 +284,149 @@
     }
 
   </style>
-  <!-- Twitter Cards -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://kaoinai.com/blog-natural-language-sql.html">
-  <meta name="twitter:title" content="How to Query Your Entire SQL Database in Plain English [No Code Tutorial] — KaoinAI">
-  <meta name="twitter:description" content="Learn how non-technical business teams use KaoinAI">
-  <meta name="twitter:image" content="https://kaoinai.com/logo-namecard.png">
+<!-- Twitter Cards -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://kaoinai.com/blog-natural-language-sql.html" name="twitter:url"/>
+<meta content="How to Query Your Entire SQL Database in Plain English [No Code Tutorial] — KaoinAI" name="twitter:title"/>
+<meta content="Learn how non-technical business teams use KaoinAI" name="twitter:description"/>
+<meta content="https://kaoinai.com/logo-namecard.png" name="twitter:image"/>
 </head>
 <body>
-
-  <div class="progress-bar" id="progressBar"></div>
-
-  <!-- Nav -->
-  <header class="nav" id="navbar">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="KaoinAI Home">
-        <img src="logo.webp" alt="KaoinAI - AI Data Intelligence Platform" width="72" height="72" decoding="async">
-      </a>
-      <nav class="nav-links">
-        <a href="index.html#story">Our Story</a>
-        <a href="index.html#features">DataSense Platform</a>
-        <a href="index.html#personas">Who It's For</a>
-        <a href="index.html#use-cases">Industries</a>
-        <a href="index.html#services">Consulting</a>
-        <a href="demo.html">Live Demo</a>
-        <a href="roi-calculator.html">ROI Calculator</a>
-        <a href="blog.html">Blog</a>
-        <a href="index.html#faq">FAQ</a>
-        <a href="index.html#cta" class="btn btn-primary" style="padding: 8px 18px; font-size: 12px;">Start Free</a>
-        <div class="lang-switcher">
-          <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
-          <button class="lang-btn" data-lang="id" onclick="setLang('id')">ID</button>
-          <button class="lang-btn" data-lang="ms" onclick="setLang('ms')">MS</button>
-          <button class="lang-btn" data-lang="zh" onclick="setLang('zh')">简</button>
-        </div>
-      </nav>
-      <button class="mobile-toggle" onclick="openMenu()" aria-label="Menu">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </header>
-
-  <div class="mobile-overlay" id="mobileMenu">
-    <button class="mobile-close" onclick="closeMenu()">&times;</button>
-    <a href="index.html#story" onclick="closeMenu()">Our Story</a>
-    <a href="index.html#features" onclick="closeMenu()">DataSense Platform</a>
-    <a href="index.html#personas" onclick="closeMenu()">Who It's For</a>
-    <a href="index.html#use-cases" onclick="closeMenu()">Industries</a>
-    <a href="index.html#services" onclick="closeMenu()">Consulting</a>
-    <a href="demo.html" onclick="closeMenu()">Live Demo</a>
-    <a href="roi-calculator.html" onclick="closeMenu()">ROI Calculator</a>
-    <a href="audit.html" onclick="closeMenu()" style="color: #06b6d4;">Free Data Audit</a>
-    <a href="blog.html" onclick="closeMenu()">Blog &amp; Insights</a>
-    <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
-    <a href="index.html#cta" class="btn btn-primary" onclick="closeMenu()">Start Free Trial</a>
-    <div class="lang-switcher" style="margin-top:20px;">
-      <button class="lang-btn active" data-lang="en" onclick="setLang('en');closeMenu()">EN</button>
-      <button class="lang-btn" data-lang="id" onclick="setLang('id');closeMenu()">ID</button>
-      <button class="lang-btn" data-lang="ms" onclick="setLang('ms');closeMenu()">MS</button>
-      <button class="lang-btn" data-lang="zh" onclick="setLang('zh');closeMenu()">简</button>
-    </div>
-  </div>
-
-  <main class="article-container">
-    <div class="breadcrumbs">
-      <a href="https://www.linkedin.com/company/kaoinai-pte-ltd" target="_blank" rel="noopener noreferrer">LinkedIn</a> &nbsp;|&nbsp; <a href="index.html">Home</a> &rarr; <a href="blog.html">Blog</a> &rarr; <span>AI & Conversational Analytics</span>
-    </div>
-
-    <header class="article-header">
-      <h1>How to Query Your Entire SQL Database in Plain English [No Code Tutorial]</h1>
-      <div class="article-meta">
-        <div>
-          <span>By <strong>KaoinAI AI Team</strong></span> &bull; <span>6 min read</span> &bull; <span>August 2026</span>
-        </div>
-        <div class="social-shares">
-          <button class="share-btn" onclick="shareLinkedIn()">💼 Share</button>
-          <button class="share-btn" onclick="shareTwitter()">🐦 Tweet</button>
-          <button class="share-btn" onclick="copyArticleLink()">🔗 Copy Link</button>
-        </div>
-      </div>
-    </header>
-
-    <div class="hero-img-wrap">
-      <img src="images/blog-ai-query.jpg" alt="Conversational AI Natural Language SQL Query Interface">
-    </div>
-
-    <article class="article-body">
-      <p>In almost every fast-growing business, the data team is trapped under a mountain of repetitive requests: <em>"Can you pull monthly churn by channel?"</em>, <em>"What was our average order value last Tuesday in Singapore?"</em></p>
-
-      <p>By the time a data engineer writes the SQL query, extracts the CSV, and formats the charts, days have passed and the business moment has slipped. Here is how conversational data intelligence enables any team member to query databases directly without writing code.<a href="#ref-1" class="citation-sup">[1]</a><a href="#ref-2" class="citation-sup">[2]</a></p>
-
-      <!-- Superhero Defense Analogy -->
-      <div style="margin: 32px 0 36px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(168, 85, 247, 0.35); box-shadow: 0 16px 40px rgba(0,0,0,0.6);">
-        <img src="images/assemble-data-defense.webp" alt="The Avengers Analogy: Why Champions Cannot Defend Against Chaos Without United Data" width="1280" height="720" style="width: 100%; height: auto; display: block;" loading="lazy">
-      </div>
-
-      <div style="background: rgba(17, 17, 26, 0.8); border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; margin-bottom: 28px;">
-        <h4 style="color: #c084fc; margin-bottom: 6px; font-size: 15px;">🦸 The Superhero Dilemma: Chaos vs. Assembled Intelligence</h4>
-        <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+<div class="progress-bar" id="progressBar"></div>
+<!-- Nav -->
+<header class="nav" id="navbar">
+<div class="nav-inner">
+<a aria-label="KaoinAI Home" class="nav-logo" href="index.html">
+<img alt="KaoinAI - AI Data Intelligence Platform" decoding="async" height="72" src="logo.webp" width="72"/>
+</a>
+<nav class="nav-links">
+<a href="index.html#story">Our Story</a>
+<a href="index.html#features">DataSense Platform</a>
+<a href="index.html#personas">Who It's For</a>
+<a href="index.html#use-cases">Industries</a>
+<a href="index.html#services">Consulting</a>
+<a href="demo.html">Live Demo</a>
+<a href="roi-calculator.html">ROI Calculator</a>
+<a href="blog.html">Blog</a>
+<a href="index.html#faq">FAQ</a>
+<a class="btn btn-primary" href="index.html#cta" style="padding: 8px 18px; font-size: 12px;">Start Free</a>
+<div class="lang-switcher">
+<button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+<button class="lang-btn" data-lang="id" onclick="setLang('id')">ID</button>
+<button class="lang-btn" data-lang="ms" onclick="setLang('ms')">MS</button>
+<button class="lang-btn" data-lang="zh" onclick="setLang('zh')">简</button>
+</div>
+</nav>
+<button aria-label="Menu" class="mobile-toggle" onclick="openMenu()">
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><line x1="3" x2="21" y1="12" y2="12"></line><line x1="3" x2="21" y1="6" y2="6"></line><line x1="3" x2="21" y1="18" y2="18"></line></svg>
+</button>
+</div>
+</header>
+<div class="mobile-overlay" id="mobileMenu">
+<button class="mobile-close" onclick="closeMenu()">×</button>
+<a href="index.html#story" onclick="closeMenu()">Our Story</a>
+<a href="index.html#features" onclick="closeMenu()">DataSense Platform</a>
+<a href="index.html#personas" onclick="closeMenu()">Who It's For</a>
+<a href="index.html#use-cases" onclick="closeMenu()">Industries</a>
+<a href="index.html#services" onclick="closeMenu()">Consulting</a>
+<a href="demo.html" onclick="closeMenu()">Live Demo</a>
+<a href="roi-calculator.html" onclick="closeMenu()">ROI Calculator</a>
+<a href="audit.html" onclick="closeMenu()" style="color: #06b6d4;">Free Data Audit</a>
+<a href="blog.html" onclick="closeMenu()">Blog &amp; Insights</a>
+<a href="index.html#faq" onclick="closeMenu()">FAQ</a>
+<a class="btn btn-primary" href="index.html#cta" onclick="closeMenu()">Start Free Trial</a>
+<div class="lang-switcher" style="margin-top:20px;">
+<button class="lang-btn active" data-lang="en" onclick="setLang('en');closeMenu()">EN</button>
+<button class="lang-btn" data-lang="id" onclick="setLang('id');closeMenu()">ID</button>
+<button class="lang-btn" data-lang="ms" onclick="setLang('ms');closeMenu()">MS</button>
+<button class="lang-btn" data-lang="zh" onclick="setLang('zh');closeMenu()">简</button>
+</div>
+</div>
+<main class="article-container">
+<div class="breadcrumbs">
+<a href="https://www.linkedin.com/company/kaoinai-pte-ltd" rel="noopener noreferrer" target="_blank">LinkedIn</a>  |  <a href="index.html">Home</a> → <a href="blog.html">Blog</a> → <span>AI &amp; Conversational Analytics</span>
+</div>
+<header class="article-header">
+<h1>How to Query Your Entire SQL Database in Plain English [No Code Tutorial]</h1>
+<div class="article-meta">
+<div>
+<span>By <strong>KaoinAI AI Team</strong></span> • <span>6 min read</span> • <span>August 2026</span>
+</div>
+<div class="social-shares">
+<button class="share-btn" onclick="shareLinkedIn()">💼 Share</button>
+<button class="share-btn" onclick="shareTwitter()">🐦 Tweet</button>
+<button class="share-btn" onclick="copyArticleLink()">🔗 Copy Link</button>
+</div>
+</div>
+</header>
+<div class="hero-img-wrap">
+<img alt="Conversational AI Natural Language SQL Query Interface" height="768" src="images/blog-ai-query.jpg" width="1376"/>
+</div>
+<article class="article-body">
+<p>In almost every fast-growing business, the data team is trapped under a mountain of repetitive requests: <em>"Can you pull monthly churn by channel?"</em>, <em>"What was our average order value last Tuesday in Singapore?"</em></p>
+<p>By the time a data engineer writes the SQL query, extracts the CSV, and formats the charts, days have passed and the business moment has slipped. Here is how conversational data intelligence enables any team member to query databases directly without writing code.<a class="citation-sup" href="#ref-1">[1]</a><a class="citation-sup" href="#ref-2">[2]</a></p>
+<!-- Superhero Defense Analogy -->
+<div style="margin: 32px 0 36px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(168, 85, 247, 0.35); box-shadow: 0 16px 40px rgba(0,0,0,0.6);">
+<img alt="The Avengers Analogy: Why Champions Cannot Defend Against Chaos Without United Data" height="720" loading="lazy" src="images/assemble-data-defense.webp" style="width: 100%; height: auto; display: block;" width="1280"/>
+</div>
+<div style="background: rgba(17, 17, 26, 0.8); border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; margin-bottom: 28px;">
+<h4 style="color: #c084fc; margin-bottom: 6px; font-size: 15px;">🦸 The Superhero Dilemma: Chaos vs. Assembled Intelligence</h4>
+<p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; margin: 0;">
           Just as the Avengers can never defend against a cosmic threat like Thanos if they are fighting in isolated silos with broken communications and conflicting battle reports, an AI model can never protect or scale your business if your data is fragmented, duplicate-ridden, and unaligned. When your data is assembled into a single governed semantic layer, your team gains total tactical clarity.
         </p>
-      </div>
-
-      <h2>Step 1: The AI Understands Your Schema and Lineage</h2>
-      <p>Standard LLMs struggle with SQL because they hallucinate table structures and column names. DataSense fixes this by anchoring the AI to your platform's automated metadata catalog and semantic layer.</p>
-
-      <div class="code-block">
-        <span>User Prompt: "Show our top 5 revenue-generating customer cohorts in Q2."</span>
-        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-      </div>
-
-      <h2>Step 2: Transparent, Governed SQL Generation</h2>
-      <p>DataSense compiles the prompt into optimized, dialect-specific SQL (PostgreSQL, MySQL, Snowflake, BigQuery, or ClickHouse), ensuring role-based access rules and data privacy filters are enforced automatically.</p>
-
-      <h2>Step 3: Instant Interactive Visualizations</h2>
-      <p>The result is not just a raw table: DataSense automatically renders the appropriate chart format (stacked bar chart, cohort matrix, or time-series line graph) ready for export to presentations or executive decks.</p>
-
-      <div class="article-cta">
-        <h3>Try Asking Your Database Questions with DataSense</h3>
-        <p>Connect your data warehouse or relational database and experience conversational analytics in under 5 minutes.</p>
-        <a href="index.html#cta" class="btn" style="padding: 12px 28px; font-size: 15px;">Get Started Free</a>
-      </div>
-
-            <div class="references-section" id="references">
-        <h3>Technical &amp; Academic Citations</h3>
-        <ol class="references-list">
-          <li class="references-item" id="ref-1">
-            <span class="ref-num">[1]</span>
-            <strong>Spider &amp; BIRD Benchmarks (2023–2024).</strong> <em>Large-Scale Complex Cross-Domain Semantic Parsing and Text-to-SQL Evaluation on Real Relational Databases.</em> Yale University &amp; Hong Kong University.
+</div>
+<h2>Step 1: The AI Understands Your Schema and Lineage</h2>
+<p>Standard LLMs struggle with SQL because they hallucinate table structures and column names. DataSense fixes this by anchoring the AI to your platform's automated metadata catalog and semantic layer.</p>
+<div class="code-block">
+<span>User Prompt: "Show our top 5 revenue-generating customer cohorts in Q2."</span>
+<button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+</div>
+<h2>Step 2: Transparent, Governed SQL Generation</h2>
+<p>DataSense compiles the prompt into optimized, dialect-specific SQL (PostgreSQL, MySQL, Snowflake, BigQuery, or ClickHouse), ensuring role-based access rules and data privacy filters are enforced automatically.</p>
+<h2>Step 3: Instant Interactive Visualizations</h2>
+<p>The result is not just a raw table: DataSense automatically renders the appropriate chart format (stacked bar chart, cohort matrix, or time-series line graph) ready for export to presentations or executive decks.</p>
+<div class="article-cta">
+<h3>Try Asking Your Database Questions with DataSense</h3>
+<p>Connect your data warehouse or relational database and experience conversational analytics in under 5 minutes.</p>
+<a class="btn" href="index.html#cta" style="padding: 12px 28px; font-size: 15px;">Get Started Free</a>
+</div>
+<div class="references-section" id="references">
+<h3>Technical &amp; Academic Citations</h3>
+<ol class="references-list">
+<li class="references-item" id="ref-1">
+<span class="ref-num">[1]</span>
+<strong>Spider &amp; BIRD Benchmarks (2023–2024).</strong> <em>Large-Scale Complex Cross-Domain Semantic Parsing and Text-to-SQL Evaluation on Real Relational Databases.</em> Yale University &amp; Hong Kong University.
           </li>
-          <li class="references-item" id="ref-2">
-            <span class="ref-num">[2]</span>
-            <strong>ACM SIGMOD (2024).</strong> <em>Natural Language Interfaces to Relational Databases: From Ambiguous Intent to Schema-Grounded Execution.</em> Proceedings of the ACM SIGMOD International Conference on Management of Data.
+<li class="references-item" id="ref-2">
+<span class="ref-num">[2]</span>
+<strong>ACM SIGMOD (2024).</strong> <em>Natural Language Interfaces to Relational Databases: From Ambiguous Intent to Schema-Grounded Execution.</em> Proceedings of the ACM SIGMOD International Conference on Management of Data.
           </li>
-          <li class="references-item" id="ref-3">
-            <span class="ref-num">[3]</span>
-            <strong>NIST Special Publication 800-53 (Rev. 5):</strong> <em>Security and Privacy Controls for Information Systems and Organizations — Access Enforcement &amp; Role-Based Access Control (AC-3).</em>
-          </li>
-        </ol>
-      </div>
-      <div class="related-section">
-        <h3>Related Guides & Resources</h3>
-        <div class="related-grid">
-          <a href="blog-data-governance-checklist.html" class="related-card">
-            <h4>The 2026 SME Data Governance &amp; PDPA Checklist &rarr;</h4>
-            <p>Verified statutory checklist for SG, MY, and ID privacy compliance.</p>
-          </a>
-          <a href="audit.html" class="related-card">
-            <h4>Free SME Data Health Audit Tool &rarr;</h4>
-            <p>Calculate your company's data risk score in under 2 minutes.</p>
-          </a>
-        </div>
-      </div>
-    </article>
-  </main>
-
-  <div id="toast"></div>
-
-  <footer>
-    <p>&copy; 2026 KaoinAI Pte Ltd. All rights reserved. &nbsp;|&nbsp; <a href="index.html">Home</a> &nbsp;|&nbsp; <a href="dg-and-ai.html" style="color: #06b6d4; font-weight: 700;">DG &amp; AI</a> &nbsp;|&nbsp; <a href="demo.html">Live Demo</a> &nbsp;|&nbsp; <a href="roi-calculator.html">ROI Calculator</a> &nbsp;|&nbsp; <a href="audit.html">Free Audit</a> &nbsp;|&nbsp; <a href="blog.html">Blog</a> &nbsp;|&nbsp; <a href="index.html#faq">FAQ</a> &nbsp;|&nbsp; <a href="https://www.linkedin.com/company/kaoinai-pte-ltd" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
-  </footer>
-
-  <script>
+<li class="references-item" id="ref-3">
+<span class="ref-num">[3]</span>
+<strong>NIST Special Publication 800-53 (Rev. 5):</strong> <em>Security and Privacy Controls for Information Systems and Organizations — Access Enforcement &amp; Role-Based Access Control (AC-3).</em>
+</li>
+</ol>
+</div>
+<div class="related-section">
+<h3>Related Guides &amp; Resources</h3>
+<div class="related-grid">
+<a class="related-card" href="blog-data-governance-checklist.html">
+<h4>The 2026 SME Data Governance &amp; PDPA Checklist →</h4>
+<p>Verified statutory checklist for SG, MY, and ID privacy compliance.</p>
+</a>
+<a class="related-card" href="audit.html">
+<h4>Free SME Data Health Audit Tool →</h4>
+<p>Calculate your company's data risk score in under 2 minutes.</p>
+</a>
+</div>
+</div>
+</article>
+</main>
+<div id="toast"></div>
+<footer>
+<p>© 2026 KaoinAI Pte Ltd. All rights reserved.  |  <a href="index.html">Home</a>  |  <a href="dg-and-ai.html" style="color: #06b6d4; font-weight: 700;">DG &amp; AI</a>  |  <a href="demo.html">Live Demo</a>  |  <a href="roi-calculator.html">ROI Calculator</a>  |  <a href="audit.html">Free Audit</a>  |  <a href="blog.html">Blog</a>  |  <a href="index.html#faq">FAQ</a>  |  <a href="https://www.linkedin.com/company/kaoinai-pte-ltd" rel="noopener noreferrer" target="_blank">LinkedIn</a></p>
+</footer>
+<script>
     window.addEventListener('scroll', () => {
       const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = (window.scrollY / docHeight) * 100;
@@ -508,7 +484,6 @@
       });
     })();
   </script>
-
-  <script src="telemetry.js" defer></script>
+<script defer="" src="telemetry.js"></script>
 </body>
 </html>

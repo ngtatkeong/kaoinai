@@ -283,6 +283,74 @@
   <meta name="twitter:title" content="Free SME Data Health & Governance Audit Tool — KaoinAI">
   <meta name="twitter:description" content="Calculate your company">
   <meta name="twitter:image" content="https://kaoinai.com/logo-namecard.png">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://kaoinai.com/audit.html#app",
+        "name": "KaoinAI Free AI Data Readiness & Governance Health Audit",
+        "url": "https://kaoinai.com/audit.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript",
+        "description": "Interactive 2-minute diagnostic tool evaluating enterprise database hygiene, PII exposure risks, schema drift, and AI readiness under Singapore PDPC, Malaysia JPDP, and Indonesia UU PDP.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "KaoinAI",
+          "url": "https://kaoinai.com"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://kaoinai.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Free Data Audit",
+            "item": "https://kaoinai.com/audit.html"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What does the KaoinAI Data Health Audit evaluate?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The audit assesses 5 foundational data governance pillars: automated schema cataloging, column-level lineage visibility, 4D data quality monitoring (freshness, volume, distribution, schema drift), automated PII masking, and conversational AI readiness."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my company's data transmitted during the audit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The interactive audit operates client-side as a diagnostic evaluation. When connecting KaoinAI to your database, read-only metadata scanning occurs with zero data egress."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
 </head>
 <body>
 
