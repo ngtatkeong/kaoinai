@@ -1,10 +1,11 @@
 /**
- * KaoinAI Visitor Telemetry & Interactive Feedback Widget
- * Automatically captures visitor user journeys, interactions, and feedback submissions
- * and forwards full telemetry payloads via Formspree.
+ * KaoinAI Visitor Telemetry, Feedback & Information Request Engine
+ * Automatically captures visitor user journeys, interactions, and inquiries,
+ * routing all submissions and direct mailto actions to tk.ng@kaoinai.com.
  */
 (function() {
   const SESSION_KEY = 'kaoinai_telemetry_v1';
+  const PRIMARY_CONTACT_EMAIL = 'tk.ng@kaoinai.com';
   
   // 1. Session Storage & Activity Tracker
   function getSessionData() {
@@ -115,48 +116,68 @@
           form.appendChild(field);
         }
         field.value = window.kaoinaiGetActivitySummary();
+        window.kaoinaiLogAction('Form Submitted', form.id || form.action);
       });
     });
   }
 
-  // 2. Inject CSS Styles for Floating Feedback Widget
+  // 2. Inject CSS Styles for Floating Feedback & Request Information Widget
   function injectStyles() {
     const css = `
-      #kaoinaiFeedbackTrigger {
+      #kaoinaiFloatingCluster {
         position: fixed;
         bottom: 24px;
         right: 24px;
         z-index: 99990;
-        background: linear-gradient(135deg, #a855f7, #06b6d4);
-        color: #ffffff;
-        border: none;
-        border-radius: 999px;
-        padding: 10px 18px;
-        font-size: 13px;
-        font-weight: 600;
-        cursor: pointer;
         display: flex;
         align-items: center;
         gap: 8px;
-        box-shadow: 0 8px 24px rgba(168, 85, 247, 0.4);
+      }
+      .kf-cluster-btn {
+        color: #ffffff;
+        border: none;
+        border-radius: 999px;
+        padding: 9px 16px;
+        font-size: 12.5px;
+        font-weight: 700;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
+        text-decoration: none;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
       }
-      #kaoinaiFeedbackTrigger:hover {
+      .kf-cluster-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 12px 30px rgba(168, 85, 247, 0.6);
       }
+      #kfBtnRequestInfo {
+        background: linear-gradient(135deg, #06b6d4, #0284c7);
+        box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+      }
+      #kfBtnRequestInfo:hover {
+        box-shadow: 0 10px 25px rgba(6, 182, 212, 0.6);
+      }
+      #kfBtnFeedback {
+        background: linear-gradient(135deg, #a855f7, #7c3aed);
+        box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+      }
+      #kfBtnFeedback:hover {
+        box-shadow: 0 10px 25px rgba(168, 85, 247, 0.6);
+      }
+
       #kaoinaiFeedbackModal {
         position: fixed;
-        bottom: 80px;
+        bottom: 76px;
         right: 24px;
-        width: 360px;
+        width: 380px;
         max-width: calc(100vw - 32px);
-        background: rgba(18, 18, 28, 0.95);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(168, 85, 247, 0.3);
+        background: rgba(15, 15, 25, 0.96);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border: 1px solid rgba(168, 85, 247, 0.35);
         border-radius: 16px;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(168, 85, 247, 0.2);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(168, 85, 247, 0.2);
         z-index: 99991;
         display: none;
         flex-direction: column;
@@ -169,7 +190,7 @@
         to { opacity: 1; transform: translateY(0); }
       }
       .kf-header {
-        padding: 16px 20px;
+        padding: 16px 20px 12px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         display: flex;
         align-items: center;
@@ -179,7 +200,7 @@
       .kf-header h4 {
         margin: 0;
         font-size: 15px;
-        font-weight: 700;
+        font-weight: 800;
         color: #ffffff;
         display: flex;
         align-items: center;
@@ -189,98 +210,113 @@
         background: transparent;
         border: none;
         color: #9ca3af;
-        font-size: 18px;
+        font-size: 20px;
         cursor: pointer;
         padding: 4px;
         line-height: 1;
       }
       .kf-close-btn:hover { color: #ffffff; }
-      .kf-body {
-        padding: 18px 20px;
+
+      .kf-mode-switcher {
         display: flex;
-        flex-direction: column;
-        gap: 14px;
+        padding: 10px 20px 0;
+        gap: 8px;
       }
-      .kf-label {
-        font-size: 11px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        color: #c084fc;
-        margin-bottom: 6px;
-      }
-      .kf-category-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 6px;
-      }
-      .kf-cat-btn {
+      .kf-mode-tab {
+        flex: 1;
         background: rgba(255, 255, 255, 0.04);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
-        padding: 8px 6px;
-        font-size: 11px;
-        color: #d1d5db;
+        border-radius: 6px;
+        padding: 7px 4px;
+        font-size: 11.5px;
+        font-weight: 700;
+        color: #94a3b8;
         cursor: pointer;
         text-align: center;
         transition: all 0.15s ease;
       }
-      .kf-cat-btn:hover, .kf-cat-btn.active {
+      .kf-mode-tab.active {
         background: rgba(168, 85, 247, 0.2);
         border-color: #a855f7;
         color: #ffffff;
       }
-      .kf-rating-row {
-        display: flex;
-        justify-content: space-between;
-        gap: 4px;
-      }
-      .kf-rating-btn {
-        flex: 1;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+
+      .kf-routing-badge {
+        margin: 10px 20px 0;
+        padding: 6px 10px;
+        background: rgba(6, 182, 212, 0.08);
+        border: 1px solid rgba(6, 182, 212, 0.25);
         border-radius: 6px;
-        padding: 6px 2px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: all 0.15s ease;
+        font-size: 11.5px;
+        color: #e2e8f0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
-      .kf-rating-btn:hover, .kf-rating-btn.active {
-        background: rgba(6, 182, 212, 0.2);
-        border-color: #06b6d4;
-        transform: scale(1.1);
+      .kf-routing-badge a {
+        color: #38bdf8;
+        font-weight: 700;
+        text-decoration: underline;
+      }
+
+      .kf-body {
+        padding: 14px 20px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .kf-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #c084fc;
+        margin-bottom: 4px;
       }
       .kf-input, .kf-textarea {
         width: 100%;
-        background: rgba(0, 0, 0, 0.4);
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.14);
         border-radius: 8px;
-        padding: 10px 12px;
+        padding: 9px 12px;
         color: #ffffff;
         font-size: 13px;
         box-sizing: border-box;
         outline: none;
       }
       .kf-input:focus, .kf-textarea:focus {
-        border-color: #a855f7;
+        border-color: #06b6d4;
       }
       .kf-textarea {
-        min-height: 70px;
+        min-height: 75px;
         resize: vertical;
       }
       .kf-submit-btn {
-        background: linear-gradient(135deg, #a855f7, #7c3aed);
+        background: linear-gradient(135deg, #a855f7, #06b6d4);
         color: #ffffff;
         border: none;
         border-radius: 8px;
         padding: 11px;
         font-size: 13px;
-        font-weight: 600;
+        font-weight: 700;
         cursor: pointer;
         transition: opacity 0.2s ease;
       }
-      .kf-submit-btn:hover { opacity: 0.9; }
+      .kf-submit-btn:hover { opacity: 0.92; }
       .kf-submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+      .kf-direct-mailto {
+        text-align: center;
+        font-size: 11.5px;
+        color: #94a3b8;
+        margin-top: -4px;
+      }
+      .kf-direct-mailto a {
+        color: #06b6d4;
+        text-decoration: underline;
+        font-weight: 600;
+      }
+
       .kf-success-msg {
         display: none;
         text-align: center;
@@ -293,7 +329,7 @@
       }
       .kf-success-msg p {
         color: #9ca3af;
-        font-size: 12px;
+        font-size: 12.5px;
         line-height: 1.5;
         margin: 0;
       }
@@ -310,59 +346,65 @@
     const container = document.createElement('div');
     container.id = 'kaoinaiFeedbackWidget';
     container.innerHTML = `
-      <button id="kaoinaiFeedbackTrigger" aria-label="Open Feedback Form">
-        <span>💬</span> Feedback
-      </button>
+      <!-- Floating Action Cluster -->
+      <div id="kaoinaiFloatingCluster">
+        <button class="kf-cluster-btn" id="kfBtnRequestInfo" aria-label="Request Information">
+          <span>📩</span> Request Info
+        </button>
+        <button class="kf-cluster-btn" id="kfBtnFeedback" aria-label="Open Feedback Form">
+          <span>💬</span> Feedback
+        </button>
+      </div>
 
+      <!-- Inbound Modal -->
       <div id="kaoinaiFeedbackModal">
         <div class="kf-header">
-          <h4><span>✨</span> KaoinAI Feedback</h4>
+          <h4 id="kfModalHeader"><span>✨</span> KaoinAI Inquiry</h4>
           <button class="kf-close-btn" id="kfCloseBtn">&times;</button>
         </div>
 
+        <div class="kf-mode-switcher">
+          <button type="button" class="kf-mode-tab active" id="kfTabInfo" onclick="window.kaoinaiSetMode('info')">
+            📩 Request Information
+          </button>
+          <button type="button" class="kf-mode-tab" id="kfTabFeedback" onclick="window.kaoinaiSetMode('feedback')">
+            💬 Feedback
+          </button>
+        </div>
+
+        <div class="kf-routing-badge">
+          <span>Direct to: <strong>tk.ng@kaoinai.com</strong></span>
+          <a href="mailto:tk.ng@kaoinai.com?subject=KaoinAI%20Inquiry" id="kfDirectMailLink" title="Compose in email app">Open in Email ↗</a>
+        </div>
+
         <form id="feedbackFormElement" class="kf-body" action="https://formspree.io/f/xyegdyyj" method="POST">
-          <input type="hidden" name="_subject" value="New KaoinAI Visitor Feedback &amp; Session Activity">
-          <input type="hidden" name="feedback_category" id="kfSelectedCategory" value="Product Feedback">
-          <input type="hidden" name="rating" id="kfSelectedRating" value="5">
+          <input type="hidden" name="_to" value="tk.ng@kaoinai.com">
+          <input type="hidden" name="_cc" value="tk.ng@kaoinai.com">
+          <input type="hidden" name="recipient" value="tk.ng@kaoinai.com">
+          <input type="hidden" name="_subject" id="kfSubjectField" value="KaoinAI Information Request (tk.ng@kaoinai.com)">
+          <input type="hidden" name="inquiry_type" id="kfInquiryType" value="Request Information">
           <input type="hidden" name="user_activity_log" id="kfActivityLog">
 
           <div>
-            <div class="kf-label">Feedback Category</div>
-            <div class="kf-category-grid">
-              <button type="button" class="kf-cat-btn active" data-cat="Product Feedback">💡 Feature / Product</button>
-              <button type="button" class="kf-cat-btn" data-cat="Advisory Inquiry">💼 Consulting Inquiry</button>
-              <button type="button" class="kf-cat-btn" data-cat="Bug / Question">🐞 Report Issue</button>
-              <button type="button" class="kf-cat-btn" data-cat="General Thoughts">⭐ General Feedback</button>
-            </div>
+            <div class="kf-label" id="kfMessageLabel">How Can We Help You?</div>
+            <textarea class="kf-textarea" id="kfMessageText" name="message" placeholder="Ask about architecture, pricing, live demo, or compliance..." required></textarea>
           </div>
 
           <div>
-            <div class="kf-label">Experience Rating</div>
-            <div class="kf-rating-row">
-              <button type="button" class="kf-rating-btn active" data-rate="5" title="Excellent">😍</button>
-              <button type="button" class="kf-rating-btn" data-rate="4" title="Good">😃</button>
-              <button type="button" class="kf-rating-btn" data-rate="3" title="Neutral">😐</button>
-              <button type="button" class="kf-rating-btn" data-rate="2" title="Poor">🙁</button>
-              <button type="button" class="kf-rating-btn" data-rate="1" title="Bad">😡</button>
-            </div>
+            <div class="kf-label">Your Email Address</div>
+            <input type="email" class="kf-input" name="email" id="kfEmailField" placeholder="name@company.com" required>
           </div>
 
-          <div>
-            <div class="kf-label">Your Thoughts</div>
-            <textarea class="kf-textarea" name="message" placeholder="What caught your eye? Any questions or suggestions?" required></textarea>
-          </div>
+          <button type="submit" class="kf-submit-btn" id="kfSubmitBtn">Submit to tk.ng@kaoinai.com &rarr;</button>
 
-          <div>
-            <div class="kf-label">Your Email</div>
-            <input type="email" class="kf-input" name="email" placeholder="name@company.com" required>
+          <div class="kf-direct-mailto">
+            Prefer direct mail? Email <a href="mailto:tk.ng@kaoinai.com?subject=KaoinAI%20Inquiry" id="kfDirectMailTextLink">tk.ng@kaoinai.com</a> directly.
           </div>
-
-          <button type="submit" class="kf-submit-btn" id="kfSubmitBtn">Send Feedback &rarr;</button>
         </form>
 
         <div class="kf-success-msg" id="kfSuccessMsg">
-          <h5>🎉 Thank you!</h5>
-          <p>Your feedback and complete session log have been received. We will follow up shortly!</p>
+          <h5>🎉 Received!</h5>
+          <p>Your request has been forwarded to <strong>tk.ng@kaoinai.com</strong>. We will review your message and reply promptly.</p>
         </div>
       </div>
     `;
@@ -370,50 +412,61 @@
     document.body.appendChild(container);
 
     // Event Bindings
-    const trigger = document.getElementById('kaoinaiFeedbackTrigger');
     const modal = document.getElementById('kaoinaiFeedbackModal');
     const closeBtn = document.getElementById('kfCloseBtn');
     const form = document.getElementById('feedbackFormElement');
     const submitBtn = document.getElementById('kfSubmitBtn');
     const successMsg = document.getElementById('kfSuccessMsg');
+    const btnInfo = document.getElementById('kfBtnRequestInfo');
+    const btnFeedback = document.getElementById('kfBtnFeedback');
 
-    trigger.addEventListener('click', () => {
-      const isVisible = modal.style.display === 'flex';
-      modal.style.display = isVisible ? 'none' : 'flex';
-      if (!isVisible) {
-        window.kaoinaiLogAction('Widget Opened', 'User opened Feedback Form');
+    window.kaoinaiSetMode = function(mode) {
+      const isInfo = mode === 'info';
+      document.getElementById('kfTabInfo').classList.toggle('active', isInfo);
+      document.getElementById('kfTabFeedback').classList.toggle('active', !isInfo);
+
+      if (isInfo) {
+        document.getElementById('kfModalHeader').innerHTML = '<span>📩</span> Request Information';
+        document.getElementById('kfSubjectField').value = 'KaoinAI Information Request (tk.ng@kaoinai.com)';
+        document.getElementById('kfInquiryType').value = 'Request Information';
+        document.getElementById('kfMessageLabel').textContent = 'What Information Would You Like?';
+        document.getElementById('kfMessageText').placeholder = 'Tell us about your data stack, compliance requirements (PDPA, etc.), or request a customized demo...';
+        document.getElementById('kfSubmitBtn').textContent = 'Submit Request to tk.ng@kaoinai.com →';
+        document.getElementById('kfDirectMailLink').href = 'mailto:tk.ng@kaoinai.com?subject=KaoinAI%20Information%20Request';
+        document.getElementById('kfDirectMailTextLink').href = 'mailto:tk.ng@kaoinai.com?subject=KaoinAI%20Information%20Request';
+      } else {
+        document.getElementById('kfModalHeader').innerHTML = '<span>💬</span> KaoinAI Feedback';
+        document.getElementById('kfSubjectField').value = 'KaoinAI Product Feedback (tk.ng@kaoinai.com)';
+        document.getElementById('kfInquiryType').value = 'Product Feedback';
+        document.getElementById('kfMessageLabel').textContent = 'Your Feedback & Thoughts';
+        document.getElementById('kfMessageText').placeholder = 'What caught your eye? Any feature suggestions, ideas, or feedback?';
+        document.getElementById('kfSubmitBtn').textContent = 'Send Feedback to tk.ng@kaoinai.com →';
+        document.getElementById('kfDirectMailLink').href = 'mailto:tk.ng@kaoinai.com?subject=KaoinAI%20Feedback';
+        document.getElementById('kfDirectMailTextLink').href = 'mailto:tk.ng@kaoinai.com?subject=KaoinAI%20Feedback';
       }
+    };
+
+    btnInfo.addEventListener('click', () => {
+      window.kaoinaiSetMode('info');
+      modal.style.display = 'flex';
+      window.kaoinaiLogAction('Widget Opened', 'User clicked Request Info');
+    });
+
+    btnFeedback.addEventListener('click', () => {
+      window.kaoinaiSetMode('feedback');
+      modal.style.display = 'flex';
+      window.kaoinaiLogAction('Widget Opened', 'User clicked Feedback');
     });
 
     closeBtn.addEventListener('click', () => {
       modal.style.display = 'none';
     });
 
-    // Category button selection
-    modal.querySelectorAll('.kf-cat-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        modal.querySelectorAll('.kf-cat-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById('kfSelectedCategory').value = btn.getAttribute('data-cat');
-        window.kaoinaiLogAction('Selected Category', btn.getAttribute('data-cat'));
-      });
-    });
-
-    // Rating selection
-    modal.querySelectorAll('.kf-rating-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        modal.querySelectorAll('.kf-rating-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById('kfSelectedRating').value = btn.getAttribute('data-rate');
-        window.kaoinaiLogAction('Selected Rating', btn.getAttribute('data-rate') + ' Stars');
-      });
-    });
-
-    // AJAX Form submission with full Telemetry report
+    // AJAX Form submission with routing to tk.ng@kaoinai.com
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       submitBtn.disabled = true;
-      submitBtn.innerText = 'Sending...';
+      submitBtn.innerText = 'Routing to tk.ng@kaoinai.com...';
 
       // Attach complete user activity log
       document.getElementById('kfActivityLog').value = window.kaoinaiGetActivitySummary();
@@ -428,22 +481,27 @@
       .then(res => {
         if (res.ok) {
           form.style.display = 'none';
+          document.querySelector('.kf-mode-switcher').style.display = 'none';
           successMsg.style.display = 'block';
-          window.kaoinaiLogAction('Feedback Sent', 'Submitted successfully via Formspree');
+          window.kaoinaiLogAction('Inquiry Sent', 'Routed to tk.ng@kaoinai.com');
           setTimeout(() => {
             modal.style.display = 'none';
           }, 3500);
         } else {
-          submitBtn.disabled = false;
-          submitBtn.innerText = 'Try Again';
-          alert('Submission failed. Please try again or email info@kaoinai.com');
+          fallbackMailto();
         }
       })
       .catch(err => {
-        submitBtn.disabled = false;
-        submitBtn.innerText = 'Try Again';
-        alert('Network error. Please try again.');
+        fallbackMailto();
       });
+
+      function fallbackMailto() {
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Submit';
+        const subj = encodeURIComponent(document.getElementById('kfSubjectField').value);
+        const body = encodeURIComponent(document.getElementById('kfMessageText').value + '\n\nSender Email: ' + document.getElementById('kfEmailField').value);
+        window.location.href = `mailto:tk.ng@kaoinai.com?subject=${subj}&body=${body}`;
+      }
     });
   }
 

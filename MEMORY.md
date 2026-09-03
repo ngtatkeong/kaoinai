@@ -91,6 +91,8 @@ All 11 HTML files adhere to identical, synchronized structure:
   * Installed at `.agents/skills/kaoinai-platform-workflow/SKILL.md` and global `~/.gemini/config/skills/kaoinai-platform-workflow/SKILL.md`.
 * **Automated Audit Suite**:
   * `scratch/full_site_audit.py`: Validates 0 broken links, 0 broken images, 0 broken anchors, 100% nav/footer consistency, and valid Schema.org JSON-LD across all 12 production pages.
+* **Inbound Inquiries & Telemetry**:
+  * Floating widget (`telemetry.js`) and all page footers route "Request Information" and "Feedback" directly to `tk.ng@kaoinai.com` with Formspree fallback and direct mailto handlers.
 * **Production Deployment Cycle**:
   1. Local push: `git push origin main`
   2. VPS pull: `cd /opt/kaionai-site && git pull origin main && chown -R www-data:www-data /opt/kaionai-site && systemctl reload nginx`
