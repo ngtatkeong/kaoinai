@@ -5285,88 +5285,88 @@
     let currentBi = 'dbt Cloud';
 
     const dbDetails = {
-      'PostgreSQL': { 
-        name: 'PostgreSQL Connector', 
-        desc: 'Direct read-only AST metadata ingestion. Zero row-level data leaves your private VPC.',
-        time: '182ms HANDSHAKE VERIFIED',
+      "PostgreSQL": { 
+        name: "PostgreSQL Connector", 
+        desc: "Direct read-only AST metadata ingestion. Zero row-level data leaves your private VPC.",
+        time: "182ms HANDSHAKE VERIFIED",
         logs: [
-          '> [00:00:182] ⚡ Connected to PostgreSQL via Read-Only AST Connector (0 raw rows extracted)',
-          '> [00:00:240] 🔍 Mapped 48 public tables & 512 columns into automated DAG lineage',
-          '> [00:00:315] 🛡️ Statutory Sentinel: 4 unmasked NRIC / Tax ID columns flagged for SG PDPC § 26D compliance',
-          '> [00:00:390] ⚠️ Anomaly Flagged: 2 silent schema drift warnings in 'orders.created_at'',
-          '> [00:00:460] 💡 Ask Data Conversational SQL: Ready ("Yesterday's revenue by cohort" &rarr; 380ms)'
+          "> [00:00:182] ⚡ Connected to PostgreSQL via Read-Only AST Connector (0 raw rows extracted)",
+          "> [00:00:240] 🔍 Mapped 48 public tables & 512 columns into automated DAG lineage",
+          "> [00:00:315] 🛡️ Statutory Sentinel: 4 unmasked NRIC / Tax ID columns flagged for SG PDPC § 26D compliance",
+          "> [00:00:390] ⚠️ Anomaly Flagged: 2 silent schema drift warnings in orders.created_at",
+          "> [00:00:460] 💡 Ask Data Conversational SQL: Ready (Yesterday revenue by cohort -> 380ms)"
         ]
       },
-      'Snowflake': { 
-        name: 'Snowflake Warehouse Connector', 
-        desc: 'Direct Information Schema & query history ingestion with zero compute credit waste.',
-        time: '195ms HANDSHAKE VERIFIED',
+      "Snowflake": { 
+        name: "Snowflake Warehouse Connector", 
+        desc: "Direct Information Schema & query history ingestion with zero compute credit waste.",
+        time: "195ms HANDSHAKE VERIFIED",
         logs: [
-          '> [00:00:195] ⚡ Connected to Snowflake via INFORMATION_SCHEMA (zero compute credit consumption)',
-          '> [00:00:255] 🔍 Extracted 120 analytics models & warehouse query history into lineage graph',
-          '> [00:00:325] 🛡️ Statutory Sentinel: Dynamic token-level masking active for customer PII',
-          '> [00:00:400] ⚠️ Cost Sentinel: 3 un-clustered large tables identified for query optimization',
-          '> [00:00:470] 💡 Ask Data Conversational SQL: Ready ("Enterprise gross margin trends" &rarr; 410ms)'
+          "> [00:00:195] ⚡ Connected to Snowflake via INFORMATION_SCHEMA (zero compute credit consumption)",
+          "> [00:00:255] 🔍 Extracted 120 analytics models & warehouse query history into lineage graph",
+          "> [00:00:325] 🛡️ Statutory Sentinel: Dynamic token-level masking active for customer PII",
+          "> [00:00:400] ⚠️ Cost Sentinel: 3 un-clustered large tables identified for query optimization",
+          "> [00:00:470] 💡 Ask Data Conversational SQL: Ready (Enterprise gross margin trends -> 410ms)"
         ]
       },
-      'BigQuery': { 
-        name: 'Google BigQuery Connector', 
-        desc: 'Native IAM Service Account integration with dry-run cost estimation before queries execute.',
-        time: '178ms HANDSHAKE VERIFIED',
+      "BigQuery": { 
+        name: "Google BigQuery Connector", 
+        desc: "Native IAM Service Account integration with dry-run cost estimation before queries execute.",
+        time: "178ms HANDSHAKE VERIFIED",
         logs: [
-          '> [00:00:178] ⚡ Connected to BigQuery via IAM Service Account (dry-run query mode active)',
-          '> [00:00:235] 🔍 Parsed 64 partitioned tables and Google Analytics 4 event export schemas',
-          '> [00:00:310] 🛡️ Statutory Sentinel: 5 customer contact columns masked before export',
-          '> [00:00:385] ⚠️ Anomaly Flagged: Partition expiration alert on staging datasets',
-          '> [00:00:455] 💡 Ask Data Conversational SQL: Ready ("Q3 conversion rate by landing page" &rarr; 360ms)'
+          "> [00:00:178] ⚡ Connected to BigQuery via IAM Service Account (dry-run query mode active)",
+          "> [00:00:235] 🔍 Parsed 64 partitioned tables and Google Analytics 4 event export schemas",
+          "> [00:00:310] 🛡️ Statutory Sentinel: 5 customer contact columns masked before export",
+          "> [00:00:385] ⚠️ Anomaly Flagged: Partition expiration alert on staging datasets",
+          "> [00:00:455] 💡 Ask Data Conversational SQL: Ready (Q3 conversion rate by landing page -> 360ms)"
         ]
       },
-      'MySQL': { 
-        name: 'MySQL / MariaDB Connector', 
-        desc: 'Real-time schema binlog monitoring to catch breaking table alter operations instantly.',
-        time: '185ms HANDSHAKE VERIFIED',
+      "MySQL": { 
+        name: "MySQL / MariaDB Connector", 
+        desc: "Real-time schema binlog monitoring to catch breaking table alter operations instantly.",
+        time: "185ms HANDSHAKE VERIFIED",
         logs: [
-          '> [00:00:185] ⚡ Connected to MySQL / MariaDB via binlog schema follower (zero table locks)',
-          '> [00:00:245] 🔍 Cataloged 32 production tables and transactional relational constraints',
-          '> [00:00:320] 🛡️ Statutory Sentinel: MY JPDP 2024 compliance inventory auto-compiled',
-          '> [00:00:395] ⚠️ Anomaly Flagged: Null rate spike detected in 'users.phone_number'',
-          '> [00:00:465] 💡 Ask Data Conversational SQL: Ready ("Show top 20 overdue customer invoices" &rarr; 390ms)'
+          "> [00:00:185] ⚡ Connected to MySQL / MariaDB via binlog schema follower (zero table locks)",
+          "> [00:00:245] 🔍 Cataloged 32 production tables and transactional relational constraints",
+          "> [00:00:320] 🛡️ Statutory Sentinel: MY JPDP 2024 compliance inventory auto-compiled",
+          "> [00:00:395] ⚠️ Anomaly Flagged: Null rate spike detected in users.phone_number",
+          "> [00:00:465] 💡 Ask Data Conversational SQL: Ready (Show top 20 overdue customer invoices -> 390ms)"
         ]
       },
-      'ClickHouse': { 
-        name: 'ClickHouse Columnar Engine', 
-        desc: 'High-throughput analytics lineage & sub-second aggregations across billions of event rows.',
-        time: '165ms HANDSHAKE VERIFIED',
+      "ClickHouse": { 
+        name: "ClickHouse Columnar Engine", 
+        desc: "High-throughput analytics lineage & sub-second aggregations across billions of event rows.",
+        time: "165ms HANDSHAKE VERIFIED",
         logs: [
-          '> [00:00:165] ⚡ Connected to ClickHouse Columnar Engine via native HTTP client',
-          '> [00:00:220] 🔍 Indexed 18 high-throughput event tables with billions of telemetry rows',
-          '> [00:00:295] 🛡️ Statutory Sentinel: IP address and device identifier anonymization active',
-          '> [00:00:370] ⚠️ Anomaly Flagged: Part merge skew detected on historical partitions',
-          '> [00:00:440] 💡 Ask Data Conversational SQL: Ready ("Daily active users by region" &rarr; 220ms)'
+          "> [00:00:165] ⚡ Connected to ClickHouse Columnar Engine via native HTTP client",
+          "> [00:00:220] 🔍 Indexed 18 high-throughput event tables with billions of telemetry rows",
+          "> [00:00:295] 🛡️ Statutory Sentinel: IP address and device identifier anonymization active",
+          "> [00:00:370] ⚠️ Anomaly Flagged: Part merge skew detected on historical partitions",
+          "> [00:00:440] 💡 Ask Data Conversational SQL: Ready (Daily active users by region -> 220ms)"
         ]
       },
-      'MongoDB': { 
-        name: 'MongoDB Document Engine', 
-        desc: 'Automatic JSON schema inference and polymorphic document attribute mapping.',
-        time: '190ms HANDSHAKE VERIFIED',
+      "MongoDB": { 
+        name: "MongoDB Document Engine", 
+        desc: "Automatic JSON schema inference and polymorphic document attribute mapping.",
+        time: "190ms HANDSHAKE VERIFIED",
         logs: [
-          '> [00:00:190] ⚡ Connected to MongoDB cluster via read-only replica connection',
-          '> [00:00:245] 🔍 Inferred JSON schema across 28 polymorphic collections',
-          '> [00:00:320] 🛡️ Statutory Sentinel: Nested PII attributes tagged for automatic redaction',
-          '> [00:00:390] ⚠️ Anomaly Flagged: Index missing on queried nested timestamp field',
-          '> [00:00:465] 💡 Ask Data Conversational SQL: Ready ("Average checkout cart value" &rarr; 340ms)'
+          "> [00:00:190] ⚡ Connected to MongoDB cluster via read-only replica connection",
+          "> [00:00:245] 🔍 Inferred JSON schema across 28 polymorphic collections",
+          "> [00:00:320] 🛡️ Statutory Sentinel: Nested PII attributes tagged for automatic redaction",
+          "> [00:00:390] ⚠️ Anomaly Flagged: Index missing on queried nested timestamp field",
+          "> [00:00:465] 💡 Ask Data Conversational SQL: Ready (Average checkout cart value -> 340ms)"
         ]
       },
-      'Excel/CSV': { 
-        name: 'Spreadsheet & CSV Connector', 
-        desc: 'Automated header inference, multi-tab reconciliation, and format anomaly curing.',
-        time: '140ms HANDSHAKE VERIFIED',
+      "Excel/CSV": { 
+        name: "Spreadsheet & CSV Connector", 
+        desc: "Automated header inference, multi-tab reconciliation, and format anomaly curing.",
+        time: "140ms HANDSHAKE VERIFIED",
         logs: [
-          '> [00:00:140] ⚡ Connected to Spreadsheet / CSV repository (read-only file inspector)',
-          '> [00:00:190] 🔍 Parsed 14 multi-tab workbooks, inferred column types, normalized headers',
-          '> [00:00:260] 🛡️ Statutory Sentinel: 12 unencrypted customer NRIC / phone rows flagged',
-          '> [00:00:330] ⚠️ Anomaly Flagged: 8 duplicate customer rows and 3 mixed-currency errors cured',
-          '> [00:00:410] 💡 Ask Data Conversational SQL: Ready ("Monthly sales by product line" &rarr; 290ms)'
+          "> [00:00:140] ⚡ Connected to Spreadsheet / CSV repository (read-only file inspector)",
+          "> [00:00:190] 🔍 Parsed 14 multi-tab workbooks, inferred column types, normalized headers",
+          "> [00:00:260] 🛡️ Statutory Sentinel: 12 unencrypted customer NRIC / phone rows flagged",
+          "> [00:00:330] ⚠️ Anomaly Flagged: 8 duplicate customer rows and 3 mixed-currency errors cured",
+          "> [00:00:410] 💡 Ask Data Conversational SQL: Ready (Monthly sales by product line -> 290ms)"
         ]
       }
     };
