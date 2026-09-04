@@ -2528,6 +2528,117 @@
       line-height: 1.6;
     }
 
+
+    /* Liability & Fear Factor Risk Matrix */
+    .risk-matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .risk-card {
+      background: rgba(18, 16, 26, 0.75);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      border-radius: 18px;
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .risk-card:hover {
+      border-color: rgba(239, 68, 68, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(239, 68, 68, 0.12);
+    }
+    .risk-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ef4444, #f59e0b);
+    }
+    .risk-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #f87171;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+    .risk-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+    .risk-reality {
+      font-size: 13.5px;
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+    .risk-penalty-box {
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+    }
+    .risk-penalty-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #ef4444;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 4px;
+    }
+    .risk-penalty-text {
+      font-size: 12px;
+      color: #fca5a5;
+      line-height: 1.45;
+      margin: 0;
+    }
+    .risk-shield-box {
+      background: rgba(16, 185, 129, 0.06);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .risk-shield-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #34d399;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 4px;
+    }
+    .risk-shield-text {
+      font-size: 12px;
+      color: #a7f3d0;
+      line-height: 1.45;
+      margin: 0;
+    }
+
     /* Stack Compatibility Builder */
     .stack-builder-card {
       background: var(--bg-card);
@@ -3471,6 +3582,168 @@
 </div>
 
 </div>
+</section>
+
+
+<!-- The Cost of Inaction: Real-World Risk & Statutory Liability Matrix -->
+<section class="section" id="ai-risk-matrix" style="border-top: 1px solid rgba(239, 68, 68, 0.2); background: radial-gradient(circle at 50% 20%, rgba(239, 68, 68, 0.06), transparent 75%);">
+  <div class="section-inner">
+    <div style="text-align: center; margin-bottom: 48px;">
+      <p class="overline reveal" style="color: #f87171;" data-i18n="risk_matrix_overline">The High Cost of Inaction · Real-World AI Liability</p>
+      <h2 class="headline-lg reveal" data-i18n="risk_matrix_title">The Real-Life Disasters of Messy Data &amp; Ungoverned AI</h2>
+      <p class="subhead reveal" style="margin: 16px auto 0; max-width: 820px;" data-i18n="risk_matrix_subhead">
+        Enterprise AI doesn't fail in theory—it fails in production through catastrophic data leaks, falsified financial reporting, and severe statutory fines. Here is the verified reality of operating without automated data governance.
+      </p>
+    </div>
+
+    <!-- Verified Real-World Statistics Row -->
+    <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 40px;">
+      <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(239, 68, 68, 0.25); border-radius: 14px; padding: 20px; text-align: center;">
+        <div style="font-size: 32px; font-weight: 800; color: #f87171; letter-spacing: -0.02em; margin-bottom: 6px;">$4.88M</div>
+        <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.05em; margin-bottom: 6px;" data-i18n="stat_breach_cost_title">Avg Global Data Breach Cost</div>
+        <div style="font-size: 11.5px; color: #64748b; line-height: 1.4;" data-i18n="stat_breach_cost_desc">IBM Security Cost of Data Breach Report 2024 (record high)</div>
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 14px; padding: 20px; text-align: center;">
+        <div style="font-size: 32px; font-weight: 800; color: #fbbf24; letter-spacing: -0.02em; margin-bottom: 6px;">80%+</div>
+        <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.05em; margin-bottom: 6px;" data-i18n="stat_ai_failure_title">Enterprise AI Project Failures</div>
+        <div style="font-size: 11.5px; color: #64748b; line-height: 1.4;" data-i18n="stat_ai_failure_desc">RAND Corp 2024 / Gartner: driven by poor data quality &amp; missing governance</div>
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(239, 68, 68, 0.25); border-radius: 14px; padding: 20px; text-align: center;">
+        <div style="font-size: 32px; font-weight: 800; color: #f87171; letter-spacing: -0.02em; margin-bottom: 6px;">$12.9M</div>
+        <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.05em; margin-bottom: 6px;" data-i18n="stat_bad_data_title">Annual Cost of Dirty Data</div>
+        <div style="font-size: 11.5px; color: #64748b; line-height: 1.4;" data-i18n="stat_bad_data_desc">Gartner Research: poor data quality costs organizations $12.9M yearly</div>
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(168, 85, 247, 0.25); border-radius: 14px; padding: 20px; text-align: center;">
+        <div style="font-size: 32px; font-weight: 800; color: #c084fc; letter-spacing: -0.02em; margin-bottom: 6px;">72 Hours</div>
+        <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.05em; margin-bottom: 6px;" data-i18n="stat_statutory_window_title">Mandatory Breach Deadline</div>
+        <div style="font-size: 11.5px; color: #64748b; line-height: 1.4;" data-i18n="stat_statutory_window_desc">Statutory deadline under SG PDPA § 26D, MY Act A1727 § 12B, &amp; ID UU PDP Pasal 46</div>
+      </div>
+    </div>
+
+    <!-- 4 Real-World Threat Failure Modes Matrix -->
+    <div class="risk-matrix-grid reveal">
+      
+      <!-- Card 1: PII Leakage -->
+      <div class="risk-card">
+        <span class="risk-badge" data-i18n="risk_card1_badge">🚨 Catastrophic Liability · Privacy Breach</span>
+        <h3 class="risk-title" data-i18n="risk_card1_title">PII Ingestion &amp; Prompt Exposure in LLMs</h3>
+        <p class="risk-reality" data-i18n="risk_card1_reality">
+          Developers and business leads connect raw databases directly to generative AI tools or internal RAG models. Unmasked NRICs, MyKads, customer credit cards, and mobile numbers are fed directly into LLM context windows or external API logs without an audit trail.
+        </p>
+        <div class="risk-penalty-box">
+          <div class="risk-penalty-label">
+            <span>⚖️ Statutory Penalties (SG / MY / ID)</span>
+          </div>
+          <p class="risk-penalty-text" data-i18n="risk_card1_penalty">
+            • <strong>Singapore:</strong> Up to S$1,000,000 or 10% annual turnover (PDPA § 48J)<br>
+            • <strong>Malaysia:</strong> Up to RM 1,000,000 &amp; 3 years personal liability (Act A1727 § 133)<br>
+            • <strong>Indonesia:</strong> Up to Rp 60 Billion &amp; 6 years imprisonment (UU PDP Pasal 67-68)
+          </p>
+        </div>
+        <div class="risk-shield-box">
+          <div class="risk-shield-label">
+            <span>🛡️ KaoinAI Autonomous Shield</span>
+          </div>
+          <p class="risk-shield-text" data-i18n="risk_card1_shield">
+            Automated AST PII Scanner identifies 100% of sensitive identifiers across 14 categories with dynamic in-memory masking before any query result or prompt reaches an LLM.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2: Silent Schema Drift & Falsified Reporting -->
+      <div class="risk-card">
+        <span class="risk-badge" data-i18n="risk_card2_badge">📉 Board &amp; Executive Blunder</span>
+        <h3 class="risk-title" data-i18n="risk_card2_title">Silent Schema Drift &amp; Falsified Financials</h3>
+        <p class="risk-reality" data-i18n="risk_card2_reality">
+          A software engineer renames an upstream column (e.g. <code>subtotal_cents</code> to <code>net_amount_sgd</code>) during a weekend release. No alert fires. The BI dashboard silently calculates revenue with unhandled NULLs, leading to a 35% misstatement in Board reporting.
+        </p>
+        <div class="risk-penalty-box">
+          <div class="risk-penalty-label">
+            <span>⚠️ Real-World Business Impact</span>
+          </div>
+          <p class="risk-penalty-text" data-i18n="risk_card2_penalty">
+            Defective strategic budgeting, ruined investor trust, shareholder lawsuits, and emergency engineering fire-drills consuming 40+ hours to reconcile corrupted reporting pipelines.
+          </p>
+        </div>
+        <div class="risk-shield-box">
+          <div class="risk-shield-label">
+            <span>🛡️ KaoinAI Autonomous Shield</span>
+          </div>
+          <p class="risk-shield-text" data-i18n="risk_card2_shield">
+            4D Sentinel telemetry (Freshness, Volume, Distribution, Schema) intercepts upstream mutations instantaneously, blocking broken joins and notifying data owners via Slack/Webhook.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3: Hallucinatory Autonomous Agents -->
+      <div class="risk-card">
+        <span class="risk-badge" data-i18n="risk_card3_badge">🤖 AI Runaway Hazard</span>
+        <h3 class="risk-title" data-i18n="risk_card3_title">Ungoverned Agentic AI Hallucinations</h3>
+        <p class="risk-reality" data-i18n="risk_card3_reality">
+          Autonomous AI agents tasked with inventory dispatch or customer invoicing execute unanchored Text-to-SQL against legacy, poorly documented ERP tables (Epicor, SAP, SQL Server). The AI invents non-existent columns, issuing erroneous orders or triggering stockouts.
+        </p>
+        <div class="risk-penalty-box">
+          <div class="risk-penalty-label">
+            <span>⚠️ Real-World Business Impact</span>
+          </div>
+          <p class="risk-penalty-text" data-i18n="risk_card3_penalty">
+            Thousands in phantom purchase orders, broken fulfillment SLAs, irreversible database lockups, and complete operational paralysis across customer-facing workflows.
+          </p>
+        </div>
+        <div class="risk-shield-box">
+          <div class="risk-shield-label">
+            <span>🛡️ KaoinAI Autonomous Shield</span>
+          </div>
+          <p class="risk-shield-text" data-i18n="risk_card3_shield">
+            Deterministic Semantic Layer &amp; Read-Only AST Validator anchors natural language queries strictly to validated schemas, guaranteeing 100% syntactically verified, hallucination-free SQL.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 4: Unenforced RBAC & Internal Leakage -->
+      <div class="risk-card">
+        <span class="risk-badge" data-i18n="risk_card4_badge">🔓 Internal Security Breach</span>
+        <h3 class="risk-title" data-i18n="risk_card4_title">Unenforced RBAC &amp; Accidental Privilege Escalation</h3>
+        <p class="risk-reality" data-i18n="risk_card4_reality">
+          Junior marketing staff, external contractors, or interns connect to corporate reporting tools with over-privileged database credentials. An innocent plain-English question surfaces executive compensation, confidential churn tables, or customer health records.
+        </p>
+        <div class="risk-penalty-box">
+          <div class="risk-penalty-label">
+            <span>⚠️ Real-World Business Impact</span>
+          </div>
+          <p class="risk-penalty-text" data-i18n="risk_card4_penalty">
+            Immediate breach of fiduciary confidentiality, corporate extortion risks, intellectual property theft, and severe employee morale collapse following leaked compensation structures.
+          </p>
+        </div>
+        <div class="risk-shield-box">
+          <div class="risk-shield-label">
+            <span>🛡️ KaoinAI Autonomous Shield</span>
+          </div>
+          <p class="risk-shield-text" data-i18n="risk_card4_shield">
+            Zero-Trust Column-Level RBAC and automated immutable audit logging restrict visibility based on user department, ensuring sensitive columns are strictly masked before query delivery.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Fear to Action Conversion Intercept -->
+    <div class="reveal" style="margin-top: 48px; background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(168, 85, 247, 0.12)); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 20px; padding: 36px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;">
+      <div style="max-width: 680px;">
+        <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #f87171; background: rgba(239, 68, 68, 0.15); padding: 4px 10px; border-radius: 6px; display: inline-block; margin-bottom: 10px;">FREE 5-MINUTE VULNERABILITY AUDIT</span>
+        <h3 style="font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 8px;">Scan Your Database for Hidden PII &amp; Schema Drift Before Auditors or Attackers Do</h3>
+        <p style="font-size: 14.5px; color: #cbd5e1; margin: 0; line-height: 1.6;">
+          Deploy KaoinAI in 5 minutes via read-only connection. Discover unmasked customer identifiers, detect silent pipeline shifts, and ensure complete SG PDPA, MY PDPA, and ID UU PDP statutory compliance.
+        </p>
+      </div>
+      <div>
+        <button class="btn btn-primary" onclick="window.openTrialModal(event, '', 'Statutory Risk Audit')" style="background: linear-gradient(135deg, #ef4444, #7c3aed); box-shadow: 0 4px 20px rgba(239, 68, 68, 0.35); font-size: 15px; padding: 14px 28px;">
+          Audit Your Data in 5 Minutes (Risk-Free) →
+        </button>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <!-- Canonical Definition & Foundation of DG within AI (Position 0 Target) -->
@@ -5524,6 +5797,38 @@
 <script>
     const i18n = {
   "en": {
+    "risk_matrix_overline": "The High Cost of Inaction · Real-World AI Liability",
+    "risk_matrix_title": "The Real-Life Disasters of Messy Data & Ungoverned AI",
+    "risk_matrix_subhead": "Enterprise AI doesn't fail in theory—it fails in production through catastrophic data leaks, falsified financial reporting, and severe statutory fines. Here is the verified reality of operating without automated data governance.",
+    "stat_breach_cost_title": "Avg Global Data Breach Cost",
+    "stat_breach_cost_desc": "IBM Security Cost of Data Breach Report 2024 (record high)",
+    "stat_ai_failure_title": "Enterprise AI Project Failures",
+    "stat_ai_failure_desc": "RAND Corp 2024 / Gartner: driven by poor data quality & missing governance",
+    "stat_bad_data_title": "Annual Cost of Dirty Data",
+    "stat_bad_data_desc": "Gartner Research: poor data quality costs organizations $12.9M yearly",
+    "stat_statutory_window_title": "Mandatory Breach Deadline",
+    "stat_statutory_window_desc": "Statutory deadline under SG PDPA § 26D, MY Act A1727 § 12B, & ID UU PDP Pasal 46",
+    "risk_card1_badge": "🚨 Catastrophic Liability · Privacy Breach",
+    "risk_card1_title": "PII Ingestion & Prompt Exposure in LLMs",
+    "risk_card1_reality": "Developers and business leads connect raw databases directly to generative AI tools or internal RAG models. Unmasked NRICs, MyKads, customer credit cards, and mobile numbers are fed directly into LLM context windows or external API logs without an audit trail.",
+    "risk_card1_penalty": "• Singapore: Up to S$1,000,000 or 10% annual turnover (PDPA § 48J)<br>• Malaysia: Up to RM 1,000,000 & 3 years personal liability (Act A1727 § 133)<br>• Indonesia: Up to Rp 60 Billion & 6 years imprisonment (UU PDP Pasal 67-68)",
+    "risk_card1_shield": "Automated AST PII Scanner identifies 100% of sensitive identifiers across 14 categories with dynamic in-memory masking before any query result or prompt reaches an LLM.",
+    "risk_card2_badge": "📉 Board & Executive Blunder",
+    "risk_card2_title": "Silent Schema Drift & Falsified Financials",
+    "risk_card2_reality": "A software engineer renames an upstream column (e.g. subtotal_cents to net_amount_sgd) during a weekend release. No alert fires. The BI dashboard silently calculates revenue with unhandled NULLs, leading to a 35% misstatement in Board reporting.",
+    "risk_card2_penalty": "Defective strategic budgeting, ruined investor trust, shareholder lawsuits, and emergency engineering fire-drills consuming 40+ hours to reconcile corrupted reporting pipelines.",
+    "risk_card2_shield": "4D Sentinel telemetry (Freshness, Volume, Distribution, Schema) intercepts upstream mutations instantaneously, blocking broken joins and notifying data owners via Slack/Webhook.",
+    "risk_card3_badge": "🤖 AI Runaway Hazard",
+    "risk_card3_title": "Ungoverned Agentic AI Hallucinations",
+    "risk_card3_reality": "Autonomous AI agents tasked with inventory dispatch or customer invoicing execute unanchored Text-to-SQL against legacy, poorly documented ERP tables (Epicor, SAP, SQL Server). The AI invents non-existent columns, issuing erroneous orders or triggering stockouts.",
+    "risk_card3_penalty": "Thousands in phantom purchase orders, broken fulfillment SLAs, irreversible database lockups, and complete operational paralysis across customer-facing workflows.",
+    "risk_card3_shield": "Deterministic Semantic Layer & Read-Only AST Validator anchors natural language queries strictly to validated schemas, guaranteeing 100% syntactically verified, hallucination-free SQL.",
+    "risk_card4_badge": "🔓 Internal Security Breach",
+    "risk_card4_title": "Unenforced RBAC & Accidental Privilege Escalation",
+    "risk_card4_reality": "Junior marketing staff, external contractors, or interns connect to corporate reporting tools with over-privileged database credentials. An innocent plain-English question surfaces executive compensation, confidential churn tables, or customer health records.",
+    "risk_card4_penalty": "Immediate breach of fiduciary confidentiality, corporate extortion risks, intellectual property theft, and severe employee morale collapse following leaked compensation structures.",
+    "risk_card4_shield": "Zero-Trust Column-Level RBAC and automated immutable audit logging restrict visibility based on user department, ensuring sensitive columns are strictly masked before query delivery.",
+
     "nav_story": "Our Story",
     "nav_datasense": "DataSense Platform",
     "nav_personas": "Who It's For",
@@ -5682,6 +5987,38 @@
     "faq_a9": "KaoinAI runs automated PII scans across all company databases in minutes, establishes Role-Based Access Control (RBAC), and monitors 4D Data Quality overnight to ensure all departments report from a unified single source of truth."
   },
   "id": {
+    "risk_matrix_overline": "Biaya Mahal Ketidakpedulian · Liabilitas Nyata AI",
+    "risk_matrix_title": "Bencana Nyata Akibat Data Berantakan & AI Tanpa Tata Kelola",
+    "risk_matrix_subhead": "AI perusahaan tidak gagal secara teori—tetapi gagal dalam implementasi nyata melalui kebocoran data fatal, pelaporan keuangan palsu, dan denda regulasi yang berat. Inilah realitas beroperasi tanpa tata kelola data otomatis.",
+    "stat_breach_cost_title": "Rata-Rata Biaya Kebocoran Data Global",
+    "stat_breach_cost_desc": "Laporan IBM Security Cost of Data Breach 2024 (rekor tertinggi)",
+    "stat_ai_failure_title": "Kegagalan Proyek AI Perusahaan",
+    "stat_ai_failure_desc": "RAND Corp 2024 / Gartner: dipicu oleh buruknya kualitas data & ketiadaan tata kelola",
+    "stat_bad_data_title": "Kerugian Tahunan Akibat Data Kotor",
+    "stat_bad_data_desc": "Riset Gartner: kualitas data yang buruk merugikan organisasi $12,9 Juta per tahun",
+    "stat_statutory_window_title": "Batas Waktu Pelaporan Pelanggaran",
+    "stat_statutory_window_desc": "Tenggat wajib UU PDP Indonesia Pasal 46, SG PDPA § 26D, & MY Akta A1727 § 12B",
+    "risk_card1_badge": "🚨 Liabilitas Fatal · Kebocoran Privasi",
+    "risk_card1_title": "Penyerapan PII & Paparan Prompt pada LLM",
+    "risk_card1_reality": "Pengembang dan pemimpin bisnis menghubungkan database mentah langsung ke alat generative AI atau model RAG internal. NIK, nomor kartu kredit, dan nomor telepon terkirim langsung ke context window LLM tanpa jejak audit.",
+    "risk_card1_penalty": "• Indonesia: Denda hingga Rp 60 Miliar & 6 tahun penjara (UU PDP Pasal 67-68)<br>• Singapura: Hingga S$1.000.000 atau 10% omset tahunan (PDPA § 48J)<br>• Malaysia: Hingga RM 1.000.000 & 3 tahun penjara (Akta A1727)",
+    "risk_card1_shield": "Pemindai PII AST Otomatis mengidentifikasi 100% data sensitif di 14 kategori dengan penyamaran in-memory dinamis sebelum hasil kueri dikirim ke LLM.",
+    "risk_card2_badge": "📉 Kesalahan Fatal Direksi & Eksekutif",
+    "risk_card2_title": "Pergeseran Skema Diam-Diam & Laporan Keuangan Palsu",
+    "risk_card2_reality": "Insinyur perangkat lunak mengubah nama kolom (misalnya subtotal_cents menjadi net_amount_idr) saat pembaruan akhir pekan. Tidak ada alarm. Dasbor BI menghitung pendapatan dengan data NULL, menyebabkan selisih 35% pada laporan Dewan Direksi.",
+    "risk_card2_penalty": "Anggaran strategis yang cacat, hilangnya kepercayaan investor, tuntutan hukum, dan kepanikan rekayasa sistem yang memakan waktu 40+ jam kerja darurat.",
+    "risk_card2_shield": "Telemetri 4D Sentinel mencegat mutasi skema seketika, memblokir penggabungan data yang rusak dan memberi tahu pemilik data melalui Slack/Webhook.",
+    "risk_card3_badge": "🤖 Bahaya AI Liar Tanpa Kendali",
+    "risk_card3_title": "Halusinasi Agen AI Tanpa Tata Kelola",
+    "risk_card3_reality": "Agen AI otonom yang bertugas mengirim pesanan atau faktur menjalankan Text-to-SQL tanpa panduan pada tabel ERP lawas yang minim dokumentasi (SAP, Epicor, SQL Server). AI mengarang kolom yang tidak ada, memicu pesanan fiktif.",
+    "risk_card3_penalty": "Kerugian pesanan palsu, kegagalan SLA pengiriman, penguncian database yang fatal, dan kelumpuhan operasional layanan pelanggan.",
+    "risk_card3_shield": "Lapisan Semantik Deterministik & Validator AST memastikan kueri bahasa alami terikat kuat pada skema valid, menjamin 100% SQL terverifikasi tanpa halusinasi.",
+    "risk_card4_badge": "🔓 Pelanggaran Keamanan Internal",
+    "risk_card4_title": "RBAC Tidak Ditegakkan & Eskalasi Hak Akses",
+    "risk_card4_reality": "Staf pemasaran junior atau kontraktor eksternal terhubung ke alat pelaporan perusahaan dengan hak akses database yang terlalu luas. Pertanyaan polos memunculkan data gaji direksi atau rekam medis rahasia.",
+    "risk_card4_penalty": "Pelanggaran kerahasiaan fidusia, risiko pemerasan korporat, pencurian kekayaan intelektual, dan hancurnya moral karyawan akibat bocornya struktur gaji.",
+    "risk_card4_shield": "RBAC Tingkat Kolom Zero-Trust dan pencatatan audit mutlak membatasi visibilitas berdasarkan divisi, memastikan kolom sensitif disamarkan secara ketat.",
+
     "nav_story": "Kisah Kami",
     "nav_datasense": "Platform DataSense",
     "nav_personas": "Untuk Siapa",
@@ -5840,6 +6177,38 @@
     "faq_a9": "KaoinAI menjalankan pemindaian data pribadi (PII) otomatis di seluruh database perusahaan dalam hitungan menit, menetapkan Kontrol Akses Berbasis Peran (RBAC), dan memantau Kualitas Data 4D setiap malam untuk memastikan semua divisi mengacu pada satu sumber kebenaran data yang sama."
   },
   "ms": {
+    "risk_matrix_overline": "Kos Tinggi Ketidaktindakan · Liabiliti Nyata AI",
+    "risk_matrix_title": "Bencana Sebenar Akibat Data Berselerak & AI Tanpa Kawalan",
+    "risk_matrix_subhead": "AI perusahaan tidak gagal secara teori—tetapi gagal dalam operasi sebenar melalui kebocoran data kritikal, laporan kewangan palsu, dan denda statutori yang berat. Inilah realiti beroperasi tanpa tadbir urus data automatik.",
+    "stat_breach_cost_title": "Purata Kos Kebocoran Data Global",
+    "stat_breach_cost_desc": "Laporan IBM Security Cost of Data Breach 2024 (rekod tertinggi)",
+    "stat_ai_failure_title": "Kegagalan Projek AI Perusahaan",
+    "stat_ai_failure_desc": "RAND Corp 2024 / Gartner: didorong oleh kualiti data yang lemah & ketiadaan tadbir urus",
+    "stat_bad_data_title": "Kos Tahunan Data Kotor",
+    "stat_bad_data_desc": "Kajian Gartner: kualiti data yang lemah merugikan organisasi $12.9 Juta setahun",
+    "stat_statutory_window_title": "Had Masa Mandatori Pelaporan",
+    "stat_statutory_window_desc": "Had masa mandatori di bawah Akta JPDP A1727 Seksyen 12B, SG PDPA § 26D, & ID UU PDP",
+    "risk_card1_badge": "🚨 Liabiliti Kritikal · Kebocoran Privasi",
+    "risk_card1_title": "Pengambilan PII & Pendedahan Prompt dalam LLM",
+    "risk_card1_reality": "Pembangun dan ketua perniagaan menyambungkan pangkalan data mentah terus ke alat AI generatif atau model RAG dalaman. MyKad, nombor kad kredit, dan nombor telefon dihantar terus ke prompt LLM tanpa jejak audit.",
+    "risk_card1_penalty": "• Malaysia: Sehingga RM 1,000,000 & 3 tahun liabiliti peribadi (Akta A1727 Seksyen 133)<br>• Singapura: Sehingga S$1,000,000 atau 10% perolehan tahunan (PDPA § 48J)<br>• Indonesia: Sehingga Rp 60 Bilion & 6 tahun penjara (UU PDP)",
+    "risk_card1_shield": "Pengimbas PII AST Automatik mengenal pasti 100% pengecam sensitif merentasi 14 kategori dengan penyamaran memori dinamik sebelum kueri sampai ke LLM.",
+    "risk_card2_badge": "📉 Kesilapan Besar Lembaga Pengarah",
+    "risk_card2_title": "Peralihan Skema Senyap & Kewangan Palsu",
+    "risk_card2_reality": "Jurutera perisian menamakan semula lajur (cth. subtotal_cents kepada net_amount_myr) semasa kemas kini hujung minggu. Tiada amaran. Papan pemuka BI mengira hasil dengan nilai NULL, menyebabkan laporan lembaga silap sebanyak 35%.",
+    "risk_card2_penalty": "Belanjawan strategik cacat, reputasi pelabur terjejas, saman pemegang saham, dan kerja lebih masa kecemasan kejuruteraan melebihi 40 jam.",
+    "risk_card2_shield": "Telemetri 4D Sentinel memintas perubahan skema serta-merta, menyekat cantuman yang rosak dan memberitahu pemilik data melalui Slack/Webhook.",
+    "risk_card3_badge": "🤖 Bahaya Ejen AI Tidak Terkawal",
+    "risk_card3_title": "Halusinasi Ejen AI Tanpa Tadbir Urus",
+    "risk_card3_reality": "Ejen AI autonomi yang menguruskan penghantaran inventori menjalankan Text-to-SQL tanpa panduan pada jadual ERP legasi (SAP, Epicor, SQL Server). AI mencipta lajur yang tidak wujud, mencetuskan pesanan palsu.",
+    "risk_card3_penalty": "Kerugian pesanan bayangan, kegagalan SLA penghantaran, penguncian pangkalan data yang tidak boleh dipulihkan, dan kelumpuhan operasi perkhidmatan pelanggan.",
+    "risk_card3_shield": "Lapisan Semantik Deterministik & Pengesah AST menambat kueri bahasa semula jadi kepada skema sah, menjamin 100% SQL disahkan tanpa halusinasi.",
+    "risk_card4_badge": "🔓 Pelanggaran Keselamatan Dalaman",
+    "risk_card4_title": "RBAC Tidak Dikuasakan & Peningkatan Akses",
+    "risk_card4_reality": "Kakitangan pemasaran junior atau kontraktor menyambung ke alat pelaporan syarikat dengan kebenaran akses pangkalan data berlebihan. Soalan mudah mendedahkan pampasan eksekutif atau rekod kesihatan sulit.",
+    "risk_card4_penalty": "Pelanggaran kerahsiaan fidusiari, risiko pemerasan korporat, kecurian harta intelek, dan kejatuhan semangat pekerja akibat gaji terbongkar.",
+    "risk_card4_shield": "RBAC Peringkat Lajur Zero-Trust dan pengauditan automatik mengehadkan keterlihatan mengikut jabatan, memastikan lajur sensitif disamarkan sepenuhnya.",
+
     "nav_story": "Kisah Kami",
     "nav_datasense": "Platform DataSense",
     "nav_personas": "Untuk Siapa",
@@ -5998,6 +6367,38 @@
     "faq_a9": "KaoinAI menjalankan imbasan data peribadi (PII) automatik merentasi semua pangkalan data syarikat dalam beberapa minit, menetapkan Kawalan Akses Berasaskan Peranan (RBAC), dan memantau Kualiti Data 4D setiap malam untuk memastikan semua jabatan merujuk kepada satu sumber kebenaran data yang sama."
   },
   "zh": {
+    "risk_matrix_overline": "放任不管的高昂代价 · 真实世界的 AI 法律与财务责任",
+    "risk_matrix_title": "脏数据与失控 AI 引发的现实灾难与法律风险",
+    "risk_matrix_subhead": "企业 AI 的失败绝非纸上谈兵——它在生产环境中以灾难性的隐私泄露、失真的虚假财报和巨额法定罚款爆发。这就是缺乏自动化数据治理的残酷现实。",
+    "stat_breach_cost_title": "全球企业平均数据泄露成本",
+    "stat_breach_cost_desc": "IBM Security 2024 年数据泄露成本报告（创历史新高）",
+    "stat_ai_failure_title": "企业 AI 项目失败率",
+    "stat_ai_failure_desc": "RAND 智库 2024 / Gartner：核心诱因是底层数据质量低劣与缺乏治理",
+    "stat_bad_data_title": "脏数据导致的年均直接损失",
+    "stat_bad_data_desc": "Gartner 研究：脏数据平均每年给每家受损组织带来高达 1,290 万美元损失",
+    "stat_statutory_window_title": "法定安全事件通报时限",
+    "stat_statutory_window_desc": "新加坡 PDPA § 26D、马来西亚 Act A1727 § 12B 及印尼 UU PDP 第 46 条严格法定要求",
+    "risk_card1_badge": "🚨 毁灭性法律责任 · 严重隐私泄露",
+    "risk_card1_title": "敏感 PII 被吸纳进大模型与 Prompt 明文泄露",
+    "risk_card1_reality": "开发人员或业务负责人将未经处理的原始数据库直接接入大模型或企业内部 RAG 检索链路。未经脱敏的身份证号、MyKad、客户信用卡号及手机号直接暴露在 LLM 上下文窗口或第三方 API 日志中，全无审计留痕。",
+    "risk_card1_penalty": "• 新加坡：最高罚款 100 万新元或年营业额的 10%（PDPA § 48J）<br>• 马来西亚：最高罚款 100 万令吉并处以 3 年个人监禁（Act A1727 § 133）<br>• 印度尼西亚：最高罚金 600 亿印尼盾并处以 6 年监禁（UU PDP 第 67-68 条）",
+    "risk_card1_shield": "KaoinAI 自动化 AST PII 扫描器横跨 14 大敏感数据类别进行 100% 自动识别，并在查询结果或 Prompt 传递给大模型前完成内存级动态强脱敏。",
+    "risk_card2_badge": "📉 董事会与管理层灾难性误判",
+    "risk_card2_title": "表结构暗中漂移导致生成虚假财务报表",
+    "risk_card2_reality": "工程师在周末版本迭代中顺手重命名了底层数据列（如将 subtotal_cents 改为 net_amount_usd）。未触发任何告警。BI 报表和 AI 分析师将空值（NULL）静默计入，导致提交给董事会的营收数据发生 35% 的严重误报。",
+    "risk_card2_penalty": "战略预算决策失误、投资者信任彻底瓦解、面临股东集体诉讼，技术团队耗费超过 40 小时紧急排查与手工修复已受损的历史数据管道。",
+    "risk_card2_shield": "KaoinAI 四维哨兵监控（新鲜度、数据量、分布、模式漂移）实时拦截上游架构异动，立即阻断损坏的 SQL 联查，并通过 Slack/Webhook 自动通知数据负责人。",
+    "risk_card3_badge": "🤖 智能体失控风险",
+    "risk_card3_title": "缺乏治理的 Agentic AI 盲目执行引发业务瘫痪",
+    "risk_card3_reality": "负责自动发货或客户结算的自主 AI Agent 在缺乏语义层和注释的遗留 ERP 数据库（Epicor、SAP、SQL Server）上盲目运行 Text-to-SQL。AI 凭空捏造不存在的字段，执行错误采购指令或造成仓库爆仓瘫痪。",
+    "risk_card3_penalty": "数万美元的幽灵采购订单、客户履约 SLA 严重违约、核心生产数据库产生不可逆死锁，客户业务全线停摆。",
+    "risk_card3_shield": "确定性语义层与只读 AST 语法校验器将自然语言提问严格锚定于经过校验的模式结构，确保生成的 SQL 100% 具备语法保证且彻底杜绝 AI 幻觉。",
+    "risk_card4_badge": "🔓 内部数据泄密与权限越权",
+    "risk_card4_title": "未严格执行 RBAC 导致的权限意外扩散与泄密",
+    "risk_card4_reality": "初级市场运营人员、外包供应商或实习生使用过度授权的数据库凭证连接内部智能分析工具。一句看似普通的日常提问，轻易查出了高管薪酬明细、客户流失底表或员工敏感健康档案。",
+    "risk_card4_penalty": "违反高管信义保密义务、企业面临被敲诈勒索风险、核心商业机密外泄，且薪酬结构的意外曝光导致内部团队士气与凝聚力崩溃。",
+    "risk_card4_shield": "基于零信任的列级访问权限控制（RBAC）与不可篡改的审计日志根据部门角色实施强隔离，在数据返回前对敏感列进行强制物理阻断与脱敏。",
+
     "nav_story": "品牌故事",
     "nav_datasense": "DataSense 平台",
     "nav_personas": "适用人群",
