@@ -558,7 +558,7 @@
     <a href="audit.html" onclick="closeMenu()">Free Data Audit</a>
     <a href="blog.html" onclick="closeMenu()">Blog &amp; Insights</a>
     <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
-    <a href="index.html#cta" class="btn btn-primary" onclick="closeMenu()">Start Free Trial</a>
+    <a href="index.html#cta" class="btn btn-primary" onclick="closeMenu(); window.openTrialModal(event)">Start Free Trial</a>
     <div class="lang-switcher" style="margin-top:20px;">
       <button class="lang-btn active" data-lang="en" onclick="setLang('en');closeMenu()">EN</button>
       <button class="lang-btn" data-lang="id" onclick="setLang('id');closeMenu()">ID</button>
@@ -723,9 +723,9 @@ ORDER BY total_mrr DESC;
     </div>
 
     <div style="text-align: center; margin-top: 50px;">
-      <a href="index.html#cta" class="btn btn-primary" style="padding: 14px 32px; font-size: 16px;">
-        Connect Your Own Database in 5 Minutes (Free Trial) &rarr;
-      </a>
+      <button class="btn btn-primary" onclick="window.openTrialModal(event, '', 'Demo Bottom Action')" style="padding: 14px 32px; font-size: 16px; font-weight: 700; border: none; cursor: pointer; background: linear-gradient(135deg, var(--accent), #06b6d4); box-shadow: 0 6px 25px rgba(168,85,247,0.45); border-radius: 10px;">
+        🚀 Connect Your Own Database in 5 Minutes (Start 14-Day Free Trial) &rarr;
+      </button>
     </div>
   </main>
 

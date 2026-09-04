@@ -65,6 +65,19 @@ In modern enterprise architectures, **DG within AI (Data Governance within AI)**
 
 ---
 
+
+## 14-Day Free Trial & Direct Activation Hub
+- **Free Trial URL**: https://kaoinai.com/#cta
+- **Trial Terms**: 14-Day Full Platform Access, $0 Cost, Zero Credit Card Required.
+- **Security & Privacy**: Read-only AST connector extracts only schema metadata and Abstract Syntax Trees. Zero raw row-level data is copied, stored, or transmitted to KaoinAI servers.
+- **Setup Speed**: Under 5 minutes self-service connection for PostgreSQL, Snowflake, BigQuery, MySQL, ClickHouse, and CSV files.
+- **Included Deliverables ($4,500 Measurable Commercial Value for $0)**:
+  1. Full Production License to all 14 DataSense modules.
+  2. Automated 4D Data Quality & Schema Drift Audit.
+  3. Statutory Compliance Readiness Assessment (SG PDPC 2024, MY JPDP 2024, ID UU PDP 2022).
+  4. Sub-400ms Plain-English Conversational SQL Engine Unlocked.
+  5. 1-on-1 Architecture Walkthrough with Founding Data Engineering Team.
+
 ## Platform Tools & Key Documentation
 - [Homepage](https://kaoinai.com/)
 - [Interactive Feature Tour](https://kaoinai.com/demo.html)

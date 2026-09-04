@@ -369,7 +369,7 @@
     <a href="audit.html" onclick="closeMenu()">Free Data Audit</a>
     <a href="blog.html" onclick="closeMenu()">Blog &amp; Insights</a>
     <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
-    <a href="index.html#cta" class="btn btn-primary" onclick="closeMenu()">Start Free Trial</a>
+    <a href="index.html#cta" class="btn btn-primary" onclick="closeMenu(); window.openTrialModal(event)">Start Free Trial</a>
     <div class="lang-switcher" style="margin-top:20px;">
       <button class="lang-btn active" data-lang="en" onclick="setLang('en');closeMenu()">EN</button>
       <button class="lang-btn" data-lang="id" onclick="setLang('id');closeMenu()">ID</button>
@@ -445,9 +445,9 @@
           Calculated based on average engineer hourly rate ($65/hr) and automated conversational AI ticket resolution.
         </p>
 
-        <a href="index.html#cta" class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 15px;">
-          Claim These Savings — Start Free
-        </a>
+        <button class="btn btn-primary" id="roiTrialBtn" onclick="openRoiTrial(event)" style="width: 100%; padding: 14px; font-size: 15px; font-weight: 700; border: none; cursor: pointer; background: linear-gradient(135deg, var(--accent), #06b6d4); box-shadow: 0 6px 25px rgba(168,85,247,0.45); border-radius: 10px;">
+          🚀 Claim These Savings — Start 14-Day Free Trial
+        </button>
       </div>
 
     </div>
@@ -494,6 +494,16 @@
     }
 
     calculateROI();
+
+    function openRoiTrial(e) {
+      const savings = document.getElementById('totalSavings').textContent;
+      if (window.openTrialModal) {
+        window.openTrialModal(e, '', 'ROI Savings: ' + savings);
+      } else {
+        window.location.href = 'index.html#cta';
+      }
+    }
+
 
     function openMenu() {
       const m = document.getElementById('mobileMenu');

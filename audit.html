@@ -396,7 +396,7 @@
     <a href="audit.html" onclick="closeMenu()" style="color: #06b6d4;">Free Data Audit</a>
     <a href="blog.html" onclick="closeMenu()">Blog &amp; Insights</a>
     <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
-    <a href="index.html#cta" class="btn btn-primary" onclick="closeMenu()">Start Free Trial</a>
+    <a href="index.html#cta" class="btn btn-primary" onclick="closeMenu(); window.openTrialModal(event)">Start Free Trial</a>
     <div class="lang-switcher" style="margin-top:20px;">
       <button class="lang-btn active" data-lang="en" onclick="setLang('en');closeMenu()">EN</button>
       <button class="lang-btn" data-lang="id" onclick="setLang('id');closeMenu()">ID</button>
@@ -554,9 +554,9 @@
           </ul>
         </div>
 
-        <a href="index.html#cta" class="btn btn-primary" style="display: block; padding: 14px 28px; font-size: 16px; margin-bottom: 12px;">
-          Fix These Vulnerabilities with KaoinAI (Free Trial)
-        </a>
+        <button class="btn btn-primary" onclick="openAuditTrial(event)" style="display: block; width: 100%; padding: 14px 28px; font-size: 16px; font-weight: 700; margin-bottom: 12px; border: none; cursor: pointer; background: linear-gradient(135deg, var(--accent), #06b6d4); box-shadow: 0 6px 25px rgba(168,85,247,0.45); border-radius: 10px;">
+          🚀 Fix These Vulnerabilities with KaoinAI (Start 14-Day Free Trial) &rarr;
+        </button>
         <button class="btn btn-secondary" style="width: 100%;" onclick="restartAudit()">Retake Assessment</button>
       </div>
 
@@ -612,6 +612,17 @@
         statusEl.textContent = "🔴 High Vulnerability (Critical Risk)";
         statusEl.style.color = "var(--danger)";
         descEl.textContent = "Your data pipelines operate with high exposure to schema failures, PII compliance fines, and critical reporting blind spots. Immediate automated governance is recommended.";
+      }
+    }
+
+
+    function openAuditTrial(e) {
+      const score = document.getElementById('finalScore').textContent;
+      const status = document.getElementById('resultStatus').textContent;
+      if (window.openTrialModal) {
+        window.openTrialModal(e, '', 'Audit Score: ' + score + '/100 (' + status + ')');
+      } else {
+        window.location.href = 'index.html#cta';
       }
     }
 

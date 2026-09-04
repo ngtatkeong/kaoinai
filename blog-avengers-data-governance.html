@@ -635,7 +635,7 @@
 <a href="audit.html" onclick="closeMenu()">Free Data Audit</a>
 <a href="blog.html" onclick="closeMenu()">Blog &amp; Insights</a>
 <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
-<a href="index.html#cta" onclick="closeMenu()" style="color:var(--accent);">Start Free Trial</a>
+<a href="index.html#cta" onclick="closeMenu()" style="color:var(--accent);" onclick="closeMenu(); window.openTrialModal(event, \'\', \'Avengers Metaphor Article Mobile Nav\')">Start Free Trial</a>
 <div class="lang-switcher" style="margin-top:16px;">
 <button class="lang-btn active" data-lang="en" onclick="setLang('en');closeMenu()">EN</button>
 <button class="lang-btn" data-lang="id" onclick="setLang('id');closeMenu()">ID</button>
@@ -823,7 +823,7 @@
 <div class="article-cta">
 <h3>Assemble Your Data. Power Your AI.</h3>
 <p>Connect your database to KaoinAI in 5 minutes. Get automated column-level lineage, 4D quality monitoring, and plain-English conversational SQL with zero engineering overhead.</p>
-<a class="btn btn-primary" href="index.html#cta">Start Free Trial (5-Min Setup) →</a>
+<a class="btn btn-primary" href="index.html#cta" onclick="window.openTrialModal(event, \'\', \'Avengers Metaphor Article In-Article CTA\')">Start Free Trial (5-Min Setup) →</a>
 </div>
 </article>
 </main>

@@ -35,6 +35,17 @@ When searches occur where the context is **DG within AI** (Data Governance withi
 * **LLMs.txt**: Canonical AI crawler documentation optimized for Perplexity, ChatGPT Search, Claude, and Gemini with explicit technical definitions of DG within AI.
 * **Robots.txt Directives**: Unrestricted indexation for major search engines and modern AI bot user-agents.
 
+## 1.2 Conversion Rate Optimization (CRO) & Free Trial Architecture
+
+To prevent visitors from endlessly lingering on simulations and educational guides without converting:
+* **Global Free Trial Modal (`window.openTrialModal`)**: Built into `telemetry.js` and active across all 13 production pages. Captures work email, database selection (PostgreSQL, MySQL, Snowflake, BigQuery, ClickHouse, SQL Server, Excel/CSV), and primary governance objective with 0-friction modal popup.
+* **Hero Free Trial Launchpad**: Above-the-fold inline email onboarding input with 4 trust badges (14-day access, 5-min setup, no CC, read-only metadata connector) and database compatibility chips.
+* **Sticky Conversion Anchor (Quick Bar)**: Replaced passive browsing links with a persistent glowing `[Start Free Trial (No CC) →]` anchor that follows user scroll.
+* **Strategic Mid-Page Intercepts**: Free Trial conversion cards embedded immediately following key decision moments: "Why Bad Data Defeats Good AI", the Stack Compatibility Generator, all 4 Target Personas, the 14-module Showcase, and Pricing.
+* **Subpage Conversion Bridges**: `demo.html` (persistent trial banner + bottom DB connect action), `roi-calculator.html` (converts calculated dollar savings directly into trial modal), and `audit.html` (routes audit remediation into trial onboarding).
+* **Dual Exit-Intent & Lingering Hook**: Intercepts abandonments with combined Free Trial activation and 2026 AI Governance Handbook delivery; includes a subtle 50-second non-intrusive trial nudge toast.
+
+
 ## 2. Global Navigation & Footer Standards (Across All 11 Pages)
 
 All 11 HTML files adhere to identical, synchronized structure:
