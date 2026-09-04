@@ -6637,23 +6637,6 @@
       setLang(currentLang);
     });
   </script>
-<!-- Exit-Intent Lead Capture & Trial Activation Modal -->
-<div id="exitModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); backdrop-filter:blur(14px); z-index:99999; align-items:center; justify-content:center;">
-<div style="background:#0e0e18; border:1px solid rgba(168,85,247,0.45); border-radius:24px; max-width:500px; width:92%; padding:36px 32px; position:relative; box-shadow:0 25px 70px rgba(0,0,0,0.9), 0 0 35px rgba(168,85,247,0.25); text-align:center;">
-<button onclick="closeExitModal()" style="position:absolute; top:16px; right:16px; background:none; border:none; color:#8a8a98; font-size:24px; cursor:pointer;" aria-label="Close dialog">×</button>
-<div style="font-size:36px; margin-bottom:12px;">🚀</div>
-<span style="font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#06b6d4; display:inline-block; padding:3px 12px; border-radius:99px; background:rgba(6,182,212,0.12); border:1px solid rgba(6,182,212,0.3); margin-bottom:12px;">Before You Go · Free 14-Day Access</span>
-<h3 style="font-size:22px; font-weight:800; color:#fff; margin-bottom:10px; line-height:1.3;">Stop Bad Data From Breaking Your AI</h3>
-<p style="color:#94a3b8; font-size:13.5px; margin-bottom:20px; line-height:1.55;">Claim your <strong>14-Day Full Platform Free Trial</strong> today. Plus, get an instant download of the <strong>2026 AI Data Governance &amp; Compliance Handbook</strong>.</p>
-<form onsubmit="handleExitSubmit(event)" style="display:flex; flex-direction:column; gap:12px; margin-bottom:16px;">
-<input id="exitEmail" placeholder="Enter your work email..." required="" style="padding:13px 16px; border-radius:10px; border:1px solid rgba(255,255,255,0.18); background:rgba(255,255,255,0.05); color:#fff; outline:none; font-size:14.5px;" type="email" autocomplete="email"/>
-<button class="btn btn-primary" style="padding:13px; font-size:14.5px; font-weight:700; width:100%; border:none; cursor:pointer; background:linear-gradient(135deg, var(--accent), #06b6d4); box-shadow:0 4px 20px rgba(168,85,247,0.4); border-radius:10px;" type="submit">🚀 Activate 14-Day Free Trial &amp; Get Handbook →</button>
-</form>
-<div style="font-size:12px; color:#64748b;">
-  No credit card required · Instant download · Cancel anytime
-</div>
-</div>
-</div>
 <script>
     // Persona Switcher Handler
     function switchPersona(personaId, btn) {
@@ -6663,55 +6646,6 @@
       if (btn) btn.classList.add('active');
       const target = document.getElementById(personaId);
       if (target) target.classList.add('active');
-    }
-
-    // Exit-Intent Trigger
-    let exitShown = false;
-    document.addEventListener('mouseleave', (e) => {
-      if (e.clientY <= 10 && !exitShown && !sessionStorage.getItem('exitModalShown')) {
-        exitShown = true;
-        sessionStorage.setItem('exitModalShown', 'true');
-        document.getElementById('exitModal').style.display = 'flex';
-      }
-    });
-
-    function closeExitModal() {
-      document.getElementById('exitModal').style.display = 'none';
-    }
-
-    function handleExitSubmit(e) {
-      e.preventDefault();
-      const email = document.getElementById('exitEmail').value;
-      if (email) {
-        // Trigger handbook download
-        const link = document.createElement('a');
-        link.href = 'downloads/2026-Data-Governance-AI-Readiness-Handbook.pdf';
-        link.download = '2026-Data-Governance-AI-Readiness-Handbook.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-        // Submit to Formspree as trial signup
-        const formData = new FormData();
-        formData.append('email', email);
-        formData.append('_subject', 'Exit-Intent: 14-Day Free Trial + Handbook Download');
-        formData.append('inquiry_type', 'Exit Intent Free Trial');
-        if (window.kaoinaiGetActivitySummary) {
-          formData.append('user_activity_log', window.kaoinaiGetActivitySummary());
-        }
-        fetch('https://formspree.io/f/xyegdyyj', {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        }).catch(() => {});
-
-        if (window.kaoinaiLogAction) {
-          window.kaoinaiLogAction('Exit Intent Trial Activated', email);
-        }
-
-        alert("🎉 Congratulations! Your 14-Day Free Trial has been registered and your 2026 AI Data Governance & Compliance Handbook is downloading now. Our team has dispatched your workspace details to " + email);
-        closeExitModal();
-      }
     }
   </script>
 <script defer="" src="telemetry.js"></script>
