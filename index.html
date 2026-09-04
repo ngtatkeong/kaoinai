@@ -3193,6 +3193,10 @@
       try {
         if (sessionStorage.getItem('kaoinai_intro_seen') || localStorage.getItem('kaoinai_intro_seen')) {
           document.documentElement.classList.add('no-intro');
+        } else {
+          // First visit: record that intro has been shown once so it NEVER plays again
+          localStorage.setItem('kaoinai_intro_seen', 'true');
+          sessionStorage.setItem('kaoinai_intro_seen', 'true');
         }
       } catch (e) {}
     })();
@@ -4191,7 +4195,7 @@
 <h3 data-i18n="usecase_health_title">Patient Data Governance &amp; Lineage</h3>
 <p data-i18n="usecase_health_desc">Ensure strict role-based access control (RBAC) across electronic medical records (EMR) and diagnostic lab pipelines. Guarantee patient privacy compliance without slowing clinical reporting.</p>
 <div class="usecase-feature-pill">
-<span>🛡️ Impact:</span> <span data-i18n="usecase_health_impact">Zero-leakage compliance &amp; encrypted RBAC</span>
+<span>🛡️ Impact:</span> <span data-i18n="usecase_health_impact">Strict statutory patient privacy &amp; encrypted RBAC</span>
 </div>
 </div>
 <!-- Logistics & 3PL Supply Chain -->
@@ -5599,7 +5603,7 @@
     "usecase_health_badge": "🏥 Healthcare & MedTech",
     "usecase_health_title": "Patient Data Governance & Lineage",
     "usecase_health_desc": "Ensure strict role-based access control (RBAC) across electronic medical records (EMR) and diagnostic lab pipelines. Guarantee patient privacy compliance without slowing clinical reporting.",
-    "usecase_health_impact": "Zero-leakage compliance & encrypted RBAC",
+    "usecase_health_impact": "Strict statutory patient privacy & encrypted RBAC",
     "usecase_logistics_badge": "🚚 Logistics & 3PL",
     "usecase_logistics_title": "Delivery SLA & Warehouse Anomaly Alerts",
     "usecase_logistics_desc": "Detect API schema changes and shipping webhook dropouts before dispatch delays occur. Operations teams query fleet metrics and hub turnover in real time without writing SQL.",
@@ -5757,7 +5761,7 @@
     "usecase_health_badge": "🏥 Layanan Kesehatan & MedTech",
     "usecase_health_title": "Tata Kelola Data Pasien & Garis Keturunan Data",
     "usecase_health_desc": "Terapkan kontrol akses berbasis peran (RBAC) ketat pada rekam medis elektronik (RME) dan alur diagnostik laboratorium. Jamin privasi pasien tanpa memperlambat pelaporan klinis.",
-    "usecase_health_impact": "Kepatuhan privasi nol kebocoran & enkripsi RBAC",
+    "usecase_health_impact": "Kepatuhan privasi pasien berkanun & enkripsi RBAC",
     "usecase_logistics_badge": "🚚 Logistik & Rantai Pasok 3PL",
     "usecase_logistics_title": "Peringatan SLA Pengiriman & Anomali Gudang",
     "usecase_logistics_desc": "Deteksi perubahan skema API dan webhook pengiriman sebelum terjadi penundaan pengiriman. Tim operasional memantau metrik armada dan perputaran gudang secara langsung tanpa perlu SQL.",
@@ -5915,7 +5919,7 @@
     "usecase_health_badge": "🏥 Penjagaan Kesihatan & MedTech",
     "usecase_health_title": "Tadbir Urus Data Pesakit & Salasilah Data",
     "usecase_health_desc": "Kuat kuasakan kawalan akses berasaskan peranan (RBAC) pada rekod perubatan elektronik (EMR) dan saluran makmal. Jamin pematuhan privasi pesakit tanpa melambatkan laporan klinikal.",
-    "usecase_health_impact": "Pematuhan privasi sifar kebocoran & RBAC disulitkan",
+    "usecase_health_impact": "Pematuhan privasi pesakit berkanun & RBAC disulitkan",
     "usecase_logistics_badge": "🚚 Logistik & Rantaian Bekalan 3PL",
     "usecase_logistics_title": "Amaran SLA Penghantaran & Anomali Gudang",
     "usecase_logistics_desc": "Kesan perubahan skema API dan webhook penghantaran sebelum kelewatan berlaku. Pasukan operasi menyemak metrik armada dan pusing ganti gudang dalam masa nyata tanpa menulis SQL.",
@@ -6073,7 +6077,7 @@
     "usecase_health_badge": "🏥 医疗健康与智慧医疗",
     "usecase_health_title": "患者敏感病历治理与端到端数据血缘",
     "usecase_health_desc": "针对电子病历系统（EMR）及医学检验数据链路，实施高强度的细粒度权限控制（RBAC），在全力保障患者隐私合规的前提下保障临床科研分析效率。",
-    "usecase_health_impact": "零数据泄露合规保障与强加密 RBAC",
+    "usecase_health_impact": "严格法定医疗隐私合规与强加密 RBAC",
     "usecase_logistics_badge": "🚚 物流仓储与三方供应链",
     "usecase_logistics_title": "配送履约 SLA 预警与仓库异常波动监控",
     "usecase_logistics_desc": "在运力调度发生延误前，自动捕捉物流服务商 API 模式突变或 Webhook 数据丢失。调度运营人员无需编写 SQL 即可实时洞察车队周转与干线时效。",
