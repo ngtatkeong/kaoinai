@@ -2965,145 +2965,6 @@
       .floating-quick-bar p { display: none; }
     }
 
-    /* ===== HERO TRIAL LAUNCHPAD ===== */
-    .hero-trial-launchpad {
-      margin: 36px auto 16px;
-      max-width: 680px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-      position: relative;
-      z-index: 5;
-    }
-    .hero-inline-form {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      background: rgba(15, 15, 25, 0.88);
-      border: 1px solid rgba(168, 85, 247, 0.45);
-      border-radius: 999px;
-      padding: 6px 8px 6px 20px;
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(168, 85, 247, 0.25);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      transition: border-color 0.25s, box-shadow 0.25s;
-    }
-    .hero-inline-form:focus-within {
-      border-color: #06b6d4;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(6, 182, 212, 0.4);
-    }
-    .hero-input-wrap {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex: 1;
-    }
-    .hero-input-icon {
-      color: #94a3b8;
-      flex-shrink: 0;
-    }
-    .hero-inline-input {
-      width: 100%;
-      background: transparent;
-      border: none;
-      outline: none;
-      color: #fff;
-      font-size: 14.5px;
-      font-family: inherit;
-    }
-    .hero-inline-input::placeholder {
-      color: #94a3b8;
-    }
-    .hero-submit-btn {
-      background: linear-gradient(135deg, var(--accent), #06b6d4);
-      color: #fff;
-      border: none;
-      border-radius: 999px;
-      padding: 12px 26px;
-      font-size: 14px;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 18px rgba(168, 85, 247, 0.4);
-    }
-    .hero-submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(6, 182, 212, 0.6);
-    }
-    .hero-trust-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-      font-size: 12px;
-      color: #cbd5e1;
-      margin-top: 4px;
-    }
-    .hero-trust-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      color: #e2e8f0;
-    }
-    .hero-trust-item svg {
-      color: #22c55e;
-      flex-shrink: 0;
-    }
-    .hero-compat-pills {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 11.5px;
-      color: #94a3b8;
-      margin-top: 2px;
-    }
-    .compat-label {
-      color: #64748b;
-      font-weight: 600;
-    }
-    .compat-pill {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      border-radius: 6px;
-      padding: 3px 8px;
-      color: #cbd5e1;
-    }
-    .hero-alt-action {
-      font-size: 13px;
-      color: #94a3b8;
-      margin-top: 6px;
-    }
-    .hero-tour-link {
-      color: #06b6d4;
-      font-weight: 600;
-      text-decoration: underline;
-      margin-left: 6px;
-      transition: color 0.2s;
-    }
-    .hero-tour-link:hover {
-      color: #38bdf8;
-    }
-    @media (max-width: 640px) {
-      .hero-inline-form {
-        flex-direction: column;
-        border-radius: 16px;
-        padding: 12px 14px;
-        gap: 12px;
-      }
-      .hero-submit-btn {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-
     /* ===== MID-PAGE TRIAL CARDS ===== */
     .mid-page-trial-card {
       max-width: 1040px;
@@ -3442,36 +3303,9 @@
 <p class="hero-pillar-desc" data-i18n="hero_p3_desc">KaoinAI democratizes enterprise governance. We fix schema drifts, cure quality anomalies, and transform your data so AI executes flawlessly for everyone.</p>
 </div>
 </div>
-<div class="hero-trial-launchpad reveal reveal-delay-2">
-  <form class="hero-inline-form" onsubmit="handleHeroTrialSubmit(event)">
-    <div class="hero-input-wrap">
-      <svg class="hero-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-      <input type="email" id="heroEmailInput" class="hero-inline-input" placeholder="Enter your work email (e.g. alex@company.com)" required autocomplete="email">
-    </div>
-    <button type="submit" class="hero-submit-btn">
-      <span data-i18n="hero_cta_primary">Start 14-Day Free Trial</span>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-    </button>
-  </form>
-  <div class="hero-trust-row">
-    <span class="hero-trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 14-Day Full Platform Access</span>
-    <span class="hero-trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 5-Minute Database Setup</span>
-    <span class="hero-trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> No Credit Card Required</span>
-    <span class="hero-trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Read-Only &amp; Zero Data Stored</span>
-  </div>
-  <div class="hero-compat-pills">
-    <span class="compat-label">Instantly connects with:</span>
-    <span class="compat-pill">🐘 PostgreSQL</span>
-    <span class="compat-pill">🐬 MySQL</span>
-    <span class="compat-pill">❄️ Snowflake</span>
-    <span class="compat-pill">📊 BigQuery</span>
-    <span class="compat-pill">⚡ ClickHouse</span>
-    <span class="compat-pill">📑 Excel / CSV</span>
-  </div>
-  <div class="hero-alt-action">
-    <span>Want to test simulation first?</span>
-    <a href="demo.html" class="hero-tour-link">Explore Interactive Feature Tour ↗</a>
-  </div>
+<div class="hero-actions reveal reveal-delay-2">
+<a class="btn btn-primary" data-i18n="hero_cta_primary" href="#cta" style="padding: 14px 32px; font-size: 15px; font-weight: 700; background: linear-gradient(135deg, var(--accent), #06b6d4); box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);">Start Free Trial (5-Min Setup)</a>
+<a class="btn btn-ghost" data-i18n="hero_cta_secondary" href="demo.html" style="padding: 14px 28px; font-size: 15px; font-weight: 600;">Interactive Feature Tour ↗</a>
 </div>
 </div>
 <!-- Dashboard Mockup -->
@@ -5591,14 +5425,7 @@
       }
     }
 
-    // Handle Hero Trial Inline Submission
-    function handleHeroTrialSubmit(e) {
-      e.preventDefault();
-      const email = document.getElementById('heroEmailInput').value;
-      if (email && window.openTrialModal) {
-        window.openTrialModal(e, '', '', email);
-      }
-    }
+
 
 
     // Smart Floating Quick Action Bar

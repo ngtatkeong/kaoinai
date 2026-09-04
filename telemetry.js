@@ -767,24 +767,7 @@
       }
     });
 
-    // 4. Inactivity / Lingering CRO Nudge Toast
-    setTimeout(() => {
-      try {
-        if (!sessionStorage.getItem('kaoinai_trial_nudge_seen') && modal.style.display !== 'flex') {
-          const toast = document.createElement('div');
-          toast.id = 'kaoinaiLingeringToast';
-          toast.innerHTML = `
-            <div style="font-size: 20px;">💡</div>
-            <p><strong>Cure messy data for AI in 5 mins:</strong> Connect your database on a 14-day free trial. Zero card required.</p>
-            <button class="kf-toast-btn" onclick="window.openTrialModal(event); document.getElementById('kaoinaiLingeringToast').remove();">Start Trial &rarr;</button>
-            <button class="kf-toast-close" onclick="document.getElementById('kaoinaiLingeringToast').remove();" aria-label="Dismiss">&times;</button>
-          `;
-          document.body.appendChild(toast);
-          sessionStorage.setItem('kaoinai_trial_nudge_seen', 'true');
-          window.kaoinaiLogAction('Lingering Nudge Displayed', '50s on site');
-        }
-      } catch(e) {}
-    }, 50000);
+    
   }
 
   if (document.readyState === 'loading') {
