@@ -1,0 +1,10 @@
+{
+  "name": "kaoinai-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "KaoinAI marketing & intelligence website (static multi-page site)",
+  "scripts": {
+    "dev": "node serve.mjs",
+    "start": "node serve.mjs"
+  }
+}

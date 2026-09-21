@@ -7,6 +7,7 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /*?*preview=
 Disallow: /scratch/
+Disallow: /kaoinai-backup/
 
 # Major Search Engine Crawlers
 User-agent: Googlebot

@@ -1,0 +1,430 @@
+/* ==========================================================================
+   KaoinAI Visual Refresh Layer v1.1
+   Loaded AFTER page styles. Purely additive: no content or markup changes.
+   Graphics + redesigned surfaces + motion polish, all pages.
+   v1.1: brighter ambient aurora, page fade-in transition, more visible
+   lineage layer — the animated background reads on every page.
+   ========================================================================== */
+
+:root {
+  --kd-violet: #a855f7;
+  --kd-violet-deep: #7c3aed;
+  --kd-cyan: #06b6d4;
+  --kd-cyan-bright: #22d3ee;
+  --kd-line: rgba(168, 85, 247, 0.35);
+  --kd-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --kd-card-border: linear-gradient(135deg, rgba(168,85,247,0.45), rgba(6,182,212,0.22) 55%, rgba(255,255,255,0.06));
+}
+
+/* ---------- Ambient page backdrop: aurora + grid + grain ---------- */
+/* Wide lineage-network artwork as a faint fixed backdrop layer */
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  background: url("../images/kd-aurora-lineage.webp") center 32% / cover no-repeat;
+  opacity: 0.22;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20vmax;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(46vmax 32vmax at 12% -6%, rgba(124, 58, 237, 0.22), transparent 62%),
+    radial-gradient(40vmax 30vmax at 88% 4%, rgba(6, 182, 212, 0.14), transparent 62%),
+    radial-gradient(52vmax 38vmax at 50% 108%, rgba(168, 85, 247, 0.14), transparent 64%);
+  animation: kd-aurora 26s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 30%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 30%, transparent 78%);
+}
+
+@keyframes kd-aurora {
+  0%   { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+  50%  { transform: translate3d(2vmax, -1.5vmax, 0) rotate(2deg) scale(1.04); }
+  100% { transform: translate3d(-1.5vmax, 1vmax, 0) rotate(-2deg) scale(1.02); }
+}
+
+/* ---------- Page fade-in: soft professional entrance on every page ---------- */
+@keyframes kd-page-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+body {
+  animation: kd-page-in 0.65s var(--kd-ease, ease-out) both;
+}
+
+/* ---------- Typography polish ---------- */
+::selection { background: rgba(168, 85, 247, 0.45); color: #fff; }
+
+.hero-typing,
+.headline-xl .hero-typing {
+  background: linear-gradient(92deg, #c084fc 0%, var(--kd-violet) 28%, var(--kd-cyan-bright) 62%, #c084fc 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  animation: kd-gradient-slide 7s linear infinite;
+  filter: drop-shadow(0 0 22px rgba(168, 85, 247, 0.35));
+}
+
+@keyframes kd-gradient-slide {
+  to { background-position: 220% 0; }
+}
+
+.headline-xl, .headline-lg, h1, h2 { text-wrap: balance; }
+
+/* ---------- Navbar: glass + scroll state (class added by dynamics.js) ---------- */
+.nav {
+  transition: background 0.4s var(--kd-ease), box-shadow 0.4s var(--kd-ease), border-color 0.4s var(--kd-ease);
+  background: rgba(7, 7, 11, 0.72);
+}
+
+.nav.kd-scrolled {
+  background: rgba(9, 9, 15, 0.9);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.22);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(168, 85, 247, 0.12) inset;
+}
+
+.nav-links a { position: relative; }
+.nav-links a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 100%; bottom: -6px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--kd-violet), var(--kd-cyan));
+  transition: right 0.35s var(--kd-ease);
+}
+.nav-links a:not(.btn):hover::after,
+.nav-links a.kd-active:not(.btn)::after { right: 0; }
+.nav-links a.kd-active:not(.btn) { color: #fff; }
+
+/* ---------- Scroll progress (page bar or JS-injected) ---------- */
+.scroll-progress, .kd-progress {
+  background: linear-gradient(90deg, var(--kd-violet), var(--kd-cyan-bright)) !important;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.8);
+}
+
+/* ---------- Buttons: sheen sweep + press ---------- */
+.btn { position: relative; overflow: hidden; isolation: isolate; }
+.btn-primary {
+  background: linear-gradient(135deg, var(--kd-violet), var(--kd-violet-deep) 55%, var(--kd-cyan)) !important;
+  background-size: 160% 160% !important;
+  transition: all 0.3s var(--kd-ease), background-position 0.6s var(--kd-ease) !important;
+}
+.btn-primary:hover { background-position: 90% 90% !important; }
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  left: -80%;
+  width: 45%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s var(--kd-ease);
+  z-index: 1;
+}
+.btn-primary:hover::after { left: 130%; }
+.btn:active { transform: scale(0.97) !important; }
+
+.btn-ghost {
+  border: 1px solid rgba(168, 85, 247, 0.4) !important;
+  transition: all 0.3s var(--kd-ease) !important;
+}
+.btn-ghost:hover {
+  border-color: var(--kd-cyan) !important;
+  background: rgba(6, 182, 212, 0.08) !important;
+  box-shadow: 0 6px 24px rgba(6, 182, 212, 0.18);
+}
+
+/* ---------- Cards: gradient glass borders + hover lift ---------- */
+.feature-card, .hero-pillar-card, .persona-card, .faq-item, .calc-card,
+.card, .usecase-card, .showcase-item, .service-card, .story-card, .pricing-card {
+  position: relative;
+  border: 1px solid transparent !important;
+  background:
+    linear-gradient(rgba(17, 17, 26, 0.92), rgba(13, 13, 20, 0.92)) padding-box,
+    var(--kd-card-border) border-box !important;
+  transition: transform 0.45s var(--kd-ease), box-shadow 0.45s var(--kd-ease), border-color 0.45s var(--kd-ease);
+  will-change: transform;
+}
+
+.feature-card::before, .hero-pillar-card::before, .persona-card::before,
+.card::before, .usecase-card::before, .service-card::before, .pricing-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 12%; right: 12%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(216, 180, 254, 0.55), transparent);
+  opacity: 0;
+  transition: opacity 0.4s var(--kd-ease);
+  pointer-events: none;
+}
+
+.feature-card:hover, .hero-pillar-card:hover, .persona-card:hover,
+.card:hover, .usecase-card:hover, .showcase-item:hover, .service-card:hover,
+.story-card:hover, .pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(168, 85, 247, 0.18),
+    0 8px 32px rgba(168, 85, 247, 0.16);
+}
+
+.feature-card:hover::before, .hero-pillar-card:hover::before, .persona-card:hover::before,
+.card:hover::before, .usecase-card:hover::before, .service-card:hover::before, .pricing-card:hover::before {
+  opacity: 1;
+}
+
+/* 3D tilt hook used by dynamics.js */
+.kd-tilting { transform-style: preserve-3d; }
+.kd-tilting > * { transform: translateZ(14px); }
+
+/* ---------- Hero extras ---------- */
+.hero-badge {
+  border: 1px solid rgba(168, 85, 247, 0.35) !important;
+  background: rgba(168, 85, 247, 0.08) !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 24px rgba(168, 85, 247, 0.18);
+}
+.hero-badge-dot { animation: kd-pulse-dot 2.2s ease-in-out infinite; }
+@keyframes kd-pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.55); }
+  50%      { box-shadow: 0 0 0 6px rgba(168, 85, 247, 0); }
+}
+
+.hero-orb, .mesh-blob { will-change: transform; }
+
+/* Data-lineage canvas injected by dynamics.js.
+   Negative z-index keeps it above the body backdrop but below all content. */
+.kd-lineage-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* ---------- Dashboard mockup: shimmer on health bars ---------- */
+.mock-progress-fill {
+  background-image: linear-gradient(90deg, var(--kd-violet) 0%, var(--kd-cyan-bright) 100%);
+  background-size: 200% 100%;
+  animation: kd-bar-shimmer 3.2s linear infinite;
+  position: relative;
+  overflow: hidden;
+}
+@keyframes kd-bar-shimmer {
+  0% { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+.mock-stat-value { text-shadow: 0 0 18px rgba(168, 85, 247, 0.4); }
+.mock-browser {
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(168, 85, 247, 0.22), 0 0 80px rgba(124, 58, 237, 0.18) !important;
+}
+
+/* ---------- Marquee: edge fade + hover pause ---------- */
+.marquee-track-wrap {
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track { animation-play-state: running; }
+.marquee-track-wrap:hover .marquee-track { animation-play-state: paused; }
+.marquee-item {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s var(--kd-ease);
+}
+.marquee-item:hover {
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 0 24px rgba(168, 85, 247, 0.25);
+  transform: translateY(-3px);
+}
+
+/* ---------- FAQ ---------- */
+.faq-item { border-radius: 14px !important; }
+.faq-question { transition: color 0.25s ease; }
+.faq-item.open .faq-question { color: #d8b4fe; }
+.faq-icon { transition: transform 0.4s var(--kd-ease), color 0.3s ease; }
+.faq-item.open .faq-icon { color: var(--kd-cyan-bright); }
+
+/* ---------- Forms ---------- */
+input[type="email"], input[type="text"], input[type="number"], select, textarea {
+  transition: border-color 0.3s var(--kd-ease), box-shadow 0.3s var(--kd-ease);
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--kd-violet) !important;
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.22), 0 0 24px rgba(168, 85, 247, 0.15) !important;
+}
+
+/* Range sliders */
+input[type="range"] { accent-color: var(--kd-violet); cursor: pointer; }
+
+/* ---------- CTA section atmosphere ---------- */
+.cta-section {
+  background:
+    radial-gradient(60% 90% at 50% 110%, rgba(124, 58, 237, 0.16), transparent 70%),
+    radial-gradient(40% 60% at 85% 20%, rgba(6, 182, 212, 0.08), transparent 70%) !important;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(920px, 130vw);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: url("../images/kd-governance-core.webp") center / contain no-repeat;
+  opacity: 0.14;
+  pointer-events: none;
+  animation: kd-core-drift 14s ease-in-out infinite alternate;
+}
+@keyframes kd-core-drift {
+  from { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+  to   { transform: translate(-50%, -52%) scale(1.05) rotate(2deg); }
+}
+.cta-chip { transition: all 0.25s var(--kd-ease); }
+.cta-chip:hover { transform: translateY(-2px); }
+
+/* ---------- Footer ---------- */
+.footer { border-top: 1px solid rgba(168, 85, 247, 0.14) !important; }
+.footer-col a { transition: color 0.25s ease, padding-left 0.25s var(--kd-ease); }
+.footer-col a:hover { color: #d8b4fe; padding-left: 4px; }
+
+/* ---------- Scroll reveal (used by dynamics.js on all pages) ---------- */
+.kd-in {
+  opacity: 0;
+  transform: translateY(26px) scale(0.995);
+  transition: opacity 0.7s var(--kd-ease), transform 0.7s var(--kd-ease);
+}
+.kd-in.kd-show { opacity: 1; transform: none; }
+
+/* ---------- Back-to-top (created by dynamics.js) ---------- */
+.kd-top {
+  position: fixed;
+  right: 26px;
+  bottom: 26px;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  background: rgba(13, 13, 20, 0.85);
+  backdrop-filter: blur(12px);
+  color: #d8b4fe;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 9000;
+  opacity: 0;
+  transform: translateY(14px);
+  pointer-events: none;
+  transition: all 0.4s var(--kd-ease);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+}
+.kd-top.kd-on { opacity: 1; transform: none; pointer-events: auto; }
+.kd-top:hover {
+  border-color: var(--kd-cyan);
+  color: var(--kd-cyan-bright);
+  box-shadow: 0 8px 28px rgba(6, 182, 212, 0.25);
+  transform: translateY(-3px);
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 9px; }
+::-webkit-scrollbar-track { background: #0a0a10; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--kd-violet-deep), var(--kd-cyan));
+  border-radius: 6px;
+  border: 2px solid #0a0a10;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  body { animation: none; }
+  body::before { animation: none; }
+  .hero-typing { animation: none; background-position: 0 0; }
+  .mock-progress-fill { animation: none; }
+  .marquee-track { animation-play-state: paused; }
+  .kd-in { opacity: 1; transform: none; transition: none; }
+  * { scroll-behavior: auto !important; }
+}
+
+/* ---------- Cursor spotlight on cards (kimi.com-style glow tracking) ---------- */
+.feature-card, .hero-pillar-card, .persona-card, .card, .usecase-card,
+.service-card, .pricing-card, .calc-card {
+  --mx: 50%;
+  --my: 0%;
+}
+.feature-card::after, .hero-pillar-card::after, .persona-card::after,
+.card::after, .usecase-card::after, .service-card::after, .pricing-card::after,
+.calc-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(260px circle at var(--mx) var(--my),
+    rgba(168, 85, 247, 0.16), rgba(6, 182, 212, 0.06) 45%, transparent 68%);
+  opacity: 0;
+  transition: opacity 0.45s var(--kd-ease);
+  pointer-events: none;
+}
+.feature-card:hover::after, .hero-pillar-card:hover::after, .persona-card:hover::after,
+.card:hover::after, .usecase-card:hover::after, .service-card:hover::after,
+.pricing-card:hover::after, .calc-card:hover::after {
+  opacity: 1;
+}
+
+/* ---------- Spring easing (kimi.com motion signature) ---------- */
+:root { --kd-spring: cubic-bezier(0.34, 1.45, 0.5, 1); }
+
+.feature-card, .hero-pillar-card, .persona-card, .card, .usecase-card,
+.showcase-item, .service-card, .story-card, .pricing-card, .calc-card,
+.marquee-item, .btn, .faq-item {
+  transition-timing-function: var(--kd-spring);
+}
+
+/* ---------- Click ripple on buttons ---------- */
+.btn .kd-ripple {
+  position: absolute;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  background: rgba(255, 255, 255, 0.45);
+  transform: scale(0);
+  animation: kd-ripple 0.65s var(--kd-ease) forwards;
+  pointer-events: none;
+  z-index: 2;
+}
+@keyframes kd-ripple {
+  to { transform: scale(28); opacity: 0; }
+}
+
+/* ---------- Gentle bob for hero pillar icons ---------- */
+@keyframes kd-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.hero-pillar-icon { display: inline-block; animation: kd-bob 4.5s ease-in-out infinite; }
+.hero-pillar-card:nth-child(2) .hero-pillar-icon { animation-delay: 0.8s; }
+.hero-pillar-card:nth-child(3) .hero-pillar-icon { animation-delay: 1.6s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-pillar-icon { animation: none; }
+  .btn .kd-ripple { animation-duration: 0.01s; }
+}
