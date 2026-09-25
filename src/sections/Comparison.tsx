@@ -180,7 +180,7 @@ export default function Comparison() {
         </div>
 
         {/* Comparison Table Container */}
-        <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden mb-12">
+        <div className="relative bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden mb-12">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[700px]">
               <thead>
@@ -241,6 +241,8 @@ export default function Comparison() {
               </tbody>
             </table>
           </div>
+          {/* Mobile scroll hint: right-edge fade signals the table is swipeable */}
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white to-transparent sm:hidden" aria-hidden="true" />
         </div>
 
         {/* Action Row */}
