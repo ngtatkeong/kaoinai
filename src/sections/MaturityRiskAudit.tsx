@@ -231,14 +231,14 @@ export default function MaturityRiskAudit({ asHeading1 = false }: MaturityRiskAu
     riskClassification = 'Low to Moderate Risk'
     riskColor = 'text-emerald-600'
     riskBg = 'bg-emerald-50 border-emerald-200'
-    summaryText = 'Strong operational foundations. Minor vulnerabilities remain in cross-system lineage or ad-hoc query backlogs. Implementing automated living RoPAs will provide 100% audit confidence.'
+    summaryText = 'Strong operational foundations. Minor vulnerabilities remain in cross-system lineage or ad-hoc query backlogs. Implementing automated living RoPAs will provide up to 100%* audit confidence.'
   } else if (totalScore >= 50) {
     maturityLevel = 3
     maturityTitle = 'Level 3: Defined / Partial Visibility'
     riskClassification = 'Moderate Risk'
     riskColor = 'text-amber-600'
     riskBg = 'bg-amber-50 border-amber-200'
-    summaryText = 'Your team loses substantial hours to manual documentation, SQL ticket queues, and reactive schema debugging. An estimated $40,000+ in engineering capacity is lost annually to data firefighting.'
+    summaryText = 'Your team loses substantial hours to manual documentation, SQL ticket queues, and reactive schema debugging. An estimated up to $40,000+* in engineering capacity is lost annually to data firefighting.'
   } else if (totalScore >= 30) {
     maturityLevel = 2
     maturityTitle = 'Level 2: Repeatable / Reactive'
@@ -501,6 +501,11 @@ export default function MaturityRiskAudit({ asHeading1 = false }: MaturityRiskAu
             </div>
           </div>
         )}
+
+        {/* Footnote Disclaimer */}
+        <p className="text-[11px] text-purple-900/50 text-center mt-6 max-w-3xl mx-auto leading-relaxed">
+          * Maturity ratings, risk tiers, and estimated capacity loss figures (e.g. ~$40,000/yr based on ~75 hours/month of engineering firefighting at a loaded rate of $45/hr) are evaluated against DAMA-DMBOK and ISO/IEC 38505 governance baselines. Actual exposure and loss depend on your organization&apos;s data volume, stack complexity, and team size.
+        </p>
       </div>
     </section>
   )
