@@ -96,8 +96,8 @@ export default function RoiCalculator() {
 
             <div className="bg-purple-50/60 rounded-xl p-4 border border-purple-100 text-xs text-gray-600 space-y-1.5">
               <p className="font-semibold text-[#5b2d6e]">💡 Assumptions based on SME benchmarks:</p>
-              <p>• 14 hours saved per team member/month from automated DQ and lineage.</p>
-              <p>• 99.4% automated detection of unmasked customer PII before audits.</p>
+              <p>• Up to 14 hours* saved per team member/month from automated DQ and lineage.</p>
+              <p>• Up to 99.4%* automated detection of unmasked customer PII before audits.</p>
             </div>
           </div>
 
@@ -114,7 +114,7 @@ export default function RoiCalculator() {
                     Estimated Annual Value & Savings
                   </div>
                   <div className="text-3xl sm:text-4xl font-extrabold text-white mt-1">
-                    ${annualSavingsUsd.toLocaleString()}
+                    Up to ${annualSavingsUsd.toLocaleString()}*
                     <span className="text-xs font-normal text-gray-400 ml-1">/yr</span>
                   </div>
                 </div>
@@ -126,7 +126,7 @@ export default function RoiCalculator() {
                       Hours Saved
                     </div>
                     <div className="text-xl font-bold text-purple-200">
-                      {hoursSavedPerMonth * 12} hrs/yr
+                      Up to {hoursSavedPerMonth * 12} hrs/yr*
                     </div>
                   </div>
                   <div>
@@ -160,6 +160,11 @@ export default function RoiCalculator() {
             </div>
           </div>
         </div>
+
+        {/* Footnote Disclaimer */}
+        <p className="text-center text-xs text-gray-500 mt-8 max-w-3xl mx-auto">
+          * ROI estimations, potential cost savings, and hours saved are illustrative models based on industry averages; actual returns depend on team composition, salary benchmarks, and existing data infrastructure.
+        </p>
       </div>
     </section>
   )

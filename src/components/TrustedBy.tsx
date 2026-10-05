@@ -41,25 +41,25 @@ export default function TrustedBy() {
 
   const metrics = [
     {
-      value: '45+',
+      value: 'Up to 45+*',
       label: 'Production Databases Connected',
       sublabel: 'Postgres, Snowflake, BigQuery, MySQL',
       icon: Database,
     },
     {
-      value: '1.8M+',
+      value: 'Up to 1.8M+*',
       label: 'Sensitive Records Protected',
       sublabel: 'Automated table-bound SHA-256 masking',
       icon: ShieldCheck,
     },
     {
-      value: '99.98%',
+      value: 'Up to 99.98%*',
       label: 'Schema Drift Detection Rate',
       sublabel: 'Continuous zero-lag CI/CD sync',
       icon: Activity,
     },
     {
-      value: '< 15 Mins',
+      value: 'Down to < 15 Mins*',
       label: 'Time to Live Catalog',
       sublabel: 'Zero consultants or months of setup',
       icon: Zap,
@@ -131,6 +131,11 @@ export default function TrustedBy() {
             })}
           </div>
         </div>
+
+        {/* Footnote Disclaimer */}
+        <p className="text-[11px] text-slate-400 text-center mt-4 max-w-3xl mx-auto">
+          * Metrics reflect cumulative observations across pilot environments, staging sandboxes, and production customer nodes. Results may vary by database scale and deployment model.
+        </p>
       </div>
     </section>
   )

@@ -10,7 +10,7 @@ const problems = [
 
 const solutions = [
   'Physical Table-Bound DPIA & Living RoPA: Compliance inventories generated directly from physical database schemas with automated drift alerts.',
-  'Rapid Production Go-Live in Under 48h: Instant deployment via self-hosted Docker, private VPC Kubernetes, or managed cloud.',
+  'Rapid Production Go-Live in Up to 48h*: Instant deployment via self-hosted Docker, private VPC Kubernetes, or managed cloud.',
   'Autonomous Natural Language to SQL: Sub-second conversational data querying with zero manual SQL drafting required.',
   'Continuous Schema Shift & Dynamic Masking: Real-time detection of newly migrated PII with automatic tokenization and role-based masking.',
   'Golden Record MDM Engine: Automated entity resolution across Salesforce, PostgreSQL, Shopify, and ERPs without brittle custom ETL.'
@@ -80,7 +80,7 @@ export default function ProblemSolution() {
                   <h3 className="text-xl font-bold text-purple-950 tracking-tight flex items-center gap-2">
                     <span>KaoinAI Autonomous Governance</span>
                   </h3>
-                  <p className="text-xs text-purple-600 font-medium">Continuous, schema-bound, and operational in under 1 day</p>
+                  <p className="text-xs text-purple-600 font-medium">Continuous, schema-bound, and operational in up to 1 day*</p>
                 </div>
               </div>
               <ul className="space-y-4 sm:space-y-5">
@@ -102,6 +102,11 @@ export default function ProblemSolution() {
             </div>
           </div>
         </div>
+
+        {/* Footnote Disclaimer */}
+        <p className="text-[11px] text-slate-500 text-center mt-8 max-w-3xl mx-auto">
+          * Deployment timelines and operational setup duration depend on environment complexity, VPC networking provisioning, and target catalog size.
+        </p>
       </div>
     </section>
   )

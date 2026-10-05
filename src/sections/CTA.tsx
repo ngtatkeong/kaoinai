@@ -64,7 +64,7 @@ export default function CTA() {
           Ready to Automate Your Data Governance?
         </h2>
         <p className="text-sm sm:text-lg text-purple-900/70 max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed">
-          Join engineering and compliance leaders who trust KaoinAI to automate table-bound DPIAs, detect schema drift, and eliminate PII exposure in under 48 hours.
+          Join engineering and compliance leaders who trust KaoinAI to automate table-bound DPIAs, detect schema drift, and eliminate PII exposure in up to 48 hours*.
         </p>
 
         {/* Free trial exclusivity badge */}
@@ -210,6 +210,11 @@ export default function CTA() {
                 Get Free Checklist (PDF)
               </Button>
             </div>
+
+            {/* Footnote Disclaimer */}
+            <p className="text-[11px] text-purple-900/50 text-center max-w-xl mx-auto -mt-2 mb-2">
+              * Setup and PII remediation timeframes represent standard single-instance deployments with active database administrator coordination.
+            </p>
 
             <div className="pt-6 border-t border-purple-200/70 flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-purple-900/60">
               <a

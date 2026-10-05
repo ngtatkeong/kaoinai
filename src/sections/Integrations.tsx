@@ -27,7 +27,7 @@ export default function Integrations() {
             Seamlessly Integrates with Your Existing Data Stack
           </h2>
           <p className="text-base text-gray-500 max-w-2xl mx-auto mt-3 leading-relaxed">
-            Connect securely via read-only credentials in under 5 minutes. No complex agents or firewall overhauls.
+            Connect securely via read-only credentials in up to 5 minutes*. No complex agents or firewall overhauls.
           </p>
         </div>
 
@@ -60,6 +60,11 @@ export default function Integrations() {
             VPC Peering & Dedicated IPs Available
           </span>
         </div>
+
+        {/* Footnote Disclaimer */}
+        <p className="text-[11px] text-gray-400 text-center mt-6 max-w-2xl mx-auto">
+          * Connection speed depends on network latency, credential authorization permissions, and catalog indexing scope.
+        </p>
       </div>
     </section>
   )

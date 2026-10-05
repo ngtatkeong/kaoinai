@@ -209,11 +209,11 @@ export default function Features() {
         <div className="mt-12 sm:mt-16 bg-gradient-brand rounded-2xl p-6 sm:p-8 lg:p-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
             <div>
-              <div className="text-2xl sm:text-4xl font-bold text-white">14+</div>
+              <div className="text-2xl sm:text-4xl font-bold text-white">Up to 14+*</div>
               <div className="text-purple-200 text-xs sm:text-sm mt-1">Core Modules</div>
             </div>
             <div>
-              <div className="text-2xl sm:text-4xl font-bold text-white">6+</div>
+              <div className="text-2xl sm:text-4xl font-bold text-white">Up to 6+*</div>
               <div className="text-purple-200 text-xs sm:text-sm mt-1">Compliance Standards</div>
             </div>
             <div>
@@ -226,6 +226,11 @@ export default function Features() {
             </div>
           </div>
         </div>
+
+        {/* Footnote Disclaimer */}
+        <p className="text-[11px] text-gray-500 text-center mt-4 max-w-3xl mx-auto">
+          * Core modules and supported compliance frameworks reflect full enterprise licensing configurations including Singapore PDPA, GDPR, MAS TRM, ISO 27001, and custom regulatory mapping rules.
+        </p>
       </div>
     </section>
   )

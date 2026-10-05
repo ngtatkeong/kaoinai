@@ -205,7 +205,7 @@ const publications: Publication[] = [
       'The 4 pillars of agent-ready deterministic data foundations',
       'Zero-trust query compiler & 0.1% blast-radius mutation caps',
       'Autonomous Jaro-Winkler entity resolution across ERP & CRM',
-      'Empirical benchmark: 99.8% Text-to-SQL accuracy vs. 59.4% ungoverned'
+      'Empirical benchmark: Up to 99.8%* Text-to-SQL accuracy vs. 59.4% ungoverned'
     ]
   },
   {
@@ -388,6 +388,11 @@ export default function KnowledgeCenter() {
             </div>
           ))}
         </div>
+
+        {/* Footnote Disclaimer */}
+        <p className="text-[11px] text-gray-400 text-center -mt-6 mb-10 max-w-3xl mx-auto">
+          * Benchmark comparisons and accuracy metrics reflect controlled lab evaluations against standard multi-table enterprise schemas comparing zero-trust semantic pipelines to ungoverned LLM direct querying.
+        </p>
 
         {/* Knowledge Center Advisory Callout */}
         <div className="bg-purple-50 rounded-3xl p-6 sm:p-9 text-purple-950 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-purple-100 border border-purple-100">

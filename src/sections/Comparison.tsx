@@ -25,7 +25,7 @@ const comparisonData: ComparisonRow[] = [
     feature: 'Time to Value & Setup',
     description: 'How long before you see your first data health scan and lineage map?',
     kaoinai: {
-      highlight: '< 1 Day (Automated schema discovery & lineage mapping)',
+      highlight: 'Up to < 1 Day* (Automated schema discovery & lineage mapping)',
       positive: true
     },
     legacy: {
@@ -244,6 +244,11 @@ export default function Comparison() {
           {/* Mobile scroll hint: right-edge fade signals the table is swipeable */}
           <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white to-transparent sm:hidden" aria-hidden="true" />
         </div>
+
+        {/* Footnote Disclaimer */}
+        <p className="text-[11px] text-slate-500 text-center -mt-6 mb-8 max-w-3xl mx-auto">
+          * Implementation durations, TCO projections, and scanning times are representative estimates based on standard multi-source customer onboarding benchmarks.
+        </p>
 
         {/* Action Row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-2xl bg-purple-50/80 border border-purple-100 text-center sm:text-left">

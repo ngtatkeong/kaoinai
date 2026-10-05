@@ -63,17 +63,17 @@ const heroMessages: HeroMessage[] = [
       systemTag: 'kaoinai-telemetry // ai_guard_sg',
       statusBadge: 'AI GUARD LIVE',
       healthTitle: 'AI Semantic Accuracy & Context Health',
-      healthScore: '99.8%',
+      healthScore: 'Up to 99.8%*',
       healthBarGradient: 'from-purple-500 via-indigo-500 to-emerald-400',
-      healthDesc: '32 deterministic semantic boundaries enforced across vector & SQL query layers',
+      healthDesc: 'Up to 32* deterministic semantic boundaries enforced across vector & SQL query layers',
       stat1Title: 'Pre-Prompt PII Redaction',
-      stat1Value: '100% Intercepted',
+      stat1Value: 'Up to 100%* Intercepted',
       stat1Status: 'Zero Raw Data to LLM',
       stat2Title: 'Context Drift Shield',
-      stat2Value: '< 18ms Latency',
+      stat2Value: 'Down to < 18ms* Latency',
       stat2Status: 'Real-time validation',
       alertTitle: 'AI Prompt Ingestion Shield Active',
-      alertLatency: '14ms',
+      alertLatency: 'Down to 14ms*',
       alertCode: 'customer_support_rag',
       alertMessage: 'Detected NRIC & cardholder data in incoming RAG context: Auto-masked via SHA-256 tokenization before OpenAI/Anthropic API payload dispatch.'
     }
@@ -96,17 +96,17 @@ const heroMessages: HeroMessage[] = [
       systemTag: 'kaoinai-telemetry // data_inventory_mesh',
       statusBadge: 'DATA INVENTORY SYNCED',
       healthTitle: 'Living Data Inventory & Schema Coverage',
-      healthScore: '100%',
+      healthScore: 'Up to 100%*',
       healthBarGradient: 'from-emerald-500 via-teal-500 to-indigo-500',
-      healthDesc: '14 physical production tables containing PII bound directly to active Data Inventory',
+      healthDesc: 'Up to 14* physical production tables containing PII bound directly to active Data Inventory',
       stat1Title: 'Table-Bound DPIA & PII',
-      stat1Value: '14 Tables',
-      stat1Status: '100% Schema Linked',
+      stat1Value: 'Up to 14* Tables',
+      stat1Status: 'Up to 100%* Linked',
       stat2Title: 'Regional Data Inventories',
       stat2Value: 'SG, MY, ID & EU',
       stat2Status: 'Multi-jurisdiction',
       alertTitle: 'Schema Migration & Drift Auto-Binding',
-      alertLatency: '18ms',
+      alertLatency: 'Down to 18ms*',
       alertCode: 'users_v2',
       alertMessage: 'Detected migration on users_v2: Auto-classified NRIC & Phone, bound to statutory Data Inventory, generated localized SG/MY/ID audit registers.'
     }
@@ -123,23 +123,23 @@ const heroMessages: HeroMessage[] = [
     trustBadges: [
       { icon: Database, label: 'ERP, Warehouse & Cloud Agnostic' },
       { icon: Layers, label: 'End-to-End Column-Level Lineage' },
-      { icon: Activity, label: 'First Health Scan in Under 1 Day' }
+      { icon: Activity, label: 'First Health Scan in Up to < 1 Day*' }
     ],
     telemetry: {
       systemTag: 'kaoinai-telemetry // metadata_mesh',
       statusBadge: 'METADATA SYNCED',
       healthTitle: 'Automated Data Quality Health',
-      healthScore: '99.4%',
+      healthScore: 'Up to 99.4%*',
       healthBarGradient: 'from-indigo-500 via-purple-500 to-emerald-400',
-      healthDesc: '24 validation rules continuously enforced across PostgreSQL & Snowflake',
+      healthDesc: 'Up to 24* validation rules continuously enforced across PostgreSQL & Snowflake',
       stat1Title: 'Lineage Graph Density',
-      stat1Value: '184 Nodes',
+      stat1Value: 'Up to 184* Nodes',
       stat1Status: 'Column-to-Dashboard',
       stat2Title: 'Schema Drift Detection',
       stat2Value: '0 Breaking Drifts',
       stat2Status: '24/7 CI/CD verified',
       alertTitle: 'Automated Upstream Lineage Traversal',
-      alertLatency: '24ms',
+      alertLatency: 'Down to 24ms*',
       alertCode: 'orders_fact_v3',
       alertMessage: 'Traced revenue metric discrepancy upstream across 4 ETL steps directly to unannounced column rename in NetSuite staging table.'
     }
@@ -162,17 +162,17 @@ const heroMessages: HeroMessage[] = [
       systemTag: 'kaoinai-telemetry // mdm_cluster',
       statusBadge: 'MDM SYNTHESIS ACTIVE',
       healthTitle: 'Cross-System Customer Match Confidence',
-      healthScore: '99.7%',
+      healthScore: 'Up to 99.7%*',
       healthBarGradient: 'from-amber-500 via-purple-500 to-indigo-600',
-      healthDesc: 'Unified 48,200 records across Salesforce, HubSpot, and PostgreSQL without custom ETL',
+      healthDesc: 'Unified up to 48,200* records across Salesforce, HubSpot, and PostgreSQL without custom ETL',
       stat1Title: 'Duplicate Records Purged',
-      stat1Value: '3,842 Deduplicated',
+      stat1Value: 'Up to 3,842* Deduplicated',
       stat1Status: 'Preserved ID History',
       stat2Title: 'Golden Record Match',
       stat2Value: 'Deterministic',
       stat2Status: 'Probabilistic + Rule-bound',
       alertTitle: 'Cross-Platform Entity Collision Resolved',
-      alertLatency: '31ms',
+      alertLatency: 'Down to 31ms*',
       alertCode: 'customer_entity_link',
       alertMessage: 'Linked Salesforce Account "Acme APAC Pte" to PostgreSQL Billing ID 88391: Resolved billing tax ID variance & synthesized golden record.'
     }
@@ -324,7 +324,7 @@ export default function Hero() {
                       <span className="text-xl font-bold font-mono text-emerald-300">{current.telemetry.healthScore}</span>
                     </div>
                     <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
-                      <div className={`bg-gradient-to-r ${current.telemetry.healthBarGradient} h-full rounded-full transition-all duration-700`} style={{ width: current.telemetry.healthScore }} />
+                      <div className={`bg-gradient-to-r ${current.telemetry.healthBarGradient} h-full rounded-full transition-all duration-700`} style={{ width: current.telemetry.healthScore.replace(/[^0-9.]/g, '') + '%' }} />
                     </div>
                     <p className="text-[11px] text-slate-300/80 mt-2 flex items-center gap-1.5">
                       <CheckCircle2 size={13} className="text-emerald-400 shrink-0" /> 
@@ -377,6 +377,11 @@ export default function Hero() {
                       Pillar Telemetry Synced
                     </span>
                   </div>
+
+                  {/* Asterisk Disclaimer Note */}
+                  <p className="text-[10px] text-slate-400/70 pt-2 border-t border-white/5 font-mono text-center sm:text-left leading-tight">
+                    * Performance metrics, quality scores, and latency figures are based on peak benchmark tests; actual live results may vary based on database scale and query topology.
+                  </p>
                 </div>
               </div>
             </div>

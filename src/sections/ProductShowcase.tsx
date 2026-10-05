@@ -161,7 +161,7 @@ export default function ProductShowcase() {
                     </div>
                     <div className="mt-3 text-[10px] text-slate-500 flex items-center gap-1">
                       <CheckCircle2 size={11} className="text-emerald-400" />
-                      14,280 rows/sec sync
+                      Up to 14,280 rows/sec* sync
                     </div>
                   </div>
 
@@ -206,13 +206,13 @@ export default function ProductShowcase() {
                     </div>
                     <div className="mt-3 text-[10px] text-slate-500 flex items-center gap-1">
                       <CheckCircle2 size={11} className="text-emerald-400" />
-                      100% verified provenance
+                      Up to 100%* verified provenance
                     </div>
                   </div>
                 </div>
 
                 <div className="bg-white/5 p-4 rounded-xl border border-white/10 text-xs font-mono text-slate-300 flex items-center justify-between">
-                  <span>Impact Analysis: If <code className="text-purple-300">invoices.amount_cents</code> changes type, 3 downstream models and 2 BI boards flag warning in &lt; 200ms.</span>
+                  <span>Impact Analysis: If <code className="text-purple-300">invoices.amount_cents</code> changes type, 3 downstream models and 2 BI boards flag warning in down to &lt; 200ms*.</span>
                   <span className="text-emerald-400 font-bold">Safe for Production</span>
                 </div>
               </div>
@@ -231,7 +231,7 @@ export default function ProductShowcase() {
                   </div>
                   <div className="flex items-center gap-2 text-xs font-mono">
                     <span className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-3 py-1 rounded-lg">
-                      Audit Readiness: 100%
+                      Audit Readiness: Up to 100%*
                     </span>
                   </div>
                 </div>
@@ -301,7 +301,7 @@ export default function ProductShowcase() {
                     <p className="text-xs text-slate-400">Governed Text-to-SQL with automatic pre-prompt PII redaction</p>
                   </div>
                   <span className="bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs px-2.5 py-1 rounded-lg font-mono">
-                    Query Latency: 124ms
+                    Query Latency: Down to 124ms*
                   </span>
                 </div>
 
@@ -328,7 +328,7 @@ export default function ProductShowcase() {
                 </div>
 
                 <div className="flex items-center justify-between text-xs text-slate-400 pt-1">
-                  <span>Confidence: <strong className="text-emerald-400 font-mono">99.8% match</strong> • Foreign keys verified against data catalog</span>
+                  <span>Confidence: <strong className="text-emerald-400 font-mono">Up to 99.8%* match</strong> • Foreign keys verified against data catalog</span>
                   <span className="text-purple-300 font-mono">Execution Safety: Guaranteed Read-Only</span>
                 </div>
               </div>
@@ -346,7 +346,7 @@ export default function ProductShowcase() {
                     <p className="text-xs text-slate-400">Automated deduplication across Salesforce, Stripe, and billing ERP</p>
                   </div>
                   <span className="bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs px-2.5 py-1 rounded-lg font-mono">
-                    Match Confidence: 99.4%
+                    Match Confidence: Up to 99.4%*
                   </span>
                 </div>
 
@@ -377,7 +377,7 @@ export default function ProductShowcase() {
                 </div>
 
                 <div className="bg-white/5 p-4 rounded-xl border border-white/10 text-xs text-slate-300 flex items-center justify-between">
-                  <span>Resolved 3,842 duplicate enterprise entities across 3 systems. Zero customer collision tickets.</span>
+                  <span>Resolved up to 3,842* duplicate enterprise entities across 3 systems. Zero customer collision tickets.</span>
                   <span className="text-emerald-400 font-mono font-bold">Auto-Sync Enabled</span>
                 </div>
               </div>
@@ -397,6 +397,11 @@ export default function ProductShowcase() {
             </div>
           </div>
         </div>
+
+        {/* Footnote Disclaimer */}
+        <p className="text-center text-xs text-slate-500 mt-6 max-w-3xl mx-auto">
+          * Sync throughput, query latency, and match confidence rates represent peak benchmark cluster performance; real-world metrics vary by database configuration and query structure.
+        </p>
       </div>
     </section>
   )

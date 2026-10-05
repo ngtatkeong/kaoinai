@@ -27,13 +27,13 @@ const caseStudies: CaseStudy[] = [
     company: 'NextPay Technologies',
     industry: 'Fintech & Payment Gateway',
     logoText: 'NextPay',
-    headlineMetric: '92% Faster',
+    headlineMetric: 'Up to 92%* Faster',
     metricLabel: 'MAS Compliance Audit Prep',
     challenge: 'Quarterly compliance audits required 3 data engineers spending 3 full weeks manually tracing transaction lineages across Stripe, PostgreSQL, and AWS S3 ledgers.',
     solution: 'Deployed KaoinAI to autonomously index schema metadata and build real-time column lineage graphs with continuous PII scanning.',
     results: [
-      'Audit report generation compressed from 15 business days to 4 hours',
-      'Identified and masked 14 legacy developer endpoints exposing customer NRICs',
+      'Audit report generation compressed by up to 96%* (from 15 business days to 4 hours)',
+      'Identified and masked up to 14* legacy developer endpoints exposing customer NRICs',
       'Zero non-compliance flags during annual MAS technology review'
     ],
     quote: 'KaoinAI turned our quarterly regulatory audit nightmare into a one-click automated report. The automated lineage alone saved us hundreds of engineering hours.',
@@ -44,13 +44,13 @@ const caseStudies: CaseStudy[] = [
     company: 'UrbanCart Commerce',
     industry: 'Omnichannel Retail (50K+ SKUs)',
     logoText: 'UrbanCart',
-    headlineMetric: '18 hrs/wk',
+    headlineMetric: 'Up to 18 hrs/wk*',
     metricLabel: 'Saved in Manual Ops Reporting',
     challenge: 'Operations and marketing teams had to wait 3 to 5 days for custom SQL queries to reconcile inventory counts between Shopify, warehouse WMS, and TikTok Shop.',
     solution: 'Empowered non-technical business teams with KaoinAI’s plain-English query engine and automated golden product master records.',
     results: [
-      'Over 18 hours per week saved for senior business analysts',
-      'Inventory reconciliation errors reduced by 87% within the first 30 days',
+      'Up to 18 hours* per week saved for senior business analysts',
+      'Inventory reconciliation errors reduced by up to 87%* within the first 30 days',
       'Eliminated stockout blind spots across 4 regional fulfillment centers'
     ],
     quote: 'Our inventory managers now ask questions in simple conversational English and get verified SQL answers in seconds without ever tapping our data engineering team.',
@@ -61,12 +61,12 @@ const caseStudies: CaseStudy[] = [
     company: 'MediSync Asia',
     industry: 'Digital Health & Telemedicine',
     logoText: 'MediSync',
-    headlineMetric: '100% Pass',
+    headlineMetric: 'Up to 100%* Pass',
     metricLabel: 'Zero PII Leaks Across 12 Clinics',
     challenge: 'Scaling doctor-patient consultation portals created an urgent risk of patient health identifiers slipping into staging databases and analytics dashboards.',
     solution: 'Implemented KaoinAI Privacy Shield to enforce autonomous metadata scanning and automated dynamic SHA-256 masking rules across all 12 database clusters.',
     results: [
-      'Over 45,000 historical patient records audited and protected in under 48 hours',
+      'Over 45,000 historical patient records audited and protected in up to 48 hours*',
       'Zero sensitive data transferred to third-party AI models',
       'Full compliance with Singapore PDPA and MOH telemedicine guidelines'
     ],
@@ -170,6 +170,11 @@ export default function CaseStudies() {
             </div>
           ))}
         </div>
+
+        {/* Footnote Disclaimer */}
+        <p className="text-center text-xs text-slate-500 mb-10 -mt-6">
+          * Specific operational performance metrics, time savings, and audit pass rates are based on individual customer deployment benchmarks; actual results vary by system topology, data volume, and internal workflows.
+        </p>
 
         {/* Bottom CTA Banner */}
         <div className="bg-gradient-to-r from-purple-100 via-purple-50 to-purple-100 rounded-3xl p-6 sm:p-10 text-purple-950 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl shadow-purple-200/50 border border-purple-200 relative overflow-hidden">

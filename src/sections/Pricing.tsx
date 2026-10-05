@@ -117,7 +117,7 @@ const plans: PricingPlan[] = [
       'Multi-Database DPIA Drift Auditing & Custom RoPA Exports',
       'Custom Role-Based Access Controls (RBAC) & Okta SSO',
       'Custom DPA, Security Audit & Penetration Test Review',
-      '99.9% Uptime SLA Guarantee',
+      'Up to 99.9%* Uptime SLA Guarantee',
       'Dedicated Named AI Systems Architect'
     ],
     featuresOnPrem: [
@@ -127,7 +127,7 @@ const plans: PricingPlan[] = [
       'Hardware Security Module (HSM) / Custom KMS Key Support',
       'Zero-Trust Network Access (ZTNA) & Okta/SAML Integration',
       'Custom Regulatory Architecture Review & Pentest Clearance',
-      '99.99% Architecture SLA with 1-Hour Severity-1 Response',
+      'Up to 99.99%* Architecture SLA with Up to 1-Hour* Severity-1 Response',
       'Dedicated Named Principal Architect on Call'
     ],
     cta: 'Claim $0 Slot (Enterprise)'
@@ -229,7 +229,7 @@ export default function Pricing() {
                   Annual Plan
                 </span>
                 <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                  Save 20% + Setup Waived
+                  Save up to 20%* + Setup Waived
                 </span>
               </div>
             </div>
@@ -254,7 +254,7 @@ export default function Pricing() {
                   Managed Cloud (SaaS) — Dedicated Infrastructure:
                 </span>
                 <span className="text-purple-800">
-                  Includes AWS Singapore hosting, updates &amp; 99.9% SLA. <strong className="text-purple-950">(Free trial is available on On-Premises only; Cloud requires paid plan or $0 Founding Cohort slot.)</strong>
+                  Includes AWS Singapore hosting, updates &amp; up to 99.9%* SLA. <strong className="text-purple-950">(Free trial is available on On-Premises only; Cloud requires paid plan or $0 Founding Cohort slot.)</strong>
                 </span>
               </div>
             )}
@@ -387,6 +387,11 @@ export default function Pricing() {
           })}
         </div>
 
+        {/* Footnote Disclaimer */}
+        <p className="text-[11px] text-gray-500 text-center -mt-6 mb-12 max-w-3xl mx-auto">
+          * SLA guarantees, response times, deployment durations, and cost savings are contractual targets based on selected deployment architecture, support tier, and customer infrastructure readiness.
+        </p>
+
         {/* Why the Setup / Deployment Package? */}
         <div className="bg-white rounded-3xl p-6 sm:p-9 border border-gray-200 shadow-sm max-w-4xl mx-auto">
           <div className="flex items-center gap-3 mb-4">
@@ -400,7 +405,7 @@ export default function Pricing() {
                   : 'What Does the Architecture Onboarding Package Include?'}
               </h4>
               <p className="text-xs text-gray-500">
-                Guaranteed production go-live in under 48 hours without burdening your internal engineering team.
+                Guaranteed production go-live in up to 48 hours* without burdening your internal engineering team.
               </p>
             </div>
           </div>
@@ -427,7 +432,7 @@ export default function Pricing() {
             <div className="flex items-start gap-2 bg-gray-50 p-3.5 rounded-xl border border-gray-100">
               <CheckCircle2 size={16} className="text-[#5b2d6e] shrink-0 mt-0.5" />
               <div>
-                <strong>Dedicated Engineer Channel:</strong> Private Slack Connect or WhatsApp channel with a 2-hour SLA during onboarding.
+                <strong>Dedicated Engineer Channel:</strong> Private Slack Connect or WhatsApp channel with an up to 2-hour* SLA during onboarding.
               </div>
             </div>
           </div>
