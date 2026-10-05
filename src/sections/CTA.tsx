@@ -212,8 +212,8 @@ export default function CTA() {
             </div>
 
             {/* Footnote Disclaimer */}
-            <p className="text-[11px] text-purple-900/50 text-center max-w-xl mx-auto -mt-2 mb-2">
-              * Setup and PII remediation timeframes represent standard single-instance deployments with active database administrator coordination.
+            <p className="text-[11px] text-purple-900/50 text-center max-w-2xl mx-auto -mt-2 mb-2 leading-relaxed">
+              * Setup and PII remediation timeframes of up to 48 hours are measured against typical enterprise baselines of multi-week manual remediation and unindexed staging audits. Actual speed depends on single-instance deployment coordination with internal database administrators.
             </p>
 
             <div className="pt-6 border-t border-purple-200/70 flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-purple-900/60">

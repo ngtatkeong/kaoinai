@@ -61,7 +61,7 @@ const features = [
   {
     icon: FileSearch,
     title: 'Smart Data Catalog',
-    description: 'AI-generated documentation, business glossary, usage statistics, and intelligent search across all your data assets.',
+    description: 'AI-generated documentation, business glossary, and automated indexing that deepens catalog comprehension compared to a company’s earlier baseline of undocumented schemas.',
     color: 'from-violet-500 to-purple-600',
     bgColor: 'bg-violet-50',
   },
@@ -228,8 +228,8 @@ export default function Features() {
         </div>
 
         {/* Footnote Disclaimer */}
-        <p className="text-[11px] text-gray-500 text-center mt-4 max-w-3xl mx-auto">
-          * Core modules and supported compliance frameworks reflect full enterprise licensing configurations including Singapore PDPA, GDPR, MAS TRM, ISO 27001, and custom regulatory mapping rules.
+        <p className="text-[11px] text-gray-500 text-center mt-4 max-w-4xl mx-auto leading-relaxed">
+          * Core modules, compliance frameworks, and catalog comprehension depth are evaluated against an organization&apos;s baseline data posture prior to KaoinAI (e.g. unindexed tables, manual static spreadsheets, and isolated point solutions). Coverage reflects full enterprise licensing configurations including Singapore PDPA, GDPR, MAS TRM, ISO 27001, and custom regulatory mapping rules.
         </p>
       </div>
     </section>

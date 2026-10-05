@@ -390,8 +390,8 @@ export default function KnowledgeCenter() {
         </div>
 
         {/* Footnote Disclaimer */}
-        <p className="text-[11px] text-gray-400 text-center -mt-6 mb-10 max-w-3xl mx-auto">
-          * Benchmark comparisons and accuracy metrics reflect controlled lab evaluations against standard multi-table enterprise schemas comparing zero-trust semantic pipelines to ungoverned LLM direct querying.
+        <p className="text-[11px] text-gray-400 text-center -mt-6 mb-10 max-w-4xl mx-auto leading-relaxed">
+          * Benchmark comparisons and accuracy metrics reflect controlled lab evaluations against standard multi-table enterprise schemas, directly evaluating KaoinAI zero-trust semantic pipelines against the baseline of ungoverned LLM direct SQL generation (which achieved a 59.4% baseline accuracy).
         </p>
 
         {/* Knowledge Center Advisory Callout */}

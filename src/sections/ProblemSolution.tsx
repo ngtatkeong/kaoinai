@@ -104,8 +104,8 @@ export default function ProblemSolution() {
         </div>
 
         {/* Footnote Disclaimer */}
-        <p className="text-[11px] text-slate-500 text-center mt-8 max-w-3xl mx-auto">
-          * Deployment timelines and operational setup duration depend on environment complexity, VPC networking provisioning, and target catalog size.
+        <p className="text-[11px] text-slate-500 text-center mt-8 max-w-4xl mx-auto leading-relaxed">
+          * Deployment timelines and operational setup durations are evaluated based upon traditional enterprise catalog implementation baselines (requiring 3–9 months of systems integration) compared against automated containerized kickoff. Actual duration depends on environment complexity and VPC provisioning.
         </p>
       </div>
     </section>

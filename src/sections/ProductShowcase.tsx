@@ -377,7 +377,7 @@ export default function ProductShowcase() {
                 </div>
 
                 <div className="bg-white/5 p-4 rounded-xl border border-white/10 text-xs text-slate-300 flex items-center justify-between">
-                  <span>Resolved up to 3,842* duplicate enterprise entities across 3 systems. Zero customer collision tickets.</span>
+                  <span>Resolved up to 3,842* duplicate enterprise entities across 3 systems (evaluated against client earlier baseline with ~21% unresolved duplicate records). Zero customer collision tickets.</span>
                   <span className="text-emerald-400 font-mono font-bold">Auto-Sync Enabled</span>
                 </div>
               </div>
@@ -399,8 +399,8 @@ export default function ProductShowcase() {
         </div>
 
         {/* Footnote Disclaimer */}
-        <p className="text-center text-xs text-slate-500 mt-6 max-w-3xl mx-auto">
-          * Sync throughput, query latency, and match confidence rates represent peak benchmark cluster performance; real-world metrics vary by database configuration and query structure.
+        <p className="text-center text-xs text-slate-500 mt-6 max-w-4xl mx-auto leading-relaxed">
+          * Sync throughput, lineage speed, query latency, and match confidence rates are benchmarked against an organization&apos;s baseline data posture prior to KaoinAI (e.g. unindexed tables, manual ETL syncs, and undocumented schemas). Actual performance varies by underlying database configuration, catalog scale, and network architecture.
         </p>
       </div>
     </section>

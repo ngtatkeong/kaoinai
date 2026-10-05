@@ -32,7 +32,7 @@ const caseStudies: CaseStudy[] = [
     challenge: 'Quarterly compliance audits required 3 data engineers spending 3 full weeks manually tracing transaction lineages across Stripe, PostgreSQL, and AWS S3 ledgers.',
     solution: 'Deployed KaoinAI to autonomously index schema metadata and build real-time column lineage graphs with continuous PII scanning.',
     results: [
-      'Audit report generation compressed by up to 96%* (from 15 business days to 4 hours)',
+      'Audit report generation compressed by up to 96%* (from earlier baseline of 15 business days down to 4 hours)',
       'Identified and masked up to 14* legacy developer endpoints exposing customer NRICs',
       'Zero non-compliance flags during annual MAS technology review'
     ],
@@ -49,8 +49,8 @@ const caseStudies: CaseStudy[] = [
     challenge: 'Operations and marketing teams had to wait 3 to 5 days for custom SQL queries to reconcile inventory counts between Shopify, warehouse WMS, and TikTok Shop.',
     solution: 'Empowered non-technical business teams with KaoinAI’s plain-English query engine and automated golden product master records.',
     results: [
-      'Up to 18 hours* per week saved for senior business analysts',
-      'Inventory reconciliation errors reduced by up to 87%* within the first 30 days',
+      'Up to 18 hours* per week saved for senior business analysts (relative to baseline of 20+ analyst hours/week on manual spreadsheets)',
+      'Inventory reconciliation errors reduced by up to 87%* within the first 30 days (against pre-implementation baseline discrepancy frequency)',
       'Eliminated stockout blind spots across 4 regional fulfillment centers'
     ],
     quote: 'Our inventory managers now ask questions in simple conversational English and get verified SQL answers in seconds without ever tapping our data engineering team.',
@@ -66,7 +66,7 @@ const caseStudies: CaseStudy[] = [
     challenge: 'Scaling doctor-patient consultation portals created an urgent risk of patient health identifiers slipping into staging databases and analytics dashboards.',
     solution: 'Implemented KaoinAI Privacy Shield to enforce autonomous metadata scanning and automated dynamic SHA-256 masking rules across all 12 database clusters.',
     results: [
-      'Over 45,000 historical patient records audited and protected in up to 48 hours*',
+      'Over 45,000 historical patient records audited and protected in up to 48 hours* (compared to pre-deployment manual sample audits covering < 15% of tables)',
       'Zero sensitive data transferred to third-party AI models',
       'Full compliance with Singapore PDPA and MOH telemedicine guidelines'
     ],
@@ -172,8 +172,8 @@ export default function CaseStudies() {
         </div>
 
         {/* Footnote Disclaimer */}
-        <p className="text-center text-xs text-slate-500 mb-10 -mt-6">
-          * Specific operational performance metrics, time savings, and audit pass rates are based on individual customer deployment benchmarks; actual results vary by system topology, data volume, and internal workflows.
+        <p className="text-center text-xs text-slate-500 mb-10 -mt-6 max-w-4xl mx-auto leading-relaxed">
+          * Specific operational performance metrics, percentage reductions, time savings, and audit speedups are evaluated based upon each customer&apos;s earlier pre-implementation baseline—measuring automated performance against historical manual spreadsheet governance, uncataloged schemas, and manual query drafting prior to KaoinAI deployment. Actual operational returns depend on baseline catalog maturity, initial data cleanliness, and existing staff workflows.
         </p>
 
         {/* Bottom CTA Banner */}

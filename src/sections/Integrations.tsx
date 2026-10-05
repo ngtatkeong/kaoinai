@@ -62,8 +62,8 @@ export default function Integrations() {
         </div>
 
         {/* Footnote Disclaimer */}
-        <p className="text-[11px] text-gray-400 text-center mt-6 max-w-2xl mx-auto">
-          * Connection speed depends on network latency, credential authorization permissions, and catalog indexing scope.
+        <p className="text-[11px] text-gray-400 text-center mt-6 max-w-3xl mx-auto leading-relaxed">
+          * Connection speed of up to 5 minutes is evaluated against traditional database integration baselines (which typically require custom VPN tunnels, custom agent compilation, and security firewall re-architecture). Actual connection speed depends on network latency, credential authorization permissions, and catalog indexing scope.
         </p>
       </div>
     </section>

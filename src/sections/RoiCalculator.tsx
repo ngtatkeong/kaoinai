@@ -96,8 +96,8 @@ export default function RoiCalculator() {
 
             <div className="bg-purple-50/60 rounded-xl p-4 border border-purple-100 text-xs text-gray-600 space-y-1.5">
               <p className="font-semibold text-[#5b2d6e]">💡 Assumptions based on SME benchmarks:</p>
-              <p>• Up to 14 hours* saved per team member/month from automated DQ and lineage.</p>
-              <p>• Up to 99.4%* automated detection of unmasked customer PII before audits.</p>
+              <p>• Up to 14 hours* saved per team member/month from automated DQ and lineage (measured against baseline manual schema tracing &amp; spreadsheet hygiene).</p>
+              <p>• Up to 99.4%* automated detection of unmasked customer PII before audits (based upon baseline manual sampling error rates).</p>
             </div>
           </div>
 
@@ -162,8 +162,8 @@ export default function RoiCalculator() {
         </div>
 
         {/* Footnote Disclaimer */}
-        <p className="text-center text-xs text-gray-500 mt-8 max-w-3xl mx-auto">
-          * ROI estimations, potential cost savings, and hours saved are illustrative models based on industry averages; actual returns depend on team composition, salary benchmarks, and existing data infrastructure.
+        <p className="text-center text-xs text-gray-500 mt-8 max-w-4xl mx-auto leading-relaxed">
+          * ROI estimations, potential cost savings, and hours saved are illustrative models calculated against a baseline of traditional manual data hygiene, spreadsheet cataloging, and ad-hoc engineering queries (averaging 12–14 manual hours per analyst/month prior to adopting an automated catalog). Actual returns depend on your organization&apos;s earlier catalog understanding, team composition, salary benchmarks, and existing data infrastructure.
         </p>
       </div>
     </section>

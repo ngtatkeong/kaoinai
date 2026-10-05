@@ -246,8 +246,8 @@ export default function Comparison() {
         </div>
 
         {/* Footnote Disclaimer */}
-        <p className="text-[11px] text-slate-500 text-center -mt-6 mb-8 max-w-3xl mx-auto">
-          * Implementation durations, TCO projections, and scanning times are representative estimates based on standard multi-source customer onboarding benchmarks.
+        <p className="text-[11px] text-slate-500 text-center -mt-6 mb-8 max-w-4xl mx-auto leading-relaxed">
+          * Implementation durations, TCO projections, and scanning times are representative estimates evaluated against baseline legacy enterprise tooling (3–9 month systems integration engagements) and an organization&apos;s earlier manual baseline (undocumented schemas, spreadsheets, and developer tickets).
         </p>
 
         {/* Action Row */}

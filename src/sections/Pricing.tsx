@@ -388,8 +388,8 @@ export default function Pricing() {
         </div>
 
         {/* Footnote Disclaimer */}
-        <p className="text-[11px] text-gray-500 text-center -mt-6 mb-12 max-w-3xl mx-auto">
-          * SLA guarantees, response times, deployment durations, and cost savings are contractual targets based on selected deployment architecture, support tier, and customer infrastructure readiness.
+        <p className="text-[11px] text-gray-500 text-center -mt-6 mb-12 max-w-4xl mx-auto leading-relaxed">
+          * SLA guarantees, response times, deployment durations, and cost savings are contractual targets evaluated against typical industry baselines (such as multi-month manual SI onboarding) and selected deployment tiers. Actual setup speed is contingent upon customer infrastructure readiness.
         </p>
 
         {/* Why the Setup / Deployment Package? */}

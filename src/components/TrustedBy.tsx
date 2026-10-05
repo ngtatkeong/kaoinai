@@ -133,8 +133,8 @@ export default function TrustedBy() {
         </div>
 
         {/* Footnote Disclaimer */}
-        <p className="text-[11px] text-slate-400 text-center mt-4 max-w-3xl mx-auto">
-          * Metrics reflect cumulative observations across pilot environments, staging sandboxes, and production customer nodes. Results may vary by database scale and deployment model.
+        <p className="text-[11px] text-slate-400 text-center mt-4 max-w-4xl mx-auto leading-relaxed">
+          * Metrics reflect cumulative observations across pilot environments and production deployments compared against baseline pre-implementation conditions (such as an organization&apos;s earlier undocumented catalog understanding, unmonitored schema drift, and multi-week manual setup). Actual performance depends on infrastructure readiness and catalog scope.
         </p>
       </div>
     </section>

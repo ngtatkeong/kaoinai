@@ -514,8 +514,8 @@ export default function InteractiveDemo() {
         </div>
 
         {/* Footnote Disclaimer */}
-        <p className="text-[11px] text-slate-500 text-center -mt-6 mb-10 max-w-3xl mx-auto">
-          * Metric results, inference speeds, deduplication accuracy, and query latencies reflect enterprise benchmark environments and customer deployment observations. Actual query response times and confidence scores may vary depending on data scale, network topology, and database engine.
+        <p className="text-[11px] text-slate-500 text-center -mt-6 mb-10 max-w-4xl mx-auto leading-relaxed">
+          * Metric results, inference speeds, deduplication accuracy, and query latencies are evaluated based upon each customer&apos;s earlier baseline catalog understanding and manual querying workflows (e.g. unindexed tables, manual dbt/SQL debugging averaging 3–5 days, and disconnected spreadsheets). Live query response times and match confidence depend on data scale, network topology, and database engine.
         </p>
 
         {/* Try Your Own Prompt Interactive Box */}

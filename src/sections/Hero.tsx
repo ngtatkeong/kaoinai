@@ -380,7 +380,7 @@ export default function Hero() {
 
                   {/* Asterisk Disclaimer Note */}
                   <p className="text-[10px] text-slate-400/70 pt-2 border-t border-white/5 font-mono text-center sm:text-left leading-tight">
-                    * Performance metrics, quality scores, and latency figures are based on peak benchmark tests; actual live results may vary based on database scale and query topology.
+                    * Performance metrics, catalog comprehension scores, and latency figures are evaluated based upon the baseline of an organization&apos;s earlier catalog maturity (e.g. unindexed schemas, tribal undocumented tables, and ungoverned direct SQL prompts prior to KaoinAI implementation). Live results vary with database scale and schema topology.
                   </p>
                 </div>
               </div>
