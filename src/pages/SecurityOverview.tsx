@@ -100,11 +100,20 @@ export default function SecurityOverview() {
             2. Regulatory Compliance Mappings
           </h2>
           <div className="space-y-3">
-            <div className="flex items-start gap-3 p-4 rounded-xl border border-slate-200 bg-white">
-              <CheckCircle2 size={18} className="text-emerald-600 shrink-0 mt-0.5" />
+            <div className="flex items-start gap-3 p-4 rounded-xl border border-purple-200 bg-purple-50/40">
+              <CheckCircle2 size={18} className="text-purple-600 shrink-0 mt-0.5" />
               <div>
-                <strong className="text-slate-900 block text-xs">Singapore Personal Data Protection Act (PDPA 2012)</strong>
-                <p className="text-xs text-slate-600">Fulfills the Protection Obligation (§24) and Accountability Obligation (§11-12) through automated table-level PII inventories, retention schedules, and DPIA drift tracking.</p>
+                <strong className="text-slate-900 block text-xs">Singapore Personal Data Protection Act (PDPA 2012) &amp; Standard DPA</strong>
+                <p className="text-xs text-slate-600 mb-1.5">
+                  Fulfills the Protection Obligation (§24) and Accountability Obligation (§11-12) through automated table-level PII inventories, retention schedules, and DPIA drift tracking. KaoinAI acts as a Section 4(2) Data Intermediary governed by our standard DPA.
+                </p>
+                <div className="flex flex-wrap items-center gap-3 text-[11px] text-purple-900">
+                  <span><strong>Designated DPO:</strong> Ng Tat Keong (<a href="mailto:tk.ng@kaoinai.com" className="underline hover:text-purple-950">tk.ng@kaoinai.com</a>)</span>
+                  <span>&bull;</span>
+                  <Link to="/dpa" className="underline font-semibold text-purple-700 hover:text-purple-950">
+                    Review Singapore PDPA Agreement (DPA) &rarr;
+                  </Link>
+                </div>
               </div>
             </div>
 

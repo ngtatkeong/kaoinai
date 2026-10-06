@@ -24,6 +24,7 @@ const AuditPage = lazy(() => import('./pages/Audit'))
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
 import SecurityOverview from './pages/SecurityOverview'
+import DataProtectionAgreement from './pages/DataProtectionAgreement'
 import BlogIndex from './pages/BlogIndex'
 import BlogPost from './pages/BlogPost'
 import NotFound from './pages/NotFound'
@@ -79,9 +80,19 @@ function RouteSeo() {
         url: 'https://kaoinai.com/contact',
       },
       '/privacy': {
-        title: 'Privacy Policy — KaoinAI Data Protection Standards',
-        desc: 'Read the KaoinAI Privacy Policy. Zero raw data replication, read-only metadata architecture, Singapore PDPA, Malaysia PDPA & GDPR compliance guarantees.',
+        title: 'Privacy Policy & DPO — KaoinAI Data Protection Standards',
+        desc: 'Read the KaoinAI Privacy Policy. Designated Singapore DPO Ng Tat Keong (tk.ng@kaoinai.com), zero raw data replication, Singapore PDPA & GDPR compliance guarantees.',
         url: 'https://kaoinai.com/privacy',
+      },
+      '/dpa': {
+        title: 'Singapore PDPA Standard Data Protection Agreement (DPA) — KaoinAI',
+        desc: 'Official Singapore PDPA Data Protection Agreement for enterprise customers. Section 4(2) data intermediary clauses, 10 statutory obligations, DPO Ng Tat Keong (tk.ng@kaoinai.com).',
+        url: 'https://kaoinai.com/dpa',
+      },
+      '/pdpa-agreement': {
+        title: 'Singapore PDPA Standard Data Protection Agreement (DPA) — KaoinAI',
+        desc: 'Official Singapore PDPA Data Protection Agreement for enterprise customers. Section 4(2) data intermediary clauses, 10 statutory obligations, DPO Ng Tat Keong (tk.ng@kaoinai.com).',
+        url: 'https://kaoinai.com/pdpa-agreement',
       },
       '/terms': {
         title: 'Terms of Service — KaoinAI Enterprise Agreement',
@@ -211,6 +222,8 @@ function App() {
           <Route path="/audit.html" element={<Suspense fallback={null}><AuditPage /></Suspense>} />
           <Route path="/contact" element={<Suspense fallback={null}><Contact /></Suspense>} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/dpa" element={<DataProtectionAgreement />} />
+          <Route path="/pdpa-agreement" element={<DataProtectionAgreement />} />
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/security" element={<SecurityOverview />} />
           <Route path="/blog" element={<BlogIndex />} />

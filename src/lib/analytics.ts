@@ -96,6 +96,12 @@ export type EventPayloads = {
     time: string;
     ref: string;
   };
+  copy_dpa_agreement: {
+    type: string;
+  };
+  print_dpa_agreement: {
+    type: string;
+  };
 };
 
 export function trackEvent<K extends keyof EventPayloads>(

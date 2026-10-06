@@ -538,6 +538,21 @@ Host Direct Email: tk.ng@kaoinai.com`
 
                 <div className="flex items-start gap-3">
                   <div className="w-8 h-8 rounded-lg bg-purple-50 text-[#5b2d6e] flex items-center justify-center shrink-0 mt-0.5">
+                    <UserCheck size={16} />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider block">Data Protection Officer (DPO)</span>
+                    <a href="mailto:tk.ng@kaoinai.com" className="text-xs font-semibold text-purple-950 hover:text-[#5b2d6e] transition-colors block">
+                      Ng Tat Keong &bull; tk.ng@kaoinai.com
+                    </a>
+                    <span className="text-[10px] text-gray-500 block">
+                      Statutory PDPA Notices, DSAR &amp; <Link to="/dpa" className="text-purple-600 underline font-medium">PDPA Agreement</Link>
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-purple-50 text-[#5b2d6e] flex items-center justify-center shrink-0 mt-0.5">
                     <Building2 size={16} />
                   </div>
                   <div>
