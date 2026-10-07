@@ -388,9 +388,14 @@ export default function Pricing() {
         </div>
 
         {/* Footnote Disclaimer */}
-        <p className="text-[11px] text-gray-500 text-center -mt-6 mb-12 max-w-4xl mx-auto leading-relaxed">
-          * SLA guarantees, response times, deployment durations, and cost savings are contractual targets evaluated against typical industry baselines (such as multi-month manual SI onboarding) and selected deployment tiers. Actual setup speed is contingent upon customer infrastructure readiness.
-        </p>
+        <div className="text-[11px] text-gray-500 text-center -mt-6 mb-12 max-w-4xl mx-auto leading-relaxed space-y-1">
+          <p>
+            * <strong>Annual Savings &amp; Fee Waivers:</strong> Annual commitment discount of up to 20% (e.g. 23.2% on Growth Cloud at $990/mo vs. $1,290/mo, and 20.1% on Enterprise Cloud at $2,790/mo vs. $3,490/mo) is calculated directly against month-to-month billing rates. Standard onboarding/setup fees ($990–$3,990) are waived under 12-month contracts.
+          </p>
+          <p>
+            * <strong>SLA Commitments &amp; Rapid Go-Live:</strong> 99.9% and 99.99% availability targets are contractual commitments under Enterprise tier agreements backed by multi-AZ AWS Singapore clusters or high-availability Kubernetes deployments. Up to 1-hour Severity-1 response applies to business-critical outages. Production go-live in up to 48 hours is evaluated against traditional 3–9 month manual data engineering consultant baselines; actual duration depends on client VPC provisioning and administrator sign-off.
+          </p>
+        </div>
 
         {/* Why the Setup / Deployment Package? */}
         <div className="bg-white rounded-3xl p-6 sm:p-9 border border-gray-200 shadow-sm max-w-4xl mx-auto">

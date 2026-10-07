@@ -6,7 +6,7 @@ const faqs = [
   {
     question: 'What is KaoinAI and how is it different from legacy tools?',
     answer:
-      'KaoinAI is an all-in-one AI data intelligence platform engineered specifically for SMEs. Unlike legacy tools (Collibra, Informatica, Alation) that cost $100k–$1M+ and take 6 months to deploy, KaoinAI connects in minutes, uses AI to auto-generate rules and metadata, and costs a fraction of enterprise software.',
+      'KaoinAI is an all-in-one AI data intelligence platform engineered specifically for SMEs. Unlike legacy tools (Collibra, Informatica, Alation) that cost $100k–$1M+* and take 6 months* to deploy, KaoinAI connects in minutes*, uses AI to auto-generate rules and metadata, and costs a fraction of enterprise software.',
   },
   {
     question: 'How does KaoinAI connect to our databases? Is our data secure?',
@@ -104,6 +104,11 @@ export default function FAQ() {
             )
           })}
         </div>
+
+        {/* Footnote Disclaimer */}
+        <p className="text-[11px] text-gray-400 text-center mt-10 max-w-3xl mx-auto leading-relaxed">
+          * Comparative legacy governance suite deployment budgets ($100k–$1M+) and 3–6 month timelines reflect published industry software licensing tiers, multi-user seat charges, and mandatory Systems Integrator consulting retainers reported in enterprise data catalog market studies (Gartner/Forrester). KaoinAI connection in minutes is evaluated on standard relational database connectors (e.g. PostgreSQL, MySQL, Snowflake) with administrative credentials ready.
+        </p>
       </div>
     </section>
   )

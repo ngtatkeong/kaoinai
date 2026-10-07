@@ -204,6 +204,16 @@ export default function BlogPost() {
         })}
       </article>
 
+      {/* Research & Technical Methodology Disclosure */}
+      <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 text-xs text-slate-500 leading-relaxed mb-10 space-y-1.5">
+        <div className="font-bold text-slate-700 uppercase tracking-wider text-[10px]">
+          Technical &amp; Empirical Methodology Disclosure
+        </div>
+        <p>
+          * Comparative statistics, latency metrics, and benchmark scores cited in KaoinAI research publications reflect empirical lab evaluations (evaluating zero-trust semantic layer query compilation against unguided direct LLM Text-to-SQL generation across Spider &amp; BIRD relational benchmark fixtures). Legacy cost ranges ($30,000–$250,000+/year) reflect published entry enterprise software licensing tiers and systems integrator retainers (e.g. Collibra, Alation, Informatica). Incident retrospectives and case studies illustrate operational hazards, synthetic recursion drift, and public post-mortems analyzed under the Australian Government DISR 10 Mandatory AI Guardrails and Singapore PDPA/MAS TRM statutory standards.
+        </p>
+      </div>
+
       {/* Author Bio Box */}
       <div className="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200 mb-16 flex items-start gap-4">
         <div className="w-14 h-14 rounded-2xl bg-purple-700 text-white font-bold text-xl flex items-center justify-center shrink-0 shadow-md">

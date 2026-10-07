@@ -45,11 +45,11 @@ const comparisonData: ComparisonRow[] = [
       positive: true
     },
     legacy: {
-      text: '$30,000 – $100,000+ / yr commit plus $25,000 consulting retainers',
+      text: '$30,000 – $100,000+ / yr* commit plus $25,000* consulting retainers',
       positive: false
     },
     manual: {
-      text: 'Hidden $60k+ in wasted developer & analyst hours every quarter',
+      text: 'Hidden $60k+* in wasted developer & analyst hours every year',
       positive: false
     }
   },
@@ -247,7 +247,7 @@ export default function Comparison() {
 
         {/* Footnote Disclaimer */}
         <p className="text-[11px] text-slate-500 text-center -mt-6 mb-8 max-w-4xl mx-auto leading-relaxed">
-          * Implementation durations, TCO projections, and scanning times are representative estimates evaluated against baseline legacy enterprise tooling (3–9 month systems integration engagements) and an organization&apos;s earlier manual baseline (undocumented schemas, spreadsheets, and developer tickets).
+          * Implementation durations, TCO projections, legacy pricing ($30k–$100k+/yr license + $25k retainers), and internal manual waste ($60k+/yr based on ~20–25 weekly hours of ad-hoc SQL troubleshooting and schema firefighting at a loaded $45–$60/hr wage rate) are representative estimates evaluated against baseline legacy enterprise tooling (3–9 month systems integration engagements) and an organization&apos;s earlier manual baseline (undocumented schemas, spreadsheets, and developer tickets).
         </p>
 
         {/* Action Row */}

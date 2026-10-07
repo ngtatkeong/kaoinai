@@ -515,7 +515,7 @@ export default function InteractiveDemo() {
 
         {/* Footnote Disclaimer */}
         <p className="text-[11px] text-slate-500 text-center -mt-6 mb-10 max-w-4xl mx-auto leading-relaxed">
-          * Metric results, inference speeds, deduplication accuracy, and query latencies are evaluated based upon each customer&apos;s earlier baseline catalog understanding and manual querying workflows (e.g. unindexed tables, manual dbt/SQL debugging averaging 3–5 days, and disconnected spreadsheets). Live query response times and match confidence depend on data scale, network topology, and database engine.
+          * <strong>Scenario Evaluation Methodology:</strong> Specific scenario outputs (e.g. $284,500 ARR risk across 42 accounts, 1,420 NRIC identifiers, $5,700 currency discrepancy across 43 checkouts, 1,680 golden records, and 14 tables) are demonstrated using standardized multi-source benchmark sandbox datasets (incorporating synthetic Stripe billing logs, Shopify order events, and PostgreSQL CRM schemas). Query execution latencies (&lt; 120ms to 210ms) and confidence scores are evaluated against baseline manual querying workflows (e.g. manual ad-hoc SQL formulation averaging 3–5 days, unindexed staging tables, and disconnected spreadsheets). Live query response times and match precision vary based on underlying database engine, hardware sizing, and network topography.
         </p>
 
         {/* Try Your Own Prompt Interactive Box */}

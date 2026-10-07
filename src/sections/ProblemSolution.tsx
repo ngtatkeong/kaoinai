@@ -2,7 +2,7 @@ import { AlertTriangle, CheckCircle, XCircle } from 'lucide-react'
 
 const problems = [
   'Disconnected Compliance Spreadsheets: Static DPIAs and surveys that become obsolete the moment an engineer runs a schema migration.',
-  'Exorbitant Implementation & Lock-In: $30,000–$100,000+/year software minimums plus six-figure system integrator retainers.',
+  'Exorbitant Implementation & Lock-In: $30,000–$100,000+/year* software minimums plus six-figure system integrator retainers*.',
   'Catastrophic Regulatory Exposure: Undetected PII drift leading to severe PDPA, MAS TRM, and GDPR statutory penalties.',
   'Developer & Analyst Burnout: High-friction manual SQL drafting, broken pipelines, and unmaintained custom lineage scripts.',
   'Fragmented Customer Master Data: Conflicting records and duplicate entities isolated across disparate ERPs, CRMs, and SQL tables.'
@@ -105,7 +105,7 @@ export default function ProblemSolution() {
 
         {/* Footnote Disclaimer */}
         <p className="text-[11px] text-slate-500 text-center mt-8 max-w-4xl mx-auto leading-relaxed">
-          * Deployment timelines and operational setup durations are evaluated based upon traditional enterprise catalog implementation baselines (requiring 3–9 months of systems integration) compared against automated containerized kickoff. Actual duration depends on environment complexity and VPC provisioning.
+          * Legacy software costs ($30,000–$100,000+/year) and six-figure retainer estimates are derived from published entry licensing models and typical external systems integration contracts for legacy data governance platforms (e.g. Collibra, Alation). Rapid setup (up to 48 hours / 1 day) is evaluated against traditional 3–9 month manual SI onboarding baselines. Actual duration depends on environment complexity and VPC provisioning.
         </p>
       </div>
     </section>

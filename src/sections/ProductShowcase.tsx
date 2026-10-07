@@ -400,7 +400,7 @@ export default function ProductShowcase() {
 
         {/* Footnote Disclaimer */}
         <p className="text-center text-xs text-slate-500 mt-6 max-w-4xl mx-auto leading-relaxed">
-          * Sync throughput, lineage speed, query latency, and match confidence rates are benchmarked against an organization&apos;s baseline data posture prior to KaoinAI (e.g. unindexed tables, manual ETL syncs, and undocumented schemas). Actual performance varies by underlying database configuration, catalog scale, and network architecture.
+          * Sync throughput, lineage speed (&lt; 200ms), query latency (&lt; 125ms), audit readiness (100% physical column-to-inventory mapping under Singapore PDPA §13 &amp; GDPR Art 30), and entity match confidence rates (up to 99.8%) are benchmarked against an organization&apos;s baseline data posture prior to KaoinAI (e.g. unindexed tables, manual ETL syncs, ~21% baseline duplicate records across isolated ERP/CRMs, and undocumented schemas). Actual performance varies by underlying database configuration, catalog scale, and network architecture.
         </p>
       </div>
     </section>

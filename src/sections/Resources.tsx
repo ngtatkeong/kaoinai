@@ -65,11 +65,11 @@ const resources: ResourceItem[] = [
     fileSize: '14.0 KB PDF',
     fileName: '2026-SME-Data-Governance-AI-Democratization-Report.pdf',
     fileUrl: '/downloads/2026-SME-Data-Governance-AI-Democratization-Report.pdf',
-    description: 'Empirical analysis exploring how enterprise tools extract $250k+/year in consulting retainers, and how autonomous AI levels the playing field for growing businesses.',
+    description: 'Empirical analysis exploring how enterprise tools extract $250k+/year* in consulting retainers, and how autonomous AI levels the playing field for growing businesses.',
     highlights: [
       'Cost comparison: Enterprise vendors vs. AI SaaS',
       'Hidden labor waste in manual spreadsheet reporting',
-      'ROI benchmarking across 50+ Singapore SMEs',
+      'ROI benchmarking across 50+ Singapore SMEs*',
       'Roadmap for sub-15-minute time-to-value'
     ]
   }
@@ -175,6 +175,11 @@ export default function Resources() {
             </div>
           ))}
         </div>
+
+        {/* Footnote Disclaimer */}
+        <p className="text-[11px] text-slate-500 text-center -mt-6 mb-10 max-w-4xl mx-auto leading-relaxed">
+          * Enterprise retainer benchmarks ($250k+/year) and regional SME cohort evaluations are derived from published enterprise data governance vendor pricing schedules, external systems integrator fee retainers (e.g. Collibra, Informatica), and anonymized pilot operational assessments comparing manual data engineering workloads against automated metadata mesh pipelines.
+        </p>
 
         {/* Bottom Callout */}
         <div className="bg-gradient-to-r from-purple-50 via-slate-50 to-purple-50 p-6 rounded-2xl border border-purple-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">

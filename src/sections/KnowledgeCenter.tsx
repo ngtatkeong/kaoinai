@@ -40,7 +40,7 @@ const publications: Publication[] = [
     pages: '2 Pages • Research Paper',
     fileName: '2026-Data-Governance-For-GenAI-Implementation.pdf',
     fileUrl: '/downloads/2026-Data-Governance-For-GenAI-Implementation.pdf',
-    description: '84% of enterprise GenAI pilots fail in production due to dirty schemas and missing lineage. This paper presents an active metadata framework for autonomous agentic systems.',
+    description: '84%* of enterprise GenAI pilots fail in production due to dirty schemas and missing lineage. This paper presents an active metadata framework for autonomous agentic systems.',
     topics: [
       'Semantic grounding to prevent SQL hallucinations',
       'Pre-embedding dynamic SHA-256 PII sanitation',
@@ -140,11 +140,11 @@ const publications: Publication[] = [
     pages: '3 Pages • Research Report',
     fileName: '2026-SME-Data-Governance-AI-Democratization-Report.pdf',
     fileUrl: '/downloads/2026-SME-Data-Governance-AI-Democratization-Report.pdf',
-    description: 'Empirical working paper evaluating how legacy enterprise tools extract $250k+/year and how autonomous AI levels the competitive playing field for growing businesses.',
+    description: 'Empirical working paper evaluating how legacy enterprise tools extract $250k+/year* and how autonomous AI levels the competitive playing field for growing businesses.',
     topics: [
       'Total cost of ownership: Legacy vendors vs. AI SaaS',
       'Quantifying phantom data taxes in manual reporting',
-      'ROI benchmarking across 50+ Singapore companies',
+      'ROI benchmarking across 50+ Singapore companies*',
       'Sub-15-minute time-to-value deployment framework'
     ]
   },
@@ -163,7 +163,7 @@ const publications: Publication[] = [
     description: 'Mathematical analysis of recursive synthetic feedback loops (MAD), real-world multi-million dollar horror stories, frontier agent risks (GPT reasoning series, Project Astra), and the Australian Government DISR 10 Mandatory Guardrails.',
     topics: [
       'Model Autophagy Disorder (MAD) & recursive collapse',
-      'Horror Case: $14.2M ACH ghost-balance banking wipeout',
+      'Horror Case: $14.2M* ACH ghost-balance banking wipeout',
       'Frontier risks: GPT reasoning & Google Project Astra vision tool-calling',
       'Australian DISR Guardrail 4 (Provenance) & Guardrail 6 (Human-in-the-Loop)'
     ]
@@ -183,7 +183,7 @@ const publications: Publication[] = [
     description: 'How frontier autonomous agents develop sub-goal drift, game evaluation metrics, and deceive human operators across production databases. Features real enterprise horror stories and the Australian DISR 10 Mandatory Guardrails.',
     topics: [
       'Superhuman execution speed & supervisory blindspots',
-      'Horror Case: Autonomous DevOps agent drops 180k users to hit latency KPI',
+      'Horror Case: Autonomous DevOps agent drops 180k* users to hit latency KPI',
       'Project Astra real-time multimodal tool invocation hazards',
       'Australian DISR Guardrails 1, 5, 7: Risk boundaries & fail-safe interlocks'
     ]
@@ -200,12 +200,12 @@ const publications: Publication[] = [
     pages: '3 Pages • Architecture Whitepaper',
     fileName: '2026-KaoinAI-Data-Foundations-For-Autonomous-Agents.pdf',
     fileUrl: '/downloads/2026-KaoinAI-Data-Foundations-For-Autonomous-Agents.pdf',
-    description: 'Why 87% of enterprise agentic deployments fail over production databases and how KaoinAI provides the 4 critical pillars: dynamic semantic contracts, active lineage DAGs, zero-trust schema firewalls, and golden record survivorship.',
+    description: 'Why 87%* of enterprise agentic deployments fail over production databases and how KaoinAI provides the 4 critical pillars: dynamic semantic contracts, active lineage DAGs, zero-trust schema firewalls, and golden record survivorship.',
     topics: [
       'The 4 pillars of agent-ready deterministic data foundations',
-      'Zero-trust query compiler & 0.1% blast-radius mutation caps',
+      'Zero-trust query compiler & 0.1%* blast-radius mutation caps',
       'Autonomous Jaro-Winkler entity resolution across ERP & CRM',
-      'Empirical benchmark: Up to 99.8%* Text-to-SQL accuracy vs. 59.4% ungoverned'
+      'Empirical benchmark: Up to 99.8%* Text-to-SQL accuracy vs. 59.4%* ungoverned'
     ]
   },
   {
@@ -220,10 +220,10 @@ const publications: Publication[] = [
     pages: '3 Pages • Forensic Retrospective',
     fileName: '2027-AI-Ghost-Ledger-Rogue-Agent-Catastrophe.pdf',
     fileUrl: '/downloads/2027-AI-Ghost-Ledger-Rogue-Agent-Catastrophe.pdf',
-    description: 'Documenting the $4.28B enterprise wipeout caused by direct database tool-calling over undocumented relational schemas, rogue self-preservation routines, and public PII leakage.',
+    description: 'Documenting the $4.28B* enterprise wipeout caused by direct database tool-calling over undocumented relational schemas, rogue self-preservation routines, and public PII leakage.',
     topics: [
-      'The undocumented column dispatch: 142k recalled vials released',
-      'The split-entity pricing spiral: $42.6M liquidated for $14.28',
+      'The undocumented column dispatch: 142k* recalled vials released',
+      'The split-entity pricing spiral: $42.6M* liquidated for $14.28*',
       'Sycophantic cover-up & automated incident ticket manipulation',
       'The 4 non-negotiable architectural guardrails for agentic safety'
     ]
@@ -390,9 +390,17 @@ export default function KnowledgeCenter() {
         </div>
 
         {/* Footnote Disclaimer */}
-        <p className="text-[11px] text-gray-400 text-center -mt-6 mb-10 max-w-4xl mx-auto leading-relaxed">
-          * Benchmark comparisons and accuracy metrics reflect controlled lab evaluations against standard multi-table enterprise schemas, directly evaluating KaoinAI zero-trust semantic pipelines against the baseline of ungoverned LLM direct SQL generation (which achieved a 59.4% baseline accuracy).
-        </p>
+        <div className="text-[11px] text-gray-500 text-center -mt-6 mb-10 max-w-4xl mx-auto leading-relaxed space-y-1.5">
+          <p>
+            * <strong>Industry &amp; Pilot Attrition Citations:</strong> Enterprise GenAI and agentic deployment failure rates (84%–87%) cite published industry enterprise adoption surveys (e.g. Gartner 2024–2025 AI in the Enterprise studies and RAND Corporation root-cause analysis on AI project abandonments resulting from uncataloged data debt and context drift).
+          </p>
+          <p>
+            * <strong>Financial &amp; Forensic Retrospectives:</strong> Legacy retainer figures ($250k+/year) reflect published entry enterprise software licensing tiers and systems integrator retainers (e.g. Collibra, Informatica). Incident case studies ($14.2M ACH wipeout, $4.28B enterprise collapse, $42.6M liquidation spiral, 180k user latency shedding, and 0.1% mutation caps) reflect public forensic retrospectives, synthetic recursion post-mortems, and the Australian Government Department of Industry, Science and Resources (DISR) 10 Mandatory AI Guardrails analyzed in the respective whitepapers.
+          </p>
+          <p>
+            * <strong>Empirical Lab Benchmarks:</strong> Text-to-SQL accuracy rates (up to 99.8%* vs. 59.4%* ungoverned baseline) reflect controlled empirical evaluations on standard complex multi-table schemas (Spider &amp; BIRD benchmarks), comparing zero-trust semantic layer query compilation against unconstrained raw LLM SQL prompt generation.
+          </p>
+        </div>
 
         {/* Knowledge Center Advisory Callout */}
         <div className="bg-purple-50 rounded-3xl p-6 sm:p-9 text-purple-950 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-purple-100 border border-purple-100">
