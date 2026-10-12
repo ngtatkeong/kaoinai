@@ -8,7 +8,7 @@
 - **Autonomous Data Quality**: AI-suggested validation rules, anomaly detection, and dbt model generation keep data clean without a dedicated data engineering team.
 - **PII Detection & Masking**: AI classification detects sensitive attributes (names, NRIC/IC, passport numbers, emails, payment data, health records) across GDPR, PDPA, HIPAA, and CCPA, and recommends automated masking rules.
 - **Column-Level Lineage & Schema Drift**: end-to-end lineage across warehouses and ERPs, with drift alerts before broken data reaches a board report.
-- **Natural Language SQL ("Ask Data in Plain English")**: non-technical teams query verified data without SQL tickets.
+- **AI-Enhanced Data Catalog & AI-Aided DB Knowledgebase**: living business glossaries, self-updating schema documentation, and semantic entity discovery so teams understand complex databases without manual tribal knowledge.
 
 ## What is DG within AI? (Data Governance within AI)
 **DG within AI** is the practice of embedding governance, quality, and compliance enforcement directly inside AI and LLM execution pipelines. Frontier AI models can only reason over the data they are given: when underlying databases are messy, unindexed, or drifting, AI hallucinates. KaoinAI is the DG-within-AI foundation — cleaning, curing, masking, and cataloguing data so it is fit for purpose for agentic AI. Because when data is junk, frontier AI will also be junk.

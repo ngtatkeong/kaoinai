@@ -31,7 +31,7 @@ const faqs = [
   {
     question: 'Do we need data engineers or SQL experts to use KaoinAI?',
     answer:
-      'No! KaoinAI features natural language interfaces ("Ask Data in Plain English"), AI-suggested validation rules, and automated dbt model generators. Non-technical compliance officers, business analysts, and fractional CTOs can manage the platform with ease.',
+      'No! KaoinAI features an AI-enhanced data catalog, an AI-aided database knowledgebase, AI-suggested validation rules, and automated dbt model generators. Non-technical compliance officers, business analysts, and fractional CTOs can navigate and govern the database estate with ease.',
   },
   {
     question: 'Is there a Free Trial, and does it apply to both Cloud and On-Premises?',

@@ -232,7 +232,7 @@ export default function RoiCalculator() {
                   <span>1. Labor Time Reclaimed Formula &amp; Industry Citation:</span>
                 </div>
                 <p className="leading-relaxed">
-                  According to global analytics engineering studies (including IDC, Gartner Data Management Survey, and dbt Labs State of Analytics Engineering), data workers spend ~30–40% of their working time finding, verifying, and formatting data. In uncataloged database environments, an average of 3.5 hours per week (14 hours per month, or 8.75% of a standard 160-hour working month) is consumed purely by identifying foreign keys, tracing broken queries from undocumented schema shifts, and answering ad-hoc business questions that KaoinAI automates via real-time lineage and natural language Text-to-SQL.
+                  According to global analytics engineering studies (including IDC, Gartner Data Management Survey, and dbt Labs State of Analytics Engineering), data workers spend ~30–40% of their working time finding, verifying, and formatting data. In uncataloged database environments, an average of 3.5 hours per week (14 hours per month, or 8.75% of a standard 160-hour working month) is consumed purely by identifying foreign keys, tracing broken queries from undocumented schema shifts, and deciphering undocumented schemas that KaoinAI automates via real-time lineage, an AI-enhanced data catalog, and an AI-aided database knowledgebase.
                 </p>
               </div>
               <div className="space-y-1">

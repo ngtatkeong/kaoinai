@@ -10,7 +10,7 @@ const footerLinks = {
     { label: 'Master Data Management', href: '/#features' },
     { label: 'PII Detection & Masking', href: '/#features' },
     { label: 'Schema Drift Detection', href: '/#features' },
-    { label: 'Ask Data in Plain English', href: '/#features' },
+    { label: 'AI-Enhanced Data Catalog & DB Knowledgebase', href: '/#features' },
   ],
   Solutions: [
     { label: 'Data Governance Maturity Audit', href: '/#audit' },

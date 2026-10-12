@@ -47,7 +47,7 @@ const plans: PricingPlan[] = [
       'Up to 3 Connected Data Sources (Postgres, Snowflake, RDS)',
       'Automated PII Scanning & Dynamic SHA-256 Masking',
       'Continuous Schema Drift & Anomaly Alerts',
-      'Natural Language Queries to SQL (1,500 queries/mo)',
+      'AI-Enhanced Data Catalog & DB Knowledgebase (1,500 lookups/mo)',
       'Daily Automated Health Reports via Email',
       'Assisted 30-Min Connection Verification',
       'Standard Technical Support'
@@ -82,7 +82,7 @@ const plans: PricingPlan[] = [
       'Golden Record MDM Engine (Shopify, CRM, Zendesk)',
       'Autonomous dbt Model Synthesis with AI',
       'Singapore PDPA, MAS TRM & GDPR Statutory Reports',
-      'Unlimited Natural Language Business Queries',
+      'Unlimited AI-Aided DB Knowledgebase & Semantic Catalog',
       'White-Glove Architecture Onboarding Included',
       'Dedicated Slack Connect & WhatsApp Direct Channel'
     ],

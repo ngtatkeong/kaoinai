@@ -46,14 +46,14 @@ const caseStudies: CaseStudy[] = [
     logoText: 'UrbanCart',
     headlineMetric: 'Up to 18 hrs/wk*',
     metricLabel: 'Saved in Manual Ops Reporting',
-    challenge: 'Operations and marketing teams had to wait 3 to 5 days for custom SQL queries to reconcile inventory counts between Shopify, warehouse WMS, and TikTok Shop.',
-    solution: 'Empowered non-technical business teams with KaoinAI’s plain-English query engine and automated golden product master records.',
+    challenge: 'Operations and analytics teams wasted days deciphering undocumented database schemas and conflicting SKU definitions across Shopify, warehouse WMS, and TikTok Shop.',
+    solution: 'Deployed KaoinAI’s AI-Enhanced Data Catalog, living database knowledgebase, and automated golden product master records.',
     results: [
       'Up to 18 hours* per week saved for senior business analysts (relative to baseline of 20+ analyst hours/week on manual spreadsheets)',
       'Inventory reconciliation errors reduced by up to 87%* within the first 30 days (against pre-implementation baseline discrepancy frequency)',
       'Eliminated stockout blind spots across 4 regional fulfillment centers'
     ],
-    quote: 'Our inventory managers now ask questions in simple conversational English and get verified SQL answers in seconds without ever tapping our data engineering team.',
+    quote: 'Our teams now search the AI-aided database knowledgebase to instantly understand schema definitions, table relationships, and verified SKU lineage without interrupting our data engineers.',
     author: 'Rachel T.',
     role: 'VP of E-Commerce Operations'
   },

@@ -35,9 +35,9 @@ export default function ProductShowcase() {
     },
     {
       id: 'sql' as ShowcaseTab,
-      label: 'Ask Data SQL Studio',
-      badge: 'Natural Language',
-      description: 'Query verified schemas in plain English with automated pre-prompt masking.',
+      label: 'AI-Enhanced Data Catalog',
+      badge: 'DB Knowledgebase',
+      description: 'Explore AI-curated database documentation, business glossaries, and semantic table relationships.',
       icon: Terminal,
     },
     {
@@ -289,47 +289,43 @@ export default function ProductShowcase() {
               </div>
             )}
 
-            {/* 3. Ask Data SQL */}
+            {/* 3. AI-Enhanced Data Catalog & DB Knowledgebase */}
             {activeTab === 'sql' && (
               <div className="space-y-6">
                 <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10">
                   <div>
                     <h3 className="text-lg font-bold text-white flex items-center gap-2">
                       <Terminal className="text-purple-400" size={18} />
-                      Natural Language &quot;Ask Data in Plain English&quot; Studio
+                      AI-Enhanced Data Catalog &amp; Living DB Knowledgebase
                     </h3>
-                    <p className="text-xs text-slate-400">Governed Text-to-SQL with automatic pre-prompt PII redaction</p>
+                    <p className="text-xs text-slate-400">Self-updating semantic glossary, foreign-key topology, and AI-curated schema documentation</p>
                   </div>
                   <span className="bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs px-2.5 py-1 rounded-lg font-mono">
-                    Query Latency: Down to 124ms*
+                    Catalog Indexing: Down to 124ms*
                   </span>
                 </div>
 
-                {/* Natural Language Prompt */}
+                {/* Knowledgebase Inquiry */}
                 <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
-                  <div className="text-[11px] font-mono text-purple-400 uppercase mb-1">Human Executive Prompt:</div>
+                  <div className="text-[11px] font-mono text-purple-400 uppercase mb-1">AI DB Knowledgebase Lookup:</div>
                   <div className="text-sm font-semibold text-slate-100">
-                    &quot;Show me the top 3 customer cohorts by MRR this quarter, with customer names masked and churn rate calculated.&quot;
+                    &quot;Where is enterprise cohort MRR defined, what foreign keys join billing to retention, and which columns contain restricted PII?&quot;
                   </div>
                 </div>
 
-                {/* Synthesized Dialect SQL */}
-                <div className="bg-slate-900/90 rounded-2xl p-4 border border-purple-500/20 font-mono text-xs text-slate-300 overflow-x-auto space-y-1">
-                  <div className="text-slate-500">-- Auto-generated PostgreSQL 16 dialect with pre-prompt PII shielding</div>
-                  <div><span className="text-purple-400">SELECT</span></div>
-                  <div className="pl-4">c.cohort_quarter,</div>
-                  <div className="pl-4 text-emerald-400">kaoinai.mask_sha256(c.customer_name) AS masked_customer,</div>
-                  <div className="pl-4">ROUND(SUM(i.amount_usd), 2) AS total_mrr,</div>
-                  <div className="pl-4">ROUND(AVG(c.churn_probability), 3) AS avg_churn_risk</div>
-                  <div><span className="text-purple-400">FROM</span> prod_analytics.cohorts c</div>
-                  <div><span className="text-purple-400">JOIN</span> prod_billing.invoices i <span className="text-purple-400">ON</span> c.customer_id = i.customer_id</div>
-                  <div><span className="text-purple-400">WHERE</span> i.invoice_date &gt;= &apos;2026-07-01&apos;</div>
-                  <div><span className="text-purple-400">GROUP BY</span> 1, 2 <span className="text-purple-400">ORDER BY</span> total_mrr <span className="text-purple-400">DESC LIMIT</span> 3;</div>
+                {/* Synthesized Catalog & Semantic Knowledgebase Entry */}
+                <div className="bg-slate-900/90 rounded-2xl p-4 border border-purple-500/20 font-mono text-xs text-slate-300 overflow-x-auto space-y-1.5">
+                  <div className="text-slate-500">// AI-Synthesized Semantic Catalog &amp; Database Knowledgebase Graph</div>
+                  <div><span className="text-purple-400">ENTITY:</span> <span className="text-white font-semibold">prod_analytics.cohorts</span> &harr; <span className="text-white font-semibold">prod_billing.invoices</span></div>
+                  <div className="pl-4 text-slate-300">&bull; <span className="text-indigo-300">Business Glossary:</span> Canonical net recurring revenue (MRR) excluding voided/refunded credit notes</div>
+                  <div className="pl-4 text-slate-300">&bull; <span className="text-indigo-300">Verified Join Key:</span> <span className="text-purple-300">cohorts.customer_id = invoices.customer_id</span> (1:N cardinality verified)</div>
+                  <div className="pl-4 text-emerald-400">&bull; <span className="text-emerald-300">PII Governance Policy:</span> Column <span className="underline">customer_name</span> bound to PDPA RoPA (Auto-masking: kaoinai.mask_sha256)</div>
+                  <div className="pl-4 text-slate-300">&bull; <span className="text-indigo-300">Downstream Consumers:</span> Executive Revenue Mart, Churn Prediction Model, Quarterly MAS Audit View</div>
                 </div>
 
                 <div className="flex items-center justify-between text-xs text-slate-400 pt-1">
-                  <span>Confidence: <strong className="text-emerald-400 font-mono">Up to 99.8%* match</strong> • Foreign keys verified against data catalog</span>
-                  <span className="text-purple-300 font-mono">Execution Safety: Guaranteed Read-Only</span>
+                  <span>Semantic Accuracy: <strong className="text-emerald-400 font-mono">Up to 99.8%* resolution</strong> • Foreign keys &amp; tribal logic verified against live schema</span>
+                  <span className="text-purple-300 font-mono">Architecture: Zero Raw Data Stored</span>
                 </div>
               </div>
             )}

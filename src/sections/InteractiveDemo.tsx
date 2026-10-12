@@ -288,7 +288,7 @@ export default function InteractiveDemo() {
             See KaoinAI in Action — Before Touching Your Database
           </h2>
           <p className="text-base sm:text-lg text-purple-900/70 leading-relaxed">
-            Select an enterprise scenario below. Watch how KaoinAI autonomously understands natural language, synthesizes dialect SQL, and traces table-bound lineage in sub-second time.
+            Select an enterprise scenario below. Watch how KaoinAI&apos;s AI-enhanced data catalog and database knowledgebase autonomously indexes schemas, synthesizes audit-ready definitions, and traces table-bound lineage in sub-second time.
           </p>
         </div>
 
@@ -355,7 +355,7 @@ export default function InteractiveDemo() {
             </div>
             <div className="flex-grow">
               <div className="text-xs font-mono uppercase tracking-wider text-purple-300 font-semibold mb-1">
-                Natural Language Query Input:
+                AI DB Knowledgebase &amp; Catalog Inquiry:
               </div>
               <div className="text-sm sm:text-base font-medium text-white">
                 &ldquo;{activeScenario.prompt}&rdquo;
@@ -383,7 +383,7 @@ export default function InteractiveDemo() {
                   : 'border-transparent text-slate-400 hover:text-slate-200'
               }`}
             >
-              <Terminal size={15} /> Generated SQL
+              <Terminal size={15} /> Catalog &amp; Schema Verification
             </button>
             <button
               onClick={() => setActiveTab('lineage')}

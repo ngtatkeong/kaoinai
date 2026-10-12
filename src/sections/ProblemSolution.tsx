@@ -4,14 +4,14 @@ const problems = [
   'Disconnected Compliance Spreadsheets: Static DPIAs and surveys that become obsolete the moment an engineer runs a schema migration.',
   'Exorbitant Implementation & Lock-In: $30,000–$100,000+/year* software minimums plus six-figure system integrator retainers*.',
   'Catastrophic Regulatory Exposure: Undetected PII drift leading to severe PDPA, MAS TRM, and GDPR statutory penalties.',
-  'Developer & Analyst Burnout: High-friction manual SQL drafting, broken pipelines, and unmaintained custom lineage scripts.',
+  'Tribal Knowledge & Undocumented Schemas: Cryptic table names, stale Confluence wikis, and hours wasted hunting down what database columns actually mean.',
   'Fragmented Customer Master Data: Conflicting records and duplicate entities isolated across disparate ERPs, CRMs, and SQL tables.'
 ]
 
 const solutions = [
   'Physical Table-Bound DPIA & Living RoPA: Compliance inventories generated directly from physical database schemas with automated drift alerts.',
   'Rapid Production Go-Live in Up to 48h*: Instant deployment via self-hosted Docker, private VPC Kubernetes, or managed cloud.',
-  'Autonomous Natural Language to SQL: Sub-second conversational data querying with zero manual SQL drafting required.',
+  'AI-Enhanced Data Catalog & DB Knowledgebase: Self-maintaining semantic documentation, business glossaries, and AI-aided schema discovery across your database estate.',
   'Continuous Schema Shift & Dynamic Masking: Real-time detection of newly migrated PII with automatic tokenization and role-based masking.',
   'Golden Record MDM Engine: Automated entity resolution across Salesforce, PostgreSQL, Shopify, and ERPs without brittle custom ETL.'
 ]

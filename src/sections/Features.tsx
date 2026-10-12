@@ -46,8 +46,8 @@ const features = [
   },
   {
     icon: Brain,
-    title: 'Ask Data — Natural Language',
-    description: 'Query your ERP data in plain English. No SQL required. Get instant answers, visualizations, and export options.',
+    title: 'AI-Aided DB Knowledgebase',
+    description: 'Living, AI-curated database knowledgebase that maps tribal schema logic, foreign key semantics, and table definitions so teams instantly understand every dataset.',
     color: 'from-amber-500 to-orange-600',
     bgColor: 'bg-amber-50',
   },
@@ -60,8 +60,8 @@ const features = [
   },
   {
     icon: FileSearch,
-    title: 'Smart Data Catalog',
-    description: 'AI-generated documentation, business glossary, and automated indexing that deepens catalog comprehension compared to a company’s earlier baseline of undocumented schemas.',
+    title: 'AI-Enhanced Data Catalog',
+    description: 'Self-updating data catalog with AI-synthesized table documentation, business glossaries, and automated semantic indexing that eliminates undocumented schema debt.',
     color: 'from-violet-500 to-purple-600',
     bgColor: 'bg-violet-50',
   },

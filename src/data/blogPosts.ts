@@ -168,7 +168,7 @@ KaoinAI automates continuous compliance tracking, maintaining immutable schema c
     content: `
 ## &quot;Garbage In, Frontier AI Out&quot;
 
-When enterprise teams connect Large Language Models (LLMs) or autonomous AI agents to internal databases for text-to-SQL or automated reporting, they often encounter sudden hallucinations.
+When enterprise teams connect Large Language Models (LLMs) or autonomous AI agents to internal databases for semantic discovery or automated reporting without an AI-enhanced data catalog, they often encounter sudden hallucinations.
 
 The AI writes queries against deprecated tables, joins mismatched foreign keys, or incorporates confidential customer PII into public prompt completions.
 
@@ -180,7 +180,7 @@ The root cause is almost never the LLM itself—**it is the lack of deterministi
 2. **Column-Level Lineage Tracing**: Ensuring that if a metric like \`annual_recurring_revenue\` is queried, the agent knows which upstream table is the audited single source of truth.
 3. **Pre-Prompt Tokenization & Masking**: Intercepting queries before execution to redact sensitive attributes (credit cards, NRICs, phone numbers) before data is sent to external model APIs.
 
-With KaoinAI acting as the governance firewall, enterprise AI systems achieve 99.8%+ SQL accuracy without data leakage.
+With KaoinAI acting as the governance firewall, enterprise AI systems achieve 99.8%+ semantic schema resolution accuracy without data leakage.
     `,
   },
   {
@@ -297,7 +297,7 @@ Governments worldwide have recognized that passive self-regulation has failed. T
 
 To protect enterprise databases from autonomous agent drift and synthetic poisoning, **KaoinAI operates as an active schema firewall**:
 
-1. **Deterministic Lineage Verification**: Binds every LLM prompt and Text-to-SQL query to physically audited table schemas, preventing agents from acting on ungrounded hallucinations.
+1. **Deterministic Lineage & Catalog Verification**: Binds every LLM prompt and AI-aided database knowledgebase lookup to physically audited table schemas, preventing agents from acting on ungrounded hallucinations.
 2. **Synthetic Data Quarantine**: Automatically detects schema drift and synthetic data injection into operational stores.
 3. **Hardware-Level Read-Only & Blast-Radius Caps**: Enforces strict mutation limits, ensuring an autonomous agent cannot drop tables, alter balances, or bypass foreign keys.
 
@@ -460,7 +460,7 @@ Across a benchmark of 25 enterprise database clusters (1,800+ tables, 45,000+ co
 
 | Evaluation Dimension | Ungoverned Database | KaoinAI Data Foundation | Production Impact |
 | :--- | :--- | :--- | :--- |
-| **Text-to-SQL Accuracy** | 59.4% (Frequent misjoins) | **99.8%** (Semantically grounded) | +40.4% First-shot execution fidelity |
+| **Semantic Schema Resolution Accuracy** | 59.4% (Frequent misjoins) | **99.8%** (Semantically grounded) | +40.4% First-shot catalog &amp; execution fidelity |
 | **Column Hallucination Rate** | 34.2% (Invented names) | **0.0%** (Compiler-enforced) | Complete elimination of syntax breaks |
 | **Destructive Blast Radius** | Unconstrained (Table drops) | **0.0%** (Hardware caps &amp; Multi-Sig) | Guaranteed immunity against bulk wipes |
 | **Entity Collision Rate** | 48.1% (Split identities) | **0.1%** (Golden Records) | Unified customer &amp; ledger state |

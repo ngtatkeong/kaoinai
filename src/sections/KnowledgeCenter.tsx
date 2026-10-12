@@ -123,7 +123,7 @@ const publications: Publication[] = [
     description: 'Covers regulatory frameworks across Singapore, Malaysia, and Indonesia with practical schema modernization strategies for deploying agentic workflows.',
     topics: [
       'Cross-border ASEAN data transfer governance',
-      'Semantic schema discovery for Text-to-SQL engines',
+      'AI-enhanced data cataloging & semantic DB knowledgebase discovery',
       'Data cataloging without manual YAML maintenance',
       'Establishing verifiable data quality baselines'
     ]
@@ -203,9 +203,9 @@ const publications: Publication[] = [
     description: 'Why 87%* of enterprise agentic deployments fail over production databases and how KaoinAI provides the 4 critical pillars: dynamic semantic contracts, active lineage DAGs, zero-trust schema firewalls, and golden record survivorship.',
     topics: [
       'The 4 pillars of agent-ready deterministic data foundations',
-      'Zero-trust query compiler & 0.1%* blast-radius mutation caps',
+      'Zero-trust schema governance & 0.1%* blast-radius mutation caps',
       'Autonomous Jaro-Winkler entity resolution across ERP & CRM',
-      'Empirical benchmark: Up to 99.8%* Text-to-SQL accuracy vs. 59.4%* ungoverned'
+      'Empirical benchmark: Up to 99.8%* semantic catalog & schema resolution accuracy vs. 59.4%* ungoverned'
     ]
   },
   {
@@ -398,7 +398,7 @@ export default function KnowledgeCenter() {
             * <strong>Financial &amp; Forensic Retrospectives:</strong> Legacy retainer figures ($250k+/year) reflect published entry enterprise software licensing tiers and systems integrator retainers (e.g. Collibra, Informatica). Incident case studies ($14.2M ACH wipeout, $4.28B enterprise collapse, $42.6M liquidation spiral, 180k user latency shedding, and 0.1% mutation caps) reflect public forensic retrospectives, synthetic recursion post-mortems, and the Australian Government Department of Industry, Science and Resources (DISR) 10 Mandatory AI Guardrails analyzed in the respective whitepapers.
           </p>
           <p>
-            * <strong>Empirical Lab Benchmarks:</strong> Text-to-SQL accuracy rates (up to 99.8%* vs. 59.4%* ungoverned baseline) reflect controlled empirical evaluations on standard complex multi-table schemas (Spider &amp; BIRD benchmarks), comparing zero-trust semantic layer query compilation against unconstrained raw LLM SQL prompt generation.
+            * <strong>Empirical Lab Benchmarks:</strong> Semantic catalog &amp; schema resolution accuracy rates (up to 99.8%* vs. 59.4%* ungoverned baseline) reflect controlled empirical evaluations on standard complex multi-table relational schemas (Spider &amp; BIRD benchmarks), comparing AI-enhanced data catalog &amp; DB knowledgebase grounding against uncataloged raw schema interpretation.
           </p>
         </div>
 

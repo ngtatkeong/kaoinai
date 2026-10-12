@@ -210,7 +210,7 @@ export default function BlogPost() {
           Technical &amp; Empirical Methodology Disclosure
         </div>
         <p>
-          * Comparative statistics, latency metrics, and benchmark scores cited in KaoinAI research publications reflect empirical lab evaluations (evaluating zero-trust semantic layer query compilation against unguided direct LLM Text-to-SQL generation across Spider &amp; BIRD relational benchmark fixtures). Legacy cost ranges ($30,000–$250,000+/year) reflect published entry enterprise software licensing tiers and systems integrator retainers (e.g. Collibra, Alation, Informatica). Incident retrospectives and case studies illustrate operational hazards, synthetic recursion drift, and public post-mortems analyzed under the Australian Government DISR 10 Mandatory AI Guardrails and Singapore PDPA/MAS TRM statutory standards.
+          * Comparative statistics, latency metrics, and benchmark scores cited in KaoinAI research publications reflect empirical lab evaluations (evaluating zero-trust semantic catalog &amp; schema resolution against unguided direct LLM database discovery across Spider &amp; BIRD relational benchmark fixtures). Legacy cost ranges ($30,000–$250,000+/year) reflect published entry enterprise software licensing tiers and systems integrator retainers (e.g. Collibra, Alation, Informatica). Incident retrospectives and case studies illustrate operational hazards, synthetic recursion drift, and public post-mortems analyzed under the Australian Government DISR 10 Mandatory AI Guardrails and Singapore PDPA/MAS TRM statutory standards.
         </p>
       </div>
 

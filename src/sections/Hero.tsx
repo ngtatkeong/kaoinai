@@ -57,7 +57,7 @@ const heroMessages: HeroMessage[] = [
     trustBadges: [
       { icon: Brain, label: 'AI Governance & Hallucination Guard' },
       { icon: Lock, label: 'Dynamic Pre-Prompt PII Tokenization' },
-      { icon: Database, label: 'Zero SQL Required for AI Queries' }
+      { icon: Database, label: 'AI-Enhanced Data Catalog & DB Knowledgebase' }
     ],
     telemetry: {
       systemTag: 'kaoinai-telemetry // ai_guard_sg',
@@ -65,7 +65,7 @@ const heroMessages: HeroMessage[] = [
       healthTitle: 'AI Semantic Accuracy & Context Health',
       healthScore: 'Up to 99.8%*',
       healthBarGradient: 'from-purple-500 via-indigo-500 to-emerald-400',
-      healthDesc: 'Up to 32* deterministic semantic boundaries enforced across vector & SQL query layers',
+      healthDesc: 'Up to 32* deterministic semantic boundaries enforced across AI-enhanced data catalog & DB knowledgebase layers',
       stat1Title: 'Pre-Prompt PII Redaction',
       stat1Value: 'Up to 100%* Intercepted',
       stat1Status: 'Zero Raw Data to LLM',
