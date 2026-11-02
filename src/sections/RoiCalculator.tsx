@@ -30,7 +30,7 @@ export default function RoiCalculator() {
     <section id="roi-calculator" className="py-16 sm:py-24 bg-gradient-to-b from-white to-gray-50 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 border border-purple-100 text-[#5b2d6e] text-sm font-medium mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 border border-teal-100 text-[#0f766e] text-sm font-medium mb-4">
             <Calculator size={16} />
             <span>Interactive ROI & Risk Estimator</span>
           </div>
@@ -50,7 +50,7 @@ export default function RoiCalculator() {
                 <label className="text-sm font-semibold text-gray-800">
                   Data & Business Team Size:
                 </label>
-                <span className="text-base font-bold text-[#5b2d6e] bg-purple-50 px-3 py-1 rounded-lg border border-purple-100">
+                <span className="text-base font-bold text-[#0f766e] bg-teal-50 px-3 py-1 rounded-lg border border-teal-100">
                   {teamSize} People
                 </span>
               </div>
@@ -60,7 +60,7 @@ export default function RoiCalculator() {
                 max="50"
                 value={teamSize}
                 onChange={(e) => handleSliderChange(Number(e.target.value), recordCount)}
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#5b2d6e]"
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#0f766e]"
               />
               <div className="flex justify-between text-xs text-gray-400 mt-1">
                 <span>2 Users</span>
@@ -74,7 +74,7 @@ export default function RoiCalculator() {
                 <label className="text-sm font-semibold text-gray-800">
                   Database & ERP Records Under Management:
                 </label>
-                <span className="text-base font-bold text-[#5b2d6e] bg-purple-50 px-3 py-1 rounded-lg border border-purple-100">
+                <span className="text-base font-bold text-[#0f766e] bg-teal-50 px-3 py-1 rounded-lg border border-teal-100">
                   {recordCount}M Records
                 </span>
               </div>
@@ -85,7 +85,7 @@ export default function RoiCalculator() {
                 step="0.5"
                 value={recordCount}
                 onChange={(e) => handleSliderChange(teamSize, Number(e.target.value))}
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#5b2d6e]"
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#0f766e]"
               />
               <div className="flex justify-between text-xs text-gray-400 mt-1">
                 <span>500k Records</span>
@@ -94,17 +94,17 @@ export default function RoiCalculator() {
               </div>
             </div>
 
-            <div className="bg-purple-50/60 rounded-xl p-4 border border-purple-100 text-xs text-gray-600 space-y-1.5">
-              <p className="font-semibold text-[#5b2d6e]">💡 Assumptions based on SME benchmarks:</p>
+            <div className="bg-teal-50/60 rounded-xl p-4 border border-teal-100 text-xs text-gray-600 space-y-1.5">
+              <p className="font-semibold text-[#0f766e]">💡 Assumptions based on SME benchmarks:</p>
               <p>• 14 hours saved per team member/month from automated DQ and lineage.</p>
               <p>• 99.4% automated detection of unmasked customer PII before audits.</p>
             </div>
           </div>
 
           {/* Results Summary Card */}
-          <div className="lg:col-span-5 bg-gradient-to-br from-[#1a1a2e] to-[#2d1b4e] rounded-2xl p-5 sm:p-8 text-white flex flex-col justify-between shadow-xl">
+          <div className="lg:col-span-5 bg-gradient-to-br from-[#0f172a] to-[#134e4a] rounded-2xl p-5 sm:p-8 text-white flex flex-col justify-between shadow-xl">
             <div>
-              <span className="text-xs uppercase tracking-wider text-purple-300 font-semibold">
+              <span className="text-xs uppercase tracking-wider text-teal-300 font-semibold">
                 Estimated Annual Impact
               </span>
               <div className="mt-4 space-y-5">
@@ -122,10 +122,10 @@ export default function RoiCalculator() {
                 <div className="grid grid-cols-2 gap-3 pt-3 border-t border-white/10">
                   <div>
                     <div className="text-[11px] text-gray-300 flex items-center gap-1">
-                      <Clock size={12} className="text-purple-300" />
+                      <Clock size={12} className="text-teal-300" />
                       Hours Saved
                     </div>
-                    <div className="text-xl font-bold text-purple-200">
+                    <div className="text-xl font-bold text-teal-200">
                       {hoursSavedPerMonth * 12} hrs/yr
                     </div>
                   </div>

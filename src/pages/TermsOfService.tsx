@@ -8,7 +8,7 @@ export default function TermsOfService() {
       <div className="mb-8">
         <Link 
           to="/" 
-          className="inline-flex items-center gap-2 text-sm font-medium text-purple-700 hover:text-purple-900 transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-medium text-teal-700 hover:text-teal-900 transition-colors"
         >
           <ArrowLeft size={16} />
           Back to Home
@@ -17,9 +17,9 @@ export default function TermsOfService() {
 
       {/* Header */}
       <div className="border-b border-slate-200 pb-8 mb-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200 text-[#5b2d6e] text-xs font-semibold mb-4">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-[#0f766e] text-xs font-semibold mb-4">
           <Scale size={14} />
-          <span>Enterprise SaaS Agreement • Singapore Commercial Law</span>
+          <span>Terms of Service • Singapore law</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight mb-3">
           Terms of Service
@@ -32,11 +32,11 @@ export default function TermsOfService() {
       {/* Core Principle Callout */}
       <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 mb-12">
         <h2 className="text-base font-bold text-slate-950 mb-3 flex items-center gap-2">
-          <Shield size={18} className="text-purple-600" />
-          Enterprise Data Ownership &amp; IP Protection
+          <Shield size={18} className="text-teal-600" />
+          Your data stays yours
         </h2>
         <p className="text-sm text-slate-700 leading-relaxed">
-          You retain 100% ownership, title, and intellectual property rights over your databases, schemas, queries, metadata, and generated compliance records. KaoinAI asserts zero ownership over your proprietary information and never trains foundational public AI models on your private schema metadata.
+          You keep ownership of your databases, schemas, queries, metadata and generated records. We do not claim ownership of them. We do not use your schema metadata to train public AI models.
         </p>
       </div>
 
@@ -56,12 +56,12 @@ export default function TermsOfService() {
             2. License &amp; Permitted Use
           </h2>
           <p className="mb-3">
-            Subject to your compliance with these Terms and payment of applicable subscription fees, KaoinAI grants you a non-exclusive, non-transferable, revocable license to access and use the Service strictly for your internal business data governance, quality monitoring, and statutory compliance purposes.
+            Subject to these Terms and payment of your subscription fees, KaoinAI grants you a non-exclusive, non-transferable, revocable license to access and use the Service strictly for your internal business data governance, quality monitoring, and statutory compliance purposes.
           </p>
           <div className="grid sm:grid-cols-2 gap-3 text-xs">
             <div className="p-3 rounded-xl border border-slate-200 bg-white">
               <strong className="text-slate-900 block mb-1">Permitted:</strong>
-              <p className="text-slate-600">Connecting PostgreSQL, Snowflake, BigQuery, MySQL, and ERP instances for metadata cataloging, PII scanning, RoPA generation, and lineage tracking.</p>
+              <p className="text-slate-600">Connecting databases such as PostgreSQL, Snowflake, BigQuery and MySQL for metadata cataloging, PII scanning, RoPA generation, and lineage tracking.</p>
             </div>
             <div className="p-3 rounded-xl border border-slate-200 bg-white">
               <strong className="text-slate-900 block mb-1">Prohibited:</strong>
@@ -75,10 +75,10 @@ export default function TermsOfService() {
             3. Free Trial &amp; Subscription Terms
           </h2>
           <p className="mb-2">
-            <strong>14-Day Free Trial:</strong> We offer a 14-day risk-free trial of all core governance modules with no credit card required. Upon expiration of the trial period, continuous access requires selection of an active subscription tier (Growth, Enterprise Cloud, or On-Premises Air-Gapped).
+            <strong>Free trial:</strong> Trial terms, including length and whether a card is needed, are set out in your order form or sign-up page. After the trial, continued use requires a paid plan.
           </p>
           <p>
-            <strong>Billing &amp; Cancellation:</strong> Paid subscriptions are billed on a monthly or annual cadence. You may cancel your subscription at any time prior to the next billing renewal cycle through your account dashboard or by notifying your account manager.
+            <strong>Billing &amp; Cancellation:</strong> Paid subscriptions are billed on a monthly or annual cadence. You may cancel before your next billing date by contacting us. Your agreement with us sets out the full terms.
           </p>
         </section>
 
@@ -87,7 +87,7 @@ export default function TermsOfService() {
             4. Service Level Agreement (SLA)
           </h2>
           <p>
-            For Enterprise Tier customers, KaoinAI commits to a <strong>99.9% monthly service uptime</strong> for our cloud metadata mesh and API services, excluding scheduled maintenance windows announced at least 48 hours in advance. For air-gapped on-premises deployments, uptime is maintained under the client&apos;s infrastructure governance.
+            This page does not promise an uptime percentage. Any uptime commitment is written into your agreement with us. For on-premises deployments, uptime depends on your own infrastructure.
           </p>
         </section>
 
@@ -96,7 +96,7 @@ export default function TermsOfService() {
             5. Confidentiality &amp; Security Standards
           </h2>
           <p>
-            Each party agrees to safeguard the confidential information of the other with the same degree of care it exercises with its own proprietary materials (at least reasonable care). KaoinAI maintains organizational and technical security measures aligned with SOC 2 Type II and ISO/IEC 27001, including mandatory TLS 1.3 encryption, automated vulnerability patching, and strict role-based access.
+            Each party agrees to safeguard the confidential information of the other with the same degree of care it exercises with its own proprietary materials (at least reasonable care). KaoinAI uses security measures including encryption of data in transit with TLS and role-based access controls.
           </p>
         </section>
 
@@ -126,7 +126,7 @@ export default function TermsOfService() {
             For formal legal notices, service of process, or inquiries concerning these Terms:
           </p>
           <p className="text-xs text-slate-800">
-            <strong>Legal Counsel:</strong> KaoinAI Pte. Ltd. • <a href="mailto:legal@kaoinai.com" className="text-purple-600 hover:underline">legal@kaoinai.com</a> / <a href="mailto:tk.ng@kaoinai.com" className="text-purple-600 hover:underline">tk.ng@kaoinai.com</a>
+            <strong>Legal Counsel:</strong> KaoinAI Pte. Ltd. • <a href="mailto:legal@kaoinai.com" className="text-teal-600 hover:underline">legal@kaoinai.com</a> / <a href="mailto:tk.ng@kaoinai.com" className="text-teal-600 hover:underline">tk.ng@kaoinai.com</a>
           </p>
         </section>
       </div>

@@ -35,7 +35,7 @@ const publications: Publication[] = [
     subtitle: 'Reference architecture for preventing RAG hallucinations, vector poisoning, and context window leakage.',
     category: 'genai',
     categoryLabel: 'GenAI & Agentic Systems',
-    badgeColor: 'bg-purple-100 text-purple-900 border-purple-200',
+    badgeColor: 'bg-teal-100 text-teal-900 border-teal-200',
     fileSize: '6.6 KB PDF',
     pages: '2 Pages • Research Paper',
     fileName: '2026-Data-Governance-For-GenAI-Implementation.pdf',
@@ -115,7 +115,7 @@ const publications: Publication[] = [
     subtitle: 'Cross-border regulatory directives & architectural foundations for frontier and agentic AI.',
     category: 'genai',
     categoryLabel: 'GenAI & Agentic Systems',
-    badgeColor: 'bg-purple-100 text-purple-900 border-purple-200',
+    badgeColor: 'bg-teal-100 text-teal-900 border-teal-200',
     fileSize: '15.4 KB PDF',
     pages: '3 Pages • Comprehensive Handbook',
     fileName: '2026-Data-Governance-AI-Readiness-Handbook.pdf',
@@ -166,11 +166,11 @@ export default function KnowledgeCenter() {
   }
 
   return (
-    <section id="knowledge-center" className="py-16 sm:py-24 bg-purple-50/60 border-t border-purple-100/60 scroll-mt-20">
+    <section id="knowledge-center" className="py-16 sm:py-24 bg-teal-50/60 border-t border-teal-100/60 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-100 border border-purple-200 text-[#5b2d6e] text-xs font-bold mb-4 shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-100 border border-teal-200 text-[#0f766e] text-xs font-bold mb-4 shadow-2xs">
             <GraduationCap size={15} />
             <span>KaoinAI Knowledge Center & AI Data University</span>
           </div>
@@ -188,7 +188,7 @@ export default function KnowledgeCenter() {
             onClick={() => setSelectedCategory('all')}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               selectedCategory === 'all'
-                ? 'bg-[#5b2d6e] text-white shadow-md'
+                ? 'bg-[#0f766e] text-white shadow-md'
                 : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
             }`}
           >
@@ -198,7 +198,7 @@ export default function KnowledgeCenter() {
             onClick={() => setSelectedCategory('genai')}
             className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               selectedCategory === 'genai'
-                ? 'bg-[#5b2d6e] text-white shadow-md'
+                ? 'bg-[#0f766e] text-white shadow-md'
                 : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
             }`}
           >
@@ -209,7 +209,7 @@ export default function KnowledgeCenter() {
             onClick={() => setSelectedCategory('architecture')}
             className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               selectedCategory === 'architecture'
-                ? 'bg-[#5b2d6e] text-white shadow-md'
+                ? 'bg-[#0f766e] text-white shadow-md'
                 : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
             }`}
           >
@@ -220,7 +220,7 @@ export default function KnowledgeCenter() {
             onClick={() => setSelectedCategory('compliance')}
             className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               selectedCategory === 'compliance'
-                ? 'bg-[#5b2d6e] text-white shadow-md'
+                ? 'bg-[#0f766e] text-white shadow-md'
                 : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
             }`}
           >
@@ -249,7 +249,7 @@ export default function KnowledgeCenter() {
 
                 {/* Title & File Info */}
                 <div className="flex items-start gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-purple-50 text-[#5b2d6e] flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-10 h-10 rounded-xl bg-teal-50 text-[#0f766e] flex items-center justify-center shrink-0 mt-0.5">
                     <FileText size={20} />
                   </div>
                   <div>
@@ -259,7 +259,7 @@ export default function KnowledgeCenter() {
                     <div className="flex items-center gap-2 mt-1 text-[11px] text-slate-500 font-medium">
                       <span>{pub.pages}</span>
                       <span>•</span>
-                      <span className="font-mono text-purple-700 font-semibold">{pub.fileSize}</span>
+                      <span className="font-mono text-teal-700 font-semibold">{pub.fileSize}</span>
                     </div>
                   </div>
                 </div>
@@ -310,19 +310,19 @@ export default function KnowledgeCenter() {
         </div>
 
         {/* Knowledge Center Advisory Callout */}
-        <div className="bg-purple-50 rounded-3xl p-6 sm:p-9 text-purple-950 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-purple-100 border border-purple-100">
+        <div className="bg-teal-50 rounded-3xl p-6 sm:p-9 text-teal-950 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-teal-100 border border-teal-100">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 border border-purple-200">
+            <div className="w-12 h-12 rounded-2xl bg-teal-100 text-teal-600 flex items-center justify-center shrink-0 border border-teal-200">
               <GraduationCap size={26} />
             </div>
             <div>
-              <div className="text-xs font-bold text-purple-600 uppercase tracking-wider mb-1">
+              <div className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-1">
                 Executive & Technical Advisory
               </div>
               <h3 className="text-xl sm:text-2xl font-bold">
                 Deploying AI in Your Organization?
               </h3>
-              <p className="text-xs sm:text-sm text-purple-900/70 max-w-xl mt-1">
+              <p className="text-xs sm:text-sm text-teal-900/70 max-w-xl mt-1">
                 Schedule a complimentary 15-minute AI Data Readiness & Governance Review with our systems architects. We inspect your schema topology and evaluate regulatory exposure.
               </p>
             </div>

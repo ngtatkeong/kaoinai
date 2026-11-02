@@ -1,23 +1,8 @@
 import { useEffect, lazy, Suspense } from 'react'
 import { Routes, Route, useLocation } from 'react-router'
 import Navigation from './sections/Navigation'
-import Hero from './sections/Hero'
-import TrustedBy from './components/TrustedBy'
-import ProductShowcase from './sections/ProductShowcase'
-import Integrations from './sections/Integrations'
-import InteractiveDemo from './sections/InteractiveDemo'
-import ProblemSolution from './sections/ProblemSolution'
-import Features from './sections/Features'
-import SecurityTrust from './sections/SecurityTrust'
-import CaseStudies from './sections/CaseStudies'
-import Comparison from './sections/Comparison'
-import HowItWorks from './sections/HowItWorks'
-import RoiCalculator from './sections/RoiCalculator'
-import MaturityRiskAudit from './sections/MaturityRiskAudit'
-import Pricing from './sections/Pricing'
-import KnowledgeCenter from './sections/KnowledgeCenter'
-import FAQ from './sections/FAQ'
-import CTA from './sections/CTA'
+import HeroSme from './sections/HeroSme'
+import { ProblemFrame, HowItWorksSme, DataHandlingSme, PricingSme, FaqSme, FinalCtaSme } from './sections/SmeHome'
 import Footer from './sections/Footer'
 const Contact = lazy(() => import('./pages/Contact'))
 const AuditPage = lazy(() => import('./pages/Audit'))
@@ -83,7 +68,7 @@ function RouteSeo() {
         url: 'https://kaoinai.com/privacy',
       },
       '/terms': {
-        title: 'Terms of Service — KaoinAI Enterprise Agreement',
+        title: 'Terms of Service — KaoinAI',
         desc: 'KaoinAI Terms of Service. Enterprise SaaS agreement, customer IP data ownership, 99.9% uptime SLA commitments, and Singapore commercial law governance.',
         url: 'https://kaoinai.com/terms',
       },
@@ -159,30 +144,20 @@ function RouteSeo() {
 function Home() {
   return (
     <main>
-      <Hero />
-      <TrustedBy />
-      <ProductShowcase />
-      <Integrations />
-      <InteractiveDemo />
-      <ProblemSolution />
-      <Features />
-      <SecurityTrust />
-      <CaseStudies />
-      <Comparison />
-      <HowItWorks />
-      <MaturityRiskAudit />
-      <RoiCalculator />
-      <Pricing />
-      <KnowledgeCenter />
-      <FAQ />
-      <CTA />
+      <HeroSme />
+      <ProblemFrame />
+      <HowItWorksSme />
+      <DataHandlingSme />
+      <PricingSme />
+      <FaqSme />
+      <FinalCtaSme />
     </main>
   )
 }
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#fcfbfe] via-[#f8f3fe]/80 to-[#fcfbfe] selection:bg-purple-100 selection:text-[#5b2d6e] flex flex-col justify-between overflow-x-hidden relative">
+    <div className="min-h-screen bg-gradient-to-b from-[#f8fafc] via-[#f0fdfa]/80 to-[#f8fafc] selection:bg-teal-100 selection:text-[#0f766e] flex flex-col justify-between overflow-x-hidden relative">
       <AnimatedBackground />
       <ScrollToHash />
       <RouteSeo />

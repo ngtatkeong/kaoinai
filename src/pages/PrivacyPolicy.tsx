@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
       <div className="mb-8">
         <Link 
           to="/" 
-          className="inline-flex items-center gap-2 text-sm font-medium text-purple-700 hover:text-purple-900 transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-medium text-teal-700 hover:text-teal-900 transition-colors"
         >
           <ArrowLeft size={16} />
           Back to Home
@@ -17,9 +17,9 @@ export default function PrivacyPolicy() {
 
       {/* Header */}
       <div className="border-b border-slate-200 pb-8 mb-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200 text-[#5b2d6e] text-xs font-semibold mb-4">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-[#0f766e] text-xs font-semibold mb-4">
           <ShieldCheck size={14} />
-          <span>Statutory Compliance • Singapore PDPA &amp; GDPR Aligned</span>
+          <span>Singapore PDPA, Malaysia PDPA and Indonesia UU PDP</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight mb-3">
           Privacy Policy
@@ -30,26 +30,26 @@ export default function PrivacyPolicy() {
       </div>
 
       {/* Core Architecture Callout */}
-      <div className="bg-gradient-to-br from-purple-50 via-indigo-50/50 to-white rounded-2xl border border-purple-200 p-6 sm:p-8 mb-12 shadow-xs">
+      <div className="bg-gradient-to-br from-teal-50 via-teal-50/50 to-white rounded-2xl border border-teal-200 p-6 sm:p-8 mb-12 shadow-xs">
         <div className="flex items-start gap-4">
-          <div className="w-12 h-12 rounded-xl bg-purple-600 text-white flex items-center justify-center shrink-0 shadow-md">
+          <div className="w-12 h-12 rounded-xl bg-teal-600 text-white flex items-center justify-center shrink-0 shadow-md">
             <Lock size={22} />
           </div>
           <div>
             <h2 className="text-lg font-bold text-slate-950 mb-2">
-              Our Zero-Replication Architectural Commitment
+              How we handle your data
             </h2>
             <p className="text-sm text-slate-700 leading-relaxed mb-4">
-              KaoinAI operates on an intentional <strong>Read-Only Metadata Architecture</strong>. We do <strong>NOT</strong> copy, replicate, ingest, or store raw database rows, customer PII records, or production transaction tables on our cloud servers.
+              KaoinAI reads the structure of your databases, not their contents. It is designed so that customer rows, personal records and transaction tables are not copied to our servers.
             </p>
             <div className="grid sm:grid-cols-2 gap-3 text-xs text-slate-600">
-              <div className="flex items-center gap-2 bg-white/80 p-2.5 rounded-lg border border-purple-100">
+              <div className="flex items-center gap-2 bg-white/80 p-2.5 rounded-lg border border-teal-100">
                 <CheckCircle2 size={15} className="text-emerald-600 shrink-0" />
-                <span>Zero raw customer PII stored on KaoinAI</span>
+                <span>Customer records are not copied to KaoinAI</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/80 p-2.5 rounded-lg border border-purple-100">
+              <div className="flex items-center gap-2 bg-white/80 p-2.5 rounded-lg border border-teal-100">
                 <CheckCircle2 size={15} className="text-emerald-600 shrink-0" />
-                <span>Metadata-only schema drift &amp; lineage analysis</span>
+                <span>Structure-only analysis: table and column names</span>
               </div>
             </div>
           </div>
@@ -66,7 +66,7 @@ export default function PrivacyPolicy() {
             This Privacy Policy governs how KaoinAI Pte. Ltd. (operating in Singapore and Malaysia, referred to as &quot;KaoinAI&quot;, &quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) collects, processes, uses, and safeguards information when you visit our website (<strong>kaoinai.com</strong>), use our cloud platform, deploy our self-hosted connectors, or communicate with our engineering and advisory team.
           </p>
           <p>
-            We adhere strictly to statutory data protection frameworks across the jurisdictions where our clients operate, including the <strong>Singapore Personal Data Protection Act 2012 (PDPA)</strong>, the <strong>Monetary Authority of Singapore Technology Risk Management Guidelines (MAS TRM)</strong>, the <strong>Malaysia Personal Data Protection Act 2010 (PDPA)</strong>, the <strong>Indonesia Law No. 27/2022 on Personal Data Protection (UU PDP)</strong>, and the <strong>EU General Data Protection Regulation (GDPR)</strong>.
+            We aim to follow the data protection laws that apply to our customers, including the <strong>Singapore Personal Data Protection Act 2012 (PDPA)</strong>, the <strong>Monetary Authority of Singapore Technology Risk Management Guidelines (MAS TRM)</strong>, the <strong>Malaysia Personal Data Protection Act 2010 (PDPA)</strong>, the <strong>Indonesia Law No. 27/2022 on Personal Data Protection (UU PDP)</strong>, and the <strong>EU General Data Protection Regulation (GDPR)</strong>.
           </p>
         </section>
 
@@ -77,17 +77,17 @@ export default function PrivacyPolicy() {
           <div className="space-y-4">
             <div className="border border-slate-200 rounded-xl p-4 bg-slate-50/50">
               <h3 className="font-semibold text-slate-900 mb-1 flex items-center gap-2">
-                <Database size={16} className="text-purple-600" />
+                <Database size={16} className="text-teal-600" />
                 A. Metadata &amp; Schema Information (Service Operations)
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                When you connect your databases (PostgreSQL, Snowflake, MySQL, BigQuery, etc.), our agents query only statistical data catalog metadata: table names, column names, data types, index definitions, foreign key relationships, and statistical cardinality. <em>We never copy or extract the underlying records.</em>
+                When you connect your databases (PostgreSQL, Snowflake, MySQL, BigQuery, etc.), our agents query only statistical data catalog metadata: table names, column names, data types, index definitions, foreign key relationships, and statistical cardinality. <em>We do not copy or extract the underlying records.</em>
               </p>
             </div>
 
             <div className="border border-slate-200 rounded-xl p-4 bg-slate-50/50">
               <h3 className="font-semibold text-slate-900 mb-1 flex items-center gap-2">
-                <Server size={16} className="text-indigo-600" />
+                <Server size={16} className="text-teal-600" />
                 B. Account &amp; Identity Information
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -111,21 +111,21 @@ export default function PrivacyPolicy() {
           <h2 className="text-xl font-bold text-slate-950 mb-3">
             3. Legal Processing Basis under Singapore PDPA &amp; GDPR
           </h2>
-          <p className="mb-2">We process information solely under lawful statutory processing grounds:</p>
+          <p className="mb-2">We process information on these grounds:</p>
           <ul className="list-disc pl-5 space-y-1.5 text-xs text-slate-600">
-            <li><strong>Contractual Necessity:</strong> To provide autonomous governance, lineage graphing, and DPIA drift tracking under enterprise service agreements.</li>
+            <li><strong>Contractual Necessity:</strong> To provide autonomous governance, lineage graphing, and DPIA drift tracking under our service agreement with you.</li>
             <li><strong>Consent:</strong> For inquiries, demonstration scheduling, and whitepaper downloads where you explicitly provide contact details.</li>
             <li><strong>Legitimate Interests:</strong> To detect security anomalies, prevent denial-of-service disruptions, and maintain platform uptime.</li>
-            <li><strong>Legal Compliance:</strong> To generate statutory audit trails required under MAS TRM and PDPA accountability principles.</li>
+            <li><strong>Legal Compliance:</strong> To keep records that help you show accountability under the PDPA.</li>
           </ul>
         </section>
 
         <section>
           <h2 className="text-xl font-bold text-slate-950 mb-3">
-            4. Living RoPA &amp; Table-Bound DPIA Guarantees
+            4. Records of processing and impact assessments
           </h2>
           <p>
-            KaoinAI assists organizations in generating their statutory <strong>Records of Processing Activities (RoPA)</strong> and <strong>Data Protection Impact Assessments (DPIAs)</strong>. In doing so, KaoinAI binds statutory registry entries directly to physical schema hashes. These records reflect the client&apos;s data governance posture and remain strictly the confidential property of the client.
+            KaoinAI helps you prepare <strong>Records of Processing Activities (RoPA)</strong> and <strong>Data Protection Impact Assessments (DPIAs)</strong>, and links each entry to the tables and columns it describes. These records belong to you and are kept confidential.
           </p>
         </section>
 
@@ -134,7 +134,7 @@ export default function PrivacyPolicy() {
             5. Sub-processors &amp; Data Residency
           </h2>
           <p className="mb-3">
-            Our cloud infrastructure is hosted in top-tier, ISO 27001 and SOC 2 certified data centers located in <strong>Singapore</strong> and <strong>Malaysia</strong>. For enterprise customers requiring total air-gapped isolation, KaoinAI provides complete on-premises deployment via Docker and Kubernetes with zero external telemetry egress.
+            Our cloud infrastructure is hosted in <strong>Singapore</strong> and <strong>Malaysia</strong>. Customers who need full isolation can run KaoinAI on-premises using Docker and Kubernetes.
           </p>
         </section>
 
@@ -153,7 +153,7 @@ export default function PrivacyPolicy() {
 
         <section className="bg-slate-100 rounded-2xl p-6 border border-slate-200">
           <h2 className="text-lg font-bold text-slate-950 mb-2 flex items-center gap-2">
-            <Mail size={18} className="text-purple-600" />
+            <Mail size={18} className="text-teal-600" />
             7. Data Protection Officer (DPO) Contact
           </h2>
           <p className="text-xs text-slate-600 mb-3">
@@ -161,7 +161,7 @@ export default function PrivacyPolicy() {
           </p>
           <div className="text-xs text-slate-800 space-y-1">
             <p><strong>Designation:</strong> Data Protection Officer &amp; Security Counsel</p>
-            <p><strong>Email:</strong> <a href="mailto:dpo@kaoinai.com" className="text-purple-600 hover:underline">dpo@kaoinai.com</a> / <a href="mailto:tk.ng@kaoinai.com" className="text-purple-600 hover:underline">tk.ng@kaoinai.com</a></p>
+            <p><strong>Email:</strong> <a href="mailto:dpo@kaoinai.com" className="text-teal-600 hover:underline">dpo@kaoinai.com</a> / <a href="mailto:tk.ng@kaoinai.com" className="text-teal-600 hover:underline">tk.ng@kaoinai.com</a></p>
             <p><strong>Address:</strong> KaoinAI Pte. Ltd., Singapore &amp; Kuala Lumpur</p>
           </div>
         </section>

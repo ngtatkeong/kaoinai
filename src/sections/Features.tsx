@@ -20,8 +20,8 @@ const features = [
     icon: Shield,
     title: 'Data Governance (DG)',
     description: 'Enterprise-grade governance framework with role-based access control, audit trails, and compliance reporting for SOX, GDPR, HIPAA, and PDPA.',
-    color: 'from-purple-500 to-indigo-600',
-    bgColor: 'bg-purple-50',
+    color: 'from-teal-500 to-teal-600',
+    bgColor: 'bg-teal-50',
   },
   {
     icon: CheckCircle,
@@ -62,8 +62,8 @@ const features = [
     icon: FileSearch,
     title: 'Smart Data Catalog',
     description: 'AI-generated documentation, business glossary, usage statistics, and intelligent search across all your data assets.',
-    color: 'from-violet-500 to-purple-600',
-    bgColor: 'bg-violet-50',
+    color: 'from-teal-500 to-teal-600',
+    bgColor: 'bg-teal-50',
   },
   {
     icon: TrendingUp,
@@ -97,8 +97,8 @@ const features = [
     icon: BarChart3,
     title: 'Schema Shifts Detection',
     description: 'Automatically detect schema changes, track drift, and get alerted when your database structure evolves unexpectedly.',
-    color: 'from-indigo-500 to-blue-600',
-    bgColor: 'bg-indigo-50',
+    color: 'from-teal-500 to-blue-600',
+    bgColor: 'bg-teal-50',
   },
   {
     icon: Layers,
@@ -118,10 +118,10 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="py-24 sm:py-32 bg-purple-50/60 scroll-mt-20">
+    <section id="features" className="py-24 sm:py-32 bg-teal-50/60 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 border border-purple-100 text-[#5b2d6e] text-sm font-semibold mb-4 shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 border border-teal-100 text-[#0f766e] text-sm font-semibold mb-4 shadow-2xs">
             <Zap size={16} />
             <span>All-in-One Platform</span>
           </div>
@@ -138,7 +138,7 @@ export default function Features() {
           {features.map((feature, i) => (
             <div
               key={i}
-              className="group bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 hover:border-purple-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              className="group bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 hover:border-teal-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className={`w-14 h-14 rounded-2xl ${feature.bgColor} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform`}>
@@ -152,15 +152,15 @@ export default function Features() {
         </div>
 
         {/* Table-Bound DPIA & Data Inventory Spotlight Banner */}
-        <div className="mt-16 sm:mt-20 bg-white rounded-3xl p-8 sm:p-12 border border-purple-100 shadow-sm relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-purple-50 rounded-full blur-3xl -z-0 pointer-events-none" />
+        <div className="mt-16 sm:mt-20 bg-white rounded-3xl p-8 sm:p-12 border border-teal-100 shadow-sm relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-teal-50 rounded-full blur-3xl -z-0 pointer-events-none" />
           <div className="relative z-10">
             <div className="flex flex-wrap items-center gap-2 mb-3">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold">
                 <ShieldCheck size={14} className="text-emerald-600" />
                 <span>Zero-Stale-Spreadsheets Guarantee</span>
               </span>
-              <span className="text-xs font-semibold text-purple-700 bg-purple-50 px-2.5 py-1 rounded-md">
+              <span className="text-xs font-semibold text-teal-700 bg-teal-50 px-2.5 py-1 rounded-md">
                 Direct Schema-to-Compliance Architecture
               </span>
             </div>
@@ -173,7 +173,7 @@ export default function Features() {
 
             <div className="grid sm:grid-cols-3 gap-5">
               <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <div className="w-10 h-10 rounded-xl bg-purple-100 text-[#5b2d6e] flex items-center justify-center font-bold mb-3">
+                <div className="w-10 h-10 rounded-xl bg-teal-100 text-[#0f766e] flex items-center justify-center font-bold mb-3">
                   1
                 </div>
                 <h4 className="font-bold text-gray-900 text-base mb-1">Physical Table Binding</h4>
@@ -183,7 +183,7 @@ export default function Features() {
               </div>
 
               <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <div className="w-10 h-10 rounded-xl bg-purple-100 text-[#5b2d6e] flex items-center justify-center font-bold mb-3">
+                <div className="w-10 h-10 rounded-xl bg-teal-100 text-[#0f766e] flex items-center justify-center font-bold mb-3">
                   2
                 </div>
                 <h4 className="font-bold text-gray-900 text-base mb-1">Autonomous Drift Alerts</h4>
@@ -193,7 +193,7 @@ export default function Features() {
               </div>
 
               <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <div className="w-10 h-10 rounded-xl bg-purple-100 text-[#5b2d6e] flex items-center justify-center font-bold mb-3">
+                <div className="w-10 h-10 rounded-xl bg-teal-100 text-[#0f766e] flex items-center justify-center font-bold mb-3">
                   3
                 </div>
                 <h4 className="font-bold text-gray-900 text-base mb-1">1-Click Statutory Data Inventory (RoPA)</h4>
@@ -210,19 +210,19 @@ export default function Features() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
             <div>
               <div className="text-2xl sm:text-4xl font-bold text-white">14+</div>
-              <div className="text-purple-200 text-xs sm:text-sm mt-1">Core Modules</div>
+              <div className="text-teal-200 text-xs sm:text-sm mt-1">Core Modules</div>
             </div>
             <div>
               <div className="text-2xl sm:text-4xl font-bold text-white">6+</div>
-              <div className="text-purple-200 text-xs sm:text-sm mt-1">Compliance Standards</div>
+              <div className="text-teal-200 text-xs sm:text-sm mt-1">Compliance Standards</div>
             </div>
             <div>
               <div className="text-2xl sm:text-4xl font-bold text-white">AI</div>
-              <div className="text-purple-200 text-xs sm:text-sm mt-1">Native Throughout</div>
+              <div className="text-teal-200 text-xs sm:text-sm mt-1">Native Throughout</div>
             </div>
             <div>
               <div className="text-2xl sm:text-4xl font-bold text-white">1</div>
-              <div className="text-purple-200 text-xs sm:text-sm mt-1">Unified Platform</div>
+              <div className="text-teal-200 text-xs sm:text-sm mt-1">Unified Platform</div>
             </div>
           </div>
         </div>

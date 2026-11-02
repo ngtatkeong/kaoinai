@@ -92,7 +92,7 @@ export default function CaseStudies() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-100 text-[#5b2d6e] text-xs font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-100 text-[#0f766e] text-xs font-semibold mb-4">
             <Sparkles size={14} />
             <span>Proven Customer Results</span>
           </div>
@@ -114,7 +114,7 @@ export default function CaseStudies() {
               <div>
                 {/* Industry & Badge */}
                 <div className="flex items-center justify-between gap-2 mb-6">
-                  <span className="text-xs font-bold uppercase tracking-wider text-purple-700 bg-purple-50 px-3 py-1 rounded-full border border-purple-100">
+                  <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-3 py-1 rounded-full border border-teal-100">
                     {study.industry}
                   </span>
                   <span className="text-xs font-bold text-slate-400 font-mono">
@@ -123,8 +123,8 @@ export default function CaseStudies() {
                 </div>
 
                 {/* Hero Metric */}
-                <div className="mb-6 p-4 rounded-2xl bg-gradient-to-br from-purple-50/60 to-slate-50 border border-purple-100/80">
-                  <div className="text-3xl sm:text-4xl font-extrabold text-[#5b2d6e] tracking-tight">
+                <div className="mb-6 p-4 rounded-2xl bg-gradient-to-br from-teal-50/60 to-slate-50 border border-teal-100/80">
+                  <div className="text-3xl sm:text-4xl font-extrabold text-[#0f766e] tracking-tight">
                     {study.headlineMetric}
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-slate-700 mt-1">
@@ -158,7 +158,7 @@ export default function CaseStudies() {
 
               {/* Testimonial Quote */}
               <div className="pt-5 border-t border-slate-100 bg-slate-50/70 -mx-6 -mb-6 sm:-mx-8 sm:-mb-8 p-5 sm:p-6 rounded-b-3xl mt-4">
-                <Quote size={20} className="text-[#5b2d6e]/40 mb-2" />
+                <Quote size={20} className="text-[#0f766e]/40 mb-2" />
                 <p className="text-xs sm:text-sm text-slate-700 italic mb-3 leading-relaxed">
                   &ldquo;{study.quote}&rdquo;
                 </p>
@@ -172,13 +172,13 @@ export default function CaseStudies() {
         </div>
 
         {/* Bottom CTA Banner */}
-        <div className="bg-gradient-to-r from-purple-100 via-purple-50 to-purple-100 rounded-3xl p-6 sm:p-10 text-purple-950 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl shadow-purple-200/50 border border-purple-200 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-purple-300/30 rounded-full blur-3xl pointer-events-none" />
+        <div className="bg-gradient-to-r from-teal-100 via-teal-50 to-teal-100 rounded-3xl p-6 sm:p-10 text-teal-950 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl shadow-teal-200/50 border border-teal-200 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-teal-300/30 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10">
             <h3 className="text-xl sm:text-2xl font-bold mb-2">
               Ready to achieve similar results for your company?
             </h3>
-            <p className="text-xs sm:text-sm text-purple-900/70 max-w-xl">
+            <p className="text-xs sm:text-sm text-teal-900/70 max-w-xl">
               Get an automated data health audit and lineage map on your database schema in under 1 day during your free 14-day pilot.
             </p>
           </div>

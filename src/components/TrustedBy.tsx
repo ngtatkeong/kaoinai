@@ -7,14 +7,14 @@ export default function TrustedBy() {
       category: 'Fintech & Cross-Border Payments',
       badge: 'PostgreSQL • MAS TRM',
       iconText: 'NP',
-      color: 'from-blue-600 to-indigo-600',
+      color: 'from-blue-600 to-teal-600',
     },
     {
       name: 'UrbanCart Commerce',
       category: 'Omnichannel Retail & Logistics',
       badge: 'Snowflake • PDPA §24',
       iconText: 'UC',
-      color: 'from-purple-600 to-pink-600',
+      color: 'from-teal-600 to-pink-600',
     },
     {
       name: 'MediSync Asia',
@@ -81,14 +81,14 @@ export default function TrustedBy() {
           {logos.map((logo, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl border border-slate-200/90 p-4 flex flex-col justify-between hover:shadow-md hover:border-purple-300 transition-all group"
+              className="bg-white rounded-2xl border border-slate-200/90 p-4 flex flex-col justify-between hover:shadow-md hover:border-teal-300 transition-all group"
             >
               <div className="flex items-center gap-3 mb-2">
                 <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${logo.color} text-white font-bold text-xs flex items-center justify-center shrink-0 shadow-xs`}>
                   {logo.iconText}
                 </div>
                 <div className="min-w-0">
-                  <div className="font-bold text-slate-900 text-xs sm:text-sm truncate group-hover:text-purple-700 transition-colors">
+                  <div className="font-bold text-slate-900 text-xs sm:text-sm truncate group-hover:text-teal-700 transition-colors">
                     {logo.name}
                   </div>
                   <div className="text-[10px] text-slate-500 truncate">
@@ -106,17 +106,17 @@ export default function TrustedBy() {
         </div>
 
         {/* Social Proof Live Metrics Bar */}
-        <div className="bg-gradient-to-r from-slate-950 via-[#0e0c1f] to-slate-950 rounded-3xl p-6 sm:p-8 text-white border border-purple-500/20 shadow-xl shadow-purple-950/20">
+        <div className="bg-gradient-to-r from-slate-950 via-[#0f172a] to-slate-950 rounded-3xl p-6 sm:p-8 text-white border border-teal-500/20 shadow-xl shadow-teal-950/20">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 divide-y lg:divide-y-0 lg:divide-x divide-white/10">
             {metrics.map((m, idx) => {
               const Icon = m.icon
               return (
                 <div key={idx} className={`flex items-start gap-4 ${idx > 0 ? 'pt-4 lg:pt-0 lg:pl-6' : ''}`}>
-                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-purple-400 mt-1">
+                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-teal-400 mt-1">
                     <Icon size={20} />
                   </div>
                   <div>
-                    <div className="text-2xl sm:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white via-purple-100 to-purple-300 bg-clip-text text-transparent">
+                    <div className="text-2xl sm:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white via-teal-100 to-teal-300 bg-clip-text text-transparent">
                       {m.value}
                     </div>
                     <div className="text-xs sm:text-sm font-semibold text-slate-200 mt-0.5">

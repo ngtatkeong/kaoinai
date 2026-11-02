@@ -24,7 +24,7 @@ const securityPillars = [
     icon: Cpu,
     title: 'Zero AI Model Training',
     badge: 'Contractual Guarantee',
-    badgeColor: 'bg-purple-50 text-purple-700 border-purple-200',
+    badgeColor: 'bg-teal-50 text-teal-700 border-teal-200',
     description: 'We hold strict zero-data-retention enterprise SLAs. Your proprietary queries, table structures, and internal vocabulary are never stored or used to train or fine-tune public LLMs (OpenAI, Anthropic, or others).'
   },
   {
@@ -88,11 +88,11 @@ export default function SecurityTrust() {
   }
 
   return (
-    <section id="security" className="py-16 sm:py-24 bg-purple-50/60 border-y border-purple-100/60 scroll-mt-20">
+    <section id="security" className="py-16 sm:py-24 bg-teal-50/60 border-y border-teal-100/60 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#5b2d6e]/10 border border-[#5b2d6e]/20 text-[#5b2d6e] text-xs font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f766e]/10 border border-[#0f766e]/20 text-[#0f766e] text-xs font-semibold mb-4">
             <ShieldCheck size={15} />
             <span>Enterprise Trust & Privacy by Design</span>
           </div>
@@ -115,7 +115,7 @@ export default function SecurityTrust() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-purple-50 text-[#5b2d6e] flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-xl bg-teal-50 text-[#0f766e] flex items-center justify-center">
                       <Icon size={24} />
                     </div>
                     <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${pillar.badgeColor}`}>
@@ -139,7 +139,7 @@ export default function SecurityTrust() {
         <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-8 pb-8 border-b border-slate-100">
             <div>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#5b2d6e] mb-1">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0f766e] mb-1">
                 <FileCheck2 size={16} /> Regulatory Alignment
               </div>
               <h3 className="text-2xl font-bold text-slate-900">
@@ -156,7 +156,7 @@ export default function SecurityTrust() {
                 variant="outline"
                 className="text-xs sm:text-sm border-slate-300 hover:bg-slate-50 text-slate-700"
               >
-                <FileText size={15} className="mr-1.5 text-purple-600" />
+                <FileText size={15} className="mr-1.5 text-teal-600" />
                 Request Security Architecture Sheet
               </Button>
               <a
@@ -186,11 +186,11 @@ export default function SecurityTrust() {
           </div>
 
           {/* Table-to-DPIA Architectural Anchor Callout */}
-          <div className="mt-6 p-4 rounded-xl bg-purple-50/70 border border-purple-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="mt-6 p-4 rounded-xl bg-teal-50/70 border border-teal-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div className="flex items-center gap-2.5">
-              <ShieldCheck className="text-[#5b2d6e] shrink-0" size={20} />
+              <ShieldCheck className="text-[#0f766e] shrink-0" size={20} />
               <div className="text-xs sm:text-sm text-slate-800 font-medium">
-                <span className="font-bold text-[#5b2d6e]">Table-Level DPIA Association: </span>
+                <span className="font-bold text-[#0f766e]">Table-Level DPIA Association: </span>
                 Every DPIA and Data Inventory entry is directly anchored to your physical database schemas and tables containing PII—eliminating disconnected spreadsheets and manual audit panic.
               </div>
             </div>

@@ -141,11 +141,11 @@ export default function Pricing() {
   const isOnPrem = deploymentMode === 'onprem'
 
   return (
-    <section id="pricing" className="py-24 sm:py-32 bg-purple-50/60 scroll-mt-20">
+    <section id="pricing" className="py-24 sm:py-32 bg-teal-50/60 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-emerald-50 via-purple-50 to-emerald-50 border border-emerald-300 text-emerald-900 text-xs sm:text-sm font-bold mb-4 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 border border-emerald-300 text-emerald-900 text-xs sm:text-sm font-bold mb-4 shadow-xs">
             <Sparkles size={15} className="text-emerald-600" />
             <span>FOUNDING ENTERPRISE COHORT: $0 FOR FIRST 3 CUSTOMERS ONLY</span>
           </div>
@@ -177,7 +177,7 @@ export default function Pricing() {
                 }}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   !isOnPrem
-                    ? 'bg-[#5b2d6e] text-white shadow-sm'
+                    ? 'bg-[#0f766e] text-white shadow-sm'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
@@ -192,7 +192,7 @@ export default function Pricing() {
                 }}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   isOnPrem
-                    ? 'bg-[#5b2d6e] text-white shadow-sm'
+                    ? 'bg-[#0f766e] text-white shadow-sm'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
@@ -215,7 +215,7 @@ export default function Pricing() {
                   setIsAnnual(nextState)
                   trackEvent('click_cta', { location: 'pricing', label: `Toggle Billing: ${nextState ? 'Annual' : 'Monthly'}` })
                 }}
-                className="w-13 h-7 flex items-center bg-[#5b2d6e] rounded-full p-1 transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-400"
+                className="w-13 h-7 flex items-center bg-[#0f766e] rounded-full p-1 transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-teal-400"
                 aria-label="Toggle annual billing"
               >
                 <div
@@ -243,8 +243,8 @@ export default function Pricing() {
                 <span><strong>Self-Hosted Software License:</strong> Lower pricing because you provide your own AWS/VPC compute. Zero external data egress.</span>
               </span>
             ) : (
-              <span className="inline-flex items-center gap-1.5 text-purple-900 bg-purple-50 px-3.5 py-1.5 rounded-lg border border-purple-200">
-                <Cloud size={13} className="text-purple-700" />
+              <span className="inline-flex items-center gap-1.5 text-teal-900 bg-teal-50 px-3.5 py-1.5 rounded-lg border border-teal-200">
+                <Cloud size={13} className="text-teal-700" />
                 <span><strong>Fully Managed Cloud:</strong> Zero infrastructure setup. Includes KaoinAI-managed AWS Singapore compute, backups, and 99.9% SLA.</span>
               </span>
             )}
@@ -267,7 +267,7 @@ export default function Pricing() {
                 key={i}
                 className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 ${
                   plan.highlight
-                    ? 'bg-white border-2 border-[#5b2d6e] shadow-2xl relative md:scale-105 z-10'
+                    ? 'bg-white border-2 border-[#0f766e] shadow-2xl relative md:scale-105 z-10'
                     : 'bg-white border border-gray-200 shadow-sm hover:shadow-md'
                 }`}
               >
@@ -276,7 +276,7 @@ export default function Pricing() {
                     <span
                       className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full ${
                         plan.highlight
-                          ? 'bg-purple-100 text-[#5b2d6e]'
+                          ? 'bg-teal-100 text-[#0f766e]'
                           : 'bg-gray-100 text-gray-700'
                       }`}
                     >
@@ -298,7 +298,7 @@ export default function Pricing() {
                       <span>First 3 Customers: $0 / mo</span>
                     </div>
                     <div className="flex items-baseline gap-2">
-                      <span className="text-4xl sm:text-5xl font-extrabold text-[#5b2d6e]">
+                      <span className="text-4xl sm:text-5xl font-extrabold text-[#0f766e]">
                         $0
                       </span>
                       <span className="text-sm font-semibold text-gray-600">/month</span>
@@ -331,8 +331,8 @@ export default function Pricing() {
                   <div className="border-t border-gray-100 pt-6 space-y-3">
                     {features.map((feature, fIdx) => (
                       <div key={fIdx} className="flex items-start gap-2.5">
-                        <div className="w-4 h-4 rounded-full bg-purple-100 flex items-center justify-center shrink-0 mt-0.5">
-                          <Check size={11} className="text-[#5b2d6e]" />
+                        <div className="w-4 h-4 rounded-full bg-teal-100 flex items-center justify-center shrink-0 mt-0.5">
+                          <Check size={11} className="text-[#0f766e]" />
                         </div>
                         <span className="text-xs text-gray-700 leading-tight">{feature}</span>
                       </div>
@@ -346,7 +346,7 @@ export default function Pricing() {
                     className={`w-full py-6 text-sm font-semibold group ${
                       plan.highlight
                         ? 'bg-gradient-brand text-white hover:opacity-95 shadow-md'
-                        : 'bg-purple-600 text-white hover:bg-purple-700'
+                        : 'bg-teal-600 text-white hover:bg-teal-700'
                     }`}
                     onClick={() => {
                       trackEvent('click_cta', { location: 'pricing', label: `${plan.name} (${deploymentMode}) - ${plan.cta}` })
@@ -368,7 +368,7 @@ export default function Pricing() {
         {/* Why the Setup / Deployment Package? */}
         <div className="bg-white rounded-3xl p-6 sm:p-9 border border-gray-200 shadow-sm max-w-4xl mx-auto">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-xl bg-purple-100 text-[#5b2d6e] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-teal-100 text-[#0f766e] flex items-center justify-center">
               <Wrench size={20} />
             </div>
             <div>
@@ -385,41 +385,41 @@ export default function Pricing() {
 
           <div className="grid sm:grid-cols-2 gap-4 text-xs text-gray-700 pt-3">
             <div className="flex items-start gap-2 bg-gray-50 p-3.5 rounded-xl border border-gray-100">
-              <CheckCircle2 size={16} className="text-[#5b2d6e] shrink-0 mt-0.5" />
+              <CheckCircle2 size={16} className="text-[#0f766e] shrink-0 mt-0.5" />
               <div>
                 <strong>{isOnPrem ? 'VPC Topology & Subnet Peering:' : '1-on-1 Topology Review:'}</strong> {isOnPrem ? 'Containerized deployment inside your AWS/GCP/Azure VPC with private subnet routing and egress lockdown.' : 'Live connection & schema mapping session with a Senior AI Data Architect.'}
               </div>
             </div>
             <div className="flex items-start gap-2 bg-gray-50 p-3.5 rounded-xl border border-gray-100">
-              <CheckCircle2 size={16} className="text-[#5b2d6e] shrink-0 mt-0.5" />
+              <CheckCircle2 size={16} className="text-[#0f766e] shrink-0 mt-0.5" />
               <div>
                 <strong>Statutory PDPA Leak Audit:</strong> Baseline scan of internal databases to detect, report, and mask unencrypted customer PII.
               </div>
             </div>
             <div className="flex items-start gap-2 bg-gray-50 p-3.5 rounded-xl border border-gray-100">
-              <CheckCircle2 size={16} className="text-[#5b2d6e] shrink-0 mt-0.5" />
+              <CheckCircle2 size={16} className="text-[#0f766e] shrink-0 mt-0.5" />
               <div>
                 <strong>Semantic Glossary Calibration:</strong> Custom mapping of company abbreviations, KPIs, and operational formulas directly to SQL views.
               </div>
             </div>
             <div className="flex items-start gap-2 bg-gray-50 p-3.5 rounded-xl border border-gray-100">
-              <CheckCircle2 size={16} className="text-[#5b2d6e] shrink-0 mt-0.5" />
+              <CheckCircle2 size={16} className="text-[#0f766e] shrink-0 mt-0.5" />
               <div>
                 <strong>Dedicated Engineer Channel:</strong> Private Slack Connect or WhatsApp channel with a 2-hour SLA during onboarding.
               </div>
             </div>
           </div>
 
-          <div className="mt-5 pt-4 border-t border-gray-100 text-center text-xs text-purple-900 font-semibold">
+          <div className="mt-5 pt-4 border-t border-gray-100 text-center text-xs text-teal-900 font-semibold">
             ✨ Founding Cohort Guarantee: First 3 enterprise customers receive the complete Architecture Onboarding &amp; Software License 100% waived ($0).
           </div>
         </div>
 
         {/* Founding Cohort ($0 for First 3 Customers) */}
-        <div className="max-w-4xl mx-auto mt-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-purple-100 via-white to-purple-50 border border-purple-200 shadow-2xl shadow-purple-200/60 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-purple-300/30 rounded-full blur-3xl pointer-events-none" />
+        <div className="max-w-4xl mx-auto mt-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-teal-100 via-white to-teal-50 border border-teal-200 shadow-2xl shadow-teal-200/60 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-teal-300/30 rounded-full blur-3xl pointer-events-none" />
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 relative z-10">
-            <div className="w-12 h-12 rounded-2xl bg-purple-100 border border-purple-200 text-purple-600 flex items-center justify-center shrink-0 shadow-sm">
+            <div className="w-12 h-12 rounded-2xl bg-teal-100 border border-teal-200 text-teal-600 flex items-center justify-center shrink-0 shadow-sm">
               <Sparkles size={24} className="text-emerald-600" />
             </div>
             <div>
@@ -427,10 +427,10 @@ export default function Pricing() {
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 <span>Founding Cohort • First 3 Customers Only</span>
               </div>
-              <h4 className="text-lg sm:text-xl font-bold text-purple-950 tracking-tight">
+              <h4 className="text-lg sm:text-xl font-bold text-teal-950 tracking-tight">
                 Get Enterprise KaoinAI at $0 (100% Free for First 3 Customers)
               </h4>
-              <p className="text-xs sm:text-sm text-purple-900/70 mt-1.5 max-w-xl leading-relaxed">
+              <p className="text-xs sm:text-sm text-teal-900/70 mt-1.5 max-w-xl leading-relaxed">
                 We are admitting our initial cohort of 3 regulated enterprise teams in Singapore &amp; ASEAN at <strong>$0 platform pricing</strong>. Selected partners receive dedicated solutions architecture, custom connector prioritization, and zero software licensing costs in exchange for product feedback and collaboration.
               </p>
             </div>
@@ -451,7 +451,7 @@ export default function Pricing() {
               href={getWhatsAppUrl(`Hi KaoinAI, I would like to inquire about claiming one of the $0 founding customer slots for our team (${isOnPrem ? 'On-Prem / Private VPC' : 'Managed Cloud'}).`)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-purple-100 hover:bg-purple-200 text-purple-700 border border-purple-200 font-medium text-xs transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-teal-100 hover:bg-teal-200 text-teal-700 border border-teal-200 font-medium text-xs transition-colors"
             >
               <span>WhatsApp Inquiries</span>
             </a>

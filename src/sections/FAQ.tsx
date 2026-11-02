@@ -58,7 +58,7 @@ export default function FAQ() {
     <section id="faq" className="py-16 sm:py-24 bg-white/75 scroll-mt-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 border border-purple-100 text-[#5b2d6e] text-sm font-medium mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 border border-teal-100 text-[#0f766e] text-sm font-medium mb-4">
             <HelpCircle size={16} />
             <span>Frequently Asked Questions</span>
           </div>
@@ -78,7 +78,7 @@ export default function FAQ() {
                 key={index}
                 className={`rounded-2xl border transition-all ${
                   isOpen
-                    ? 'border-purple-200 bg-purple-50/20 shadow-sm'
+                    ? 'border-teal-200 bg-teal-50/20 shadow-sm'
                     : 'border-gray-200 bg-white hover:border-gray-300'
                 }`}
               >
@@ -90,13 +90,13 @@ export default function FAQ() {
                   <span className="text-sm sm:text-lg leading-snug">{faq.question}</span>
                   <ChevronDown
                     size={18}
-                    className={`text-[#5b2d6e] shrink-0 transition-transform duration-200 ${
+                    className={`text-[#0f766e] shrink-0 transition-transform duration-200 ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-4 pb-4 sm:px-6 sm:pb-5 text-xs sm:text-base text-gray-600 leading-relaxed border-t border-purple-100/60 pt-3">
+                  <div className="px-4 pb-4 sm:px-6 sm:pb-5 text-xs sm:text-base text-gray-600 leading-relaxed border-t border-teal-100/60 pt-3">
                     {faq.answer}
                   </div>
                 )}

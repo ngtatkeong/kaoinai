@@ -72,7 +72,7 @@ export default function AnimatedBackground() {
     }
 
     const colorPalettes = [
-      '147, 51, 234',  // Purple-600
+      '13, 148, 136',  // Purple-600
       '124, 58, 237',  // Violet-600
       '99, 102, 241',  // Indigo-500
       '20, 184, 166',  // Teal-500
@@ -137,7 +137,7 @@ export default function AnimatedBackground() {
           mouse.currentX, mouse.currentY, coreRadius
         )
         coreGrad.addColorStop(0, `rgba(192, 132, 252, ${0.25 * mouse.currentOpacity})`)
-        coreGrad.addColorStop(0.5, `rgba(147, 51, 234, ${0.10 * mouse.currentOpacity})`)
+        coreGrad.addColorStop(0.5, `rgba(13, 148, 136, ${0.10 * mouse.currentOpacity})`)
         coreGrad.addColorStop(1, 'transparent')
         ctx.fillStyle = coreGrad
         ctx.fillRect(
@@ -213,7 +213,7 @@ export default function AnimatedBackground() {
             ctx.beginPath()
             ctx.moveTo(c1.x, c1.y)
             ctx.lineTo(c2.x, c2.y)
-            ctx.strokeStyle = `rgba(139, 92, 246, ${linkAlpha})`
+            ctx.strokeStyle = `rgba(20, 184, 166, ${linkAlpha})`
             ctx.stroke()
           }
         }
@@ -260,7 +260,7 @@ export default function AnimatedBackground() {
       <div 
         className="absolute top-1/3 -left-40 w-[520px] h-[520px] rounded-full pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.10) 0%, rgba(147, 51, 234, 0.04) 45%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.10) 0%, rgba(13, 148, 136, 0.04) 45%, transparent 70%)',
         }}
       />
       <div 

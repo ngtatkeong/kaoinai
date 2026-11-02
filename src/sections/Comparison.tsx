@@ -163,11 +163,11 @@ export default function Comparison() {
   }
 
   return (
-    <section id="compare" className="py-24 sm:py-32 bg-gradient-to-b from-transparent via-purple-50/20 to-transparent scroll-mt-20">
+    <section id="compare" className="py-24 sm:py-32 bg-gradient-to-b from-transparent via-teal-50/20 to-transparent scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-100 text-[#5b2d6e] text-xs font-semibold mb-4 shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-100 text-[#0f766e] text-xs font-semibold mb-4 shadow-2xs">
             <Sparkles size={14} />
             <span>Honest Evaluation</span>
           </div>
@@ -188,11 +188,11 @@ export default function Comparison() {
                   <th className="p-5 sm:p-7 text-sm font-bold text-slate-700 w-1/4">
                     Capability / Dimension
                   </th>
-                  <th className="p-5 sm:p-7 text-sm font-extrabold text-[#5b2d6e] bg-purple-50/60 w-1/3 border-x border-purple-200/60">
+                  <th className="p-5 sm:p-7 text-sm font-extrabold text-[#0f766e] bg-teal-50/60 w-1/3 border-x border-teal-200/60">
                     <div className="flex items-center gap-2">
-                      <span className="w-2.5 h-2.5 rounded-full bg-[#5b2d6e]" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#0f766e]" />
                       <span>KaoinAI</span>
-                      <span className="text-[10px] font-bold uppercase tracking-wider bg-[#5b2d6e] text-white px-2.5 py-0.5 rounded-full ml-auto">
+                      <span className="text-[10px] font-bold uppercase tracking-wider bg-[#0f766e] text-white px-2.5 py-0.5 rounded-full ml-auto">
                         Recommended
                       </span>
                     </div>
@@ -214,9 +214,9 @@ export default function Comparison() {
                     </td>
 
                     {/* KaoinAI column */}
-                    <td className="p-5 sm:p-7 bg-purple-50/30 border-x border-purple-200/40 font-semibold text-slate-900">
-                      <div className="flex items-start gap-2.5 text-purple-950">
-                        <Check size={18} className="text-[#5b2d6e] shrink-0 mt-0.5" />
+                    <td className="p-5 sm:p-7 bg-teal-50/30 border-x border-teal-200/40 font-semibold text-slate-900">
+                      <div className="flex items-start gap-2.5 text-teal-950">
+                        <Check size={18} className="text-[#0f766e] shrink-0 mt-0.5" />
                         <span className="leading-relaxed">{row.kaoinai.highlight}</span>
                       </div>
                     </td>
@@ -246,9 +246,9 @@ export default function Comparison() {
         </div>
 
         {/* Action Row */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-2xl bg-purple-50/80 border border-purple-100 text-center sm:text-left">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-2xl bg-teal-50/80 border border-teal-100 text-center sm:text-left">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-purple-100 text-[#5b2d6e] flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-full bg-teal-100 text-[#0f766e] flex items-center justify-center shrink-0">
               <ShieldCheck size={20} />
             </div>
             <div>
@@ -263,7 +263,7 @@ export default function Comparison() {
           <div className="flex items-center gap-2.5 shrink-0">
             <Button
               onClick={handleScrollToCta}
-              className="bg-purple-600 hover:bg-purple-700 text-white font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-sm transition-colors"
+              className="bg-teal-600 hover:bg-teal-700 text-white font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-sm transition-colors"
             >
               Deploy 14-Day Pilot
               <ArrowRight size={14} className="ml-1.5" />
