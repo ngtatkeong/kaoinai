@@ -17,6 +17,7 @@ const primaryNavLinks = [
 // Secondary links neatly organized under the "More ▾" dropdown on desktop
 const moreLinks = [
   { label: 'Audit', href: '/audit', description: 'Check where your personal data records stand' },
+  { label: 'About', href: '/about', description: 'Who we are and where we operate' },
   { label: 'Blog', href: '/blog', description: 'PDPA and data protection articles' },
   { label: 'Security Overview', href: '/security', description: 'How KaoinAI handles your data' },
   { label: 'PDPA Agreement (DPA)', href: '/dpa', description: 'Singapore PDPA standard data protection agreement' },
@@ -29,6 +30,7 @@ const allMobileNavLinks = [
   { label: 'Pricing', href: '#pricing' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Audit', href: '/audit' },
+  { label: 'About', href: '/about' },
   { label: 'Blog', href: '/blog' },
   { label: 'Security Overview', href: '/security' },
   { label: 'PDPA Agreement (DPA)', href: '/dpa' },
@@ -124,6 +126,8 @@ export default function Navigation() {
   }, [location.pathname])
 
   const scrollToAnchor = useCallback((id: string) => {
+    // Lets HomeExplorer open the tab that holds this section first.
+    window.dispatchEvent(new CustomEvent('reveal-section', { detail: id }))
     const el = document.getElementById(id)
     if (el) {
       const header = document.querySelector('header')
@@ -177,7 +181,7 @@ export default function Navigation() {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled || mobileMenuOpen
-          ? 'bg-white/90 backdrop-blur-xl shadow-xs border-b border-teal-100/60'
+          ? 'bg-white/90 backdrop-blur-xl shadow-xs border-b border-blue-100/60'
           : 'bg-white/80 border-b border-gray-100/60'
       }`}
     >
@@ -193,14 +197,14 @@ export default function Navigation() {
               setMobileMenuOpen(false)
               window.scrollTo({ top: 0, behavior: 'smooth' })
             }}
-            className="flex items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded-lg shrink-0 mr-4"
+            className="flex items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg shrink-0 mr-4"
             aria-label="KaoinAI Home"
           >
             <img fetchPriority="high" decoding="async" src="/logo.png" alt="KaoinAI Enterprise AI Data" width="160" height="36" className="h-8 sm:h-9 w-auto object-contain" />
           </Link>
 
           {/* Desktop Horizontal Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-3 xl:gap-5">
+          <nav className="hidden md:flex items-center gap-2 lg:gap-3 xl:gap-5">
             {primaryNavLinks.map((link) => {
               const linkId = link.href.replace('#', '')
               const isActive = !isContactPage && activeSection === linkId
@@ -212,8 +216,8 @@ export default function Navigation() {
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={`text-sm font-semibold tracking-wide transition-all cursor-pointer whitespace-nowrap px-3 py-1.5 rounded-xl ${
                     isActive
-                      ? 'text-[#0f766e] font-bold bg-teal-100/70 border border-teal-200/80 shadow-2xs'
-                      : 'text-gray-600 hover:text-[#0f766e] hover:bg-teal-50/50'
+                      ? 'text-[#0f766e] font-bold bg-blue-100/70 border border-blue-200/80 shadow-2xs'
+                      : 'text-gray-600 hover:text-[#0f766e] hover:bg-blue-50/50'
                   }`}
                 >
                   {link.label}
@@ -232,8 +236,8 @@ export default function Navigation() {
                 onClick={() => setMoreOpen(!moreOpen)}
                 className={`flex items-center gap-1 text-sm font-semibold tracking-wide transition-all cursor-pointer px-3 py-1.5 rounded-xl ${
                   isMoreActive || moreOpen
-                    ? 'text-[#0f766e] font-bold bg-teal-100/70 border border-teal-200/80 shadow-2xs'
-                    : 'text-gray-600 hover:text-[#0f766e] hover:bg-teal-50/50'
+                    ? 'text-[#0f766e] font-bold bg-blue-100/70 border border-blue-200/80 shadow-2xs'
+                    : 'text-gray-600 hover:text-[#0f766e] hover:bg-blue-50/50'
                 }`}
                 aria-expanded={moreOpen}
               >
@@ -247,7 +251,7 @@ export default function Navigation() {
                   onMouseEnter={handleMoreEnter}
                   onMouseLeave={handleMoreLeave}
                 >
-                  <div className="bg-white/98 backdrop-blur-xl rounded-2xl shadow-xl border border-teal-100/80 p-2 space-y-1">
+                  <div className="bg-white/98 backdrop-blur-xl rounded-2xl shadow-xl border border-blue-100/80 p-2 space-y-1">
                     {moreLinks.map((item) => {
                       const isItemActive = !isContactPage && activeSection === item.href.replace('#', '')
                       return (
@@ -260,8 +264,8 @@ export default function Navigation() {
                           }}
                           className={`block p-2.5 rounded-xl transition-colors group cursor-pointer ${
                             isItemActive
-                              ? 'bg-teal-50 border border-teal-100'
-                              : 'hover:bg-teal-50/60'
+                              ? 'bg-blue-50 border border-blue-100'
+                              : 'hover:bg-blue-50/60'
                           }`}
                         >
                           <div className={`text-xs font-bold ${isItemActive ? 'text-[#0f766e]' : 'text-gray-900 group-hover:text-[#0f766e]'}`}>
@@ -283,8 +287,8 @@ export default function Navigation() {
               to="/contact"
               className={`text-sm font-semibold tracking-wide transition-all cursor-pointer px-3 py-1.5 rounded-xl ${
                 isContactPage
-                  ? 'text-[#0f766e] font-bold bg-teal-100/70 border border-teal-200/80 shadow-2xs'
-                  : 'text-gray-600 hover:text-[#0f766e] hover:bg-teal-50/50'
+                  ? 'text-[#0f766e] font-bold bg-blue-100/70 border border-blue-200/80 shadow-2xs'
+                  : 'text-gray-600 hover:text-[#0f766e] hover:bg-blue-50/50'
               }`}
             >
               Contact
@@ -292,7 +296,7 @@ export default function Navigation() {
           </nav>
 
             {/* Desktop Action Buttons */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-3">
               <a
                 href={whatsappUrl}
                 target="_blank"
@@ -321,7 +325,7 @@ export default function Navigation() {
             </div>
 
             {/* Mobile Actions: WhatsApp quick icon + Mobile dropdown toggle */}
-            <div className="flex items-center gap-2 lg:hidden">
+            <div className="flex items-center gap-2 md:hidden">
               <a
                 href={whatsappUrl}
                 target="_blank"
@@ -352,7 +356,7 @@ export default function Navigation() {
 
         {/* Mobile Dropdown (Complete all-section directory) */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-gray-100 bg-white/98 backdrop-blur-xl px-4 py-4 space-y-1.5 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200 max-h-[70vh] overflow-y-auto">
+          <div className="md:hidden border-t border-gray-100 bg-white/98 backdrop-blur-xl px-4 py-4 space-y-1.5 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200 max-h-[70vh] overflow-y-auto">
             {allMobileNavLinks.map((link) => (
               <a
                 key={link.href}
@@ -361,7 +365,7 @@ export default function Navigation() {
                   handleNavClick(e, link.href)
                   setMobileMenuOpen(false)
                 }}
-                className="block px-3 py-2 rounded-lg text-sm font-semibold text-gray-700 hover:text-[#0f766e] hover:bg-teal-50 transition-colors"
+                className="block px-3 py-2 rounded-lg text-sm font-semibold text-gray-700 hover:text-[#0f766e] hover:bg-blue-50 transition-colors"
               >
                 {link.label}
               </a>

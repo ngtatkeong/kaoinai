@@ -1,11 +1,12 @@
 import { Link } from 'react-router'
 import { useState } from 'react'
-import { ArrowRight, ChevronDown, Database, FileText, Link2, ShieldCheck, Users } from 'lucide-react'
+import { ArrowRight, ChevronDown, Database, FileText, Link2, ShieldCheck } from 'lucide-react'
+import Architecture3D from '../components/Architecture3D'
 
 const sectionTitle = 'text-3xl sm:text-4xl font-bold tracking-tight text-slate-900'
 const sectionIntro = 'mt-4 text-base sm:text-lg text-slate-600 leading-relaxed'
 const primaryButton =
-  'inline-flex items-center justify-center gap-2 rounded-lg bg-teal-700 hover:bg-teal-800 text-white font-semibold px-6 py-3 transition-colors'
+  'inline-flex items-center justify-center gap-2 rounded-lg bg-blue-700 hover:bg-blue-800 text-white font-semibold px-6 py-3 transition-colors'
 
 export function ProblemFrame() {
   const points = [
@@ -45,8 +46,8 @@ export function HowItWorksSme() {
           {steps.map((s, i) => (
             <li key={s.title} className="rounded-xl bg-white border border-slate-200 p-6">
               <div className="flex items-center gap-3">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-teal-700 text-white text-sm font-bold">{i + 1}</span>
-                <s.icon size={18} className="text-teal-700" aria-hidden="true" />
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-700 text-white text-sm font-bold">{i + 1}</span>
+                <s.icon size={18} className="text-blue-700" aria-hidden="true" />
               </div>
               <h3 className="mt-4 text-lg font-semibold text-slate-900">{s.title}</h3>
               <p className="mt-2 text-sm text-slate-600 leading-relaxed">{s.text}</p>
@@ -74,7 +75,7 @@ export function DataHandlingSme() {
         <ul className="space-y-4">
           {items.map((text) => (
             <li key={text} className="flex gap-3 rounded-xl border border-slate-200 bg-slate-50 p-5">
-              <ShieldCheck size={20} className="shrink-0 text-teal-700 mt-0.5" aria-hidden="true" />
+              <ShieldCheck size={20} className="shrink-0 text-blue-700 mt-0.5" aria-hidden="true" />
               <span className="text-sm sm:text-base text-slate-700 leading-relaxed">{text}</span>
             </li>
           ))}
@@ -150,15 +151,15 @@ export function FaqSme() {
 
 export function FinalCtaSme() {
   return (
-    <section id="contact-cta" className="py-16 sm:py-24 bg-teal-800 text-white">
+    <section id="contact-cta" className="py-16 sm:py-24 bg-blue-800 text-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <Users size={28} className="mx-auto text-teal-200" aria-hidden="true" />
+        <div className="mx-auto mb-6 w-fit"><Architecture3D /></div>
         <h2 className="mt-4 text-3xl sm:text-4xl font-bold tracking-tight">See your own tables in your own record</h2>
-        <p className="mt-4 text-teal-100 leading-relaxed">Send us a note and we will walk through your setup with you.</p>
+        <p className="mt-4 text-blue-100 leading-relaxed">Send us a note and we will walk through your setup with you.</p>
         <div className="mt-8">
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-white text-teal-900 hover:bg-teal-50 font-semibold px-6 py-3 transition-colors"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-white text-blue-900 hover:bg-blue-50 font-semibold px-6 py-3 transition-colors"
           >
             Talk to us
             <ArrowRight size={16} aria-hidden="true" />

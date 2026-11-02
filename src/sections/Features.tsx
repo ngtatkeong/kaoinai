@@ -19,9 +19,9 @@ const features = [
   {
     icon: Shield,
     title: 'Data Governance (DG)',
-    description: 'Enterprise-grade governance framework with role-based access control, audit trails, and compliance reporting for SOX, GDPR, HIPAA, and PDPA.',
-    color: 'from-teal-500 to-teal-600',
-    bgColor: 'bg-teal-50',
+    description: 'A governance framework with role-based access control, audit trails, and compliance reports for Singapore PDPA, Malaysia PDPA and Indonesia UU PDP.',
+    color: 'from-blue-500 to-blue-600',
+    bgColor: 'bg-blue-50',
   },
   {
     icon: CheckCircle,
@@ -55,15 +55,15 @@ const features = [
     icon: GitBranch,
     title: 'Data Lineage',
     description: 'End-to-end column-level lineage tracing. Understand where your data comes from, how it transforms, and what it impacts.',
-    color: 'from-teal-500 to-emerald-600',
-    bgColor: 'bg-teal-50',
+    color: 'from-blue-500 to-emerald-600',
+    bgColor: 'bg-blue-50',
   },
   {
     icon: FileSearch,
     title: 'AI-Enhanced Data Catalog',
     description: 'Self-updating data catalog with AI-synthesized table documentation, business glossaries, and automated semantic indexing that eliminates undocumented schema debt.',
-    color: 'from-teal-500 to-teal-600',
-    bgColor: 'bg-teal-50',
+    color: 'from-blue-500 to-blue-600',
+    bgColor: 'bg-blue-50',
   },
   {
     icon: TrendingUp,
@@ -97,8 +97,8 @@ const features = [
     icon: BarChart3,
     title: 'Schema Shifts Detection',
     description: 'Automatically detect schema changes, track drift, and get alerted when your database structure evolves unexpectedly.',
-    color: 'from-teal-500 to-blue-600',
-    bgColor: 'bg-teal-50',
+    color: 'from-blue-500 to-blue-600',
+    bgColor: 'bg-blue-50',
   },
   {
     icon: Layers,
@@ -111,17 +111,17 @@ const features = [
     icon: Globe,
     title: 'DPO Toolkit & ASEAN Compliance',
     description: 'Dedicated Data Protection Officer toolkit covering Singapore PDPA, Malaysia PDPA (2024), and Indonesia UU PDP with DSR workflows and review queues.',
-    color: 'from-teal-500 to-emerald-600',
-    bgColor: 'bg-teal-50',
+    color: 'from-blue-500 to-emerald-600',
+    bgColor: 'bg-blue-50',
   },
 ]
 
 export default function Features() {
   return (
-    <section id="features" className="py-24 sm:py-32 bg-teal-50/60 scroll-mt-20">
+    <section id="features" className="py-24 sm:py-32 bg-blue-50/60 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 border border-teal-100 text-[#0f766e] text-sm font-semibold mb-4 shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-[#1d4ed8] text-sm font-semibold mb-4 shadow-2xs">
             <Zap size={16} />
             <span>All-in-One Platform</span>
           </div>
@@ -138,29 +138,29 @@ export default function Features() {
           {features.map((feature, i) => (
             <div
               key={i}
-              className="group bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 hover:border-teal-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              className="group relative flex flex-col justify-between border-t border-blue-400/25 pt-8 transition-colors duration-300 hover:border-blue-300/70"
             >
               <div>
-                <div className={`w-14 h-14 rounded-2xl ${feature.bgColor} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform`}>
-                  <feature.icon size={26} className={`text-transparent bg-clip-text bg-gradient-to-br ${feature.color}`} style={{ color: 'inherit' }} />
+                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-blue-500/10 ring-1 ring-blue-400/30 shadow-[0_0_30px_-6px_rgba(59,130,246,0.6)] transition-transform duration-300 group-hover:scale-110">
+                  <feature.icon size={26} className="text-blue-300" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2.5">{feature.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{feature.description}</p>
+                <h3 className="text-xl font-bold text-slate-100 mb-2.5">{feature.title}</h3>
+                <p className="text-sm text-slate-300 leading-relaxed">{feature.description}</p>
               </div>
             </div>
           ))}
         </div>
 
         {/* Table-Bound DPIA & Data Inventory Spotlight Banner */}
-        <div className="mt-16 sm:mt-20 bg-white rounded-3xl p-8 sm:p-12 border border-teal-100 shadow-sm relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-teal-50 rounded-full blur-3xl -z-0 pointer-events-none" />
+        <div className="mt-16 sm:mt-20 bg-white rounded-3xl p-8 sm:p-12 border border-blue-100 shadow-sm relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-blue-50 rounded-full blur-3xl -z-0 pointer-events-none" />
           <div className="relative z-10">
             <div className="flex flex-wrap items-center gap-2 mb-3">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold">
                 <ShieldCheck size={14} className="text-emerald-600" />
-                <span>Zero-Stale-Spreadsheets Guarantee</span>
+                <span>Fewer stale spreadsheets</span>
               </span>
-              <span className="text-xs font-semibold text-teal-700 bg-teal-50 px-2.5 py-1 rounded-md">
+              <span className="text-xs font-semibold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md">
                 Direct Schema-to-Compliance Architecture
               </span>
             </div>
@@ -168,12 +168,12 @@ export default function Features() {
               Why Table-Linked DPIA & Data Inventory Storage Changes Everything
             </h3>
             <p className="text-sm sm:text-base text-gray-600 max-w-3xl mb-8 leading-relaxed">
-              Traditional compliance platforms (OneTrust, manual surveys, static Excel sheets) store compliance records in isolated silos. When software engineers add tables or migrate schemas, compliance documents immediately become obsolete. <strong className="text-gray-900 font-semibold">KaoinAI binds DPIAs and Data Inventories (RoPA) directly to your production database tables containing PII</strong>, creating a living, audit-ready link between code and compliance.
+              Traditional compliance platforms (OneTrust, manual surveys, static Excel sheets) store compliance records in isolated silos. When software engineers add tables or migrate schemas, compliance documents immediately become obsolete. <strong className="text-gray-900 font-semibold">KaoinAI links DPIAs and Data Inventories (RoPA) to the production database tables that contain PII</strong>, so the records can follow the schema as it changes.
             </p>
 
             <div className="grid sm:grid-cols-3 gap-5">
               <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <div className="w-10 h-10 rounded-xl bg-teal-100 text-[#0f766e] flex items-center justify-center font-bold mb-3">
+                <div className="w-10 h-10 rounded-xl bg-blue-100 text-[#1d4ed8] flex items-center justify-center font-bold mb-3">
                   1
                 </div>
                 <h4 className="font-bold text-gray-900 text-base mb-1">Physical Table Binding</h4>
@@ -183,7 +183,7 @@ export default function Features() {
               </div>
 
               <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <div className="w-10 h-10 rounded-xl bg-teal-100 text-[#0f766e] flex items-center justify-center font-bold mb-3">
+                <div className="w-10 h-10 rounded-xl bg-blue-100 text-[#1d4ed8] flex items-center justify-center font-bold mb-3">
                   2
                 </div>
                 <h4 className="font-bold text-gray-900 text-base mb-1">Autonomous Drift Alerts</h4>
@@ -193,7 +193,7 @@ export default function Features() {
               </div>
 
               <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <div className="w-10 h-10 rounded-xl bg-teal-100 text-[#0f766e] flex items-center justify-center font-bold mb-3">
+                <div className="w-10 h-10 rounded-xl bg-blue-100 text-[#1d4ed8] flex items-center justify-center font-bold mb-3">
                   3
                 </div>
                 <h4 className="font-bold text-gray-900 text-base mb-1">1-Click Statutory Data Inventory (RoPA)</h4>
@@ -210,26 +210,26 @@ export default function Features() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
             <div>
               <div className="text-2xl sm:text-4xl font-bold text-white">Up to 14+*</div>
-              <div className="text-teal-200 text-xs sm:text-sm mt-1">Core Modules</div>
+              <div className="text-blue-200 text-xs sm:text-sm mt-1">Core Modules</div>
             </div>
             <div>
               <div className="text-2xl sm:text-4xl font-bold text-white">Up to 6+*</div>
-              <div className="text-teal-200 text-xs sm:text-sm mt-1">Compliance Standards</div>
+              <div className="text-blue-200 text-xs sm:text-sm mt-1">Compliance Standards</div>
             </div>
             <div>
               <div className="text-2xl sm:text-4xl font-bold text-white">AI</div>
-              <div className="text-teal-200 text-xs sm:text-sm mt-1">Native Throughout</div>
+              <div className="text-blue-200 text-xs sm:text-sm mt-1">Native Throughout</div>
             </div>
             <div>
               <div className="text-2xl sm:text-4xl font-bold text-white">1</div>
-              <div className="text-teal-200 text-xs sm:text-sm mt-1">Unified Platform</div>
+              <div className="text-blue-200 text-xs sm:text-sm mt-1">Unified Platform</div>
             </div>
           </div>
         </div>
 
         {/* Footnote Disclaimer */}
         <p className="text-[11px] text-gray-500 text-center mt-4 max-w-4xl mx-auto leading-relaxed">
-          * Core modules, compliance frameworks, and catalog comprehension depth are evaluated against an organization&apos;s baseline data posture prior to KaoinAI (e.g. unindexed tables, manual static spreadsheets, and isolated point solutions). Coverage reflects full enterprise licensing configurations including Singapore PDPA, GDPR, MAS TRM, ISO 27001, and custom regulatory mapping rules.
+          * Core modules, compliance frameworks, and catalog comprehension depth are evaluated against an organization&apos;s baseline data posture prior to KaoinAI (e.g. unindexed tables, manual static spreadsheets, and isolated point solutions). Coverage depends on the configuration agreed for your deployment, for example Singapore PDPA, Malaysia PDPA, Indonesia UU PDP or GDPR mappings.
         </p>
       </div>
     </section>

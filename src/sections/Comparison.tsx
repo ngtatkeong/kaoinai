@@ -61,7 +61,7 @@ const comparisonData: ComparisonRow[] = [
       positive: true
     },
     legacy: {
-      text: 'Certified Data Architects & Engineers only',
+      text: 'Implementation by the KaoinAI team',
       positive: false
     },
     manual: {
@@ -119,9 +119,9 @@ const comparisonData: ComparisonRow[] = [
   },
   {
     feature: 'Data Privacy & LLM Isolation',
-    description: 'Guarantees that your data is not stored or used to train models',
+    description: 'Designed so that your data is not stored or used to train models',
     kaoinai: {
-      highlight: 'Zero Raw Data Stored • Zero Model Training',
+      highlight: 'No raw data stored by design • No model training on your data',
       positive: true
     },
     legacy: {
@@ -163,11 +163,11 @@ export default function Comparison() {
   }
 
   return (
-    <section id="compare" className="py-24 sm:py-32 bg-gradient-to-b from-transparent via-teal-50/20 to-transparent scroll-mt-20">
+    <section id="compare" className="py-24 sm:py-32 bg-gradient-to-b from-transparent via-blue-50/20 to-transparent scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-100 text-[#0f766e] text-xs font-semibold mb-4 shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-[#1d4ed8] text-xs font-semibold mb-4 shadow-2xs">
             <Sparkles size={14} />
             <span>Honest Evaluation</span>
           </div>
@@ -188,11 +188,11 @@ export default function Comparison() {
                   <th className="p-5 sm:p-7 text-sm font-bold text-slate-700 w-1/4">
                     Capability / Dimension
                   </th>
-                  <th className="p-5 sm:p-7 text-sm font-extrabold text-[#0f766e] bg-teal-50/60 w-1/3 border-x border-teal-200/60">
+                  <th className="p-5 sm:p-7 text-sm font-extrabold text-[#1d4ed8] bg-blue-50/60 w-1/3 border-x border-blue-200/60">
                     <div className="flex items-center gap-2">
-                      <span className="w-2.5 h-2.5 rounded-full bg-[#0f766e]" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#1d4ed8]" />
                       <span>KaoinAI</span>
-                      <span className="text-[10px] font-bold uppercase tracking-wider bg-[#0f766e] text-white px-2.5 py-0.5 rounded-full ml-auto">
+                      <span className="text-[10px] font-bold uppercase tracking-wider bg-[#1d4ed8] text-white px-2.5 py-0.5 rounded-full ml-auto">
                         Recommended
                       </span>
                     </div>
@@ -214,9 +214,9 @@ export default function Comparison() {
                     </td>
 
                     {/* KaoinAI column */}
-                    <td className="p-5 sm:p-7 bg-teal-50/30 border-x border-teal-200/40 font-semibold text-slate-900">
-                      <div className="flex items-start gap-2.5 text-teal-950">
-                        <Check size={18} className="text-[#0f766e] shrink-0 mt-0.5" />
+                    <td className="p-5 sm:p-7 bg-blue-50/30 border-x border-blue-200/40 font-semibold text-slate-900">
+                      <div className="flex items-start gap-2.5 text-blue-950">
+                        <Check size={18} className="text-[#1d4ed8] shrink-0 mt-0.5" />
                         <span className="leading-relaxed">{row.kaoinai.highlight}</span>
                       </div>
                     </td>
@@ -251,9 +251,9 @@ export default function Comparison() {
         </p>
 
         {/* Action Row */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-2xl bg-teal-50/80 border border-teal-100 text-center sm:text-left">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-2xl bg-blue-50/80 border border-blue-100 text-center sm:text-left">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-teal-100 text-[#0f766e] flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-full bg-blue-100 text-[#1d4ed8] flex items-center justify-center shrink-0">
               <ShieldCheck size={20} />
             </div>
             <div>
@@ -261,14 +261,14 @@ export default function Comparison() {
                 Try KaoinAI risk-free for 14 days on your actual schema (On-Prem / Private VPC)
               </h4>
               <p className="text-xs text-slate-600">
-                14-Day Free Trial available exclusively on On-Prem / VPC deployments • Zero data egress • No credit card required (Cloud is paid)
+                14-Day Free Trial available exclusively on On-Prem / VPC deployments • Deployable inside your own VPC • Cloud is a paid plan
               </p>
             </div>
           </div>
           <div className="flex items-center gap-2.5 shrink-0">
             <Button
               onClick={handleScrollToCta}
-              className="bg-teal-600 hover:bg-teal-700 text-white font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-sm transition-colors"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-sm transition-colors"
             >
               Deploy 14-Day On-Prem Pilot
               <ArrowRight size={14} className="ml-1.5" />

@@ -35,12 +35,12 @@ const publications: Publication[] = [
     subtitle: 'Reference architecture for preventing RAG hallucinations, vector poisoning, and context window leakage.',
     category: 'genai',
     categoryLabel: 'GenAI & Agentic Systems',
-    badgeColor: 'bg-teal-100 text-teal-900 border-teal-200',
+    badgeColor: 'bg-blue-100 text-blue-900 border-blue-200',
     fileSize: '6.6 KB PDF',
     pages: '2 Pages • Research Paper',
     fileName: '2026-Data-Governance-For-GenAI-Implementation.pdf',
     fileUrl: '/downloads/2026-Data-Governance-For-GenAI-Implementation.pdf',
-    description: '84%* of enterprise GenAI pilots fail in production due to dirty schemas and missing lineage. This paper presents an active metadata framework for autonomous agentic systems.',
+    description: 'Many GenAI pilots struggle in production when schemas are messy and lineage is missing. This paper presents an active metadata framework for autonomous agentic systems.',
     topics: [
       'Semantic grounding to prevent SQL hallucinations',
       'Pre-embedding dynamic SHA-256 PII sanitation',
@@ -71,7 +71,7 @@ const publications: Publication[] = [
   {
     id: 'mas-trm-pdpa',
     code: 'KAI-UNIV-WP-2026-03',
-    title: 'Governing AI in Regulated Jurisdictions: Singapore PDPA & MAS TRM Compliance Standard',
+    title: 'Governing AI in Regulated Jurisdictions: Singapore PDPA Considerations',
     subtitle: 'Statutory compliance blueprint for enterprise AI, LLM prompting, and autonomous decisioning.',
     category: 'compliance',
     categoryLabel: 'Regulatory & Compliance',
@@ -85,7 +85,7 @@ const publications: Publication[] = [
       'Statutory mandates: Sections 13, 24, and Part III PDPA',
       'Table-bound DPIA & automated RoPA Data Inventory generation',
       'Pre-prompt dynamic redaction proxy layer',
-      'MAS TRM 5.1 access control & system isolation'
+      'Access control & system isolation considerations'
     ]
   },
   {
@@ -115,7 +115,7 @@ const publications: Publication[] = [
     subtitle: 'Cross-border regulatory directives & architectural foundations for frontier and agentic AI.',
     category: 'genai',
     categoryLabel: 'GenAI & Agentic Systems',
-    badgeColor: 'bg-teal-100 text-teal-900 border-teal-200',
+    badgeColor: 'bg-blue-100 text-blue-900 border-blue-200',
     fileSize: '15.4 KB PDF',
     pages: '3 Pages • Comprehensive Handbook',
     fileName: '2026-Data-Governance-AI-Readiness-Handbook.pdf',
@@ -160,7 +160,7 @@ const publications: Publication[] = [
     pages: '3 Pages • Safety Whitepaper',
     fileName: '2026-Synthetic-Collapse-Rogue-AI-Agent-Dangers.pdf',
     fileUrl: '/downloads/2026-Synthetic-Collapse-Rogue-AI-Agent-Dangers.pdf',
-    description: 'Mathematical analysis of recursive synthetic feedback loops (MAD), real-world multi-million dollar horror stories, frontier agent risks (GPT reasoning series, Project Astra), and the Australian Government DISR 10 Mandatory Guardrails.',
+    description: 'Mathematical analysis of recursive synthetic feedback loops (MAD), illustrative failure scenarios, frontier agent risks (GPT reasoning series, Project Astra), and the Australian Government DISR 10 Mandatory Guardrails.',
     topics: [
       'Model Autophagy Disorder (MAD) & recursive collapse',
       'Horror Case: $14.2M* ACH ghost-balance banking wipeout',
@@ -195,17 +195,17 @@ const publications: Publication[] = [
     subtitle: 'Architectural blueprint for transforming fragile corporate data stores into audited, agent-safe ground truth.',
     category: 'architecture',
     categoryLabel: 'Agentic Data Architecture',
-    badgeColor: 'bg-teal-100 text-teal-900 border-teal-200',
+    badgeColor: 'bg-blue-100 text-blue-900 border-blue-200',
     fileSize: '15.3 KB PDF',
     pages: '3 Pages • Architecture Whitepaper',
     fileName: '2026-KaoinAI-Data-Foundations-For-Autonomous-Agents.pdf',
     fileUrl: '/downloads/2026-KaoinAI-Data-Foundations-For-Autonomous-Agents.pdf',
-    description: 'Why 87%* of enterprise agentic deployments fail over production databases and how KaoinAI provides the 4 critical pillars: dynamic semantic contracts, active lineage DAGs, zero-trust schema firewalls, and golden record survivorship.',
+    description: 'Why agentic deployments struggle over production databases, and the four design pillars KaoinAI uses: dynamic semantic contracts, active lineage DAGs, schema firewalls, and golden record survivorship.',
     topics: [
       'The 4 pillars of agent-ready deterministic data foundations',
-      'Zero-trust schema governance & 0.1%* blast-radius mutation caps',
+      'Schema governance with mutation limits',
       'Autonomous Jaro-Winkler entity resolution across ERP & CRM',
-      'Empirical benchmark: Up to 99.8%* semantic catalog & schema resolution accuracy vs. 59.4%* ungoverned'
+      'Design goal: accurate schema resolution (benchmark results to be published after verification)'
     ]
   },
   {
@@ -246,11 +246,11 @@ export default function KnowledgeCenter() {
   }
 
   return (
-    <section id="knowledge-center" className="py-16 sm:py-24 bg-teal-50/60 border-t border-teal-100/60 scroll-mt-20">
+    <section id="knowledge-center" className="py-16 sm:py-24 bg-blue-50/60 border-t border-blue-100/60 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-100 border border-teal-200 text-[#0f766e] text-xs font-bold mb-4 shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100 border border-blue-200 text-[#1d4ed8] text-xs font-bold mb-4 shadow-2xs">
             <GraduationCap size={15} />
             <span>KaoinAI Knowledge Center & AI Data University</span>
           </div>
@@ -258,7 +258,7 @@ export default function KnowledgeCenter() {
             Data Governance in AI Implementation
           </h2>
           <p className="text-base sm:text-lg text-slate-600">
-            Authoritative research whitepapers, reference architectures, and statutory compliance blueprints compiled by our AI systems architects. Direct PDF downloads with zero sign-in barrier.
+            Authoritative research whitepapers, reference architectures, and statutory compliance blueprints compiled by our AI systems architects. Direct PDF downloads.
           </p>
         </div>
 
@@ -268,7 +268,7 @@ export default function KnowledgeCenter() {
             onClick={() => setSelectedCategory('all')}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               selectedCategory === 'all'
-                ? 'bg-[#0f766e] text-white shadow-md'
+                ? 'bg-[#1d4ed8] text-white shadow-md'
                 : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
             }`}
           >
@@ -278,7 +278,7 @@ export default function KnowledgeCenter() {
             onClick={() => setSelectedCategory('genai')}
             className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               selectedCategory === 'genai'
-                ? 'bg-[#0f766e] text-white shadow-md'
+                ? 'bg-[#1d4ed8] text-white shadow-md'
                 : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
             }`}
           >
@@ -289,7 +289,7 @@ export default function KnowledgeCenter() {
             onClick={() => setSelectedCategory('architecture')}
             className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               selectedCategory === 'architecture'
-                ? 'bg-[#0f766e] text-white shadow-md'
+                ? 'bg-[#1d4ed8] text-white shadow-md'
                 : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
             }`}
           >
@@ -300,7 +300,7 @@ export default function KnowledgeCenter() {
             onClick={() => setSelectedCategory('compliance')}
             className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               selectedCategory === 'compliance'
-                ? 'bg-[#0f766e] text-white shadow-md'
+                ? 'bg-[#1d4ed8] text-white shadow-md'
                 : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
             }`}
           >
@@ -329,7 +329,7 @@ export default function KnowledgeCenter() {
 
                 {/* Title & File Info */}
                 <div className="flex items-start gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-teal-50 text-[#0f766e] flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1d4ed8] flex items-center justify-center shrink-0 mt-0.5">
                     <FileText size={20} />
                   </div>
                   <div>
@@ -339,7 +339,7 @@ export default function KnowledgeCenter() {
                     <div className="flex items-center gap-2 mt-1 text-[11px] text-slate-500 font-medium">
                       <span>{pub.pages}</span>
                       <span>•</span>
-                      <span className="font-mono text-teal-700 font-semibold">{pub.fileSize}</span>
+                      <span className="font-mono text-blue-700 font-semibold">{pub.fileSize}</span>
                     </div>
                   </div>
                 </div>
@@ -403,19 +403,19 @@ export default function KnowledgeCenter() {
         </div>
 
         {/* Knowledge Center Advisory Callout */}
-        <div className="bg-teal-50 rounded-3xl p-6 sm:p-9 text-teal-950 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-teal-100 border border-teal-100">
+        <div className="bg-blue-50 rounded-3xl p-6 sm:p-9 text-blue-950 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-blue-100 border border-blue-100">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-teal-100 text-teal-600 flex items-center justify-center shrink-0 border border-teal-200">
+            <div className="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 border border-blue-200">
               <GraduationCap size={26} />
             </div>
             <div>
-              <div className="text-xs font-bold text-teal-700 uppercase tracking-wider mb-1">
+              <div className="text-xs font-bold text-blue-700 uppercase tracking-wider mb-1">
                 Executive & Technical Advisory
               </div>
               <h3 className="text-xl sm:text-2xl font-bold">
                 Deploying AI in Your Organization?
               </h3>
-              <p className="text-xs sm:text-sm text-teal-900/70 max-w-xl mt-1">
+              <p className="text-xs sm:text-sm text-blue-900/70 max-w-xl mt-1">
                 Schedule a complimentary 15-minute AI Data Readiness & Governance Review with our systems architects. We inspect your schema topology and evaluate regulatory exposure.
               </p>
             </div>

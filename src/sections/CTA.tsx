@@ -26,7 +26,7 @@ export default function CTA() {
       const formData = new FormData()
       formData.append('email', email.trim())
       formData.append('_replyto', email.trim())
-      formData.append('deployment_mode', deploymentType === 'onprem' ? 'On-Premises / Private VPC (14-Day Free Trial)' : 'Managed Cloud SaaS (Dedicated Cloud Instance - Paid / Founding Cohort)')
+      formData.append('deployment_mode', deploymentType === 'onprem' ? 'On-Premises / Private VPC (14-Day Free Trial)' : 'Managed Cloud SaaS (Dedicated Cloud Instance - Paid plan)')
       formData.append('inquiry_type', deploymentType === 'onprem' ? '14-Day Free Pilot Activation (On-Premises / VPC)' : 'Managed Cloud SaaS Enterprise Inquiry')
       formData.append('reference_id', generatedRef)
       formData.append('_subject', `[${deploymentType === 'onprem' ? '14-Day Free On-Prem Pilot' : 'Managed Cloud SaaS'}] Request #${generatedRef} from ${email.trim()}`)
@@ -70,7 +70,7 @@ export default function CTA() {
         {/* Free trial exclusivity badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs font-semibold mb-6">
           <CheckCircle2 size={14} className="text-emerald-600 shrink-0" />
-          <span>14-Day Free Private VPC/Docker Trial (Zero Data Egress) or Apply for $0 Founding Enterprise Cohort</span>
+          <span>14-Day Free Private VPC/Docker Trial, or ask us for a managed cloud quote</span>
         </div>
 
         {submitted ? (
@@ -130,7 +130,7 @@ export default function CTA() {
                 <Cloud size={14} />
                 <span>Managed Cloud (SaaS)</span>
                 <span className="text-[10px] bg-teal-100 text-teal-800 font-semibold px-1.5 py-0.5 rounded-md">
-                  Paid / $0 Cohort
+                  Paid plan
                 </span>
               </button>
             </div>
@@ -143,7 +143,7 @@ export default function CTA() {
                 </p>
               ) : (
                 <p className="text-teal-800 font-medium">
-                  ☁️ <strong>Managed Cloud:</strong> Dedicated AWS Singapore cluster with backups &amp; SLA. <em>(Free trial is on-prem only; Cloud is available as paid plan or via Founding Cohort slot.)</em>
+                  ☁️ <strong>Managed Cloud:</strong> Dedicated AWS Singapore cluster with backups &amp; SLA. <em>(Free trial is on-prem only; Cloud is a paid plan.)</em>
                 </p>
               )}
             </div>

@@ -109,7 +109,7 @@ const questions: Question[] = [
       {
         text: 'Unrestricted or plain text customer records stored in unencrypted tables/spreadsheets',
         points: 0,
-        detail: 'High catastrophic risk of regulatory fines (up to 10% annual turnover under PDPA).',
+        detail: 'Higher risk of regulatory action. PDPA penalties depend on the case and the size of the business.',
         risk: 'Critical'
       }
     ]
@@ -124,7 +124,7 @@ const questions: Question[] = [
       {
         text: 'Autonomous conversational agent synthesizes validated dialect SQL in plain language',
         points: 20,
-        detail: 'Sub-second access with zero developer backlog or security compromises.',
+        detail: 'Faster access with less developer backlog.',
         risk: 'Low'
       },
       {
@@ -155,7 +155,7 @@ const questions: Question[] = [
         risk: 'Low'
       },
       {
-        text: 'Would require 3 to 6 weeks of manual cross-department spreadsheet assembly and panic',
+        text: 'Can take weeks of manual cross-department spreadsheet work',
         points: 10,
         detail: 'Substantial labor cost and inevitable documentation inconsistencies.',
         risk: 'Moderate'
@@ -231,7 +231,7 @@ export default function MaturityRiskAudit({ asHeading1 = false }: MaturityRiskAu
     riskClassification = 'Low to Moderate Risk'
     riskColor = 'text-emerald-600'
     riskBg = 'bg-emerald-50 border-emerald-200'
-    summaryText = 'Strong operational foundations. Minor vulnerabilities remain in cross-system lineage or ad-hoc query backlogs. Implementing automated living RoPAs will provide up to 100%* audit confidence.'
+    summaryText = 'Strong operational foundations. Minor vulnerabilities remain in cross-system lineage or ad-hoc query backlogs. Automated living RoPAs can make audit preparation easier.'
   } else if (totalScore >= 50) {
     maturityLevel = 3
     maturityTitle = 'Level 3: Defined / Partial Visibility'
@@ -252,46 +252,46 @@ export default function MaturityRiskAudit({ asHeading1 = false }: MaturityRiskAu
   const IconComponent = currentQ.icon
 
   return (
-    <section id="audit" className="py-20 sm:py-28 bg-gradient-to-b from-teal-50 via-white to-teal-100 text-teal-950 relative overflow-hidden scroll-mt-20 border-b border-teal-100">
+    <section id="audit" className="py-20 sm:py-28 bg-gradient-to-b from-blue-50 via-white to-blue-100 text-blue-950 relative overflow-hidden scroll-mt-20 border-b border-blue-100">
       {/* Ambient background glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-gradient-to-r from-teal-400/20 via-teal-300/15 to-pink-300/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-teal-300/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-gradient-to-r from-blue-400/20 via-blue-300/15 to-pink-300/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-100 border border-teal-200 text-teal-700 text-xs font-semibold mb-4 shadow-xs">
-            <Sliders size={14} className="text-teal-600" />
-            <span>Interactive Diagnostic • DAMA &amp; ISO/IEC 38505 Aligned</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-xs font-semibold mb-4 shadow-xs">
+            <Sliders size={14} className="text-blue-600" />
+            <span>Interactive Diagnostic • Based on DAMA-DMBOK principles</span>
           </div>
           {asHeading1 ? (
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-teal-950 tracking-tight mb-4">
+            <h1 className="text-3xl sm:text-5xl font-extrabold text-blue-950 tracking-tight mb-4">
               Data Governance Maturity &amp; Risk Assessment
             </h1>
           ) : (
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-teal-950 tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-blue-950 tracking-tight mb-4">
               Data Governance Maturity &amp; Risk Assessment
             </h2>
           )}
-          <p className="text-base sm:text-lg text-teal-900/70 leading-relaxed">
+          <p className="text-base sm:text-lg text-blue-900/70 leading-relaxed">
             Evaluate your organization's data maturity across 5 operational dimensions. Calculate your composite maturity level and associated risk profile in under 2 minutes.
           </p>
         </div>
 
         {!isCompleted ? (
           /* Assessment Card */
-          <div className="bg-white rounded-3xl border border-teal-200 shadow-2xl shadow-teal-200/60 p-6 sm:p-10">
+          <div className="bg-white rounded-3xl border border-blue-200 shadow-2xl shadow-blue-200/60 p-6 sm:p-10">
             {/* Progress indicator */}
             <div className="mb-8">
-              <div className="flex justify-between items-center text-xs font-mono text-teal-900/60 mb-2">
+              <div className="flex justify-between items-center text-xs font-mono text-blue-900/60 mb-2">
                 <span>Dimension {currentStep} of 5</span>
                 <span>{currentStep * 20}% Complete</span>
               </div>
-              <div className="w-full bg-teal-100 h-2 rounded-full overflow-hidden">
+              <div className="w-full bg-blue-100 h-2 rounded-full overflow-hidden">
                 <div
-                  className="bg-gradient-to-r from-teal-500 via-teal-500 to-emerald-400 h-full rounded-full transition-all duration-300 ease-out"
+                  className="bg-gradient-to-r from-blue-500 via-blue-500 to-emerald-400 h-full rounded-full transition-all duration-300 ease-out"
                   style={{ width: `${currentStep * 20}%` }}
                 />
               </div>
@@ -299,17 +299,17 @@ export default function MaturityRiskAudit({ asHeading1 = false }: MaturityRiskAu
 
             {/* Question Header */}
             <div className="flex items-start gap-4 mb-6">
-              <div className="w-12 h-12 rounded-2xl bg-teal-100 border border-teal-200 text-teal-600 flex items-center justify-center shrink-0 mt-1">
+              <div className="w-12 h-12 rounded-2xl bg-blue-100 border border-blue-200 text-blue-600 flex items-center justify-center shrink-0 mt-1">
                 <IconComponent size={24} />
               </div>
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-teal-700 font-mono">
+                <span className="text-xs font-bold uppercase tracking-wider text-blue-700 font-mono">
                   {currentQ.dimension}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-teal-950 mt-1 leading-snug">
+                <h3 className="text-xl sm:text-2xl font-bold text-blue-950 mt-1 leading-snug">
                   {currentQ.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-teal-900/60 mt-1">
+                <p className="text-xs sm:text-sm text-blue-900/60 mt-1">
                   {currentQ.subtitle}
                 </p>
               </div>
@@ -326,18 +326,18 @@ export default function MaturityRiskAudit({ asHeading1 = false }: MaturityRiskAu
                     onClick={() => handleSelect(currentQ.id, opt.points)}
                     className={`w-full text-left p-4 sm:p-5 rounded-2xl border transition-all duration-200 cursor-pointer flex items-start gap-4 ${
                       isSelected
-                        ? 'bg-teal-50 border-teal-400 ring-2 ring-teal-300 shadow-lg shadow-teal-100'
-                        : 'bg-teal-50/40 border-teal-100 hover:bg-teal-50 hover:border-teal-200'
+                        ? 'bg-blue-50 border-blue-400 ring-2 ring-blue-300 shadow-lg shadow-blue-100'
+                        : 'bg-blue-50/40 border-blue-100 hover:bg-blue-50 hover:border-blue-200'
                     }`}
                   >
                     <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
-                      isSelected ? 'border-teal-400 bg-teal-600' : 'border-teal-300'
+                      isSelected ? 'border-blue-400 bg-blue-600' : 'border-blue-300'
                     }`}>
                       {isSelected && <div className="w-2 h-2 rounded-full bg-white" />}
                     </div>
                     <div className="flex-grow">
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
-                        <span className="text-sm sm:text-base font-semibold text-teal-950">
+                        <span className="text-sm sm:text-base font-semibold text-blue-950">
                           {opt.text}
                         </span>
                         <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full uppercase shrink-0 w-fit ${
@@ -348,7 +348,7 @@ export default function MaturityRiskAudit({ asHeading1 = false }: MaturityRiskAu
                           {opt.risk} Risk (+{opt.points} pts)
                         </span>
                       </div>
-                      <p className="text-xs text-teal-900/60">
+                      <p className="text-xs text-blue-900/60">
                         {opt.detail}
                       </p>
                     </div>
@@ -358,12 +358,12 @@ export default function MaturityRiskAudit({ asHeading1 = false }: MaturityRiskAu
             </div>
 
             {/* Navigation Buttons */}
-            <div className="flex items-center justify-between pt-4 border-t border-teal-100">
+            <div className="flex items-center justify-between pt-4 border-t border-blue-100">
               {currentStep > 1 ? (
                 <Button
                   variant="outline"
                   onClick={handlePrev}
-                  className="border-teal-200 bg-white text-teal-700 hover:bg-teal-50"
+                  className="border-blue-200 bg-white text-blue-700 hover:bg-blue-50"
                 >
                   <ArrowLeft size={16} className="mr-2" />
                   Previous
@@ -372,7 +372,7 @@ export default function MaturityRiskAudit({ asHeading1 = false }: MaturityRiskAu
 
               <Button
                 onClick={handleNext}
-                className="bg-teal-600 text-white hover:bg-teal-700 font-semibold px-6 shadow-md shadow-teal-200 transition-colors"
+                className="bg-blue-600 text-white hover:bg-blue-700 font-semibold px-6 shadow-md shadow-blue-200 transition-colors"
               >
                 {currentStep === 5 ? 'Compute Maturity & Risk' : 'Next Dimension'}
                 <ArrowRight size={16} className="ml-2" />
@@ -381,15 +381,15 @@ export default function MaturityRiskAudit({ asHeading1 = false }: MaturityRiskAu
           </div>
         ) : (
           /* Results Container */
-          <div className="bg-white rounded-3xl border border-teal-200 shadow-2xl shadow-teal-200/60 p-6 sm:p-10 animate-fade-in">
+          <div className="bg-white rounded-3xl border border-blue-200 shadow-2xl shadow-blue-200/60 p-6 sm:p-10 animate-fade-in">
             <div className="text-center max-w-xl mx-auto mb-10">
               {/* Score Badge */}
-              <div className="inline-flex items-center justify-center w-28 h-28 rounded-3xl bg-teal-50 border border-teal-200 shadow-inner mb-4">
+              <div className="inline-flex items-center justify-center w-28 h-28 rounded-3xl bg-blue-50 border border-blue-200 shadow-inner mb-4">
                 <div className="text-center">
-                  <span className="block text-4xl font-extrabold font-mono text-teal-950">
+                  <span className="block text-4xl font-extrabold font-mono text-blue-950">
                     {totalScore}
                   </span>
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-teal-700">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-blue-700">
                     out of 100
                   </span>
                 </div>
@@ -400,10 +400,10 @@ export default function MaturityRiskAudit({ asHeading1 = false }: MaturityRiskAu
                 <span>{maturityTitle} (Level {maturityLevel} of 5) • {riskClassification}</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-bold text-teal-950 mb-2">
+              <h3 className="text-2xl sm:text-3xl font-bold text-blue-950 mb-2">
                 Maturity Score: {totalScore} / 100
               </h3>
-              <p className="text-sm text-teal-900/70 leading-relaxed">
+              <p className="text-sm text-blue-900/70 leading-relaxed">
                 {summaryText}
               </p>
             </div>
@@ -415,9 +415,9 @@ export default function MaturityRiskAudit({ asHeading1 = false }: MaturityRiskAu
                 const isPassing = pts >= 20
                 const isPartial = pts === 10
                 return (
-                  <div key={q.id} className="bg-teal-50/60 p-4 rounded-2xl border border-teal-100">
+                  <div key={q.id} className="bg-blue-50/60 p-4 rounded-2xl border border-blue-100">
                     <div className="flex items-center justify-between mb-1.5">
-                      <span className="text-xs font-semibold text-teal-900 truncate">{q.dimension}</span>
+                      <span className="text-xs font-semibold text-blue-900 truncate">{q.dimension}</span>
                       <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full ${
                         isPassing ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' :
                         isPartial ? 'bg-amber-50 text-amber-700 border border-amber-200' :
@@ -426,7 +426,7 @@ export default function MaturityRiskAudit({ asHeading1 = false }: MaturityRiskAu
                         {pts}/20 pts
                       </span>
                     </div>
-                    <p className="text-[11px] text-teal-900/60 line-clamp-2">
+                    <p className="text-[11px] text-blue-900/60 line-clamp-2">
                       {isPassing ? 'Optimized: Fully automated control' :
                        isPartial ? 'Moderate: Manual process debt' :
                        'Vulnerable: Critical exposure point'}
@@ -434,24 +434,24 @@ export default function MaturityRiskAudit({ asHeading1 = false }: MaturityRiskAu
                   </div>
                 )
               })}
-              <div className="bg-teal-100 p-4 rounded-2xl border border-teal-200 sm:col-span-2 lg:col-span-1 flex flex-col justify-center">
-                <span className="text-xs font-bold text-teal-800 mb-1">Estimated Annual Risk Exposure</span>
-                <span className="text-xl font-bold font-mono text-teal-700">
+              <div className="bg-blue-100 p-4 rounded-2xl border border-blue-200 sm:col-span-2 lg:col-span-1 flex flex-col justify-center">
+                <span className="text-xs font-bold text-blue-800 mb-1">Estimated Annual Risk Exposure</span>
+                <span className="text-xl font-bold font-mono text-blue-700">
                   {totalScore >= 80 ? '$0 (Fully Mitigated)' : totalScore >= 50 ? '$42,500/yr' : '$125,000+/yr'}
                 </span>
-                <p className="text-[10px] text-teal-900/60 mt-0.5">
+                <p className="text-[10px] text-blue-900/60 mt-0.5">
                   Based on developer debugging hours &amp; statutory compliance audits
                 </p>
               </div>
             </div>
 
             {/* Executive Recommendations Box */}
-            <div className="bg-teal-50/60 rounded-2xl p-5 sm:p-6 border border-teal-100 mb-8 text-left">
-              <h4 className="text-sm font-bold uppercase tracking-wider text-teal-700 mb-3 flex items-center gap-2">
+            <div className="bg-blue-50/60 rounded-2xl p-5 sm:p-6 border border-blue-100 mb-8 text-left">
+              <h4 className="text-sm font-bold uppercase tracking-wider text-blue-700 mb-3 flex items-center gap-2">
                 <Sparkles size={16} />
                 <span>Immediate Remediation Recommendations</span>
               </h4>
-              <ul className="space-y-2 text-xs sm:text-sm text-teal-900/80">
+              <ul className="space-y-2 text-xs sm:text-sm text-blue-900/80">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-emerald-600 shrink-0 mt-0.5" />
                   <span><strong>Bind Physical Tables to Statutory DPIAs:</strong> Eliminate unmaintained spreadsheets by linking PostgreSQL/Snowflake tables directly to living RoPAs.</span>
@@ -471,7 +471,7 @@ export default function MaturityRiskAudit({ asHeading1 = false }: MaturityRiskAu
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button
                 size="lg"
-                className="w-full sm:w-auto bg-teal-600 text-white hover:bg-teal-700 font-semibold text-sm px-8 py-6 rounded-xl shadow-lg shadow-teal-200 transition-colors"
+                className="w-full sm:w-auto bg-blue-600 text-white hover:bg-blue-700 font-semibold text-sm px-8 py-6 rounded-xl shadow-lg shadow-blue-200 transition-colors"
                 onClick={() => {
                   trackEvent('click_cta', { location: 'audit_results', label: `Deploy Pilot (Score ${totalScore})` })
                   document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' })
@@ -485,7 +485,7 @@ export default function MaturityRiskAudit({ asHeading1 = false }: MaturityRiskAu
                 href={getWhatsAppUrl(`Hi KaoinAI, we just completed the Data Governance Maturity Assessment. Our score was ${totalScore}/100 (${maturityTitle}, ${riskClassification}). Could we review our remediation plan?`)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-teal-100 hover:bg-teal-200 text-teal-700 border border-teal-200 font-medium text-xs transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-blue-100 hover:bg-blue-200 text-blue-700 border border-blue-200 font-medium text-xs transition-colors"
               >
                 <span>Discuss with Solutions Architect</span>
               </a>
@@ -493,7 +493,7 @@ export default function MaturityRiskAudit({ asHeading1 = false }: MaturityRiskAu
               <Button
                 variant="ghost"
                 onClick={handleRestart}
-                className="text-teal-900/60 hover:text-teal-950 text-xs"
+                className="text-blue-900/60 hover:text-blue-950 text-xs"
               >
                 <RotateCcw size={14} className="mr-1.5" />
                 Retake Assessment
@@ -503,7 +503,7 @@ export default function MaturityRiskAudit({ asHeading1 = false }: MaturityRiskAu
         )}
 
         {/* Footnote Disclaimer */}
-        <p className="text-[11px] text-teal-900/50 text-center mt-6 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-[11px] text-blue-900/50 text-center mt-6 max-w-3xl mx-auto leading-relaxed">
           * Maturity ratings, risk tiers, and estimated capacity loss figures (e.g. ~$40,000/yr based on ~75 hours/month of engineering firefighting at a loaded rate of $45/hr) are evaluated against DAMA-DMBOK and ISO/IEC 38505 governance baselines. Actual exposure and loss depend on your organization&apos;s data volume, stack complexity, and team size.
         </p>
       </div>

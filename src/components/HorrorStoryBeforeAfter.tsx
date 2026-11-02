@@ -160,7 +160,7 @@ const STORIES: StoryData[] = [
     },
     enterpriseRigor: {
       statutoryFramework: 'Singapore PDPA Article 13 & GDPR Article 30 (Records of Processing Activities / RoPA)',
-      auditStandard: 'SOC 2 Type II (CC6.1 Logical Access Controls) & ISO 27001 Annex A.8 (Asset Management)',
+      auditStandard: 'Access control and asset management checks (illustrative)',
       cryptographicControl: 'Cryptographic Schema Version Fingerprinting & Immutable Change Logs',
       enforcementMechanism: 'Automated CI/CD schema migration hook flagging statutory DPIA drift prior to pull-request merge'
     }
@@ -207,7 +207,7 @@ export default function HorrorStoryBeforeAfter() {
           What Happens Without Data Governance?
         </h2>
         <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-          Three real-world operational breakdowns every growing company encounters—and how KaoinAI solves them in plain English.
+          Three illustrative breakdowns of the kind growing companies can face—and how KaoinAI would handle them, in plain English.
         </p>
       </div>
 
@@ -402,7 +402,7 @@ export default function HorrorStoryBeforeAfter() {
                 Are you an Enterprise CISO, Compliance Officer, or Auditor?
               </div>
               <div className="text-[11px] sm:text-xs text-slate-500">
-                Click to inspect statutory compliance mappings (Singapore PDPA, MAS TRM &amp; ISO 27001) for this scenario.
+                Click to inspect the Singapore PDPA points for this scenario (illustrative).
               </div>
             </div>
           </div>

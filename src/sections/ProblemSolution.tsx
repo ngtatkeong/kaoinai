@@ -1,10 +1,11 @@
 import { AlertTriangle, CheckCircle, XCircle } from 'lucide-react'
 import HorrorStoryBeforeAfter from '@/components/HorrorStoryBeforeAfter'
+import Architecture3D from '@/components/Architecture3D'
 
 const problems = [
   'Disconnected Compliance Spreadsheets: Static DPIAs and surveys that become obsolete the moment an engineer runs a schema migration.',
   'Exorbitant Implementation & Lock-In: $30,000–$100,000+/year* software minimums plus six-figure system integrator retainers*.',
-  'Catastrophic Regulatory Exposure: Undetected PII drift leading to severe PDPA, MAS TRM, and GDPR statutory penalties.',
+  'Regulatory exposure: personal data changes that nobody records can make it hard to meet PDPA duties.',
   'Tribal Knowledge & Undocumented Schemas: Cryptic table names, stale Confluence wikis, and hours wasted hunting down what database columns actually mean.',
   'Fragmented Customer Master Data: Conflicting records and duplicate entities isolated across disparate ERPs, CRMs, and SQL tables.'
 ]
@@ -20,6 +21,10 @@ const solutions = [
 export default function ProblemSolution() {
   return (
     <section id="problem-solution" className="py-20 sm:py-28 bg-gradient-to-b from-white via-slate-50/40 to-white scroll-mt-20">
+      <div className="mb-10 flex justify-center">
+        <Architecture3D />
+      </div>
+
       {/* 1. Interactive 3 Horror Stories & Before/After Slider */}
       <HorrorStoryBeforeAfter />
 
@@ -71,21 +76,21 @@ export default function ProblemSolution() {
           </div>
 
           {/* KaoinAI Modern Solution Card */}
-          <div className="rounded-3xl p-7 sm:p-10 bg-gradient-to-br from-teal-100 via-teal-50 to-white text-teal-950 border border-teal-300/60 shadow-xl shadow-teal-200/50 flex flex-col justify-between relative overflow-hidden group">
+          <div className="rounded-3xl p-7 sm:p-10 bg-gradient-to-br from-blue-100 via-blue-50 to-white text-blue-950 border border-blue-300/60 shadow-xl shadow-blue-200/50 flex flex-col justify-between relative overflow-hidden group">
             {/* Luminous ambient gradient glows */}
-            <div className="absolute -top-10 -right-10 w-72 h-72 bg-teal-400/30 rounded-full blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-700" />
-            <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-teal-300/30 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -top-10 -right-10 w-72 h-72 bg-blue-400/30 rounded-full blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-700" />
+            <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-blue-300/30 rounded-full blur-3xl pointer-events-none" />
             
             <div className="relative z-10">
-              <div className="flex items-center gap-3.5 mb-8 pb-5 border-b border-teal-200">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-teal-600 to-teal-500 text-white flex items-center justify-center shrink-0 shadow-lg shadow-teal-300/60">
+              <div className="flex items-center gap-3.5 mb-8 pb-5 border-b border-blue-200">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-600 to-blue-500 text-white flex items-center justify-center shrink-0 shadow-lg shadow-blue-300/60">
                   <CheckCircle size={22} />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-teal-950 tracking-tight flex items-center gap-2">
+                  <h4 className="text-xl font-bold text-blue-950 tracking-tight flex items-center gap-2">
                     <span>KaoinAI Autonomous Governance</span>
                   </h4>
-                  <p className="text-xs text-teal-700 font-medium">Continuous, schema-bound, and operational in up to 1 day*</p>
+                  <p className="text-xs text-blue-700 font-medium">Continuous, schema-bound, and operational in up to 1 day*</p>
                 </div>
               </div>
               <ul className="space-y-4 sm:space-y-5">
@@ -97,8 +102,8 @@ export default function ProblemSolution() {
                         <CheckCircle size={13} />
                       </div>
                       <div className="text-sm leading-relaxed">
-                        <strong className="text-teal-950 block font-semibold">{title}</strong>
-                        <span className="text-teal-900/70">{desc.join(': ')}</span>
+                        <strong className="text-blue-950 block font-semibold">{title}</strong>
+                        <span className="text-blue-900/70">{desc.join(': ')}</span>
                       </div>
                     </li>
                   )

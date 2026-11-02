@@ -23,11 +23,11 @@ export default function AnnouncementBar({ onDismiss }: AnnouncementBarProps) {
   }
 
   return (
-    <aside aria-label="Announcement" className="bg-gradient-to-r from-teal-50 via-teal-50/70 to-teal-50 text-slate-800 text-xs sm:text-sm py-2 px-3 sm:px-4 relative z-50 border-b border-teal-200/80 shadow-xs backdrop-blur-md">
+    <aside aria-label="Announcement" className="bg-gradient-to-r from-blue-50 via-blue-50/70 to-blue-50 text-slate-800 text-xs sm:text-sm py-2 px-3 sm:px-4 relative z-50 border-b border-blue-200/80 shadow-xs backdrop-blur-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-3">
         <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2.5 flex-grow justify-center text-center">
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/95 border border-teal-200 text-teal-800 text-[11px] font-semibold shadow-xs">
-            <Sparkles size={11} className="text-teal-600" />
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/95 border border-blue-200 text-blue-800 text-[11px] font-semibold shadow-xs">
+            <Sparkles size={11} className="text-blue-600" />
             <span>New</span>
           </span>
           <span className="text-slate-700 text-xs sm:text-sm line-clamp-2">
@@ -35,12 +35,12 @@ export default function AnnouncementBar({ onDismiss }: AnnouncementBarProps) {
           </span>
           <button
             onClick={handleCtaClick}
-            className="hidden sm:inline-flex items-center gap-1 font-semibold text-teal-700 hover:text-teal-950 cursor-pointer transition-colors text-xs sm:text-sm group ml-1 underline decoration-teal-300 hover:decoration-teal-700 underline-offset-2"
+            className="hidden sm:inline-flex items-center gap-1 font-semibold text-blue-700 hover:text-blue-950 cursor-pointer transition-colors text-xs sm:text-sm group ml-1 underline decoration-blue-300 hover:decoration-blue-700 underline-offset-2"
           >
             <span>See how it works</span>
-            <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform text-teal-700" />
+            <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform text-blue-700" />
           </button>
-          <span className="hidden md:inline text-teal-200">|</span>
+          <span className="hidden md:inline text-blue-200">|</span>
           <a
             href={getWhatsAppUrl('Hi KaoinAI team, I would like to talk about personal data records for my business.')}
             target="_blank"
@@ -57,7 +57,7 @@ export default function AnnouncementBar({ onDismiss }: AnnouncementBarProps) {
             onDismiss?.()
           }}
           aria-label="Dismiss announcement"
-          className="text-slate-400 hover:text-slate-700 hover:bg-teal-100/50 p-1 rounded-md transition-colors shrink-0"
+          className="text-slate-400 hover:text-slate-700 hover:bg-blue-100/50 p-1 rounded-md transition-colors shrink-0"
         >
           <X size={15} />
         </button>

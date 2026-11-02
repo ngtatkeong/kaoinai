@@ -94,10 +94,10 @@ export default function PrivacyPolicy() {
           </div>
           <div>
             <h2 className="text-lg font-bold text-slate-950 mb-2">
-              Our Zero-Replication Architectural Safeguard
+              How we handle your data
             </h2>
             <p className="text-sm text-slate-700 leading-relaxed mb-4">
-              KaoinAI operates on an intentional <strong>Read-Only Metadata Architecture</strong>. We do <strong>NOT</strong> copy, replicate, ingest, or store raw database rows, customer PII records, or production transaction tables on our cloud servers. All PII pattern recognition (such as Singapore NRIC, credit card, or phone number detection) is conducted ephemerally in-memory.
+              KaoinAI reads database structure (table and column metadata) rather than copying customer rows. It is designed so that customer rows, personal records and transaction tables are not stored on our cloud servers. Pattern checks for personal data types, such as NRIC or phone numbers, are designed to run in memory and not be kept.
             </p>
             <div className="grid sm:grid-cols-2 gap-3 text-xs text-slate-600">
               <div className="flex items-center gap-2 bg-white/80 p-2.5 rounded-lg border border-teal-100">
@@ -274,7 +274,7 @@ export default function PrivacyPolicy() {
             <p><strong>How to Submit a Request:</strong> Send a written request directly to our Data Protection Officer, <strong>Ng Tat Keong</strong>, at <a href="mailto:tk.ng@kaoinai.com" className="text-teal-700 font-bold hover:underline">tk.ng@kaoinai.com</a> with the subject line <em>&quot;PDPA Data Subject Access Request (DSAR)&quot;</em>.</p>
             <p><strong>Response Timeline:</strong> As prescribed by Regulation 4 of the Personal Data Protection Regulations 2021, our DPO will respond within <strong>thirty (30) calendar days</strong> of receiving your verified request. If more time is required due to complexity, we will notify you in writing within 30 days specifying the extension period and reasons.</p>
             <p><strong>Identity Verification:</strong> To protect personal privacy, our DPO will require reasonable proof of identity before disclosing records.</p>
-            <p><strong>Zero-Fee Policy:</strong> Standard access and correction requests are processed free of charge. Where a request is manifestly excessive, reasonable search fees may be notified beforehand.</p>
+            <p><strong>No-Fee Policy:</strong> Standard access and correction requests are processed free of charge. Where a request is manifestly excessive, reasonable search fees may be notified beforehand.</p>
           </div>
         </section>
 

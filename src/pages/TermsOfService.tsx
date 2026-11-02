@@ -36,7 +36,7 @@ export default function TermsOfService() {
           Enterprise Data Ownership &amp; IP Protection
         </h2>
         <p className="text-sm text-slate-700 leading-relaxed">
-          You keep ownership, title, and intellectual property rights over your databases, schemas, queries, metadata, and generated compliance records. KaoinAI asserts zero ownership over your proprietary information and never trains foundational public AI models on your private schema metadata.
+          You keep ownership, title, and intellectual property rights over your databases, schemas, queries, metadata, and generated compliance records. KaoinAI does not claim ownership of your proprietary information and does not use your private schema metadata to train public AI models.
         </p>
       </div>
 

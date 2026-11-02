@@ -2,7 +2,8 @@ import { useEffect, lazy, Suspense } from 'react'
 import { Routes, Route, useLocation } from 'react-router'
 import Navigation from './sections/Navigation'
 import HeroSme from './sections/HeroSme'
-import { ProblemFrame, HowItWorksSme, DataHandlingSme, PricingSme, FaqSme, FinalCtaSme } from './sections/SmeHome'
+import { FinalCtaSme } from './sections/SmeHome'
+import HomeExplorer from './sections/HomeExplorer'
 import Footer from './sections/Footer'
 const Contact = lazy(() => import('./pages/Contact'))
 const AuditPage = lazy(() => import('./pages/Audit'))
@@ -10,6 +11,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
 import SecurityOverview from './pages/SecurityOverview'
 import DataProtectionAgreement from './pages/DataProtectionAgreement'
+import About from './pages/About'
 import BlogIndex from './pages/BlogIndex'
 import BlogPost from './pages/BlogPost'
 import NotFound from './pages/NotFound'
@@ -88,6 +90,11 @@ function RouteSeo() {
         title: 'Security & Trust Architecture Whitepaper — KaoinAI',
         desc: 'How KaoinAI handles your database structure and personal data records: read-only access to system catalogs and encryption in transit standards.',
         url: 'https://kaoinai.com/security',
+      },
+      '/about': {
+        title: 'About KaoinAI — Personal Data Records for Small Businesses',
+        desc: 'Who KaoinAI is, where we operate, and how the product is designed to handle personal data records for Singapore, Malaysia and Indonesia.',
+        url: 'https://kaoinai.com/about',
       },
       '/blog': {
         title: 'Engineering & Compliance Blog — KaoinAI',
@@ -172,11 +179,7 @@ function Home() {
   return (
     <main>
       <HeroSme />
-      <ProblemFrame />
-      <HowItWorksSme />
-      <DataHandlingSme />
-      <PricingSme />
-      <FaqSme />
+      <HomeExplorer />
       <FinalCtaSme />
     </main>
   )
@@ -184,7 +187,8 @@ function Home() {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f8fafc] via-[#f0fdfa]/80 to-[#f8fafc] selection:bg-teal-100 selection:text-[#0f766e] flex flex-col justify-between overflow-x-hidden relative">
+    <div className="dark-site min-h-screen selection:bg-blue-500/30 selection:text-white flex flex-col justify-between overflow-x-hidden relative">
+      <div aria-hidden="true" className="aurora" />
       <AnimatedBackground />
       <ScrollToHash />
       <RouteSeo />
@@ -200,6 +204,7 @@ export default function App() {
           <Route path="/pdpa-agreement" element={<DataProtectionAgreement />} />
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/security" element={<SecurityOverview />} />
+          <Route path="/about" element={<About />} />
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="*" element={<NotFound />} />

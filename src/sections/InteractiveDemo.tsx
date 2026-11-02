@@ -48,11 +48,11 @@ const scenarios: Scenario[] = [
     badgeColor: 'bg-amber-100 text-amber-800 border-amber-200',
     prompt: 'Find enterprise accounts with LTV > $5,000 who have not logged in or placed an order in the last 45 days.',
     executionTime: 'Down to 118ms*',
-    confidenceScore: 'Up to 99.6%*',
+    confidenceScore: 'Illustrative',
     summary: 'Detected up to 42* at-risk customer accounts representing up to $284,500* in ARR across Stripe and PostgreSQL CRM.',
     insights: [
-      'Top at-risk account: OmniLogistics SG (LTV: up to $48,200*) — Inactive for up to 48 days*',
-      'Average decline in weekly query frequency prior to inactivity: up to 74%*',
+      'Example output: a high-value account with no recent orders is flagged',
+      'Example output: query activity is compared before and after the flag',
       'Automated retention webhook generated for HubSpot & Slack #cs-vip'
     ],
     sql: `SELECT 
@@ -84,7 +84,7 @@ ORDER BY total_ltv DESC;`,
     badgeColor: 'bg-red-100 text-red-800 border-red-200',
     prompt: 'Scan all staging, developer, and analytics tables for unmasked Singapore NRIC, phone numbers, or credit card numbers.',
     executionTime: 'Down to 164ms*',
-    confidenceScore: 'Up to 99.9%*',
+    confidenceScore: 'Illustrative',
     summary: 'Identified up to 3* unmasked PII columns in staging database. Auto-generated dynamic SHA-256 masking rules without disrupting engineering.',
     insights: [
       'CRITICAL: Table `staging_leads_2026` contains up to 1,420* unmasked NRIC identifiers',
@@ -115,13 +115,13 @@ ORDER BY table_name, column_name;`,
     title: 'Revenue Discrepancy Lineage',
     category: 'Financial Truth',
     icon: Database,
-    badgeColor: 'bg-teal-100 text-teal-800 border-teal-200',
+    badgeColor: 'bg-blue-100 text-blue-800 border-blue-200',
     prompt: 'Why does Stripe MRR show $142,500 while our executive dashboard reports $136,800 for March?',
     executionTime: 'Down to 210ms*',
-    confidenceScore: 'Up to 98.8%*',
+    confidenceScore: 'Illustrative',
     summary: 'Root cause pinpointed in down to 3.2 seconds*: up to 43* foreign currency transactions stalled during an upstream webhook retry failure.',
     insights: [
-      'Discrepancy delta: Up to $5,700* across up to 43* EUR/GBP cross-border checkouts',
+      'Example output: a currency discrepancy is flagged across several checkouts',
       'Failed node: `dbt_transforms.stg_stripe_webhooks` timed out at 04:15 UTC due to FX rate API rate-limiting',
       'Recommended action: 1-click retry pipeline already queued with zero manual code edits'
     ],
@@ -161,8 +161,8 @@ GROUP BY s.month, s.stripe_mrr, b.bi_mrr;`,
     badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
     prompt: 'Deduplicate and merge customer profiles across Shopify, Salesforce, and Zendesk into unified Golden Records.',
     executionTime: 'Down to 175ms*',
-    confidenceScore: 'Up to 99.3%*',
-    summary: 'Consolidated up to 2,140* fragmented customer touchpoints into up to 1,680* unified Golden Records with up to 100%* auditable history.',
+    confidenceScore: 'Illustrative',
+    summary: 'Example output: fragmented customer records are merged into golden records with an audit trail.',
     insights: [
       'Resolved up to 460* customer identity collisions with fuzzy Jaro-Winkler + phone hash matching',
       'Linked Shopify checkout emails with historical Zendesk enterprise support tickets',
@@ -198,11 +198,11 @@ GROUP BY golden_customer_id, authoritative_company, primary_email, canonical_pho
     badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
     prompt: 'Show all database tables containing PII bound directly to our statutory DPIA assessments and Singapore PDPA / GDPR Data Inventory.',
     executionTime: 'Down to 142ms*',
-    confidenceScore: 'Up to 99.8%*',
+    confidenceScore: 'Illustrative',
     summary: 'Directly linked up to 14* production database tables containing PII to DPIA-2026-08 and active Data Inventory (RoPA) with real-time schema drift tracking.',
     insights: [
-      'Physical Table Binding: `rds.customer_kyc` & `snowflake.orders` directly bound to DPIA Registry (Risk Level: Low / AES-256 Tokenized)',
-      'Automated RoPA Generation: Legal Basis (PDPA §13 Contractual Necessity) & Retention (MAS TRM up to 7 Years*) mapped per column',
+      'Physical Table Binding: `rds.customer_kyc` & `snowflake.orders` directly bound to DPIA Registry (Risk Level: Low / tokenized)',
+      'Automated RoPA Generation: Legal Basis (PDPA §13 Contractual Necessity) & Retention period mapped per column',
       'Schema Drift Shield: Auto-detected newly migrated column `user_biometrics` in PostgreSQL; immediately flagged DPIA drift & queued impact assessment'
     ],
     sql: `/* KaoinAI Table-Bound DPIA & Living Data Inventory (RoPA) Engine */
@@ -270,24 +270,24 @@ export default function InteractiveDemo() {
   }
 
   return (
-    <section id="demo" className="py-24 sm:py-32 bg-gradient-to-b from-teal-50 via-white to-teal-100 text-teal-950 relative overflow-hidden scroll-mt-20">
+    <section id="demo" className="py-24 sm:py-32 bg-gradient-to-b from-blue-50 via-white to-blue-100 text-blue-950 relative overflow-hidden scroll-mt-20">
       {/* Background ambient lighting */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-32 left-1/4 w-96 h-96 bg-teal-600/15 rounded-full blur-3xl" />
+        <div className="absolute -top-32 left-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl" />
         <div className="absolute -bottom-32 right-1/4 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-100 border border-teal-200 text-teal-700 text-xs font-semibold mb-4 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-xs font-semibold mb-4 shadow-xs">
             <Sparkles size={14} />
             <span>Interactive Live Demo</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-teal-950 tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-blue-950 tracking-tight mb-4">
             See KaoinAI in Action — Before Touching Your Database
           </h2>
-          <p className="text-base sm:text-lg text-teal-900/70 leading-relaxed">
+          <p className="text-base sm:text-lg text-blue-900/70 leading-relaxed">
             Select an enterprise scenario below. Watch how KaoinAI&apos;s AI-enhanced data catalog and database knowledgebase autonomously indexes schemas, synthesizes audit-ready definitions, and traces table-bound lineage in sub-second time.
           </p>
         </div>
@@ -303,21 +303,21 @@ export default function InteractiveDemo() {
                 onClick={() => handleScenarioChange(scenario)}
                 className={`flex flex-col justify-between text-left p-4 sm:p-5 rounded-2xl transition-all border cursor-pointer ${
                   isSelected
-                    ? 'bg-teal-50 border-teal-400 ring-2 ring-teal-300 shadow-xl shadow-teal-200/60'
-                    : 'bg-white border-teal-200/80 hover:bg-teal-50 hover:border-teal-300 shadow-sm'
+                    ? 'bg-blue-50 border-blue-400 ring-2 ring-blue-300 shadow-xl shadow-blue-200/60'
+                    : 'bg-white border-blue-200/80 hover:bg-blue-50 hover:border-blue-300 shadow-sm'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between w-full mb-3">
-                    <div className={`p-2.5 rounded-xl ${isSelected ? 'bg-teal-600 text-white' : 'bg-teal-100 text-teal-600'}`}>
+                    <div className={`p-2.5 rounded-xl ${isSelected ? 'bg-blue-600 text-white' : 'bg-blue-100 text-blue-600'}`}>
                       <IconComponent size={18} />
                     </div>
                     <span className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full border ${scenario.badgeColor}`}>
                       {scenario.category}
                     </span>
                   </div>
-                  <h3 className="font-bold text-sm sm:text-base text-teal-950 mb-1.5 leading-snug">{scenario.title}</h3>
-                  <p className="text-xs text-teal-900/60 line-clamp-2 leading-relaxed">{scenario.prompt}</p>
+                  <h3 className="font-bold text-sm sm:text-base text-blue-950 mb-1.5 leading-snug">{scenario.title}</h3>
+                  <p className="text-xs text-blue-900/60 line-clamp-2 leading-relaxed">{scenario.prompt}</p>
                 </div>
               </button>
             )
@@ -325,7 +325,7 @@ export default function InteractiveDemo() {
         </div>
 
         {/* Main Terminal Window */}
-        <div className="bg-gradient-to-b from-slate-900/95 via-slate-950/95 to-[#0b0816]/95 rounded-3xl border border-teal-500/25 shadow-2xl shadow-teal-950/30 overflow-hidden mb-16 backdrop-blur-2xl">
+        <div className="bg-gradient-to-b from-slate-900/95 via-slate-950/95 to-[#0b0816]/95 rounded-3xl border border-blue-500/25 shadow-2xl shadow-blue-950/30 overflow-hidden mb-16 backdrop-blur-2xl">
           {/* Terminal Window Header */}
           <div className="bg-white/5 border-b border-white/10 px-4 py-3 flex flex-wrap items-center justify-between gap-3 backdrop-blur-md">
             <div className="flex items-center gap-2">
@@ -333,7 +333,7 @@ export default function InteractiveDemo() {
               <div className="w-3 h-3 rounded-full bg-amber-400/80" />
               <div className="w-3 h-3 rounded-full bg-emerald-400/80" />
               <span className="ml-2 font-mono text-xs text-slate-300 flex items-center gap-1.5">
-                <Terminal size={13} className="text-teal-400" /> kaoinai-agent // live_engine
+                <Terminal size={13} className="text-blue-400" /> kaoinai-agent // live_engine
               </span>
             </div>
 
@@ -342,19 +342,19 @@ export default function InteractiveDemo() {
               <span className="inline-flex items-center gap-1 text-emerald-300 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-400/30">
                 <Clock size={12} /> {activeScenario.executionTime}
               </span>
-              <span className="inline-flex items-center gap-1 text-teal-200 bg-teal-500/10 px-2.5 py-1 rounded-full border border-teal-400/30">
-                <CheckCircle2 size={12} /> {activeScenario.confidenceScore} match
+              <span className="inline-flex items-center gap-1 text-blue-200 bg-blue-500/10 px-2.5 py-1 rounded-full border border-blue-400/30">
+                <CheckCircle2 size={12} /> Example output
               </span>
             </div>
           </div>
 
           {/* Prompt Bar */}
           <div className="p-4 sm:p-5 bg-white/[0.03] border-b border-white/10 flex items-start gap-3 backdrop-blur-md">
-            <div className="w-7 h-7 rounded-lg bg-teal-600/30 text-teal-300 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
-              <Play size={14} className="fill-teal-300" />
+            <div className="w-7 h-7 rounded-lg bg-blue-600/30 text-blue-300 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+              <Play size={14} className="fill-blue-300" />
             </div>
             <div className="flex-grow">
-              <div className="text-xs font-mono uppercase tracking-wider text-teal-300 font-semibold mb-1">
+              <div className="text-xs font-mono uppercase tracking-wider text-blue-300 font-semibold mb-1">
                 AI DB Knowledgebase &amp; Catalog Inquiry:
               </div>
               <div className="text-sm sm:text-base font-medium text-white">
@@ -369,7 +369,7 @@ export default function InteractiveDemo() {
               onClick={() => setActiveTab('insights')}
               className={`py-3 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${
                 activeTab === 'insights'
-                  ? 'border-teal-400 text-white'
+                  ? 'border-blue-400 text-white'
                   : 'border-transparent text-slate-400 hover:text-slate-200'
               }`}
             >
@@ -379,7 +379,7 @@ export default function InteractiveDemo() {
               onClick={() => setActiveTab('sql')}
               className={`py-3 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${
                 activeTab === 'sql'
-                  ? 'border-teal-400 text-white'
+                  ? 'border-blue-400 text-white'
                   : 'border-transparent text-slate-400 hover:text-slate-200'
               }`}
             >
@@ -389,7 +389,7 @@ export default function InteractiveDemo() {
               onClick={() => setActiveTab('lineage')}
               className={`py-3 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${
                 activeTab === 'lineage'
-                  ? 'border-teal-400 text-white'
+                  ? 'border-blue-400 text-white'
                   : 'border-transparent text-slate-400 hover:text-slate-200'
               }`}
             >
@@ -401,8 +401,8 @@ export default function InteractiveDemo() {
           <div className="p-4 sm:p-6 min-h-[260px] flex flex-col justify-center">
             {activeTab === 'insights' && (
               <div className="space-y-4 animate-in fade-in duration-300">
-                <div className="p-4 rounded-xl bg-teal-950/30 border border-teal-800/40 flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-teal-400 shrink-0 mt-0.5" />
+                <div className="p-4 rounded-xl bg-blue-950/30 border border-blue-800/40 flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-blue-400 shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-semibold text-white text-sm sm:text-base">Executive Summary</h4>
                     <p className="text-slate-300 text-sm mt-0.5">{activeScenario.summary}</p>
@@ -416,7 +416,7 @@ export default function InteractiveDemo() {
                   <div className="grid gap-2.5">
                     {activeScenario.insights.map((insight, idx) => (
                       <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-200 bg-white/5 p-3.5 rounded-xl border border-white/10 backdrop-blur-md">
-                        <span className="w-5 h-5 rounded-full bg-teal-500/20 border border-teal-400/40 text-teal-300 flex items-center justify-center shrink-0 text-xs font-bold mt-0.5">
+                        <span className="w-5 h-5 rounded-full bg-blue-500/20 border border-blue-400/40 text-blue-300 flex items-center justify-center shrink-0 text-xs font-bold mt-0.5">
                           {idx + 1}
                         </span>
                         <span>{insight}</span>
@@ -446,7 +446,7 @@ export default function InteractiveDemo() {
                     )}
                   </button>
                 </div>
-                <pre className="p-4 rounded-xl bg-slate-950/70 text-teal-200 font-mono text-xs sm:text-sm overflow-x-auto leading-relaxed border border-teal-500/20 shadow-inner">
+                <pre className="p-4 rounded-xl bg-slate-950/70 text-blue-200 font-mono text-xs sm:text-sm overflow-x-auto leading-relaxed border border-blue-500/20 shadow-inner">
                   <code>{activeScenario.sql}</code>
                 </pre>
               </div>
@@ -455,7 +455,7 @@ export default function InteractiveDemo() {
             {activeTab === 'lineage' && (
               <div className="space-y-6 py-2 animate-in fade-in duration-300">
                 <div className="text-xs font-mono text-slate-300">
-                  Automated End-to-End Lineage Path (Zero manual YAML configuration required):
+                  Automated end-to-end lineage path (no manual YAML configuration in this example):
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 relative">
@@ -469,7 +469,7 @@ export default function InteractiveDemo() {
                       <div className="space-y-1.5">
                         {activeScenario.lineage.sources.map((src, i) => (
                           <div key={i} className="flex items-center gap-2 text-xs font-mono text-white bg-white/5 px-2.5 py-1.5 rounded-lg border border-white/10">
-                            <Database size={13} className="text-teal-400" /> {src}
+                            <Database size={13} className="text-blue-400" /> {src}
                           </div>
                         ))}
                       </div>
@@ -477,18 +477,18 @@ export default function InteractiveDemo() {
                   </div>
 
                   {/* Step 2: KaoinAI Engine */}
-                  <div className="p-4 rounded-xl bg-teal-950/40 border border-teal-500/40 flex flex-col justify-between shadow-lg shadow-teal-950/40 backdrop-blur-md">
+                  <div className="p-4 rounded-xl bg-blue-950/40 border border-blue-500/40 flex flex-col justify-between shadow-lg shadow-blue-950/40 backdrop-blur-md">
                     <div>
-                      <div className="flex items-center justify-between text-xs font-semibold text-teal-200 mb-2">
+                      <div className="flex items-center justify-between text-xs font-semibold text-blue-200 mb-2">
                         <span>2. KaoinAI Neural Layer</span>
-                        <span className="text-teal-300 font-mono">{activeScenario.lineage.latency}</span>
+                        <span className="text-blue-300 font-mono">{activeScenario.lineage.latency}</span>
                       </div>
-                      <div className="p-2.5 rounded-lg bg-teal-900/40 text-xs font-medium text-teal-100 border border-teal-500/30">
+                      <div className="p-2.5 rounded-lg bg-blue-900/40 text-xs font-medium text-blue-100 border border-blue-500/30">
                         {activeScenario.lineage.transformation}
                       </div>
                     </div>
-                    <div className="mt-3 flex items-center gap-1.5 text-[11px] text-teal-300">
-                      <Sparkles size={13} /> Zero customer data retention
+                    <div className="mt-3 flex items-center gap-1.5 text-[11px] text-blue-300">
+                      <Sparkles size={13} /> No customer data retained
                     </div>
                   </div>
 
@@ -519,25 +519,25 @@ export default function InteractiveDemo() {
         </p>
 
         {/* Try Your Own Prompt Interactive Box */}
-        <div className="bg-gradient-to-r from-teal-100 via-white to-teal-50 rounded-2xl p-6 sm:p-8 border border-teal-200 text-center max-w-4xl mx-auto shadow-lg shadow-teal-100/60">
-          <h3 className="text-xl sm:text-2xl font-bold text-teal-950 mb-2">
+        <div className="bg-gradient-to-r from-blue-100 via-white to-blue-50 rounded-2xl p-6 sm:p-8 border border-blue-200 text-center max-w-4xl mx-auto shadow-lg shadow-blue-100/60">
+          <h3 className="text-xl sm:text-2xl font-bold text-blue-950 mb-2">
             Want to test your own business question?
           </h3>
-          <p className="text-sm text-teal-900/70 max-w-xl mx-auto mb-6">
+          <p className="text-sm text-blue-900/70 max-w-xl mx-auto mb-6">
             Type an operational inquiry below or test it on your actual database schema during our complimentary 14-day on-premises pilot (exclusive to On-Prem / VPC).
           </p>
 
           {customSubmitted ? (
-            <div className="bg-white p-5 rounded-xl border border-emerald-300 text-left max-w-2xl mx-auto space-y-3 shadow-md shadow-teal-100/50">
+            <div className="bg-white p-5 rounded-xl border border-emerald-300 text-left max-w-2xl mx-auto space-y-3 shadow-md shadow-blue-100/50">
               <div className="flex items-center gap-2 text-emerald-600 font-semibold text-sm">
                 <CheckCircle2 size={16} />
                 <span>Query Analyzed & Schema Prepared!</span>
               </div>
-              <p className="text-xs text-teal-900/70">
-                Query: <span className="text-teal-950 font-medium">&ldquo;{customPrompt}&rdquo;</span>
+              <p className="text-xs text-blue-900/70">
+                Query: <span className="text-blue-950 font-medium">&ldquo;{customPrompt}&rdquo;</span>
               </p>
-              <div className="text-xs text-teal-700 bg-teal-50 p-3 rounded border border-teal-200">
-                To execute this query across your live schema with zero data retention, activate your complimentary 14-day on-premises pilot (exclusive to On-Prem / VPC) or test directly with an engineer.
+              <div className="text-xs text-blue-700 bg-blue-50 p-3 rounded border border-blue-200">
+                To run this query across your live schema without retaining customer data, activate your complimentary 14-day on-premises pilot (exclusive to On-Prem / VPC) or test directly with an engineer.
               </div>
               <div className="flex flex-col sm:flex-row gap-2 pt-1">
                 <Button
@@ -564,7 +564,7 @@ export default function InteractiveDemo() {
                 value={customPrompt}
                 onChange={(e) => setCustomPrompt(e.target.value)}
                 placeholder="e.g. Find duplicate leads created between Zendesk and Salesforce..."
-                className="flex-grow px-4 py-3 rounded-xl bg-white border border-teal-200 text-teal-950 placeholder:text-teal-400/70 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
+                className="flex-grow px-4 py-3 rounded-xl bg-white border border-blue-200 text-blue-950 placeholder:text-blue-400/70 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
               <Button
                 type="submit"

@@ -31,7 +31,7 @@ export default function RoiCalculator() {
     <section id="roi-calculator" className="py-16 sm:py-24 bg-gradient-to-b from-white to-gray-50 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 border border-teal-100 text-[#0f766e] text-sm font-medium mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-[#1d4ed8] text-sm font-medium mb-4">
             <Calculator size={16} />
             <span>Interactive ROI & Risk Estimator</span>
           </div>
@@ -51,7 +51,7 @@ export default function RoiCalculator() {
                 <label className="text-sm font-semibold text-gray-800">
                   Data & Business Team Size:
                 </label>
-                <span className="text-base font-bold text-[#0f766e] bg-teal-50 px-3 py-1 rounded-lg border border-teal-100">
+                <span className="text-base font-bold text-[#1d4ed8] bg-blue-50 px-3 py-1 rounded-lg border border-blue-100">
                   {teamSize} People
                 </span>
               </div>
@@ -61,7 +61,7 @@ export default function RoiCalculator() {
                 max="50"
                 value={teamSize}
                 onChange={(e) => handleSliderChange(Number(e.target.value), recordCount)}
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#0f766e]"
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#1d4ed8]"
               />
               <div className="flex justify-between text-xs text-gray-400 mt-1">
                 <span>2 Users</span>
@@ -75,7 +75,7 @@ export default function RoiCalculator() {
                 <label className="text-sm font-semibold text-gray-800">
                   Database & ERP Records Under Management:
                 </label>
-                <span className="text-base font-bold text-[#0f766e] bg-teal-50 px-3 py-1 rounded-lg border border-teal-100">
+                <span className="text-base font-bold text-[#1d4ed8] bg-blue-50 px-3 py-1 rounded-lg border border-blue-100">
                   {recordCount}M Records
                 </span>
               </div>
@@ -86,7 +86,7 @@ export default function RoiCalculator() {
                 step="0.5"
                 value={recordCount}
                 onChange={(e) => handleSliderChange(teamSize, Number(e.target.value))}
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#0f766e]"
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#1d4ed8]"
               />
               <div className="flex justify-between text-xs text-gray-400 mt-1">
                 <span>500k Records</span>
@@ -95,17 +95,15 @@ export default function RoiCalculator() {
               </div>
             </div>
 
-            <div className="bg-teal-50/60 rounded-xl p-4 border border-teal-100 text-xs text-gray-600 space-y-1.5">
-              <p className="font-semibold text-[#0f766e]">💡 Assumptions based on SME benchmarks:</p>
-              <p>• Up to 14 hours* saved per team member/month from automated DQ and lineage (measured against baseline manual schema tracing &amp; spreadsheet hygiene).</p>
-              <p>• Up to 99.4%* automated detection of unmasked customer PII before audits (based upon baseline manual sampling error rates).</p>
+            <div className="bg-blue-50/60 rounded-xl p-4 border border-blue-100 text-xs text-gray-600 space-y-1.5">
+              <p className="font-semibold text-[#1d4ed8]">💡 Assumptions based on SME benchmarks:</p>
             </div>
           </div>
 
           {/* Results Summary Card */}
           <div className="lg:col-span-5 bg-gradient-to-br from-[#0f172a] to-[#134e4a] rounded-2xl p-5 sm:p-8 text-white flex flex-col justify-between shadow-xl">
             <div>
-              <span className="text-xs uppercase tracking-wider text-teal-300 font-semibold">
+              <span className="text-xs uppercase tracking-wider text-blue-300 font-semibold">
                 Estimated Annual Impact
               </span>
               <div className="mt-4 space-y-5">
@@ -118,7 +116,7 @@ export default function RoiCalculator() {
                     Up to ${annualSavingsUsd.toLocaleString()}*
                     <span className="text-xs font-normal text-gray-400 ml-1">/yr</span>
                   </div>
-                  <div className="text-[11px] text-teal-200/90 bg-white/10 px-2.5 py-1.5 rounded-lg border border-white/10 mt-2 font-mono">
+                  <div className="text-[11px] text-blue-200/90 bg-white/10 px-2.5 py-1.5 rounded-lg border border-white/10 mt-2 font-mono">
                     Formula: {teamSize} users × 14 hrs/mo × $45/hr loaded rate × 12 mos
                   </div>
                 </div>
@@ -126,10 +124,10 @@ export default function RoiCalculator() {
                 <div className="grid grid-cols-2 gap-3 pt-3 border-t border-white/10">
                   <div>
                     <div className="text-[11px] text-gray-300 flex items-center gap-1">
-                      <Clock size={12} className="text-teal-300" />
+                      <Clock size={12} className="text-blue-300" />
                       Hours Saved
                     </div>
-                    <div className="text-xl font-bold text-teal-200">
+                    <div className="text-xl font-bold text-blue-200">
                       Up to {hoursSavedPerMonth * 12} hrs/yr*
                     </div>
                   </div>
@@ -169,7 +167,7 @@ export default function RoiCalculator() {
         <div className="mt-10 bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 max-w-5xl mx-auto shadow-xs">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-gray-100">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-teal-100 text-[#0f766e] flex items-center justify-center font-bold">
+              <div className="w-8 h-8 rounded-lg bg-blue-100 text-[#1d4ed8] flex items-center justify-center font-bold">
                 <Info size={18} />
               </div>
               <div>
@@ -184,7 +182,7 @@ export default function RoiCalculator() {
             <button
               type="button"
               onClick={() => setShowMethodology(!showMethodology)}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0f766e] hover:text-teal-800 bg-teal-50 px-3 py-1.5 rounded-lg border border-teal-200 transition-colors cursor-pointer shrink-0 self-start sm:self-auto"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1d4ed8] hover:text-blue-800 bg-blue-50 px-3 py-1.5 rounded-lg border border-blue-200 transition-colors cursor-pointer shrink-0 self-start sm:self-auto"
             >
               <span>{showMethodology ? 'Hide Detailed Citations' : 'Inspect Basis & Citations'}</span>
               <ChevronDown size={14} className={`transform transition-transform ${showMethodology ? 'rotate-180' : ''}`} />
@@ -194,28 +192,28 @@ export default function RoiCalculator() {
           {/* Core Basis Pillars */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-5">
             <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80">
-              <div className="text-[11px] font-bold uppercase text-teal-700 font-mono mb-1">Pillar 1: Time Savings</div>
+              <div className="text-[11px] font-bold uppercase text-blue-700 font-mono mb-1">Pillar 1: Time Savings</div>
               <div className="text-sm font-bold text-gray-900 mb-1">14 hrs / person / mo</div>
               <p className="text-xs text-gray-600 leading-snug">
                 Reclaims ~3.5 hrs/week spent on manual schema discovery, ad-hoc SQL ticket resolution, and broken pipeline debugging.
               </p>
             </div>
             <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80">
-              <div className="text-[11px] font-bold uppercase text-teal-700 font-mono mb-1">Pillar 2: Loaded Rate</div>
+              <div className="text-[11px] font-bold uppercase text-blue-700 font-mono mb-1">Pillar 2: Loaded Rate</div>
               <div className="text-sm font-bold text-gray-900 mb-1">$45 USD / hr ($60 SGD)</div>
               <p className="text-xs text-gray-600 leading-snug">
                 Grounded in Singapore MOM median salary benchmarks for data/analytics engineers ($6,500 base + 17% CPF + benefits).
               </p>
             </div>
             <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80">
-              <div className="text-[11px] font-bold uppercase text-teal-700 font-mono mb-1">Pillar 3: Risk Index</div>
+              <div className="text-[11px] font-bold uppercase text-blue-700 font-mono mb-1">Pillar 3: Risk Index</div>
               <div className="text-sm font-bold text-gray-900 mb-1">PDPA &amp; MAS TRM Tiers</div>
               <p className="text-xs text-gray-600 leading-snug">
                 &gt;1M records triggers enhanced audit exposure; &gt;5M records represents critical statutory blast radius under PDPA §26D.
               </p>
             </div>
             <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80">
-              <div className="text-[11px] font-bold uppercase text-teal-700 font-mono mb-1">Pillar 4: Detection Rate</div>
+              <div className="text-[11px] font-bold uppercase text-blue-700 font-mono mb-1">Pillar 4: Detection Rate</div>
               <div className="text-sm font-bold text-gray-900 mb-1">Up to 99.4%* PII Accuracy</div>
               <p className="text-xs text-gray-600 leading-snug">
                 Deterministic Modulo-11 checksums (NRIC/FIN) &amp; Luhn verification across structured relational schemas.

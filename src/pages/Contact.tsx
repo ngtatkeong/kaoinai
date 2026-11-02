@@ -930,9 +930,6 @@ Host Direct Email: tk.ng@kaoinai.com`
                           <option value="Automated PII Scanning & Masking Demo">
                             Automated PII Scanning, Discovery &amp; Masking Demo
                           </option>
-                          <option value="$0 Founding Customer Cohort (First 3 Only)">
-                            $0 Founding Customer Pilot Cohort (First 3 Customers Only)
-                          </option>
                           <option value="ERP & Enterprise Connectors (SAP / NetSuite / Postgres)">
                             ERP &amp; Database Connectors (SAP, NetSuite, PostgreSQL, Snowflake)
                           </option>
@@ -1180,7 +1177,7 @@ Host Direct Email: tk.ng@kaoinai.com`
                         <option value="Automated PII Detection">Automated PII Scanning &amp; Masking</option>
                         <option value="Data Quality & MDM">Data Quality Monitoring &amp; Golden Records</option>
                         <option value="ERP & Warehouse Connectors">ERP / Database Connectors &amp; Setup</option>
-                        <option value="Pricing & Enterprise Pilot">Pricing &amp; $0 Founding Customer Cohort (First 3 Only)</option>
+                        <option value="Pricing">Pricing</option>
                         <option value="Other">Other / General Question</option>
                       </select>
                     </div>
