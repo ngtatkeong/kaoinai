@@ -13,8 +13,8 @@ export default function AnnouncementBar({ onDismiss }: AnnouncementBarProps) {
   if (!visible) return null
 
   const handleCtaClick = () => {
-    trackEvent('click_announcement', { label: 'Architecture Release' })
-    const el = document.getElementById('demo')
+    trackEvent('click_announcement', { label: 'New' })
+    const el = document.getElementById('how-it-works')
     if (el) {
       const yOffset = -80
       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset
@@ -28,27 +28,27 @@ export default function AnnouncementBar({ onDismiss }: AnnouncementBarProps) {
         <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2.5 flex-grow justify-center text-center">
           <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/95 border border-teal-200 text-teal-800 text-[11px] font-semibold shadow-xs">
             <Sparkles size={11} className="text-teal-600" />
-            <span>Architecture Release</span>
+            <span>New</span>
           </span>
           <span className="text-slate-700 text-xs sm:text-sm line-clamp-2">
-            Table-Bound Living Data Inventory (RoPA) Engine now supports Singapore PDPA, Malaysia PDPA (2024), &amp; Indonesia UU PDP.
+            We now cover Singapore, Malaysia and Indonesia personal data laws. Find the columns that hold personal data and keep your records current.
           </span>
           <button
             onClick={handleCtaClick}
             className="hidden sm:inline-flex items-center gap-1 font-semibold text-teal-700 hover:text-teal-950 cursor-pointer transition-colors text-xs sm:text-sm group ml-1 underline decoration-teal-300 hover:decoration-teal-700 underline-offset-2"
           >
-            <span>Explore Architecture</span>
+            <span>See how it works</span>
             <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform text-teal-700" />
           </button>
           <span className="hidden md:inline text-teal-200">|</span>
           <a
-            href={getWhatsAppUrl('Hi KaoinAI team, I would like to schedule a technical architecture briefing for our data governance setup.')}
+            href={getWhatsAppUrl('Hi KaoinAI team, I would like to talk about personal data records for my business.')}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:inline-flex items-center gap-1 text-emerald-700 hover:text-emerald-800 font-semibold text-xs sm:text-sm transition-colors"
             onClick={() => trackEvent('click_whatsapp', { number: WHATSAPP_NUMBER, location: 'announcement_bar' })}
           >
-            <span>Schedule Technical Briefing</span>
+            <span>Chat on WhatsApp</span>
           </a>
         </div>
         <button
