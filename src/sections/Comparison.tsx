@@ -57,7 +57,7 @@ const comparisonData: ComparisonRow[] = [
     feature: 'User Accessibility',
     description: 'Who in your company can extract answers and audit data?',
     kaoinai: {
-      highlight: 'Plain English for Everyone (Ops, Product, Execs)',
+      highlight: 'AI DB Knowledgebase & Living Catalog (No SQL expertise needed)',
       positive: true
     },
     legacy: {
