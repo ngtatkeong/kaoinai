@@ -21,7 +21,7 @@ export default function PrivacyPolicy() {
       <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
         <Link 
           to="/" 
-          className="inline-flex items-center gap-2 text-sm font-medium text-purple-700 hover:text-purple-900 transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-medium text-teal-700 hover:text-teal-900 transition-colors"
         >
           <ArrowLeft size={16} />
           Back to Home
@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
 
         <Link
           to="/dpa"
-          className="inline-flex items-center gap-1.5 text-xs font-bold text-[#5b2d6e] bg-purple-50 hover:bg-purple-100 border border-purple-200 px-3.5 py-1.5 rounded-xl transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0f766e] bg-teal-50 hover:bg-teal-100 border border-teal-200 px-3.5 py-1.5 rounded-xl transition-colors"
         >
           <FileText size={14} />
           <span>View B2B PDPA Data Protection Agreement (DPA)</span>
@@ -55,14 +55,14 @@ export default function PrivacyPolicy() {
       </div>
 
       {/* Official DPO Appointment Callout */}
-      <div className="bg-gradient-to-r from-purple-50 via-white to-purple-50 rounded-2xl border-2 border-purple-200 p-6 sm:p-7 mb-10 shadow-xs">
+      <div className="bg-gradient-to-r from-teal-50 via-white to-teal-50 rounded-2xl border-2 border-teal-200 p-6 sm:p-7 mb-10 shadow-xs">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-start gap-3.5">
-            <div className="w-12 h-12 rounded-xl bg-purple-600 text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5 sm:mt-0">
+            <div className="w-12 h-12 rounded-xl bg-teal-600 text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5 sm:mt-0">
               <UserCheck size={22} />
             </div>
             <div>
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-purple-700 bg-purple-100/70 px-2.5 py-0.5 rounded-full mb-1">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-100/70 px-2.5 py-0.5 rounded-full mb-1">
                 <span>Statutory DPO Designation • Section 11(3) Singapore PDPA</span>
               </div>
               <h2 className="text-base sm:text-lg font-bold text-slate-950">
@@ -76,7 +76,7 @@ export default function PrivacyPolicy() {
           <div className="shrink-0 flex flex-col sm:items-end gap-1.5 text-xs">
             <a 
               href="mailto:tk.ng@kaoinai.com"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold transition-colors shadow-xs"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold transition-colors shadow-xs"
             >
               <Mail size={14} />
               <span>Email DPO: tk.ng@kaoinai.com</span>
@@ -87,24 +87,24 @@ export default function PrivacyPolicy() {
       </div>
 
       {/* Core Architecture Callout */}
-      <div className="bg-gradient-to-br from-purple-50 via-indigo-50/50 to-white rounded-2xl border border-purple-200 p-6 sm:p-8 mb-12 shadow-xs">
+      <div className="bg-gradient-to-br from-teal-50 via-teal-50/50 to-white rounded-2xl border border-teal-200 p-6 sm:p-8 mb-12 shadow-xs">
         <div className="flex items-start gap-4">
-          <div className="w-12 h-12 rounded-xl bg-purple-600 text-white flex items-center justify-center shrink-0 shadow-md">
+          <div className="w-12 h-12 rounded-xl bg-teal-600 text-white flex items-center justify-center shrink-0 shadow-md">
             <Lock size={22} />
           </div>
           <div>
             <h2 className="text-lg font-bold text-slate-950 mb-2">
-              Our Zero-Replication Architectural Safeguard
+              How we handle your data
             </h2>
             <p className="text-sm text-slate-700 leading-relaxed mb-4">
-              KaoinAI operates on an intentional <strong>Read-Only Metadata Architecture</strong>. We do <strong>NOT</strong> copy, replicate, ingest, or store raw database rows, customer PII records, or production transaction tables on our cloud servers. All PII pattern recognition (such as Singapore NRIC, credit card, or phone number detection) is conducted ephemerally in-memory.
+              KaoinAI reads database structure (table and column metadata) rather than copying customer rows. It is designed so that customer rows, personal records and transaction tables are not stored on our cloud servers. Pattern checks for personal data types, such as NRIC or phone numbers, are designed to run in memory and not be kept.
             </p>
             <div className="grid sm:grid-cols-2 gap-3 text-xs text-slate-600">
-              <div className="flex items-center gap-2 bg-white/80 p-2.5 rounded-lg border border-purple-100">
+              <div className="flex items-center gap-2 bg-white/80 p-2.5 rounded-lg border border-teal-100">
                 <CheckCircle2 size={15} className="text-emerald-600 shrink-0" />
-                <span>Zero raw customer PII stored on KaoinAI servers</span>
+                <span>Designed not to store raw customer records on KaoinAI servers</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/80 p-2.5 rounded-lg border border-purple-100">
+              <div className="flex items-center gap-2 bg-white/80 p-2.5 rounded-lg border border-teal-100">
                 <CheckCircle2 size={15} className="text-emerald-600 shrink-0" />
                 <span>Metadata-only schema drift &amp; lineage analysis</span>
               </div>
@@ -202,7 +202,7 @@ export default function PrivacyPolicy() {
           <div className="space-y-4">
             <div className="border border-slate-200 rounded-xl p-4 bg-slate-50/50">
               <h3 className="font-semibold text-slate-900 mb-1 flex items-center gap-2">
-                <Database size={16} className="text-purple-600" />
+                <Database size={16} className="text-teal-600" />
                 A. Read-Only Schema &amp; Metadata (Operational Telemetry)
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -212,7 +212,7 @@ export default function PrivacyPolicy() {
 
             <div className="border border-slate-200 rounded-xl p-4 bg-slate-50/50">
               <h3 className="font-semibold text-slate-900 mb-1 flex items-center gap-2">
-                <Server size={16} className="text-indigo-600" />
+                <Server size={16} className="text-teal-600" />
                 B. Corporate Account &amp; Identity Records
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -244,18 +244,18 @@ export default function PrivacyPolicy() {
           </p>
           <ul className="list-disc pl-5 space-y-1.5 text-xs text-slate-600">
             <li>Process Customer data solely upon Customer&apos;s written documented instructions.</li>
-            <li>Maintain zero raw data replication and implement role-based access control.</li>
+            <li>Avoid copying raw customer records and use role-based access control.</li>
             <li>Notify Customer within 24 hours of confirming any security incident affecting customer data.</li>
             <li>Assist Customer in fulfilling statutory Data Subject Access Requests (DSAR) within required timelines.</li>
           </ul>
-          <div className="mt-4 p-4 rounded-xl bg-purple-50 border border-purple-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+          <div className="mt-4 p-4 rounded-xl bg-teal-50 border border-teal-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
             <div>
-              <strong className="text-purple-950 font-bold block">Need our formal B2B Data Intermediary Agreement?</strong>
-              <span className="text-purple-900/70">Access our standard form contractual clauses for enterprise vendor clearance.</span>
+              <strong className="text-teal-950 font-bold block">Need our formal B2B Data Intermediary Agreement?</strong>
+              <span className="text-teal-900/70">Access our standard form contractual clauses for enterprise vendor clearance.</span>
             </div>
             <Link
               to="/dpa"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-600 text-white font-semibold hover:bg-purple-700 transition-colors shrink-0"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-teal-600 text-white font-semibold hover:bg-teal-700 transition-colors shrink-0"
             >
               <span>View PDPA Standard DPA</span>
               <ArrowRight size={13} />
@@ -271,10 +271,10 @@ export default function PrivacyPolicy() {
             Under Sections 21 and 22 of the Singapore PDPA, individuals have statutory rights to request access to and correction of their personal data held by KaoinAI:
           </p>
           <div className="border border-slate-200 rounded-xl p-4 bg-slate-50/50 space-y-2 text-xs">
-            <p><strong>How to Submit a Request:</strong> Send a written request directly to our Data Protection Officer, <strong>Ng Tat Keong</strong>, at <a href="mailto:tk.ng@kaoinai.com" className="text-purple-600 font-bold hover:underline">tk.ng@kaoinai.com</a> with the subject line <em>&quot;PDPA Data Subject Access Request (DSAR)&quot;</em>.</p>
+            <p><strong>How to Submit a Request:</strong> Send a written request directly to our Data Protection Officer, <strong>Ng Tat Keong</strong>, at <a href="mailto:tk.ng@kaoinai.com" className="text-teal-700 font-bold hover:underline">tk.ng@kaoinai.com</a> with the subject line <em>&quot;PDPA Data Subject Access Request (DSAR)&quot;</em>.</p>
             <p><strong>Response Timeline:</strong> As prescribed by Regulation 4 of the Personal Data Protection Regulations 2021, our DPO will respond within <strong>thirty (30) calendar days</strong> of receiving your verified request. If more time is required due to complexity, we will notify you in writing within 30 days specifying the extension period and reasons.</p>
             <p><strong>Identity Verification:</strong> To protect personal privacy, our DPO will require reasonable proof of identity before disclosing records.</p>
-            <p><strong>Zero-Fee Policy:</strong> Standard access and correction requests are processed free of charge. Where a request is manifestly excessive, reasonable search fees may be notified beforehand.</p>
+            <p><strong>No-Fee Policy:</strong> Standard access and correction requests are processed free of charge. Where a request is manifestly excessive, reasonable search fees may be notified beforehand.</p>
           </div>
         </section>
 
@@ -294,9 +294,9 @@ export default function PrivacyPolicy() {
         </section>
 
         {/* Section 7: DPO Contact Section */}
-        <section className="bg-gradient-to-br from-purple-50 via-white to-purple-50 rounded-2xl p-6 sm:p-8 border-2 border-purple-200 shadow-sm">
+        <section className="bg-gradient-to-br from-teal-50 via-white to-teal-50 rounded-2xl p-6 sm:p-8 border-2 border-teal-200 shadow-sm">
           <h2 className="text-lg font-bold text-slate-950 mb-2 flex items-center gap-2">
-            <UserCheck size={20} className="text-purple-600" />
+            <UserCheck size={20} className="text-teal-600" />
             7. Data Protection Officer (DPO) Contact Details
           </h2>
           <p className="text-xs text-slate-600 mb-4 leading-relaxed">
@@ -304,17 +304,17 @@ export default function PrivacyPolicy() {
           </p>
           
           <div className="grid sm:grid-cols-2 gap-4 text-xs">
-            <div className="space-y-1.5 p-4 rounded-xl bg-white border border-purple-100 shadow-2xs">
+            <div className="space-y-1.5 p-4 rounded-xl bg-white border border-teal-100 shadow-2xs">
               <p><strong>Designated DPO:</strong> Ng Tat Keong</p>
               <p><strong>Title:</strong> Data Protection Officer &amp; Principal Solutions Architect</p>
-              <p><strong>Primary DPO Email:</strong> <a href="mailto:tk.ng@kaoinai.com" className="text-purple-700 font-bold hover:underline">tk.ng@kaoinai.com</a></p>
-              <p><strong>Secondary DPO Mailbox:</strong> <a href="mailto:dpo@kaoinai.com" className="text-purple-700 font-bold hover:underline">dpo@kaoinai.com</a></p>
+              <p><strong>Primary DPO Email:</strong> <a href="mailto:tk.ng@kaoinai.com" className="text-teal-700 font-bold hover:underline">tk.ng@kaoinai.com</a></p>
+              <p><strong>Secondary DPO Mailbox:</strong> <a href="mailto:dpo@kaoinai.com" className="text-teal-700 font-bold hover:underline">dpo@kaoinai.com</a></p>
             </div>
-            <div className="space-y-1.5 p-4 rounded-xl bg-white border border-purple-100 shadow-2xs">
+            <div className="space-y-1.5 p-4 rounded-xl bg-white border border-teal-100 shadow-2xs">
               <p><strong>Entity Name:</strong> KaoinAI Pte. Ltd.</p>
               <p><strong>Operating Regions:</strong> Singapore &amp; Malaysia</p>
               <p><strong>Statutory Authority:</strong> Personal Data Protection Commission (PDPC) Singapore</p>
-              <p><strong>PDPC Complaints Portal:</strong> <a href="https://www.pdpc.gov.sg" target="_blank" rel="noopener noreferrer" className="text-purple-700 hover:underline">pdpc.gov.sg</a></p>
+              <p><strong>PDPC Complaints Portal:</strong> <a href="https://www.pdpc.gov.sg" target="_blank" rel="noopener noreferrer" className="text-teal-700 hover:underline">pdpc.gov.sg</a></p>
             </div>
           </div>
         </section>

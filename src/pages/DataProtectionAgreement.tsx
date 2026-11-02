@@ -38,7 +38,7 @@ export default function DataProtectionAgreement() {
       <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
         <Link 
           to="/privacy" 
-          className="inline-flex items-center gap-2 text-sm font-medium text-purple-700 hover:text-purple-900 transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-medium text-teal-700 hover:text-teal-900 transition-colors"
         >
           <ArrowLeft size={16} />
           Back to Privacy Policy
@@ -49,7 +49,7 @@ export default function DataProtectionAgreement() {
             variant="outline"
             size="sm"
             onClick={handleCopy}
-            className="text-xs border-purple-200 text-purple-800 hover:bg-purple-50"
+            className="text-xs border-teal-200 text-teal-800 hover:bg-teal-50"
           >
             {copied ? (
               <>
@@ -98,14 +98,14 @@ export default function DataProtectionAgreement() {
       </div>
 
       {/* Official DPO Appointment Card */}
-      <div className="bg-gradient-to-r from-purple-50 via-white to-purple-50 rounded-2xl border-2 border-purple-200 p-6 sm:p-7 mb-10 shadow-xs">
+      <div className="bg-gradient-to-r from-teal-50 via-white to-teal-50 rounded-2xl border-2 border-teal-200 p-6 sm:p-7 mb-10 shadow-xs">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-start gap-3.5">
-            <div className="w-12 h-12 rounded-xl bg-purple-600 text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5 sm:mt-0">
+            <div className="w-12 h-12 rounded-xl bg-teal-600 text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5 sm:mt-0">
               <UserCheck size={22} />
             </div>
             <div>
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-purple-700 bg-purple-100/70 px-2.5 py-0.5 rounded-full mb-1">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-100/70 px-2.5 py-0.5 rounded-full mb-1">
                 <span>Statutory DPO Designation • Section 11(3) PDPA</span>
               </div>
               <h3 className="text-base sm:text-lg font-bold text-slate-950">
@@ -119,7 +119,7 @@ export default function DataProtectionAgreement() {
           <div className="shrink-0 flex flex-col sm:items-end gap-1 text-xs">
             <a 
               href="mailto:tk.ng@kaoinai.com"
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold transition-colors"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold transition-colors"
             >
               <Mail size={14} />
               <span>Contact DPO: tk.ng@kaoinai.com</span>
@@ -134,21 +134,21 @@ export default function DataProtectionAgreement() {
         {/* Parties */}
         <section className="border-b border-slate-100 pb-6">
           <h2 className="text-lg font-bold text-slate-950 mb-3 flex items-center gap-2">
-            <Building2 size={18} className="text-purple-600" />
+            <Building2 size={18} className="text-teal-600" />
             Parties to this Agreement
           </h2>
           <div className="grid sm:grid-cols-2 gap-4 text-xs">
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-              <span className="text-[11px] font-mono text-purple-700 uppercase font-bold block mb-1">
+              <span className="text-[11px] font-mono text-teal-700 uppercase font-bold block mb-1">
                 Data Intermediary (Service Provider)
               </span>
               <p className="font-bold text-slate-900 text-sm">KaoinAI Pte. Ltd.</p>
               <p className="text-slate-600 mt-1">Incorporated in the Republic of Singapore</p>
-              <p className="text-slate-600">Company DPO: <strong>Ng Tat Keong</strong> (<a href="mailto:tk.ng@kaoinai.com" className="text-purple-600 hover:underline">tk.ng@kaoinai.com</a>)</p>
+              <p className="text-slate-600">Company DPO: <strong>Ng Tat Keong</strong> (<a href="mailto:tk.ng@kaoinai.com" className="text-teal-700 hover:underline">tk.ng@kaoinai.com</a>)</p>
               <p className="text-slate-600">Operational Hubs: Singapore &amp; Kuala Lumpur</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-              <span className="text-[11px] font-mono text-purple-700 uppercase font-bold block mb-1">
+              <span className="text-[11px] font-mono text-teal-700 uppercase font-bold block mb-1">
                 Organization (Data Controller)
               </span>
               <p className="font-bold text-slate-900 text-sm">The Customer</p>
@@ -239,7 +239,7 @@ export default function DataProtectionAgreement() {
               <li>Description of the nature of the breach, including affected system nodes and timestamps.</li>
               <li>Estimated number of records or data subjects potentially impacted.</li>
               <li>Root-cause technical diagnosis and immediate remedial containment actions taken.</li>
-              <li>Direct point of contact for the incident: DPO Ng Tat Keong (<a href="mailto:tk.ng@kaoinai.com" className="text-purple-600 hover:underline">tk.ng@kaoinai.com</a>).</li>
+              <li>Direct point of contact for the incident: DPO Ng Tat Keong (<a href="mailto:tk.ng@kaoinai.com" className="text-teal-700 hover:underline">tk.ng@kaoinai.com</a>).</li>
             </ul>
           </div>
         </section>
@@ -254,9 +254,9 @@ export default function DataProtectionAgreement() {
         </section>
 
         {/* Section 6: Data Protection Officer & Governance Desk */}
-        <section className="bg-purple-50/70 p-5 rounded-xl border border-purple-200">
+        <section className="bg-teal-50/70 p-5 rounded-xl border border-teal-200">
           <h2 className="text-base font-bold text-slate-950 mb-2 flex items-center gap-2">
-            <Lock size={16} className="text-purple-700" />
+            <Lock size={16} className="text-teal-700" />
             6. Statutory DPO Appointment &amp; Inquiries
           </h2>
           <p className="text-xs text-slate-600 mb-3">
@@ -265,8 +265,8 @@ export default function DataProtectionAgreement() {
           <div className="text-xs text-slate-800 space-y-1.5 font-sans">
             <p><strong>Designated DPO:</strong> Ng Tat Keong</p>
             <p><strong>Corporate Title:</strong> Data Protection Officer &amp; Principal Solutions Architect</p>
-            <p><strong>Direct Inquiries Email:</strong> <a href="mailto:tk.ng@kaoinai.com" className="text-purple-700 font-bold hover:underline">tk.ng@kaoinai.com</a></p>
-            <p><strong>Statutory DPO Mailbox:</strong> <a href="mailto:dpo@kaoinai.com" className="text-purple-700 font-bold hover:underline">dpo@kaoinai.com</a></p>
+            <p><strong>Direct Inquiries Email:</strong> <a href="mailto:tk.ng@kaoinai.com" className="text-teal-700 font-bold hover:underline">tk.ng@kaoinai.com</a></p>
+            <p><strong>Statutory DPO Mailbox:</strong> <a href="mailto:dpo@kaoinai.com" className="text-teal-700 font-bold hover:underline">dpo@kaoinai.com</a></p>
             <p><strong>Organization:</strong> KaoinAI Pte. Ltd. (Singapore &amp; Malaysia)</p>
           </div>
         </section>
@@ -284,7 +284,7 @@ export default function DataProtectionAgreement() {
           <div className="grid sm:grid-cols-2 gap-6 text-xs text-slate-600">
             <div>
               <p className="font-bold text-slate-900 mb-1">For and on behalf of KaoinAI Pte. Ltd.:</p>
-              <p className="font-semibold text-purple-900">Ng Tat Keong</p>
+              <p className="font-semibold text-teal-900">Ng Tat Keong</p>
               <p>Data Protection Officer (DPO)</p>
               <p className="font-mono text-[11px] text-slate-500">Authorized Signatory • PDPA Compliance</p>
             </div>
@@ -305,7 +305,7 @@ export default function DataProtectionAgreement() {
         <div className="flex flex-wrap items-center justify-center gap-3">
           <a
             href="mailto:tk.ng@kaoinai.com?subject=Enterprise%20PDPA%20DPA%20Countersignature%20Request"
-            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold shadow-xs transition-colors"
+            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold shadow-xs transition-colors"
           >
             <Mail size={14} />
             <span>Request Custom Countersigned DPA from TK Ng</span>

@@ -388,7 +388,7 @@ Host Direct Email: tk.ng@kaoinai.com`
         <div className="mb-6 sm:mb-8">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-[#5b2d6e] transition-colors group"
+            className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-[#0f766e] transition-colors group"
           >
             <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
             Back to Home
@@ -397,7 +397,7 @@ Host Direct Email: tk.ng@kaoinai.com`
 
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-purple-50 border border-purple-100 text-[#5b2d6e] text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-teal-50 border border-teal-100 text-[#0f766e] text-xs sm:text-sm font-medium mb-3 sm:mb-4">
             <Headphones size={16} />
             <span>Get in Touch with Our Team</span>
           </div>
@@ -414,15 +414,15 @@ Host Direct Email: tk.ng@kaoinai.com`
           {/* Left Column: Direct Channels (Host Card, WhatsApp & Contact Cards) */}
           <div className="lg:col-span-5 space-y-5 sm:space-y-6">
             {/* TK Ng Host Profile Card */}
-            <div className="bg-white rounded-3xl p-5 sm:p-7 border border-purple-200/80 shadow-md relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-100/50 rounded-full blur-2xl -mr-8 -mt-8 pointer-events-none" />
+            <div className="bg-white rounded-3xl p-5 sm:p-7 border border-teal-200/80 shadow-md relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-teal-100/50 rounded-full blur-2xl -mr-8 -mt-8 pointer-events-none" />
               
               <div className="flex items-start gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#5b2d6e] to-[#8d448b] text-white flex items-center justify-center font-extrabold text-xl shadow-md shrink-0 ring-4 ring-purple-50">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0f766e] to-[#115e59] text-white flex items-center justify-center font-extrabold text-xl shadow-md shrink-0 ring-4 ring-teal-50">
                   TK
                 </div>
                 <div className="min-w-0">
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-purple-50 text-[#5b2d6e] text-[11px] font-bold mb-1 border border-purple-100">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-teal-50 text-[#0f766e] text-[11px] font-bold mb-1 border border-teal-100">
                     <UserCheck size={12} />
                     <span>Direct Architecture Host</span>
                   </div>
@@ -433,30 +433,30 @@ Host Direct Email: tk.ng@kaoinai.com`
 
               <div className="mt-4 pt-3.5 border-t border-gray-100 space-y-2.5 text-xs text-gray-600">
                 <div className="flex items-center gap-2">
-                  <Mail size={14} className="text-[#5b2d6e] shrink-0" />
-                  <a href="mailto:tk.ng@kaoinai.com" className="font-semibold text-gray-900 hover:text-[#5b2d6e] transition-colors underline decoration-purple-200">
+                  <Mail size={14} className="text-[#0f766e] shrink-0" />
+                  <a href="mailto:tk.ng@kaoinai.com" className="font-semibold text-gray-900 hover:text-[#0f766e] transition-colors underline decoration-teal-200">
                     tk.ng@kaoinai.com
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Clock size={14} className="text-[#5b2d6e] shrink-0" />
+                  <Clock size={14} className="text-[#0f766e] shrink-0" />
                   <span>Singapore / Malaysia Time (SGT, UTC+8)</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Video size={14} className="text-[#5b2d6e] shrink-0" />
+                  <Video size={14} className="text-[#0f766e] shrink-0" />
                   <span>Google Meet / Calendar 1-Click Sync</span>
                 </div>
               </div>
 
-              <p className="text-xs text-gray-600 mt-4 leading-relaxed bg-purple-50/50 p-3 rounded-xl border border-purple-100/60">
-                "Direct calendar consultations with zero sales fluff. We'll examine your data sources, assess zero-ingestion architecture, and map out your PDPA/RoPA timeline."
+              <p className="text-xs text-gray-600 mt-4 leading-relaxed bg-teal-50/50 p-3 rounded-xl border border-teal-100/60">
+                "Direct calendar consultations with no sales pressure. We'll examine your data sources, assess the read-only architecture, and map out your PDPA/RoPA timeline."
               </p>
 
               <div className="mt-4 pt-3 flex items-center justify-between">
                 <button
                   type="button"
                   onClick={() => setActiveTab('calendar')}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#5b2d6e] hover:underline"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0f766e] hover:underline"
                 >
                   <CalendarCheck size={14} />
                   <span>Book Free Session</span>
@@ -525,46 +525,46 @@ Host Direct Email: tk.ng@kaoinai.com`
 
               <div className="space-y-3.5">
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-purple-50 text-[#5b2d6e] flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-8 h-8 rounded-lg bg-teal-50 text-[#0f766e] flex items-center justify-center shrink-0 mt-0.5">
                     <Mail size={16} />
                   </div>
                   <div>
                     <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider block">General &amp; Technical Support</span>
-                    <a href="mailto:hello@kaoinai.com" className="text-xs font-medium text-gray-900 hover:text-[#5b2d6e] transition-colors">
+                    <a href="mailto:hello@kaoinai.com" className="text-xs font-medium text-gray-900 hover:text-[#0f766e] transition-colors">
                       hello@kaoinai.com
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-purple-50 text-[#5b2d6e] flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-8 h-8 rounded-lg bg-teal-50 text-[#0f766e] flex items-center justify-center shrink-0 mt-0.5">
                     <UserCheck size={16} />
                   </div>
                   <div>
                     <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider block">Data Protection Officer (DPO)</span>
-                    <a href="mailto:tk.ng@kaoinai.com" className="text-xs font-semibold text-purple-950 hover:text-[#5b2d6e] transition-colors block">
+                    <a href="mailto:tk.ng@kaoinai.com" className="text-xs font-semibold text-teal-950 hover:text-[#0f766e] transition-colors block">
                       Ng Tat Keong &bull; tk.ng@kaoinai.com
                     </a>
                     <span className="text-[10px] text-gray-500 block">
-                      Statutory PDPA Notices, DSAR &amp; <Link to="/dpa" className="text-purple-600 underline font-medium">PDPA Agreement</Link>
+                      Statutory PDPA Notices, DSAR &amp; <Link to="/dpa" className="text-teal-700 underline font-medium">PDPA Agreement</Link>
                     </span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-purple-50 text-[#5b2d6e] flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-8 h-8 rounded-lg bg-teal-50 text-[#0f766e] flex items-center justify-center shrink-0 mt-0.5">
                     <Building2 size={16} />
                   </div>
                   <div>
                     <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider block">ERP &amp; Channel Partnerships</span>
-                    <a href="mailto:partners@kaoinai.com" className="text-xs font-medium text-gray-900 hover:text-[#5b2d6e] transition-colors">
+                    <a href="mailto:partners@kaoinai.com" className="text-xs font-medium text-gray-900 hover:text-[#0f766e] transition-colors">
                       partners@kaoinai.com
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-purple-50 text-[#5b2d6e] flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-8 h-8 rounded-lg bg-teal-50 text-[#0f766e] flex items-center justify-center shrink-0 mt-0.5">
                     <MapPin size={16} />
                   </div>
                   <div>
@@ -592,13 +592,13 @@ Host Direct Email: tk.ng@kaoinai.com`
                 onClick={() => setActiveTab('calendar')}
                 className={`flex-1 flex items-center justify-center gap-2 py-3 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                   activeTab === 'calendar'
-                    ? 'bg-white text-[#5b2d6e] shadow-sm ring-1 ring-black/5'
+                    ? 'bg-white text-[#0f766e] shadow-sm ring-1 ring-black/5'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
-                <Calendar size={16} className={activeTab === 'calendar' ? 'text-[#5b2d6e]' : 'text-gray-500'} />
+                <Calendar size={16} className={activeTab === 'calendar' ? 'text-[#0f766e]' : 'text-gray-500'} />
                 <span>Book 1-on-1 with TK</span>
-                <span className="hidden sm:inline-flex px-2 py-0.5 rounded-full text-[10px] bg-purple-100 text-[#5b2d6e] font-semibold">
+                <span className="hidden sm:inline-flex px-2 py-0.5 rounded-full text-[10px] bg-teal-100 text-[#0f766e] font-semibold">
                   Google Calendar
                 </span>
               </button>
@@ -608,11 +608,11 @@ Host Direct Email: tk.ng@kaoinai.com`
                 onClick={() => setActiveTab('inquiry')}
                 className={`flex-1 flex items-center justify-center gap-2 py-3 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                   activeTab === 'inquiry'
-                    ? 'bg-white text-[#5b2d6e] shadow-sm ring-1 ring-black/5'
+                    ? 'bg-white text-[#0f766e] shadow-sm ring-1 ring-black/5'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
-                <Mail size={16} className={activeTab === 'inquiry' ? 'text-[#5b2d6e]' : 'text-gray-500'} />
+                <Mail size={16} className={activeTab === 'inquiry' ? 'text-[#0f766e]' : 'text-gray-500'} />
                 <span>Send General Inquiry</span>
               </button>
             </div>
@@ -624,12 +624,12 @@ Host Direct Email: tk.ng@kaoinai.com`
                   <div className="space-y-6 animate-fade-in">
                     {/* Header Status */}
                     <div className="flex items-center gap-3.5 pb-4 border-b border-gray-100">
-                      <div className="w-12 h-12 rounded-2xl bg-purple-100 text-[#5b2d6e] flex items-center justify-center shrink-0 shadow-sm">
+                      <div className="w-12 h-12 rounded-2xl bg-teal-100 text-[#0f766e] flex items-center justify-center shrink-0 shadow-sm">
                         <CalendarCheck size={28} />
                       </div>
                       <div>
-                        <div className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-700 uppercase tracking-wider">
-                          <span className="w-2 h-2 rounded-full bg-purple-600 animate-pulse" />
+                        <div className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-700 uppercase tracking-wider">
+                          <span className="w-2 h-2 rounded-full bg-teal-600 animate-pulse" />
                           Google Calendar Invite Generated
                         </div>
                         <h2 className="text-xl sm:text-2xl font-extrabold text-gray-900 mt-0.5">
@@ -645,14 +645,14 @@ Host Direct Email: tk.ng@kaoinai.com`
                           <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block">
                             Booking Reference ID
                           </span>
-                          <span className="text-lg sm:text-xl font-mono font-extrabold text-[#5b2d6e]">
+                          <span className="text-lg sm:text-xl font-mono font-extrabold text-[#0f766e]">
                             {bookingRefId}
                           </span>
                         </div>
                         <button
                           type="button"
                           onClick={handleCopyBookingRef}
-                          className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-gray-200 hover:border-purple-300 text-xs font-semibold text-gray-700 hover:text-[#5b2d6e] shadow-xs active:scale-95 transition-all self-start sm:self-auto"
+                          className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-gray-200 hover:border-teal-300 text-xs font-semibold text-gray-700 hover:text-[#0f766e] shadow-xs active:scale-95 transition-all self-start sm:self-auto"
                         >
                           {bookingCopied ? (
                             <>
@@ -676,7 +676,7 @@ Host Direct Email: tk.ng@kaoinai.com`
                         </div>
                         <div>
                           <span className="text-gray-400 block font-medium">Session Duration</span>
-                          <span className="font-semibold text-purple-800">{selectedDuration} Minutes Consultation</span>
+                          <span className="font-semibold text-teal-800">{selectedDuration} Minutes Consultation</span>
                         </div>
                         <div>
                           <span className="text-gray-400 block font-medium">Scheduled Date &amp; Time</span>
@@ -749,7 +749,7 @@ Host Direct Email: tk.ng@kaoinai.com`
                 ) : (
                   <form onSubmit={handleBookingSubmit} className="space-y-6">
                     <div>
-                      <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-purple-50 text-[#5b2d6e] text-xs font-bold mb-2">
+                      <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-teal-50 text-[#0f766e] text-xs font-bold mb-2">
                         <Sparkles size={13} />
                         <span>Direct Host: TK Ng &bull; tk.ng@kaoinai.com</span>
                       </div>
@@ -773,12 +773,12 @@ Host Direct Email: tk.ng@kaoinai.com`
                             onClick={() => setSelectedDuration(dur.minutes)}
                             className={`p-3 rounded-xl border text-left transition-all relative ${
                               selectedDuration === dur.minutes
-                                ? 'border-[#5b2d6e] bg-purple-50/70 shadow-xs ring-2 ring-[#5b2d6e]/20'
+                                ? 'border-[#0f766e] bg-teal-50/70 shadow-xs ring-2 ring-[#0f766e]/20'
                                 : 'border-gray-200 bg-white hover:border-gray-300'
                             }`}
                           >
                             {dur.recommended && (
-                              <span className="absolute -top-2 right-2 px-1.5 py-0.5 rounded-full bg-[#5b2d6e] text-white text-[9px] font-bold">
+                              <span className="absolute -top-2 right-2 px-1.5 py-0.5 rounded-full bg-[#0f766e] text-white text-[9px] font-bold">
                                 Recommended
                               </span>
                             )}
@@ -806,8 +806,8 @@ Host Direct Email: tk.ng@kaoinai.com`
                             onClick={() => setSelectedDate(day.dateStr)}
                             className={`py-2.5 px-2 rounded-xl border text-center transition-all ${
                               selectedDate === day.dateStr
-                                ? 'border-[#5b2d6e] bg-[#5b2d6e] text-white font-bold shadow-xs'
-                                : 'border-gray-200 bg-white text-gray-700 hover:border-purple-200 hover:bg-purple-50/30 text-xs font-medium'
+                                ? 'border-[#0f766e] bg-[#0f766e] text-white font-bold shadow-xs'
+                                : 'border-gray-200 bg-white text-gray-700 hover:border-teal-200 hover:bg-teal-50/30 text-xs font-medium'
                             }`}
                           >
                             <span className="block text-[11px] leading-tight">{day.label}</span>
@@ -838,7 +838,7 @@ Host Direct Email: tk.ng@kaoinai.com`
                           href="https://calendar.google.com/calendar/u/0/r?add=tk.ng@kaoinai.com"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-[11px] text-[#5b2d6e] font-semibold hover:underline"
+                          className="inline-flex items-center gap-1 text-[11px] text-[#0f766e] font-semibold hover:underline"
                         >
                           <span>Check TK's Schedule</span>
                           <ExternalLink size={10} />
@@ -853,8 +853,8 @@ Host Direct Email: tk.ng@kaoinai.com`
                             onClick={() => setSelectedTime(slot.time)}
                             className={`py-2 px-1 rounded-xl border text-center transition-all ${
                               selectedTime === slot.time
-                                ? 'border-[#5b2d6e] bg-[#5b2d6e] text-white font-bold shadow-xs'
-                                : 'border-gray-200 bg-white text-gray-700 hover:border-purple-200 hover:bg-purple-50/30 text-xs font-medium'
+                                ? 'border-[#0f766e] bg-[#0f766e] text-white font-bold shadow-xs'
+                                : 'border-gray-200 bg-white text-gray-700 hover:border-teal-200 hover:bg-teal-50/30 text-xs font-medium'
                             }`}
                           >
                             <span className="block text-xs">{slot.label}</span>
@@ -922,16 +922,13 @@ Host Direct Email: tk.ng@kaoinai.com`
                         <select
                           value={bookingTopic}
                           onChange={(e) => setBookingTopic(e.target.value)}
-                          className="w-full h-11 sm:h-10 px-3 py-2 text-base sm:text-sm bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 text-gray-800"
+                          className="w-full h-11 sm:h-10 px-3 py-2 text-base sm:text-sm bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-400 text-gray-800"
                         >
                           <option value="Data Governance & RoPA / Data Inventory Pilot">
                             Data Governance &amp; RoPA / Data Inventory Pilot (SG / MY / ID)
                           </option>
                           <option value="Automated PII Scanning & Masking Demo">
                             Automated PII Scanning, Discovery &amp; Masking Demo
-                          </option>
-                          <option value="$0 Founding Customer Cohort (First 3 Only)">
-                            $0 Founding Customer Pilot Cohort (First 3 Customers Only)
                           </option>
                           <option value="ERP & Enterprise Connectors (SAP / NetSuite / Postgres)">
                             ERP &amp; Database Connectors (SAP, NetSuite, PostgreSQL, Snowflake)
@@ -1008,14 +1005,14 @@ Host Direct Email: tk.ng@kaoinai.com`
                           <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block">
                             Reference Tracking ID
                           </span>
-                          <span className="text-lg sm:text-xl font-mono font-extrabold text-[#5b2d6e]">
+                          <span className="text-lg sm:text-xl font-mono font-extrabold text-[#0f766e]">
                             {referenceId}
                           </span>
                         </div>
                         <button
                           type="button"
                           onClick={handleCopyRef}
-                          className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-gray-200 hover:border-purple-300 text-xs font-semibold text-gray-700 hover:text-[#5b2d6e] shadow-xs active:scale-95 transition-all self-start sm:self-auto"
+                          className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-gray-200 hover:border-teal-300 text-xs font-semibold text-gray-700 hover:text-[#0f766e] shadow-xs active:scale-95 transition-all self-start sm:self-auto"
                         >
                           {copied ? (
                             <>
@@ -1059,7 +1056,7 @@ Host Direct Email: tk.ng@kaoinai.com`
                           <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">
                             Inquiry Topic
                           </span>
-                          <span className="px-2 py-0.5 rounded-md bg-purple-100/70 text-[#5b2d6e] font-semibold text-[11px]">
+                          <span className="px-2 py-0.5 rounded-md bg-teal-100/70 text-[#0f766e] font-semibold text-[11px]">
                             {inquiryType}
                           </span>
                         </div>
@@ -1070,8 +1067,8 @@ Host Direct Email: tk.ng@kaoinai.com`
                     </div>
 
                     {/* Guaranteed Response Notice */}
-                    <div className="flex items-center gap-2.5 px-4 py-3 bg-purple-50/80 border border-purple-100 rounded-xl text-xs text-purple-900">
-                      <ShieldCheck size={18} className="text-[#5b2d6e] shrink-0" />
+                    <div className="flex items-center gap-2.5 px-4 py-3 bg-teal-50/80 border border-teal-100 rounded-xl text-xs text-teal-900">
+                      <ShieldCheck size={18} className="text-[#0f766e] shrink-0" />
                       <span>
                         A notification copy has been transmitted directly to TK Ng (<strong>tk.ng@kaoinai.com</strong>). We will review your data requirements and respond directly to <strong>{email}</strong>.
                       </span>
@@ -1174,13 +1171,13 @@ Host Direct Email: tk.ng@kaoinai.com`
                       <select
                         value={inquiryType}
                         onChange={(e) => setInquiryType(e.target.value)}
-                        className="w-full h-11 sm:h-10 px-3 py-2 text-base sm:text-sm bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent text-gray-800"
+                        className="w-full h-11 sm:h-10 px-3 py-2 text-base sm:text-sm bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent text-gray-800"
                       >
                         <option value="Data Governance & Compliance">Data Governance &amp; Compliance (PDPA/GDPR)</option>
                         <option value="Automated PII Detection">Automated PII Scanning &amp; Masking</option>
                         <option value="Data Quality & MDM">Data Quality Monitoring &amp; Golden Records</option>
                         <option value="ERP & Warehouse Connectors">ERP / Database Connectors &amp; Setup</option>
-                        <option value="Pricing & Enterprise Pilot">Pricing &amp; $0 Founding Customer Cohort (First 3 Only)</option>
+                        <option value="Pricing">Pricing</option>
                         <option value="Other">Other / General Question</option>
                       </select>
                     </div>

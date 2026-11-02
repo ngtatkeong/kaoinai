@@ -1,3 +1,4 @@
+import ModelView from '@/components/ModelView'
 import { Database, Server, Cloud, Layers } from 'lucide-react'
 
 const integrations = [
@@ -19,8 +20,13 @@ export default function Integrations() {
   return (
     <section className="py-20 sm:py-28 bg-white/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-6">
+          <div className="mx-auto w-full max-w-2xl">
+            <ModelView src="/models/hub.glb" alt="Four source systems (PostgreSQL, Snowflake, NetSuite, BigQuery) linked to the KaoinAI core" height={320} orbit="-35deg 70deg 6.2m" orbitMobile="-35deg 70deg 11.5m" hotspots={[{ position: "-1.4m 0.5m -1.3m", text: "Postgres" }, { position: "1.4m 0.5m -1.3m", text: "Snowflake" }, { position: "-1.4m 0.5m 1.3m", text: "NetSuite" }, { position: "1.4m 0.5m 1.3m", text: "BigQuery" }]} />
+          </div>
+        </div>
         <div className="text-center mb-12 sm:mb-16">
-          <p className="text-xs font-semibold uppercase tracking-wider text-purple-700">
+          <p className="text-xs font-semibold uppercase tracking-wider text-blue-700">
             Frictionless Connectivity
           </p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mt-3">
@@ -35,9 +41,9 @@ export default function Integrations() {
           {integrations.map((item, idx) => (
             <div
               key={idx}
-              className="flex flex-col items-center justify-center p-5 sm:p-6 rounded-2xl border border-gray-100 bg-gray-50/60 hover:bg-white hover:border-purple-200 hover:shadow-lg transition-all group"
+              className="flex flex-col items-center justify-center p-5 sm:p-6 rounded-2xl border border-gray-100 bg-gray-50/60 hover:bg-white hover:border-blue-200 hover:shadow-lg transition-all group"
             >
-              <div className="w-12 h-12 rounded-xl bg-white shadow-xs flex items-center justify-center mb-3 text-[#5b2d6e] group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 rounded-xl bg-white shadow-xs flex items-center justify-center mb-3 text-[#1d4ed8] group-hover:scale-110 transition-transform">
                 <item.icon size={22} />
               </div>
               <span className="text-sm font-bold text-gray-800 text-center">{item.name}</span>
@@ -49,11 +55,11 @@ export default function Integrations() {
         <div className="mt-12 flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-xs text-gray-500">
           <span className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-green-500" />
-            Zero Data Ingestion / Read-Only Metadata
+            Read-only metadata access
           </span>
           <span className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-green-500" />
-            TLS 1.3 & AES-256 Encryption
+            Encryption in transit (TLS)
           </span>
           <span className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-green-500" />

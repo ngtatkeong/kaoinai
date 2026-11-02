@@ -8,7 +8,7 @@ export default function TermsOfService() {
       <div className="mb-8">
         <Link 
           to="/" 
-          className="inline-flex items-center gap-2 text-sm font-medium text-purple-700 hover:text-purple-900 transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-medium text-teal-700 hover:text-teal-900 transition-colors"
         >
           <ArrowLeft size={16} />
           Back to Home
@@ -17,7 +17,7 @@ export default function TermsOfService() {
 
       {/* Header */}
       <div className="border-b border-slate-200 pb-8 mb-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200 text-[#5b2d6e] text-xs font-semibold mb-4">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-[#0f766e] text-xs font-semibold mb-4">
           <Scale size={14} />
           <span>Enterprise SaaS Agreement • Singapore Commercial Law</span>
         </div>
@@ -32,11 +32,11 @@ export default function TermsOfService() {
       {/* Core Principle Callout */}
       <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 mb-12">
         <h2 className="text-base font-bold text-slate-950 mb-3 flex items-center gap-2">
-          <Shield size={18} className="text-purple-600" />
+          <Shield size={18} className="text-teal-600" />
           Enterprise Data Ownership &amp; IP Protection
         </h2>
         <p className="text-sm text-slate-700 leading-relaxed">
-          You retain 100% ownership, title, and intellectual property rights over your databases, schemas, queries, metadata, and generated compliance records. KaoinAI asserts zero ownership over your proprietary information and never trains foundational public AI models on your private schema metadata.
+          You keep ownership, title, and intellectual property rights over your databases, schemas, queries, metadata, and generated compliance records. KaoinAI does not claim ownership of your proprietary information and does not use your private schema metadata to train public AI models.
         </p>
       </div>
 
@@ -87,8 +87,7 @@ export default function TermsOfService() {
             4. Service Level Agreement (SLA)
           </h2>
           <p>
-            For Enterprise Tier customers, KaoinAI commits to a <strong>99.9% monthly service uptime</strong> for our cloud metadata mesh and API services, excluding scheduled maintenance windows announced at least 48 hours in advance. For air-gapped on-premises deployments, uptime is maintained under the client&apos;s infrastructure governance.
-          </p>
+            Any uptime commitment is set out in your written agreement with us.</p>
         </section>
 
         <section>
@@ -96,29 +95,29 @@ export default function TermsOfService() {
             5. Confidentiality &amp; Security Standards
           </h2>
           <p>
-            Each party agrees to safeguard the confidential information of the other with the same degree of care it exercises with its own proprietary materials (at least reasonable care). KaoinAI maintains organizational and technical security measures aligned with SOC 2 Type II and ISO/IEC 27001, including mandatory TLS 1.3 encryption, automated vulnerability patching, and strict role-based access.
+            Each party agrees to safeguard the confidential information of the other with the same degree of care it exercises with its own proprietary materials (at least reasonable care). KaoinAI uses security measures including encryption in transit and role-based access controls.3 encryption, automated vulnerability patching, and strict role-based access.
           </p>
         </section>
 
-        <section className="bg-purple-50/60 rounded-2xl p-6 border border-purple-200">
-          <h2 className="text-xl font-bold text-purple-950 mb-3 flex items-center gap-2">
-            <Shield size={20} className="text-purple-700" />
+        <section className="bg-teal-50/60 rounded-2xl p-6 border border-teal-200">
+          <h2 className="text-xl font-bold text-teal-950 mb-3 flex items-center gap-2">
+            <Shield size={20} className="text-teal-700" />
             6. Personal Data Protection &amp; Singapore PDPA Compliance
           </h2>
-          <p className="text-sm text-purple-950/80 mb-3 leading-relaxed">
-            Where KaoinAI processes personal data on behalf of Customer in connection with the Services, KaoinAI acts as a <strong>Data Intermediary</strong> under Section 4(2) of the Singapore Personal Data Protection Act 2012 (PDPA). Customer and KaoinAI agree to be bound by the terms of our standard <Link to="/dpa" className="font-semibold text-purple-700 underline underline-offset-2 hover:text-purple-900">PDPA Data Protection Agreement (DPA)</Link>, which is incorporated herein by reference.
+          <p className="text-sm text-teal-950/80 mb-3 leading-relaxed">
+            Where KaoinAI processes personal data on behalf of Customer in connection with the Services, KaoinAI acts as a <strong>Data Intermediary</strong> under Section 4(2) of the Singapore Personal Data Protection Act 2012 (PDPA). Customer and KaoinAI agree to be bound by the terms of our standard <Link to="/dpa" className="font-semibold text-teal-700 underline underline-offset-2 hover:text-teal-900">PDPA Data Protection Agreement (DPA)</Link>, which is incorporated herein by reference.
           </p>
-          <div className="bg-white rounded-xl p-4 border border-purple-200 text-xs text-purple-900/80 space-y-1.5">
+          <div className="bg-white rounded-xl p-4 border border-teal-200 text-xs text-teal-900/80 space-y-1.5">
             <div>
-              <strong className="text-purple-950">Statutory Data Protection Officer (DPO):</strong> Ng Tat Keong
+              <strong className="text-teal-950">Statutory Data Protection Officer (DPO):</strong> Ng Tat Keong
             </div>
             <div>
               <strong>DPO Direct Email:</strong>{' '}
-              <a href="mailto:tk.ng@kaoinai.com" className="text-purple-700 underline font-medium">tk.ng@kaoinai.com</a>
+              <a href="mailto:tk.ng@kaoinai.com" className="text-teal-700 underline font-medium">tk.ng@kaoinai.com</a>
               {' '}&bull;{' '}
-              <a href="mailto:dpo@kaoinai.com" className="text-purple-700 underline font-medium">dpo@kaoinai.com</a>
+              <a href="mailto:dpo@kaoinai.com" className="text-teal-700 underline font-medium">dpo@kaoinai.com</a>
             </div>
-            <div className="text-[11px] text-purple-800/70 pt-1">
+            <div className="text-[11px] text-teal-800/70 pt-1">
               Appointed pursuant to Section 11(3) of the Singapore PDPA 2012 for all data subject access/correction requests (DSAR) and regulatory compliance notices.
             </div>
           </div>
@@ -150,7 +149,7 @@ export default function TermsOfService() {
             For formal legal notices, service of process, or inquiries concerning these Terms:
           </p>
           <p className="text-xs text-slate-800">
-            <strong>Legal Counsel &amp; DPO:</strong> KaoinAI Pte. Ltd. • <a href="mailto:legal@kaoinai.com" className="text-purple-600 hover:underline">legal@kaoinai.com</a> / <a href="mailto:tk.ng@kaoinai.com" className="text-purple-600 hover:underline">tk.ng@kaoinai.com</a> (Attn: Ng Tat Keong, DPO)
+            <strong>Legal Counsel &amp; DPO:</strong> KaoinAI Pte. Ltd. • <a href="mailto:legal@kaoinai.com" className="text-teal-700 hover:underline">legal@kaoinai.com</a> / <a href="mailto:tk.ng@kaoinai.com" className="text-teal-600 hover:underline">tk.ng@kaoinai.com</a> (Attn: Ng Tat Keong, DPO)
           </p>
         </section>
       </div>

@@ -9,7 +9,7 @@ export default function SecurityOverview() {
       <div className="mb-8">
         <Link 
           to="/" 
-          className="inline-flex items-center gap-2 text-sm font-medium text-purple-700 hover:text-purple-900 transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-medium text-teal-700 hover:text-teal-900 transition-colors"
         >
           <ArrowLeft size={16} />
           Back to Home
@@ -26,49 +26,49 @@ export default function SecurityOverview() {
           Security &amp; Compliance Whitepaper
         </h1>
         <p className="text-base text-slate-600">
-          How KaoinAI protects enterprise database metadata without replicating raw production data. Built for SOC 2 Type II, ISO 27001, Singapore PDPA, and MAS TRM compliance.
+          How KaoinAI handles your database structure and personal-data records, built around the PDPA record-keeping duties in Singapore, Malaysia and Indonesia.
         </p>
       </div>
 
       {/* Core Architectural Pillars Grid */}
       <div className="grid sm:grid-cols-2 gap-4 mb-12">
-        <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-purple-300 transition-colors">
-          <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center mb-4">
+        <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-teal-300 transition-colors">
+          <div className="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mb-4">
             <Lock size={20} />
           </div>
           <h2 className="text-base font-bold text-slate-950 mb-2">Read-Only Metadata Mesh</h2>
           <p className="text-xs text-slate-600 leading-relaxed">
-            KaoinAI connects using read-only database credentials restricted to system catalogs. We scan column definitions and statistics—raw database rows never leave your perimeter.
+            KaoinAI connects using read-only database credentials restricted to system catalogs. KaoinAI is designed to read column definitions and statistics, not customer rows.
           </p>
         </div>
 
-        <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-purple-300 transition-colors">
-          <div className="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center mb-4">
+        <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-teal-300 transition-colors">
+          <div className="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mb-4">
             <KeyRound size={20} />
           </div>
-          <h2 className="text-base font-bold text-slate-950 mb-2">Military-Grade Encryption</h2>
+          <h2 className="text-base font-bold text-slate-950 mb-2">Encryption</h2>
           <p className="text-xs text-slate-600 leading-relaxed">
-            All data in transit is encrypted using TLS 1.3 with forward secrecy. Metadata and token vaults are encrypted at rest using AES-256 with client-managed KMS options.
+            Data in transit is encrypted with TLS. Ask us about encryption at rest during your evaluation.
           </p>
         </div>
 
-        <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-purple-300 transition-colors">
+        <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-teal-300 transition-colors">
           <div className="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mb-4">
             <Server size={20} />
           </div>
           <h2 className="text-base font-bold text-slate-950 mb-2">Air-Gapped &amp; On-Premises</h2>
           <p className="text-xs text-slate-600 leading-relaxed">
-            Deploy via certified Docker and Helm charts inside your AWS VPC, Google Cloud, or bare-metal environment with zero external telemetry egress required.
+            KaoinAI can be deployed inside your own cloud account or on-premise. Ask us for the deployment details.
           </p>
         </div>
 
-        <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-purple-300 transition-colors">
+        <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-teal-300 transition-colors">
           <div className="w-10 h-10 rounded-xl bg-pink-100 text-pink-700 flex items-center justify-center mb-4">
             <Database size={20} />
           </div>
           <h2 className="text-base font-bold text-slate-950 mb-2">Table-Bound DPIA &amp; RoPA</h2>
           <p className="text-xs text-slate-600 leading-relaxed">
-            Auditors verify mathematical schema bindings directly to Singapore PDPA §13 and GDPR Article 30 registries. Zero spreadsheets, zero audit panic.
+            Each record is kept against the PDPA duties in Singapore, Malaysia and Indonesia, so you can show it when asked.
           </p>
         </div>
       </div>
@@ -77,21 +77,21 @@ export default function SecurityOverview() {
       <div className="space-y-10 text-sm leading-relaxed text-slate-700">
         <section>
           <h2 className="text-xl font-bold text-slate-950 mb-4">
-            1. Zero-Egress Database Connection Architecture
+            1. Database Connection Design
           </h2>
           <p className="mb-4">
             Traditional data catalogs require massive ETL pipelines that dump entire data lakes into third-party cloud infrastructure. KaoinAI was designed specifically to eliminate this systemic risk:
           </p>
-          <div className="bg-slate-950 text-slate-200 rounded-2xl p-5 font-mono text-xs overflow-x-auto border border-purple-500/20 mb-4">
+          <div className="bg-slate-950 text-slate-200 rounded-2xl p-5 font-mono text-xs overflow-x-auto border border-teal-500/20 mb-4">
             <div className="text-slate-500 mb-2"># Principle of Least Privilege Database Role Example</div>
-            <div className="text-purple-400">CREATE ROLE kaoinai_governance WITH LOGIN PASSWORD &apos;...&apos;;</div>
+            <div className="text-teal-400">CREATE ROLE kaoinai_governance WITH LOGIN PASSWORD &apos;...&apos;;</div>
             <div className="text-slate-300">GRANT CONNECT ON DATABASE prod_db TO kaoinai_governance;</div>
             <div className="text-slate-300">GRANT USAGE ON SCHEMA public TO kaoinai_governance;</div>
             <div className="text-slate-500 mt-2">-- Restrict strictly to metadata catalogs (no table SELECT permissions)</div>
             <div className="text-emerald-400">GRANT SELECT ON ALL TABLES IN SCHEMA information_schema TO kaoinai_governance;</div>
           </div>
           <p className="text-xs text-slate-600">
-            Our query planners execute exclusively against system catalogs (e.g., <code>information_schema.columns</code>, <code>pg_catalog</code>). Your customer data remains 100% untouched.
+            Our query planners are designed to run against system catalogs (e.g., <code>information_schema.columns</code>, <code>pg_catalog</code>). Your customer data remains 100% untouched.
           </p>
         </section>
 
@@ -100,17 +100,17 @@ export default function SecurityOverview() {
             2. Regulatory Compliance Mappings
           </h2>
           <div className="space-y-3">
-            <div className="flex items-start gap-3 p-4 rounded-xl border border-purple-200 bg-purple-50/40">
-              <CheckCircle2 size={18} className="text-purple-600 shrink-0 mt-0.5" />
+            <div className="flex items-start gap-3 p-4 rounded-xl border border-teal-200 bg-teal-50/40">
+              <CheckCircle2 size={18} className="text-teal-600 shrink-0 mt-0.5" />
               <div>
                 <strong className="text-slate-900 block text-xs">Singapore Personal Data Protection Act (PDPA 2012) &amp; Standard DPA</strong>
                 <p className="text-xs text-slate-600 mb-1.5">
                   Fulfills the Protection Obligation (§24) and Accountability Obligation (§11-12) through automated table-level PII inventories, retention schedules, and DPIA drift tracking. KaoinAI acts as a Section 4(2) Data Intermediary governed by our standard DPA.
                 </p>
-                <div className="flex flex-wrap items-center gap-3 text-[11px] text-purple-900">
-                  <span><strong>Designated DPO:</strong> Ng Tat Keong (<a href="mailto:tk.ng@kaoinai.com" className="underline hover:text-purple-950">tk.ng@kaoinai.com</a>)</span>
+                <div className="flex flex-wrap items-center gap-3 text-[11px] text-teal-900">
+                  <span><strong>Designated DPO:</strong> Ng Tat Keong (<a href="mailto:tk.ng@kaoinai.com" className="underline hover:text-teal-950">tk.ng@kaoinai.com</a>)</span>
                   <span>&bull;</span>
-                  <Link to="/dpa" className="underline font-semibold text-purple-700 hover:text-purple-950">
+                  <Link to="/dpa" className="underline font-semibold text-teal-700 hover:text-teal-950">
                     Review Singapore PDPA Agreement (DPA) &rarr;
                   </Link>
                 </div>
@@ -145,17 +145,17 @@ export default function SecurityOverview() {
         </section>
 
         {/* Action Callout */}
-        <div className="bg-gradient-to-r from-purple-900 via-indigo-950 to-slate-950 text-white rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+        <div className="bg-gradient-to-r from-teal-900 via-teal-950 to-slate-950 text-white rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
           <div>
             <h3 className="text-lg font-bold mb-1 flex items-center gap-2">
-              <FileCheck size={20} className="text-purple-300" />
+              <FileCheck size={20} className="text-teal-300" />
               Request Comprehensive Security Package
             </h3>
             <p className="text-xs text-slate-300 max-w-md">
-              Need to complete vendor risk assessments (SIG Lite, CAIQ, or custom CISO surveys)? Our compliance team provides audit packets upon request.
+              Need to complete vendor risk assessments (SIG Lite, CAIQ, or custom CISO surveys)? We can answer your vendor questionnaire on request.
             </p>
           </div>
-          <Button asChild size="lg" className="bg-purple-600 hover:bg-purple-500 text-white shrink-0">
+          <Button asChild size="lg" className="bg-teal-600 hover:bg-teal-500 text-white shrink-0">
             <Link to="/contact">
               Contact Security Team
             </Link>

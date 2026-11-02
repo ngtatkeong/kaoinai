@@ -44,10 +44,10 @@ export default function HowItWorks() {
           {steps.map((step, i) => (
             <div key={i} className="relative">
               {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-12 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-purple-200 to-transparent" />
+                <div className="hidden lg:block absolute top-12 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-blue-200 to-transparent" />
               )}
-              <div className="bg-gray-50 rounded-2xl p-5 sm:p-6 border border-gray-100 hover:border-purple-200 hover:shadow-lg transition-all">
-                <div className="text-3xl sm:text-4xl font-black text-purple-100 mb-3 sm:mb-4">{step.number}</div>
+              <div className="bg-gray-50 rounded-2xl p-5 sm:p-6 border border-gray-100 hover:border-blue-200 hover:shadow-lg transition-all">
+                <div className="text-3xl sm:text-4xl font-black text-blue-100 mb-3 sm:mb-4">{step.number}</div>
                 <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-brand flex items-center justify-center mb-3 sm:mb-4">
                   <step.icon size={22} className="text-white" />
                 </div>

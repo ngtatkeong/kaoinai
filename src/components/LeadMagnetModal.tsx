@@ -104,7 +104,7 @@ export default function LeadMagnetModal({ isOpen, onClose }: LeadMagnetModalProp
               <ul className="text-xs text-slate-600 space-y-1">
                 {checklistItems.slice(0, 3).map((item, i) => (
                   <li key={i} className="flex items-center gap-1.5">
-                    <CheckCircle2 size={12} className="text-[#5b2d6e] shrink-0" />
+                    <CheckCircle2 size={12} className="text-[#0f766e] shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -141,7 +141,7 @@ export default function LeadMagnetModal({ isOpen, onClose }: LeadMagnetModalProp
           </div>
         ) : (
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-50 text-[#5b2d6e] border border-purple-100 text-xs font-semibold mb-3">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-50 text-[#0f766e] border border-teal-100 text-xs font-semibold mb-3">
               <Sparkles size={13} />
               <span>Complimentary SME Resource</span>
             </div>

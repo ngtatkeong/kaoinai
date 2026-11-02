@@ -21,7 +21,7 @@
 - **Deployment**: Cloud SaaS, VPS, and on-premises self-hosted Docker
 - **Compliance Focus**: Singapore PDPA & MAS TRM, Malaysia PDPA, Indonesia UU PDP, GDPR Article 30, HIPAA, SOX
 - **Connectors**: PostgreSQL, MySQL, Google BigQuery, Snowflake, Amazon Redshift, Microsoft SQL Server, Oracle NetSuite, SAP, Salesforce, Supabase (custom JDBC/ODBC available)
-- **Pricing**: 14-day free evaluation trial strictly for self-hosted On-Premises / Private VPC (Docker/Helm, no credit card); Managed Cloud available as dedicated paid SaaS or via Founding Enterprise Cohort ($0 program)
+- **Pricing**: 14-day free evaluation trial strictly for self-hosted On-Premises / Private VPC (Docker/Helm, no credit card); Managed Cloud available as a paid plan; quote on request
 - **Primary Contact**: tk.ng@kaoinai.com (TK Ng, Founder & Principal Architect)
 
 ## Key Pages & Navigation

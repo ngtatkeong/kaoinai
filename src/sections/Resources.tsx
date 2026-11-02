@@ -44,7 +44,7 @@ const resources: ResourceItem[] = [
     title: '2026 Data Governance & AI Readiness Handbook',
     subtitle: 'Step-by-step blueprint for deploying AI data intelligence across dirty schemas.',
     category: 'Architecture Guide',
-    badgeColor: 'bg-purple-50 text-purple-800 border-purple-200',
+    badgeColor: 'bg-teal-50 text-teal-800 border-teal-200',
     fileSize: '15.4 KB PDF',
     fileName: '2026-Data-Governance-AI-Readiness-Handbook.pdf',
     fileUrl: '/downloads/2026-Data-Governance-AI-Readiness-Handbook.pdf',
@@ -89,7 +89,7 @@ export default function Resources() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-100 text-[#5b2d6e] text-xs font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-100 text-[#0f766e] text-xs font-semibold mb-4">
             <BookOpen size={14} />
             <span>Free SME Knowledge Base • Instant PDF Downloads</span>
           </div>
@@ -121,7 +121,7 @@ export default function Resources() {
 
                 {/* Title & Subtitle */}
                 <div className="flex items-start gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-purple-100 text-[#5b2d6e] flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-10 h-10 rounded-xl bg-teal-100 text-[#0f766e] flex items-center justify-center shrink-0 mt-0.5">
                     <FileText size={20} />
                   </div>
                   <div>
@@ -182,9 +182,9 @@ export default function Resources() {
         </p>
 
         {/* Bottom Callout */}
-        <div className="bg-gradient-to-r from-purple-50 via-slate-50 to-purple-50 p-6 rounded-2xl border border-purple-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div className="bg-gradient-to-r from-teal-50 via-slate-50 to-teal-50 p-6 rounded-2xl border border-teal-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-purple-100 text-[#5b2d6e] flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-full bg-teal-100 text-[#0f766e] flex items-center justify-center shrink-0">
               <FileCheck size={20} />
             </div>
             <div>

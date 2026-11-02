@@ -127,7 +127,7 @@ const STORIES: StoryData[] = [
   {
     id: 'deal-blocker',
     badge: 'Horror Story #3 • Lost Enterprise Deal',
-    badgeColor: 'bg-indigo-100 text-indigo-800 border-indigo-200',
+    badgeColor: 'bg-teal-100 text-teal-800 border-teal-200',
     icon: FileSpreadsheet,
     title: 'The $200k Enterprise Contract Stalled by Security Audit',
     subtitle: 'When an enterprise buyer demands a "Living RoPA & Table-Bound DPIA" before signing.',
@@ -160,7 +160,7 @@ const STORIES: StoryData[] = [
     },
     enterpriseRigor: {
       statutoryFramework: 'Singapore PDPA Article 13 & GDPR Article 30 (Records of Processing Activities / RoPA)',
-      auditStandard: 'SOC 2 Type II (CC6.1 Logical Access Controls) & ISO 27001 Annex A.8 (Asset Management)',
+      auditStandard: 'Access control and asset management checks (illustrative)',
       cryptographicControl: 'Cryptographic Schema Version Fingerprinting & Immutable Change Logs',
       enforcementMechanism: 'Automated CI/CD schema migration hook flagging statutory DPIA drift prior to pull-request merge'
     }
@@ -207,7 +207,7 @@ export default function HorrorStoryBeforeAfter() {
           What Happens Without Data Governance?
         </h2>
         <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-          Three real-world operational breakdowns every growing company encounters—and how KaoinAI solves them in plain English.
+          Three illustrative breakdowns of the kind growing companies can face—and how KaoinAI would handle them, in plain English.
         </p>
       </div>
 
@@ -226,11 +226,11 @@ export default function HorrorStoryBeforeAfter() {
               }}
               className={`px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 cursor-pointer ${
                 isActive
-                  ? 'bg-purple-700 text-white shadow-md shadow-purple-200 scale-102'
+                  ? 'bg-teal-700 text-white shadow-md shadow-teal-200 scale-102'
                   : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-2xs'
               }`}
             >
-              <StoryIcon size={16} className={isActive ? 'text-white' : 'text-purple-600'} />
+              <StoryIcon size={16} className={isActive ? 'text-white' : 'text-teal-600'} />
               <span>{story.title.split(' ')[1]} {story.title.split(' ')[2]}</span>
             </button>
           )
@@ -238,7 +238,7 @@ export default function HorrorStoryBeforeAfter() {
       </div>
 
       {/* Active Story Intro Card */}
-      <div className="bg-gradient-to-r from-purple-50 via-white to-purple-50 border border-purple-200/80 rounded-3xl p-5 sm:p-7 mb-8 shadow-xs">
+      <div className="bg-gradient-to-r from-teal-50 via-white to-teal-50 border border-teal-200/80 rounded-3xl p-5 sm:p-7 mb-8 shadow-xs">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2 bg-rose-100 text-rose-800 border border-rose-200">
@@ -252,8 +252,8 @@ export default function HorrorStoryBeforeAfter() {
               {currentStory.subtitle}
             </p>
           </div>
-          <div className="bg-white p-3.5 rounded-2xl border border-purple-200/70 text-xs text-purple-950 max-w-md shrink-0 shadow-xs">
-            <strong className="block font-bold text-[#5b2d6e] mb-1">💡 The Plain-English Problem:</strong>
+          <div className="bg-white p-3.5 rounded-2xl border border-teal-200/70 text-xs text-teal-950 max-w-md shrink-0 shadow-xs">
+            <strong className="block font-bold text-[#0f766e] mb-1">💡 The Plain-English Problem:</strong>
             <span>{currentStory.plainEnglishPain}</span>
           </div>
         </div>
@@ -285,7 +285,7 @@ export default function HorrorStoryBeforeAfter() {
             Show With KaoinAI
           </button>
         </div>
-        <span className="hidden sm:inline text-purple-700 font-semibold">
+        <span className="hidden sm:inline text-teal-700 font-semibold">
           ← Drag handle to compare →
         </span>
       </div>
@@ -380,7 +380,7 @@ export default function HorrorStoryBeforeAfter() {
           className="absolute top-0 bottom-0 w-1 bg-white shadow-2xl z-30 cursor-ew-resize flex items-center justify-center transition-all duration-75"
           style={{ left: `calc(${sliderPos}% - 2px)` }}
         >
-          <div className="w-8 h-8 rounded-full bg-white text-purple-950 font-bold shadow-xl border-2 border-purple-600 flex items-center justify-center text-xs">
+          <div className="w-8 h-8 rounded-full bg-white text-teal-950 font-bold shadow-xl border-2 border-teal-600 flex items-center justify-center text-xs">
             ↔
           </div>
         </div>
@@ -391,31 +391,31 @@ export default function HorrorStoryBeforeAfter() {
         <button
           type="button"
           onClick={() => setShowRigor(!showRigor)}
-          className="w-full bg-slate-50 hover:bg-purple-50/60 border border-slate-200 rounded-2xl p-4 flex items-center justify-between text-left transition-colors cursor-pointer group"
+          className="w-full bg-slate-50 hover:bg-teal-50/60 border border-slate-200 rounded-2xl p-4 flex items-center justify-between text-left transition-colors cursor-pointer group"
         >
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center shrink-0">
               <ShieldCheck size={18} />
             </div>
             <div>
-              <div className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-purple-900">
+              <div className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-teal-900">
                 Are you an Enterprise CISO, Compliance Officer, or Auditor?
               </div>
               <div className="text-[11px] sm:text-xs text-slate-500">
-                Click to inspect statutory compliance mappings (Singapore PDPA, MAS TRM &amp; ISO 27001) for this scenario.
+                Click to inspect the Singapore PDPA points for this scenario (illustrative).
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-1.5 text-xs font-semibold text-purple-700 shrink-0">
+          <div className="flex items-center gap-1.5 text-xs font-semibold text-teal-700 shrink-0">
             <span>{showRigor ? 'Hide Rigor' : 'View Enterprise Specs'}</span>
             <ChevronDown size={16} className={`transition-transform duration-200 ${showRigor ? 'rotate-180' : ''}`} />
           </div>
         </button>
 
         {showRigor && (
-          <div className="mt-3 bg-slate-900 text-white rounded-2xl p-5 sm:p-6 border border-purple-500/30 animate-in fade-in duration-300 font-mono text-xs space-y-4">
+          <div className="mt-3 bg-slate-900 text-white rounded-2xl p-5 sm:p-6 border border-teal-500/30 animate-in fade-in duration-300 font-mono text-xs space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-white/10">
-              <span className="text-purple-300 font-bold text-xs uppercase">
+              <span className="text-teal-300 font-bold text-xs uppercase">
                 Enterprise Regulatory &amp; Technical Architecture Specification
               </span>
               <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
@@ -438,7 +438,7 @@ export default function HorrorStoryBeforeAfter() {
               </div>
               <div className="space-y-1">
                 <span className="text-slate-400 text-[11px] block">Enforcement Mechanism:</span>
-                <span className="text-purple-300 font-medium">{currentStory.enterpriseRigor.enforcementMechanism}</span>
+                <span className="text-teal-300 font-medium">{currentStory.enterpriseRigor.enforcementMechanism}</span>
               </div>
             </div>
           </div>

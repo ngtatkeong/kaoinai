@@ -11,7 +11,7 @@ const faqs = [
   {
     question: 'How does KaoinAI connect to our databases? Is our data secure?',
     answer:
-      'KaoinAI operates on a read-only metadata architecture. We do NOT replicate or store your raw database rows on our servers. All connections use TLS 1.3 encryption with options for VPC peering and IP whitelisting. KaoinAI is built according to SOC 2 Type II and ISO 27001 security standards.',
+      'KaoinAI is designed to read database structure (table and column metadata) rather than copy customer rows. Connections are encrypted in transit with TLS. Ask us about deployment options and security controls for your setup.',
   },
   {
     question: 'Which databases, data warehouses, and ERPs are supported?',
@@ -36,7 +36,7 @@ const faqs = [
   {
     question: 'Is there a Free Trial, and does it apply to both Cloud and On-Premises?',
     answer:
-      'Yes! You can evaluate KaoinAI in two flexible ways: 1) Explore our live interactive sandbox right on this website with sample database schemas in 60 seconds, and 2) Activate a 14-day Free Evaluation Trial for self-hosted On-Premises or Private VPC deployments (Docker or Helm in your own AWS/GCP VPC or local server). Because the on-premise trial runs entirely within your network with zero external data egress, you can test over your real schemas with complete security and no credit card required. For teams preferring Managed Cloud SaaS, we also offer Founding Enterprise Cohort slots ($0 software licensing and white-glove onboarding for the first 3 qualified enterprise customers).',
+      'Yes! You can evaluate KaoinAI in two flexible ways: 1) Explore our live interactive sandbox right on this website with sample database schemas in 60 seconds, and 2) Activate a 14-day Free Evaluation Trial for self-hosted On-Premises or Private VPC deployments (Docker or Helm in your own AWS/GCP VPC or local server). Because the on-premise trial runs entirely within your network with zero external data egress, you can test over your real schemas with complete security and no credit card required. For teams preferring Managed Cloud SaaS, we can discuss a quote for a plan that fits your setup.',
   },
 ]
 
@@ -58,7 +58,7 @@ export default function FAQ() {
     <section id="faq" className="py-16 sm:py-24 bg-white/75 scroll-mt-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 border border-purple-100 text-[#5b2d6e] text-sm font-medium mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-[#1d4ed8] text-sm font-medium mb-4">
             <HelpCircle size={16} />
             <span>Frequently Asked Questions</span>
           </div>
@@ -78,7 +78,7 @@ export default function FAQ() {
                 key={index}
                 className={`rounded-2xl border transition-all ${
                   isOpen
-                    ? 'border-purple-200 bg-purple-50/20 shadow-sm'
+                    ? 'border-blue-200 bg-blue-50/20 shadow-sm'
                     : 'border-gray-200 bg-white hover:border-gray-300'
                 }`}
               >
@@ -90,13 +90,13 @@ export default function FAQ() {
                   <span className="text-sm sm:text-lg leading-snug">{faq.question}</span>
                   <ChevronDown
                     size={18}
-                    className={`text-[#5b2d6e] shrink-0 transition-transform duration-200 ${
+                    className={`text-[#1d4ed8] shrink-0 transition-transform duration-200 ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-4 pb-4 sm:px-6 sm:pb-5 text-xs sm:text-base text-gray-600 leading-relaxed border-t border-purple-100/60 pt-3">
+                  <div className="px-4 pb-4 sm:px-6 sm:pb-5 text-xs sm:text-base text-gray-600 leading-relaxed border-t border-blue-100/60 pt-3">
                     {faq.answer}
                   </div>
                 )}

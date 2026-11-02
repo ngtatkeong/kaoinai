@@ -25,8 +25,8 @@ const NODES: Node3D[] = [
     y: -30,
     z: 35,
     size: 42,
-    color: '#9333ea', // purple-600
-    glowColor: 'rgba(147, 51, 234, 0.45)',
+    color: '#9333ea', // teal-600
+    glowColor: 'rgba(13, 148, 136, 0.45)',
     tables: '34 Tables • 420k Rows',
     status: 'Catalog Synced',
     schemaSnippet: 'invoices (id, customer_id, arr_usd, tax_rate)'
@@ -146,10 +146,10 @@ export default function ThreeDDataMesh() {
   }, [isAutoRotating])
 
   return (
-    <div className="relative w-full rounded-3xl overflow-hidden bg-gradient-to-b from-slate-950 via-[#0b0818] to-slate-950 border border-purple-500/25 shadow-2xl shadow-purple-950/40 p-5 sm:p-7 select-none">
+    <div className="relative w-full rounded-3xl overflow-hidden bg-gradient-to-b from-slate-950 via-[#0b0818] to-slate-950 border border-teal-500/25 shadow-2xl shadow-teal-950/40 p-5 sm:p-7 select-none">
       {/* 3D Ambient Lighting and Cyber Grid */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-1/4 -right-1/4 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute -top-1/4 -right-1/4 w-80 h-80 bg-teal-600/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute -bottom-1/4 -left-1/4 w-80 h-80 bg-emerald-500/15 rounded-full blur-3xl" />
         <div 
           className="absolute inset-0 opacity-[0.07]" 
@@ -168,7 +168,7 @@ export default function ThreeDDataMesh() {
             <span className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
           </div>
-          <span className="ml-2 font-mono text-[11px] text-purple-300 font-semibold tracking-wide flex items-center gap-1">
+          <span className="ml-2 font-mono text-[11px] text-teal-300 font-semibold tracking-wide flex items-center gap-1">
             <Sparkles size={13} className="text-emerald-400" />
             3D Living Database Knowledge Graph
           </span>
@@ -192,7 +192,7 @@ export default function ThreeDDataMesh() {
       >
         {/* Orbital 3D Rings */}
         <div
-          className="absolute w-[290px] h-[290px] rounded-full border border-purple-500/20 pointer-events-none transition-transform duration-300 ease-out"
+          className="absolute w-[290px] h-[290px] rounded-full border border-teal-500/20 pointer-events-none transition-transform duration-300 ease-out"
           style={{
             transform: `rotateX(${rotX + 65}deg) rotateZ(${rotY * 0.8}deg)`,
             transformStyle: 'preserve-3d'
@@ -216,7 +216,7 @@ export default function ThreeDDataMesh() {
         >
           {/* Central Holographic Core */}
           <div 
-            className="absolute w-20 h-20 rounded-full bg-gradient-to-tr from-purple-600/30 via-emerald-500/25 to-sky-400/30 blur-md pointer-events-none animate-pulse"
+            className="absolute w-20 h-20 rounded-full bg-gradient-to-tr from-teal-600/30 via-emerald-500/25 to-sky-400/30 blur-md pointer-events-none animate-pulse"
             style={{ transform: 'translateZ(0px)' }}
           />
 
@@ -321,13 +321,13 @@ export default function ThreeDDataMesh() {
               {hoveredNode?.status}
             </span>
           </div>
-          <span className="text-[11px] font-mono text-purple-300/80">
+          <span className="text-[11px] font-mono text-teal-300/80">
             {hoveredNode?.tables}
           </span>
         </div>
 
         <div className="bg-black/40 rounded-xl p-2.5 border border-white/5 font-mono text-[11px] text-slate-300 flex items-center justify-between gap-2">
-          <span className="text-purple-300 shrink-0">$ live_schema:</span>
+          <span className="text-teal-300 shrink-0">$ live_schema:</span>
           <span className="text-emerald-300 truncate">{hoveredNode?.schemaSnippet}</span>
           <span className="text-[10px] text-slate-500 shrink-0 hidden sm:inline">0ms replication</span>
         </div>
@@ -337,7 +337,7 @@ export default function ThreeDDataMesh() {
             <ShieldCheck size={12} className="text-emerald-400" />
             Zero-Egress Read-Only Metadata Mesh
           </span>
-          <span className="text-purple-400 font-semibold cursor-pointer hover:underline flex items-center gap-1"
+          <span className="text-teal-400 font-semibold cursor-pointer hover:underline flex items-center gap-1"
             onClick={() => {
               const el = document.getElementById('demo')
               el?.scrollIntoView({ behavior: 'smooth' })

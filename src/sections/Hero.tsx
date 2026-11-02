@@ -66,7 +66,7 @@ const heroMessages: HeroMessage[] = [
       statusBadge: 'AI CATALOG LIVE',
       healthTitle: 'AI Semantic Accuracy & Context Health',
       healthScore: '99.8%*',
-      healthBarGradient: 'from-purple-500 via-indigo-500 to-emerald-400',
+      healthBarGradient: 'from-teal-500 via-teal-500 to-emerald-400',
       healthDesc: '32 verified semantic boundaries enforced across catalog & DB knowledgebase layers',
       stat1Title: 'PII Auto-Masking',
       stat1Value: '100%* Intercepted',
@@ -99,7 +99,7 @@ const heroMessages: HeroMessage[] = [
       statusBadge: 'DATA INVENTORY SYNCED',
       healthTitle: 'Living Data Inventory & Schema Coverage',
       healthScore: '100%*',
-      healthBarGradient: 'from-emerald-500 via-teal-500 to-indigo-500',
+      healthBarGradient: 'from-emerald-500 via-teal-500 to-teal-500',
       healthDesc: '14 physical production tables containing PII bound directly to active Data Inventory',
       stat1Title: 'Table-Bound DPIA & PII',
       stat1Value: '14* Tables Bound',
@@ -132,7 +132,7 @@ const heroMessages: HeroMessage[] = [
       statusBadge: 'METADATA SYNCED',
       healthTitle: 'Automated Data Quality Health',
       healthScore: '99.4%*',
-      healthBarGradient: 'from-indigo-500 via-purple-500 to-emerald-400',
+      healthBarGradient: 'from-teal-500 via-teal-500 to-emerald-400',
       healthDesc: '24 validation rules continuously enforced across PostgreSQL & Snowflake',
       stat1Title: 'Lineage Graph Density',
       stat1Value: '184* Nodes Mapped',
@@ -165,7 +165,7 @@ const heroMessages: HeroMessage[] = [
       statusBadge: 'MDM SYNTHESIS ACTIVE',
       healthTitle: 'Cross-System Customer Match Confidence',
       healthScore: '99.7%*',
-      healthBarGradient: 'from-amber-500 via-purple-500 to-indigo-600',
+      healthBarGradient: 'from-amber-500 via-teal-500 to-teal-600',
       healthDesc: 'Unified 48,200* records across Salesforce, HubSpot, and PostgreSQL without custom ETL',
       stat1Title: 'Duplicate Records Purged',
       stat1Value: '3,842* Deduplicated',
@@ -196,9 +196,9 @@ export default function Hero() {
     >
       {/* Ambient animated background decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 right-10 w-80 h-80 bg-purple-300/25 rounded-full blur-3xl animate-float-slow" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-indigo-300/20 rounded-full blur-3xl animate-float-reverse" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-gradient-to-r from-purple-200/30 via-indigo-100/20 to-teal-100/20 rounded-full blur-3xl animate-pulse-glow" />
+        <div className="absolute top-20 right-10 w-80 h-80 bg-teal-300/25 rounded-full blur-3xl animate-float-slow" />
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-teal-300/20 rounded-full blur-3xl animate-float-reverse" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-gradient-to-r from-teal-200/30 via-teal-100/20 to-teal-100/20 rounded-full blur-3xl animate-pulse-glow" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 lg:pt-44 pb-20 sm:pb-28 lg:pb-36">
@@ -217,7 +217,7 @@ export default function Hero() {
                   }}
                   className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                     activeIndex === idx
-                      ? 'bg-[#5b2d6e] text-white shadow-xs'
+                      ? 'bg-[#0f766e] text-white shadow-xs'
                       : 'bg-white/80 hover:bg-white text-slate-600 hover:text-slate-900 border border-slate-200/80 shadow-2xs'
                   }`}
                 >
@@ -230,14 +230,14 @@ export default function Hero() {
             <div key={current.id} className="animate-in fade-in duration-300 space-y-5 lg:space-y-6">
               {/* Architectural Badges */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50/90 border border-purple-200/70 text-[#5b2d6e] text-xs sm:text-sm font-semibold shadow-xs">
-                  <Sparkles size={14} className="text-[#7c3aed]" />
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50/90 border border-teal-200/70 text-[#0f766e] text-xs sm:text-sm font-semibold shadow-xs">
+                  <Sparkles size={14} className="text-[#0d9488]" />
                   <span>{current.badgeCategory}</span>
                 </div>
-                <div className="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 px-3.5 py-1.5 rounded-full bg-purple-100/90 border border-purple-200 text-purple-800 text-xs sm:text-sm font-medium shadow-xs max-w-full">
+                <div className="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 px-3.5 py-1.5 rounded-full bg-teal-100/90 border border-teal-200 text-teal-800 text-xs sm:text-sm font-medium shadow-xs max-w-full">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-                  <span className="text-purple-900/70">{current.badgeSecondary}</span>
-                  <span className="text-purple-600 font-semibold">{current.badgeSecondaryHighlight}</span>
+                  <span className="text-teal-900/70">{current.badgeSecondary}</span>
+                  <span className="text-teal-600 font-semibold">{current.badgeSecondaryHighlight}</span>
                 </div>
               </div>
 
@@ -254,7 +254,7 @@ export default function Hero() {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start pt-1">
                 <Button
                   size="lg"
-                  className="w-full sm:w-auto bg-purple-600 text-white hover:bg-purple-700 transition-colors px-7 py-6 text-sm sm:text-base font-semibold group rounded-xl shadow-lg shadow-purple-200 cursor-pointer"
+                  className="w-full sm:w-auto bg-teal-600 text-white hover:bg-teal-700 transition-colors px-7 py-6 text-sm sm:text-base font-semibold group rounded-xl shadow-lg shadow-teal-200 cursor-pointer"
                   onClick={() => {
                     trackEvent('click_cta', { location: 'hero', label: 'Explore Live Sandbox' })
                     const el = document.getElementById('demo')
@@ -272,13 +272,13 @@ export default function Hero() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="w-full sm:w-auto border-purple-300 text-purple-900 hover:bg-purple-50 px-7 py-6 text-sm sm:text-base font-semibold rounded-xl cursor-pointer"
+                  className="w-full sm:w-auto border-teal-300 text-teal-900 hover:bg-teal-50 px-7 py-6 text-sm sm:text-base font-semibold rounded-xl cursor-pointer"
                   onClick={() => {
                     trackEvent('click_cta', { location: 'hero', label: 'Deploy Free VPC Pilot' })
                     document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' })
                   }}
                 >
-                  <Shield size={17} className="mr-2 text-purple-600" />
+                  <Shield size={17} className="mr-2 text-teal-600" />
                   Deploy 14-Day Free VPC Trial
                 </Button>
               </div>
@@ -292,7 +292,7 @@ export default function Hero() {
                   const BadgeIcon = badge.icon
                   return (
                     <div key={bIdx} className="flex items-center gap-1.5">
-                      <BadgeIcon size={16} className="text-[#5b2d6e] shrink-0" />
+                      <BadgeIcon size={16} className="text-[#0f766e] shrink-0" />
                       <span>{badge.label}</span>
                     </div>
                   )
@@ -312,7 +312,7 @@ export default function Hero() {
                   onClick={() => setRightViewMode('3d')}
                   className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
                     rightViewMode === '3d'
-                      ? 'bg-purple-700 text-white shadow-xs'
+                      ? 'bg-teal-700 text-white shadow-xs'
                       : 'text-slate-600 hover:text-slate-950'
                   }`}
                 >
@@ -324,7 +324,7 @@ export default function Hero() {
                   onClick={() => setRightViewMode('telemetry')}
                   className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
                     rightViewMode === 'telemetry'
-                      ? 'bg-purple-700 text-white shadow-xs'
+                      ? 'bg-teal-700 text-white shadow-xs'
                       : 'text-slate-600 hover:text-slate-950'
                   }`}
                 >
@@ -338,10 +338,10 @@ export default function Hero() {
             {rightViewMode === '3d' ? (
               <ThreeDDataMesh />
             ) : (
-              <div className="relative bg-gradient-to-b from-slate-900/95 via-slate-950/95 to-[#0b0816]/95 text-white rounded-3xl shadow-2xl shadow-purple-950/30 border border-purple-500/20 p-5 sm:p-7 overflow-hidden backdrop-blur-2xl">
+              <div className="relative bg-gradient-to-b from-slate-900/95 via-slate-950/95 to-[#0b0816]/95 text-white rounded-3xl shadow-2xl shadow-teal-950/30 border border-teal-500/20 p-5 sm:p-7 overflow-hidden backdrop-blur-2xl">
                 {/* Dynamic ambient color glows */}
-                <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-indigo-500/15 to-purple-600/10 rounded-full blur-3xl pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-purple-500/15 to-pink-500/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-teal-500/15 to-teal-600/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-teal-500/15 to-pink-500/10 rounded-full blur-3xl pointer-events-none" />
 
                 <div className="relative z-10">
                   {/* Console Window Header */}
@@ -386,22 +386,22 @@ export default function Hero() {
                       </div>
                       <div className="bg-white/5 rounded-2xl p-3.5 border border-white/10 backdrop-blur-md">
                         <div className="text-[11px] text-slate-400 mb-1">{current.telemetry.stat2Title}</div>
-                        <div className="text-base sm:text-lg font-bold font-mono text-purple-200 truncate">{current.telemetry.stat2Value}</div>
-                        <div className="text-[10px] text-purple-300/90 mt-1 flex items-center gap-1 truncate">
-                          <span className="w-1 h-1 rounded-full bg-purple-400" />
+                        <div className="text-base sm:text-lg font-bold font-mono text-teal-200 truncate">{current.telemetry.stat2Value}</div>
+                        <div className="text-[10px] text-teal-300/90 mt-1 flex items-center gap-1 truncate">
+                          <span className="w-1 h-1 rounded-full bg-teal-400" />
                           {current.telemetry.stat2Status}
                         </div>
                       </div>
                     </div>
 
                     {/* Dynamic Alert Box */}
-                    <div className="bg-purple-900/20 rounded-2xl p-4 border border-purple-500/30 backdrop-blur-md">
+                    <div className="bg-teal-900/20 rounded-2xl p-4 border border-teal-500/30 backdrop-blur-md">
                       <div className="flex items-center justify-between mb-1.5">
                         <div className="flex items-center gap-2">
-                          <Sparkles size={14} className="text-purple-300" />
-                          <span className="text-xs font-bold text-purple-200">{current.telemetry.alertTitle}</span>
+                          <Sparkles size={14} className="text-teal-300" />
+                          <span className="text-xs font-bold text-teal-200">{current.telemetry.alertTitle}</span>
                         </div>
-                        <span className="text-[10px] font-mono text-purple-300/70">{current.telemetry.alertLatency}</span>
+                        <span className="text-[10px] font-mono text-teal-300/70">{current.telemetry.alertLatency}</span>
                       </div>
                       <p className="text-xs text-slate-200/90 leading-relaxed font-mono">
                         {current.telemetry.alertMessage}

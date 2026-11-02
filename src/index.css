@@ -59,10 +59,10 @@
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #9333ea 100%);
+    background-image: linear-gradient(135deg, #93c5fd 0%, #60a5fa 50%, #bfdbfe 100%);
   }
   .bg-gradient-brand {
-    background: linear-gradient(135deg, #090d16 0%, #1e1b4b 60%, #312e81 100%);
+    background: linear-gradient(135deg, #0b1220 0%, #1e3a8a 60%, #1d4ed8 100%);
   }
   .bg-gradient-dark {
     background: linear-gradient(180deg, #090d16 0%, #0f172a 100%);
@@ -106,9 +106,758 @@
 
 .animated-grid-bg {
   background-image: 
-    linear-gradient(to right, rgba(147, 51, 234, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(147, 51, 234, 0.04) 1px, transparent 1px),
+    linear-gradient(to right, rgba(13, 148, 136, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(13, 148, 136, 0.04) 1px, transparent 1px),
     radial-gradient(rgba(124, 58, 237, 0.15) 1.5px, transparent 1.5px);
   background-size: 40px 40px, 40px 40px, 20px 20px;
 }
 
+
+
+/* Home hero: layered 3D scene. Motion is off for reduced-motion users. */
+.hero-backdrop {
+  background:
+    radial-gradient(60% 50% at 20% 10%, rgba(59, 130, 246, 0.35), transparent 60%),
+    radial-gradient(50% 45% at 85% 20%, rgba(99, 102, 241, 0.3), transparent 60%),
+    linear-gradient(rgba(148, 163, 184, 0.07) 1px, transparent 1px) 0 0 / 56px 56px,
+    linear-gradient(90deg, rgba(148, 163, 184, 0.07) 1px, transparent 1px) 0 0 / 56px 56px;
+  mask-image: linear-gradient(to bottom, black 60%, transparent);
+}
+.hero-scene {
+  --rx: 3deg;
+  --ry: -6deg;
+  perspective: 1400px;
+  transform-style: preserve-3d;
+}
+.hero-card {
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: hero-float 7s ease-in-out infinite;
+}
+.hero-plane {
+  position: absolute;
+  inset: 0;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(147, 197, 253, 0.28);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.38), rgba(79, 70, 229, 0.12) 60%, transparent);
+  box-shadow: 0 30px 80px -20px rgba(37, 99, 235, 0.45);
+  transform-style: preserve-3d;
+}
+.hero-plane-back {
+  transform: translate3d(-28px, 34px, -140px) rotateX(calc(var(--rx) * -1.5)) rotateY(calc(var(--ry) * -1.2));
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: hero-float 9s ease-in-out infinite reverse;
+}
+.hero-plane-mid {
+  transform: translate3d(34px, -26px, -60px) rotateX(calc(var(--rx) * -0.6)) rotateY(calc(var(--ry) * -0.6));
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: hero-float 8s ease-in-out infinite;
+}
+@keyframes hero-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-card,
+  .hero-plane-back,
+  .hero-plane-mid {
+    animation: none;
+  }
+  .hero-card {
+    transform: rotateX(3deg) rotateY(-5deg);
+  }
+}
+
+/* Dark theme for the home explorer. Scoped to .dark-site so other pages are unchanged. */
+.dark-site {
+  isolation: isolate;
+  background: #020617;
+  border-color: #1e293b;
+}
+.dark-site .bg-white,
+.dark-site .bg-gray-50 { background-color: #0f172a; }
+.dark-site .bg-slate-50 { background-color: #111c31; }
+.dark-site .bg-slate-100 { background-color: #1e293b; }
+.dark-site .bg-blue-50 { background-color: rgba(30, 58, 138, 0.25); }
+.dark-site .bg-blue-100 { background-color: rgba(30, 58, 138, 0.4); }
+.dark-site .border-slate-200,
+.dark-site .border-slate-100,
+.dark-site .border-gray-200,
+.dark-site .border-gray-100 { border-color: #1e293b; }
+.dark-site .text-slate-950,
+.dark-site .text-slate-900,
+.dark-site .text-gray-900 { color: #f1f5f9; }
+.dark-site .text-slate-800,
+.dark-site .text-gray-800 { color: #e2e8f0; }
+.dark-site .text-slate-700,
+.dark-site .text-gray-700 { color: #cbd5e1; }
+.dark-site .text-slate-600,
+.dark-site .text-slate-500,
+.dark-site .text-gray-600,
+.dark-site .text-gray-500 { color: #94a3b8; }
+.dark-site .text-blue-950,
+.dark-site .text-blue-900 { color: #dbeafe; }
+.dark-site .hover\:bg-slate-200:hover { background-color: #334155; }
+.dark-site [class*="bg-gradient"]:not(.text-transparent) {
+  background-image: linear-gradient(180deg, #0f172a, #0b1220) !important;
+}
+
+/* Animated dark backdrop. Slow drifting light behind every page. */
+.aurora {
+  position: fixed;
+  inset: -10%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(40% 38% at 18% 28%, rgba(59, 130, 246, 0.32), transparent 70%),
+    radial-gradient(36% 34% at 82% 18%, rgba(99, 102, 241, 0.28), transparent 70%),
+    radial-gradient(44% 40% at 62% 88%, rgba(14, 165, 233, 0.22), transparent 70%),
+    radial-gradient(30% 30% at 35% 70%, rgba(168, 85, 247, 0.14), transparent 70%);
+  filter: blur(36px);
+  animation: aurora-drift 24s ease-in-out infinite alternate;
+}
+@keyframes aurora-drift {
+  0% { transform: translate3d(-3%, 0, 0) scale(1); }
+  50% { transform: translate3d(3%, -2%, 0) scale(1.06); }
+  100% { transform: translate3d(-2%, 3%, 0) scale(1); }
+}
+/* Sections keep a translucent panel so the backdrop shows through. */
+.dark-site section.bg-white,
+.dark-site section.bg-slate-50,
+.dark-site section.bg-gray-50 {
+  background-color: rgba(15, 23, 42, 0.55);
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora { animation: none; }
+}
+.hero-text-grad {
+  background-image: linear-gradient(90deg, #93c5fd, #a5b4fc, #bfdbfe);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Softer surfaces: fewer hard borders, translucent glass panels, lighter shadows. */
+.dark-site .border,
+.dark-site [class*="border-"] {
+  border-color: rgba(148, 163, 184, 0.14);
+}
+.dark-site .rounded-xl,
+.dark-site .rounded-2xl,
+.dark-site .rounded-3xl {
+  background-color: rgba(15, 23, 42, 0.42);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.dark-site .shadow-xl,
+.dark-site .shadow-2xl,
+.dark-site .shadow-lg,
+.dark-site .shadow-md,
+.dark-site .shadow-sm {
+  box-shadow: 0 20px 50px -24px rgba(2, 6, 23, 0.8);
+}
+
+/* Open layout: most cards lose their hard edges and sit on a faint tint. */
+.dark-site .rounded-2xl,
+.dark-site .rounded-3xl,
+.dark-site .rounded-xl {
+  border-color: transparent;
+  background-color: rgba(255, 255, 255, 0.035);
+  box-shadow: none;
+}
+.dark-site .rounded-2xl:hover,
+.dark-site .rounded-3xl:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+.dark-site input,
+.dark-site textarea,
+.dark-site select,
+.dark-site table {
+  border-color: rgba(148, 163, 184, 0.2);
+}
+.dark-site section {
+  border-color: transparent;
+}
+
+/* Contrast on the dark site: blue text used on dark surfaces is lifted to
+   blue-300 (11:1 on slate-950). Status text on the hero card uses blue-400 (7.9:1 on the dark card). */
+.dark-site .text-blue-700,
+.dark-site .text-blue-800,
+.dark-site .text-blue-900,
+.dark-site .text-blue-600,
+.dark-site .text-blue-950 {
+  color: #93c5fd;
+}
+.dark-site .hero-card .text-blue-700 {
+  color: #60a5fa;
+}
+.dark-site .text-blue-500,
+.dark-site .text-blue-400 {
+  color: #bfdbfe;
+}
+.dark-site .hover\:text-blue-700:hover,
+.dark-site .hover\:text-blue-800:hover,
+.dark-site .hover\:text-blue-900:hover {
+  color: #dbeafe;
+}
+
+/* Light surfaces that still appear on the dark site (opacity variants and
+   light gradient stops) get the same dark glass treatment. */
+.dark-site [class*="bg-white/"],
+.dark-site [class*="from-white"],
+.dark-site [class*="from-blue-50"],
+.dark-site [class*="from-slate-50"],
+.dark-site [class*="bg-blue-50"],
+.dark-site [class*="bg-slate-50"],
+.dark-site [class*="bg-gray-50"] {
+  background-color: rgba(15, 23, 42, 0.85);
+  background-image: none;
+}
+.dark-site [class*="bg-white/"]:not(.hero-card) {
+  backdrop-filter: blur(12px);
+}
+.dark-site .text-slate-400,
+.dark-site .text-gray-400,
+.dark-site .text-gray-500,
+.dark-site .text-slate-500 {
+  color: #94a3b8;
+}
+
+/* Light header bar on the dark site, so the dark logo wordmark reads. */
+.dark-site header {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  border-bottom-color: #e2e8f0 !important;
+  backdrop-filter: blur(14px);
+}
+.dark-site header .text-slate-200,
+.dark-site header .text-slate-300,
+.dark-site header .text-slate-400,
+.dark-site header .text-blue-200,
+.dark-site header .text-blue-300,
+.dark-site header .text-white:not(.bg-blue-600):not(.bg-blue-700) {
+  color: #334155;
+}
+.dark-site header .text-slate-100 {
+  color: #0f172a;
+}
+.dark-site header .bg-blue-600 {
+  background-color: #1d4ed8;
+}
+
+/* Brand button gradient on the dark site: keep it blue so the label reads. */
+.dark-site .bg-gradient-brand {
+  background-image: linear-gradient(135deg, #0b1220 0%, #1e3a8a 60%, #1d4ed8 100%) !important;
+  color: #ffffff;
+}
+
+/* Header controls on the light bar: nav pills become light, and the brand
+   button keeps white text. */
+.dark-site header .bg-slate-100,
+.dark-site header .bg-slate-200,
+.dark-site header .bg-white\/80 {
+  background-color: #f1f5f9;
+}
+.dark-site header .bg-gradient-brand,
+.dark-site header .bg-gradient-brand * {
+  color: #ffffff;
+}
+.dark-site header .text-slate-900,
+.dark-site header .text-slate-800 {
+  color: #0f172a;
+}
+
+/* 3D cube (components/Cube3D.tsx): CSS faces, slow spin, off for reduced motion. */
+.cube-scene {
+  perspective: 900px;
+  margin: 0 auto;
+}
+.cube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: cube-spin 20s linear infinite;
+}
+.cube-face {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(147, 197, 253, 0.55);
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.35), rgba(37, 99, 235, 0.12));
+  box-shadow: inset 0 0 24px rgba(147, 197, 253, 0.15);
+  backdrop-filter: blur(2px);
+}
+@keyframes cube-spin {
+  from { transform: rotateX(-18deg) rotateY(0deg); }
+  to { transform: rotateX(-18deg) rotateY(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cube { animation: none; transform: rotateX(-18deg) rotateY(30deg); }
+}
+
+/* Mobile menu panel: light, like the header bar. */
+.dark-site .bg-white\/98 {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+}
+.dark-site .bg-white\/98 a {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+/* Labels on cube faces: small caps text, centred, with a faint grid. */
+.cube-face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image:
+    linear-gradient(rgba(147, 197, 253, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, 0.12) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.cube-label {
+  color: #dbeafe;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(96, 165, 250, 0.7);
+  user-select: none;
+}
+
+/* Data stack (components/DataStack3D.tsx): table layers in CSS 3D. */
+.stack-scene {
+  perspective: 1100px;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stack {
+  position: relative;
+  width: 340px;
+  height: 190px;
+  transform-style: preserve-3d;
+  transform: rotateX(62deg) rotateZ(-32deg);
+  animation: stack-drift 14s ease-in-out infinite;
+}
+.stack-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 18px 22px;
+  border: 1px solid rgba(147, 197, 253, 0.45);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.42), rgba(30, 58, 138, 0.25));
+  box-shadow: 0 0 28px rgba(59, 130, 246, 0.25), inset 0 0 18px rgba(191, 219, 254, 0.12);
+  transform: translateZ(calc(var(--i) * 62px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  backdrop-filter: blur(3px);
+}
+.stack-layer:nth-child(odd) {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.35), rgba(30, 58, 138, 0.25));
+}
+.stack-table {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 17px;
+  color: #e0f2fe;
+}
+.stack-tag {
+  align-self: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #bfdbfe;
+  padding: 3px 11px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(147, 197, 253, 0.35);
+}
+@keyframes stack-drift {
+  0%, 100% { transform: rotateX(62deg) rotateZ(-32deg) translateY(0); }
+  50% { transform: rotateX(62deg) rotateZ(-26deg) translateY(-10px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stack { animation: none; }
+}
+
+/* Architecture diagram (components/Architecture3D.tsx): three floors in CSS 3D. */
+.arch-scene {
+  perspective: 1200px;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.arch {
+  position: relative;
+  width: 460px;
+  height: 270px;
+  transform-style: preserve-3d;
+  transform: rotateX(60deg) rotateZ(-38deg);
+  animation: arch-drift 16s ease-in-out infinite;
+}
+.arch-floor {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  border: 1px solid rgba(147, 197, 253, 0.5);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.28), rgba(30, 58, 138, 0.18));
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+  transform: translateZ(var(--z));
+}
+.arch-floor:nth-child(3) {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.3), rgba(30, 58, 138, 0.2));
+}
+.arch-floor-name {
+  position: absolute;
+  left: 14px;
+  top: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  white-space: nowrap;
+  text-shadow: 0 0 14px rgba(147, 197, 253, 0.9);
+  background: rgba(15, 23, 42, 0.55);
+  padding: 3px 8px;
+  border-radius: 6px;
+  transform: rotateZ(38deg) rotateX(-60deg);
+}
+.arch-block {
+  position: absolute;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #e0f2fe;
+  white-space: nowrap;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(147, 197, 253, 0.4);
+  box-shadow: 0 8px 20px -8px rgba(2, 6, 23, 0.8);
+}
+.arch-rod {
+  position: absolute;
+  top: 40%;
+  width: 2px;
+  height: 90px;
+  background: linear-gradient(to bottom, rgba(147, 197, 253, 0.9), rgba(59, 130, 246, 0.2));
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.8);
+  transform-origin: top center;
+  transform: translateZ(var(--z)) rotateX(90deg);
+}
+@keyframes arch-drift {
+  0%, 100% { transform: rotateX(60deg) rotateZ(-38deg) translateY(0); }
+  50% { transform: rotateX(60deg) rotateZ(-32deg) translateY(-8px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .arch { animation: none; }
+}
+
+/* Motion for the architecture diagram: a pulse travels down each rod, and
+   the blocks light up in turn as data moves through the floors. */
+.arch-rod::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 0;
+  width: 6px;
+  height: 16px;
+  border-radius: 3px;
+  background: #e0f2fe;
+  box-shadow: 0 0 12px #60a5fa;
+  animation: rod-pulse 2.4s linear infinite;
+  animation-delay: var(--d, 0s);
+}
+@keyframes rod-pulse {
+  0% { top: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: calc(100% - 16px); opacity: 0; }
+}
+.arch-block {
+  animation: block-glow 4.8s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 0.45s);
+}
+@keyframes block-glow {
+  0%, 100% { box-shadow: 0 8px 20px -8px rgba(2, 6, 23, 0.8); border-color: rgba(147, 197, 253, 0.4); }
+  20% { box-shadow: 0 0 22px rgba(96, 165, 250, 0.85); border-color: rgba(191, 219, 254, 0.9); }
+  40% { box-shadow: 0 8px 20px -8px rgba(2, 6, 23, 0.8); border-color: rgba(147, 197, 253, 0.4); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .arch-rod::after, .arch-block { animation: none; }
+}
+
+/* Pricing section: keep it on the dark site, not a light wash. */
+.dark-site #pricing,
+.dark-site [class*="bg-teal-50"],
+.dark-site [class*="bg-blue-50"] {
+  background-color: rgba(15, 23, 42, 0.55) !important;
+  background-image: none !important;
+}
+
+/* Pricing tier labels: light pills with light text were unreadable. */
+#pricing .bg-slate-100,
+#pricing .bg-gray-100,
+#pricing .bg-slate-50,
+#pricing .bg-gray-50 {
+  background-color: rgba(148, 163, 184, 0.22) !important;
+  color: #e2e8f0 !important;
+}
+
+/* Mobile menu: drops down from the white header bar in the same white. */
+.dark-site header .md\:hidden.border-t {
+  background-color: #ffffff !important;
+  border-top-color: #e2e8f0 !important;
+}
+.dark-site header .md\:hidden.border-t a:not(.bg-gradient-brand),
+.dark-site header .md\:hidden.border-t button {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+.dark-site header .md\:hidden.border-t .bg-gradient-brand {
+  background-color: #1d4ed8 !important;
+  color: #ffffff !important;
+}
+
+/* Header as a real menu bar: plain text links, one solid action button,
+   a plain menu icon on phones, and link rows in the open menu. */
+.dark-site header a:not(.bg-gradient-brand):not(.bg-blue-600) {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: #334155 !important;
+  font-weight: 500;
+}
+.dark-site header a:not(.bg-gradient-brand):not(.bg-blue-600):hover {
+  color: #1d4ed8 !important;
+}
+.dark-site header button:not(.bg-gradient-brand) {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: #334155 !important;
+}
+.dark-site header .bg-gradient-brand {
+  background-image: none !important;
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 6px 18px -8px rgba(37, 99, 235, 0.7) !important;
+}
+.dark-site header .md\:hidden.border-t {
+  background-color: #ffffff !important;
+  box-shadow: 0 18px 40px -20px rgba(15, 23, 42, 0.35);
+}
+.dark-site header .md\:hidden.border-t a:not(.bg-gradient-brand) {
+  display: block;
+  padding: 14px 4px;
+  border-bottom: 1px solid #e2e8f0 !important;
+  border-radius: 0 !important;
+  color: #0f172a !important;
+  font-size: 16px;
+  font-weight: 500;
+}
+.dark-site header .md\:hidden.border-t .bg-gradient-brand {
+  margin-top: 14px;
+  justify-content: center;
+  display: flex;
+}
+.dark-site header a,
+.dark-site header button {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background-image: none;
+}
+.dark-site header a:not(.bg-gradient-brand):not(.bg-blue-600) {
+  background-color: transparent !important;
+}
+.dark-site header .md\:hidden.border-t > a:not(.bg-gradient-brand),
+.dark-site header .md\:hidden.border-t > div > a:not(.bg-gradient-brand) {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Orbit diagram (components/Orbit3D.tsx): a core with three tilted rings. */
+.orbit-scene {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  perspective: 900px;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.orbit-core {
+  position: relative;
+  z-index: 2;
+  width: 96px;
+  height: 96px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  background: radial-gradient(circle at 30% 30%, #bfdbfe, #1d4ed8 60%, #0b1220);
+  box-shadow: 0 0 60px rgba(59, 130, 246, 0.6);
+  animation: core-pulse 3.2s ease-in-out infinite;
+}
+.orbit-ring {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 9999px;
+  border: 1px solid rgba(147, 197, 253, 0.45);
+  transform: rotateX(var(--tilt));
+  transform-style: preserve-3d;
+  animation-name: orbit-spin;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.orbit-dot {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  border-radius: 9999px;
+  background: #e0f2fe;
+  box-shadow: 0 0 16px #60a5fa;
+}
+@keyframes orbit-spin {
+  from { transform: rotateX(var(--tilt)) rotateZ(0deg); }
+  to { transform: rotateX(var(--tilt)) rotateZ(360deg); }
+}
+@keyframes core-pulse {
+  0%, 100% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.45); }
+  50% { box-shadow: 0 0 70px rgba(96, 165, 250, 0.85); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .orbit-ring, .orbit-core { animation: none; }
+}
+
+/* Integration hub (components/Hub3D.tsx): sources on a tilted platform. */
+.hub-scene {
+  perspective: 1100px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hub-platform {
+  position: relative;
+  width: 460px;
+  height: 240px;
+  transform-style: preserve-3d;
+  transform: rotateX(58deg) rotateZ(-6deg);
+  animation: hub-float 12s ease-in-out infinite;
+}
+.hub-source {
+  position: absolute;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e0f2fe;
+  white-space: nowrap;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.35), rgba(15, 23, 42, 0.7));
+  border: 1px solid rgba(147, 197, 253, 0.45);
+  box-shadow: 0 14px 30px -12px rgba(2, 6, 23, 0.9);
+}
+.hub-tl { left: 0; top: 0; }
+.hub-tr { right: 0; top: 0; }
+.hub-bl { left: 0; bottom: 0; }
+.hub-br { right: 0; bottom: 0; }
+.hub-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 110px;
+  height: 110px;
+  margin: -55px 0 0 -55px;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  box-shadow: 0 0 50px rgba(59, 130, 246, 0.7);
+}
+.hub-line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 2px;
+  width: 170px;
+  background: linear-gradient(to right, rgba(147, 197, 253, 0.9), rgba(96, 165, 250, 0.1));
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.8);
+  transform-origin: left center;
+}
+.hub-line-tl { transform: rotate(-150deg); }
+.hub-line-tr { transform: rotate(-30deg); }
+.hub-line-bl { transform: rotate(150deg); }
+.hub-line-br { transform: rotate(30deg); }
+@keyframes hub-float {
+  0%, 100% { transform: rotateX(58deg) rotateZ(-6deg) translateY(0); }
+  50% { transform: rotateX(58deg) rotateZ(-2deg) translateY(-10px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hub-platform { animation: none; }
+}
+
+.hub-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transform: translateZ(0);
+  filter: drop-shadow(0 0 6px rgba(96, 165, 250, 0.7));
+}
+
+/* Turntable: drag to turn a 3D diagram (components/Turntable.tsx). */
+.turntable-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.turntable {
+  transform-style: preserve-3d;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+}
+.turntable:active {
+  cursor: grabbing;
+}
+.turntable-hint {
+  margin-top: 4px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: #94a3b8;
+}
+
+/* Floor labels on the 3D model: upright HTML chips. */
+.hotspot-label {
+  transform: translate(-50%, -50%);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #ffffff;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(147, 197, 253, 0.55);
+  box-shadow: 0 0 14px rgba(59, 130, 246, 0.35);
+  cursor: default;
+}
