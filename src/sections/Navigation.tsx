@@ -19,6 +19,7 @@ const moreLinks = [
   { label: 'Audit', href: '/audit', description: 'Check where your personal data records stand' },
   { label: 'Blog', href: '/blog', description: 'PDPA and data protection articles' },
   { label: 'Security Overview', href: '/security', description: 'How KaoinAI handles your data' },
+  { label: 'PDPA Agreement (DPA)', href: '/dpa', description: 'Singapore PDPA standard data protection agreement' },
 ]
 
 // Complete directory for mobile screens
@@ -30,6 +31,7 @@ const allMobileNavLinks = [
   { label: 'Audit', href: '/audit' },
   { label: 'Blog', href: '/blog' },
   { label: 'Security Overview', href: '/security' },
+  { label: 'PDPA Agreement (DPA)', href: '/dpa' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -165,7 +167,7 @@ export default function Navigation() {
     if (isContactPage) {
       navigate('/#contact-cta')
     } else {
-      scrollToAnchor('cta')
+      scrollToAnchor('contact-cta')
     }
   }
 
@@ -313,7 +315,7 @@ export default function Navigation() {
                 className="bg-gradient-brand text-white hover:opacity-95 text-xs font-semibold px-4 sm:px-5 py-2 shadow-sm rounded-lg"
                 onClick={handleStartTrial}
               >
-                Deploy 14-Day Pilot
+                14-Day Pilot (On-Prem)
                 <ArrowRight size={13} className="ml-1.5" />
               </Button>
             </div>
@@ -372,7 +374,7 @@ export default function Navigation() {
                   handleStartTrial()
                 }}
               >
-                Deploy 14-Day Pilot
+                Talk to us
                 <ArrowRight size={13} className="ml-1.5" />
               </Button>
             </div>

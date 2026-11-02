@@ -10,7 +10,7 @@ export default function BlogIndex() {
   const [searchQuery, setSearchQuery] = useState<string>('')
 
   const categories = useMemo(() => {
-    return ['All', 'PDPA & Compliance', 'Data Architecture', 'AI & LLM Data', 'Industry Comparisons']
+    return ['All', 'AI Safety & Research', 'PDPA & Compliance', 'Data Architecture', 'AI & LLM Data', 'Industry Comparisons']
   }, [])
 
   const filteredPosts = useMemo(() => {
@@ -167,7 +167,7 @@ export default function BlogIndex() {
             Download the 2026 Data Governance for AI Readiness Field Manual
           </h3>
           <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            48 pages of concrete architectural diagrams, Singapore PDPA checklists, and automated table-bound DPIA implementation recipes for engineers and CISOs.
+            Concrete architectural blueprints, Singapore PDPA checklists, and automated table-bound DPIA implementation recipes for engineers and CISOs.
           </p>
         </div>
         <Button asChild size="lg" className="bg-gradient-to-r from-teal-500 to-teal-500 hover:from-teal-600 hover:to-teal-600 text-white font-semibold py-6 px-8 rounded-2xl shrink-0 shadow-lg shadow-teal-950/50">

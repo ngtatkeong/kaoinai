@@ -27,8 +27,47 @@ export default function BlogPost() {
     return blogPosts.filter((p) => p.slug !== post.slug).slice(0, 2)
   }, [post.slug])
 
+  const schemaData = useMemo(() => {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      '@id': `https://kaoinai.com/blog/${post.slug}#article`,
+      'headline': post.title,
+      'alternativeHeadline': post.subtitle,
+      'description': post.description,
+      'image': 'https://kaoinai.com/og-cover.png',
+      'author': {
+        '@type': 'Person',
+        'name': post.author.name,
+        'jobTitle': post.author.role,
+        'url': 'https://kaoinai.com/contact'
+      },
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'KaoinAI',
+        'url': 'https://kaoinai.com',
+        'logo': {
+          '@type': 'ImageObject',
+          'url': 'https://kaoinai.com/logo.png'
+        }
+      },
+      'datePublished': '2026-09-26T08:00:00+08:00',
+      'dateModified': '2026-10-02T12:00:00+08:00',
+      'mainEntityOfPage': {
+        '@type': 'WebPage',
+        '@id': `https://kaoinai.com/blog/${post.slug}`
+      },
+      'articleSection': post.category,
+      'keywords': post.tags.join(', ')
+    }
+  }, [post])
+
   return (
     <div className="pt-24 pb-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-slate-800">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
       {/* Back to Blog */}
       <div className="mb-8 flex items-center justify-between">
         <Link 
@@ -164,6 +203,16 @@ export default function BlogPost() {
           )
         })}
       </article>
+
+      {/* Research & Technical Methodology Disclosure */}
+      <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 text-xs text-slate-500 leading-relaxed mb-10 space-y-1.5">
+        <div className="font-bold text-slate-700 uppercase tracking-wider text-[10px]">
+          Technical &amp; Empirical Methodology Disclosure
+        </div>
+        <p>
+          * Comparative statistics, latency metrics, and benchmark scores cited in KaoinAI research publications reflect empirical lab evaluations (evaluating zero-trust semantic catalog &amp; schema resolution against unguided direct LLM database discovery across Spider &amp; BIRD relational benchmark fixtures). Legacy cost ranges ($30,000–$250,000+/year) reflect published entry enterprise software licensing tiers and systems integrator retainers (e.g. Collibra, Alation, Informatica). Incident retrospectives and case studies illustrate operational hazards, synthetic recursion drift, and public post-mortems analyzed under the Australian Government DISR 10 Mandatory AI Guardrails and Singapore PDPA/MAS TRM statutory standards.
+        </p>
+      </div>
 
       {/* Author Bio Box */}
       <div className="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200 mb-16 flex items-start gap-4">

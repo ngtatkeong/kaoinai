@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { Mail, MapPin, Shield } from 'lucide-react'
+import { Mail, MapPin, Shield, UserCheck } from 'lucide-react'
 import { trackEvent } from '@/lib/analytics'
 import { getWhatsAppUrl, WHATSAPP_NUMBER, WHATSAPP_DISPLAY } from '@/lib/whatsapp'
 
@@ -10,12 +10,13 @@ const footerLinks = {
     { label: 'Master Data Management', href: '/#features' },
     { label: 'PII Detection & Masking', href: '/#features' },
     { label: 'Schema Drift Detection', href: '/#features' },
-    { label: 'Ask Data in Plain English', href: '/#features' },
+    { label: 'AI-Enhanced Data Catalog & DB Knowledgebase', href: '/#features' },
   ],
   Solutions: [
     { label: 'Data Governance Maturity Audit', href: '/#audit' },
     { label: 'For Growing Startups & SMEs', href: '/#features' },
     { label: 'GDPR & PDPA Compliance', href: '/privacy' },
+    { label: 'PDPA Privacy & Data Protection Agreement (DPA)', href: '/dpa' },
     { label: 'ERP Data Migration & Sync', href: '/#how-it-works' },
     { label: 'Automated dbt Pipelines', href: '/#features' },
     { label: 'ROI & Savings Calculator', href: '/#roi-calculator' },
@@ -68,19 +69,27 @@ export default function Footer() {
               </div>
 
               <div className="flex items-center gap-3 text-xs text-teal-800">
-                <Mail size={15} className="text-teal-600 shrink-0" />
+                <Mail size={15} className="text-teal-500 shrink-0" />
                 <a href="mailto:hello@kaoinai.com" className="hover:text-teal-950 transition-colors">
                   hello@kaoinai.com (General & Support)
                 </a>
               </div>
               <div className="flex items-center gap-3 text-xs text-teal-800">
-                <Mail size={15} className="text-teal-600 shrink-0" />
+                <UserCheck size={15} className="text-teal-600 shrink-0" />
+                <span>
+                  <strong className="text-teal-950">DPO:</strong>{' '}
+                  <span className="text-teal-900 font-medium">Ng Tat Keong</span>{' '}
+                  (<a href="mailto:tk.ng@kaoinai.com" className="hover:text-teal-950 underline underline-offset-2">tk.ng@kaoinai.com</a>)
+                </span>
+              </div>
+              <div className="flex items-center gap-3 text-xs text-teal-800">
+                <Mail size={15} className="text-teal-500 shrink-0" />
                 <a href="mailto:partners@kaoinai.com" className="hover:text-teal-950 transition-colors">
                   partners@kaoinai.com (ERP & Channel Partners)
                 </a>
               </div>
               <div className="flex items-center gap-3 text-xs text-teal-800">
-                <MapPin size={15} className="text-teal-600 shrink-0" />
+                <MapPin size={15} className="text-teal-500 shrink-0" />
                 <span>Kuala Lumpur, Malaysia • Global Cloud SaaS</span>
               </div>
             </div>
@@ -124,7 +133,8 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} KaoinAI Pte. Ltd. All rights reserved.</p>
           <div className="flex flex-wrap gap-6">
             <Link to="/contact" className="hover:text-teal-700 transition-colors">Contact Support</Link>
-            <Link to="/privacy" className="hover:text-teal-700 transition-colors">Privacy Policy</Link>
+            <Link to="/privacy" className="hover:text-teal-700 transition-colors">PDPA Privacy Policy</Link>
+            <Link to="/dpa" className="hover:text-teal-700 transition-colors font-medium text-teal-800">PDPA Agreement (DPA)</Link>
             <Link to="/terms" className="hover:text-teal-700 transition-colors">Terms of Service</Link>
             <Link to="/security" className="hover:text-teal-700 transition-colors">Security Overview</Link>
           </div>

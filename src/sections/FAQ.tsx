@@ -6,7 +6,7 @@ const faqs = [
   {
     question: 'What is KaoinAI and how is it different from legacy tools?',
     answer:
-      'KaoinAI is an all-in-one AI data intelligence platform engineered specifically for SMEs. Unlike legacy tools (Collibra, Informatica, Alation) that cost $100k–$1M+ and take 6 months to deploy, KaoinAI connects in minutes, uses AI to auto-generate rules and metadata, and costs a fraction of enterprise software.',
+      'KaoinAI is an all-in-one AI data intelligence platform engineered specifically for SMEs. Unlike legacy tools (Collibra, Informatica, Alation) that cost $100k–$1M+* and take 6 months* to deploy, KaoinAI connects in minutes*, uses AI to auto-generate rules and metadata, and costs a fraction of enterprise software.',
   },
   {
     question: 'How does KaoinAI connect to our databases? Is our data secure?',
@@ -31,12 +31,12 @@ const faqs = [
   {
     question: 'Do we need data engineers or SQL experts to use KaoinAI?',
     answer:
-      'No! KaoinAI features natural language interfaces ("Ask Data in Plain English"), AI-suggested validation rules, and automated dbt model generators. Non-technical compliance officers, business analysts, and fractional CTOs can manage the platform with ease.',
+      'No! KaoinAI features an AI-enhanced data catalog, an AI-aided database knowledgebase, AI-suggested validation rules, and automated dbt model generators. Non-technical compliance officers, business analysts, and fractional CTOs can navigate and govern the database estate with ease.',
   },
   {
-    question: 'What happens after the Free Trial ends?',
+    question: 'Is there a Free Trial, and does it apply to both Cloud and On-Premises?',
     answer:
-      'Your free trial gives you full access to all core modules for 14 days without a credit card. At the end of the trial, you can choose a transparent monthly plan based on your connected data sources or transition to custom enterprise terms.',
+      'Yes! You can evaluate KaoinAI in two flexible ways: 1) Explore our live interactive sandbox right on this website with sample database schemas in 60 seconds, and 2) Activate a 14-day Free Evaluation Trial for self-hosted On-Premises or Private VPC deployments (Docker or Helm in your own AWS/GCP VPC or local server). Because the on-premise trial runs entirely within your network with zero external data egress, you can test over your real schemas with complete security and no credit card required. For teams preferring Managed Cloud SaaS, we also offer Founding Enterprise Cohort slots ($0 software licensing and white-glove onboarding for the first 3 qualified enterprise customers).',
   },
 ]
 
@@ -104,6 +104,11 @@ export default function FAQ() {
             )
           })}
         </div>
+
+        {/* Footnote Disclaimer */}
+        <p className="text-[11px] text-gray-400 text-center mt-10 max-w-3xl mx-auto leading-relaxed">
+          * Comparative legacy governance suite deployment budgets ($100k–$1M+) and 3–6 month timelines reflect published industry software licensing tiers, multi-user seat charges, and mandatory Systems Integrator consulting retainers reported in enterprise data catalog market studies (Gartner/Forrester). KaoinAI connection in minutes is evaluated on standard relational database connectors (e.g. PostgreSQL, MySQL, Snowflake) with administrative credentials ready.
+        </p>
       </div>
     </section>
   )

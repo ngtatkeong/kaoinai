@@ -1,34 +1,39 @@
 import { AlertTriangle, CheckCircle, XCircle } from 'lucide-react'
+import HorrorStoryBeforeAfter from '@/components/HorrorStoryBeforeAfter'
 
 const problems = [
   'Disconnected Compliance Spreadsheets: Static DPIAs and surveys that become obsolete the moment an engineer runs a schema migration.',
-  'Exorbitant Implementation & Lock-In: $30,000–$100,000+/year software minimums plus six-figure system integrator retainers.',
+  'Exorbitant Implementation & Lock-In: $30,000–$100,000+/year* software minimums plus six-figure system integrator retainers*.',
   'Catastrophic Regulatory Exposure: Undetected PII drift leading to severe PDPA, MAS TRM, and GDPR statutory penalties.',
-  'Developer & Analyst Burnout: High-friction manual SQL drafting, broken pipelines, and unmaintained custom lineage scripts.',
+  'Tribal Knowledge & Undocumented Schemas: Cryptic table names, stale Confluence wikis, and hours wasted hunting down what database columns actually mean.',
   'Fragmented Customer Master Data: Conflicting records and duplicate entities isolated across disparate ERPs, CRMs, and SQL tables.'
 ]
 
 const solutions = [
   'Physical Table-Bound DPIA & Living RoPA: Compliance inventories generated directly from physical database schemas with automated drift alerts.',
-  'Rapid Production Go-Live in Under 48h: Instant deployment via self-hosted Docker, private VPC Kubernetes, or managed cloud.',
-  'Autonomous Natural Language to SQL: Sub-second conversational data querying with zero manual SQL drafting required.',
+  'Rapid Production Go-Live in Up to 48h*: Instant deployment via self-hosted Docker, private VPC Kubernetes, or managed cloud.',
+  'AI-Enhanced Data Catalog & DB Knowledgebase: Self-maintaining semantic documentation, business glossaries, and AI-aided schema discovery across your database estate.',
   'Continuous Schema Shift & Dynamic Masking: Real-time detection of newly migrated PII with automatic tokenization and role-based masking.',
   'Golden Record MDM Engine: Automated entity resolution across Salesforce, PostgreSQL, Shopify, and ERPs without brittle custom ETL.'
 ]
 
 export default function ProblemSolution() {
   return (
-    <section className="py-20 sm:py-28 bg-gradient-to-b from-white via-slate-50/40 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold uppercase tracking-wider mb-4">
+    <section id="problem-solution" className="py-20 sm:py-28 bg-gradient-to-b from-white via-slate-50/40 to-white scroll-mt-20">
+      {/* 1. Interactive 3 Horror Stories & Before/After Slider */}
+      <HorrorStoryBeforeAfter />
+
+      {/* 2. Architectural Comparison: Legacy Silos vs KaoinAI Autonomous Governance */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 sm:mt-28 pt-16 border-t border-slate-200/80">
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold uppercase tracking-wider mb-3">
             <span>Architectural Paradigm</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950 tracking-tight mb-5">
-            Why Legacy Data Governance Fails
-          </h2>
-          <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Traditional data catalogs rely on disconnected compliance surveys, static spreadsheets, and multi-million dollar consulting retainers that immediately drift out of sync with actual database reality.
+          <h3 className="text-2xl sm:text-4xl font-extrabold text-slate-950 tracking-tight mb-3">
+            Legacy Manual Silos vs. Autonomous Intelligence
+          </h3>
+          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            Why traditional enterprise platforms cost $150k+ and take 6 months—while KaoinAI connects in minutes.
           </p>
         </div>
 
@@ -42,7 +47,7 @@ export default function ProblemSolution() {
                   <AlertTriangle size={22} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 tracking-tight">Legacy Governance &amp; Manual Silos</h3>
+                  <h4 className="text-xl font-bold text-slate-900 tracking-tight">Legacy Governance &amp; Manual Silos</h4>
                   <p className="text-xs text-rose-700/80 font-medium">Consultant-heavy, fragile, and decoupled from production databases</p>
                 </div>
               </div>
@@ -77,10 +82,10 @@ export default function ProblemSolution() {
                   <CheckCircle size={22} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-teal-950 tracking-tight flex items-center gap-2">
+                  <h4 className="text-xl font-bold text-teal-950 tracking-tight flex items-center gap-2">
                     <span>KaoinAI Autonomous Governance</span>
-                  </h3>
-                  <p className="text-xs text-teal-600 font-medium">Continuous, schema-bound, and operational in under 1 day</p>
+                  </h4>
+                  <p className="text-xs text-teal-600 font-medium">Continuous, schema-bound, and operational in up to 1 day*</p>
                 </div>
               </div>
               <ul className="space-y-4 sm:space-y-5">
@@ -102,6 +107,11 @@ export default function ProblemSolution() {
             </div>
           </div>
         </div>
+
+        {/* Footnote Disclaimer */}
+        <p className="text-[11px] text-slate-500 text-center mt-8 max-w-4xl mx-auto leading-relaxed">
+          * Legacy software costs ($30,000–$100,000+/year) and six-figure retainer estimates are derived from published entry licensing models and typical external systems integration contracts for legacy data governance platforms (e.g. Collibra, Alation). Rapid setup (up to 48 hours / 1 day) is evaluated against traditional 3–9 month manual SI onboarding baselines. Actual duration depends on environment complexity and VPC provisioning.
+        </p>
       </div>
     </section>
   )

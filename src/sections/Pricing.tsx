@@ -47,7 +47,7 @@ const plans: PricingPlan[] = [
       'Up to 3 Connected Data Sources (Postgres, Snowflake, RDS)',
       'Automated PII Scanning & Dynamic SHA-256 Masking',
       'Continuous Schema Drift & Anomaly Alerts',
-      'Natural Language Queries to SQL (1,500 queries/mo)',
+      'AI-Enhanced Data Catalog & DB Knowledgebase (1,500 lookups/mo)',
       'Daily Automated Health Reports via Email',
       'Assisted 30-Min Connection Verification',
       'Standard Technical Support'
@@ -61,7 +61,7 @@ const plans: PricingPlan[] = [
       'Assisted VPC Peering & Docker Compose Kickoff',
       'Standard Technical Support'
     ],
-    cta: 'Claim $0 Slot (Starter)'
+    cta: 'Start 14-Day Free VPC Trial'
   },
   {
     name: 'Growth',
@@ -82,7 +82,7 @@ const plans: PricingPlan[] = [
       'Golden Record MDM Engine (Shopify, CRM, Zendesk)',
       'Autonomous dbt Model Synthesis with AI',
       'Singapore PDPA, MAS TRM & GDPR Statutory Reports',
-      'Unlimited Natural Language Business Queries',
+      'Unlimited AI-Aided DB Knowledgebase & Semantic Catalog',
       'White-Glove Architecture Onboarding Included',
       'Dedicated Slack Connect & WhatsApp Direct Channel'
     ],
@@ -97,7 +97,7 @@ const plans: PricingPlan[] = [
       'White-Glove On-Premise Installation & Hardening Call',
       'Dedicated Slack Connect & WhatsApp Senior Architect'
     ],
-    cta: 'Claim $0 Slot (Growth)'
+    cta: 'Start 14-Day Free VPC Trial'
   },
   {
     name: 'Enterprise',
@@ -117,7 +117,7 @@ const plans: PricingPlan[] = [
       'Multi-Database DPIA Drift Auditing & Custom RoPA Exports',
       'Custom Role-Based Access Controls (RBAC) & Okta SSO',
       'Custom DPA, Security Audit & Penetration Test Review',
-      '99.9% Uptime SLA Guarantee',
+      'Up to 99.9%* Uptime SLA Guarantee',
       'Dedicated Named AI Systems Architect'
     ],
     featuresOnPrem: [
@@ -127,10 +127,10 @@ const plans: PricingPlan[] = [
       'Hardware Security Module (HSM) / Custom KMS Key Support',
       'Zero-Trust Network Access (ZTNA) & Okta/SAML Integration',
       'Custom Regulatory Architecture Review & Pentest Clearance',
-      '99.99% Architecture SLA with 1-Hour Severity-1 Response',
+      'Up to 99.99%* Architecture SLA with Up to 1-Hour* Severity-1 Response',
       'Dedicated Named Principal Architect on Call'
     ],
-    cta: 'Claim $0 Slot (Enterprise)'
+    cta: 'Schedule Architecture Review'
   }
 ]
 
@@ -198,8 +198,8 @@ export default function Pricing() {
               >
                 <Server size={16} />
                 <span>Self-Hosted On-Prem / VPC</span>
-                <span className="text-[10px] font-extrabold bg-amber-400 text-amber-950 px-1.5 py-0.5 rounded-md">
-                  Air-Gapped
+                <span className="text-[10px] font-extrabold bg-emerald-400 text-emerald-950 px-2 py-0.5 rounded-full shadow-2xs">
+                  14-Day Free Trial
                 </span>
               </button>
             </div>
@@ -229,24 +229,34 @@ export default function Pricing() {
                   Annual Plan
                 </span>
                 <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                  Save 20% + Setup Waived
+                  Save up to 20%* + Setup Waived
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Dynamic Sub-banner explaining selected deployment mode */}
-          <div className="mt-4 text-xs font-medium text-slate-500 max-w-2xl mx-auto">
+          {/* Dynamic Sub-banner explaining selected deployment mode & Free Trial availability */}
+          <div className="mt-5 text-xs font-medium max-w-3xl mx-auto">
             {isOnPrem ? (
-              <span className="inline-flex items-center gap-1.5 text-slate-800 bg-slate-100 px-3.5 py-1.5 rounded-lg border border-slate-200">
-                <Server size={13} className="text-slate-700" />
-                <span><strong>Self-Hosted Software License:</strong> Lower pricing because you provide your own AWS/VPC compute. Zero external data egress.</span>
-              </span>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 text-emerald-950 bg-emerald-50 px-4 py-2.5 rounded-2xl border border-emerald-200/90 shadow-2xs text-center sm:text-left">
+                <span className="inline-flex items-center gap-1.5 font-bold text-emerald-800 shrink-0">
+                  <CheckCircle2 size={15} className="text-emerald-600" />
+                  14-Day Free Trial Available for On-Prem / VPC:
+                </span>
+                <span className="text-emerald-900">
+                  Deploy Docker/Helm in your private VPC with zero data egress. No credit card required.
+                </span>
+              </div>
             ) : (
-              <span className="inline-flex items-center gap-1.5 text-teal-900 bg-teal-50 px-3.5 py-1.5 rounded-lg border border-teal-200">
-                <Cloud size={13} className="text-teal-700" />
-                <span><strong>Fully Managed Cloud:</strong> Zero infrastructure setup. Includes KaoinAI-managed AWS Singapore compute, backups, and 99.9% SLA.</span>
-              </span>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 text-teal-950 bg-teal-50 px-4 py-2.5 rounded-2xl border border-teal-200 shadow-2xs text-center sm:text-left">
+                <span className="inline-flex items-center gap-1.5 font-bold text-teal-900 shrink-0">
+                  <Cloud size={15} className="text-teal-700" />
+                  Managed Cloud (SaaS) — Dedicated Infrastructure:
+                </span>
+                <span className="text-teal-800">
+                  Includes AWS Singapore hosting, updates &amp; up to 99.9%* SLA. <strong className="text-teal-950">(Free trial is available on On-Premises only; Cloud requires paid plan or $0 Founding Cohort slot.)</strong>
+                </span>
+              </div>
             )}
           </div>
         </div>
@@ -312,6 +322,18 @@ export default function Pricing() {
                     <div className="text-[10px] text-gray-500 mt-0.5">
                       {isAnnual ? `Annual equivalent value: $${(price * 12).toLocaleString()}/year` : 'Monthly equivalent value'}
                     </div>
+
+                    {isOnPrem ? (
+                      <div className="mt-2.5 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-bold">
+                        <CheckCircle2 size={12} className="text-emerald-600 shrink-0" />
+                        <span>14-Day Free Trial Available on VPC</span>
+                      </div>
+                    ) : (
+                      <div className="mt-2.5 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-teal-50 border border-teal-200 text-teal-900 text-[11px] font-semibold">
+                        <Cloud size={12} className="text-teal-700 shrink-0" />
+                        <span>Paid Managed Cloud (Free Trial is On-Prem Only)</span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Setup & Onboarding Fee Callout */}
@@ -357,12 +379,22 @@ export default function Pricing() {
                     <ArrowRight size={15} className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                   <p className="text-[11px] text-center text-emerald-700 font-semibold mt-2">
-                    🎯 First 3 Customers: $0 / mo (100% Free Lifetime Pilot)
+                    🎯 Founding Cohort: 100% Waived Software & Onboarding for First 3 Customers
                   </p>
                 </div>
               </div>
             )
           })}
+        </div>
+
+        {/* Footnote Disclaimer */}
+        <div className="text-[11px] text-gray-500 text-center -mt-6 mb-12 max-w-4xl mx-auto leading-relaxed space-y-1">
+          <p>
+            * <strong>Annual Savings &amp; Fee Waivers:</strong> Annual commitment discount of up to 20% (e.g. 23.2% on Growth Cloud at $990/mo vs. $1,290/mo, and 20.1% on Enterprise Cloud at $2,790/mo vs. $3,490/mo) is calculated directly against month-to-month billing rates. Standard onboarding/setup fees ($990–$3,990) are waived under 12-month contracts.
+          </p>
+          <p>
+            * <strong>SLA Commitments &amp; Rapid Go-Live:</strong> 99.9% and 99.99% availability targets are contractual commitments under Enterprise tier agreements backed by multi-AZ AWS Singapore clusters or high-availability Kubernetes deployments. Up to 1-hour Severity-1 response applies to business-critical outages. Production go-live in up to 48 hours is evaluated against traditional 3–9 month manual data engineering consultant baselines; actual duration depends on client VPC provisioning and administrator sign-off.
+          </p>
         </div>
 
         {/* Why the Setup / Deployment Package? */}
@@ -378,7 +410,7 @@ export default function Pricing() {
                   : 'What Does the Architecture Onboarding Package Include?'}
               </h4>
               <p className="text-xs text-gray-500">
-                Guaranteed production go-live in under 48 hours without burdening your internal engineering team.
+                Guaranteed production go-live in up to 48 hours* without burdening your internal engineering team.
               </p>
             </div>
           </div>
@@ -405,7 +437,7 @@ export default function Pricing() {
             <div className="flex items-start gap-2 bg-gray-50 p-3.5 rounded-xl border border-gray-100">
               <CheckCircle2 size={16} className="text-[#0f766e] shrink-0 mt-0.5" />
               <div>
-                <strong>Dedicated Engineer Channel:</strong> Private Slack Connect or WhatsApp channel with a 2-hour SLA during onboarding.
+                <strong>Dedicated Engineer Channel:</strong> Private Slack Connect or WhatsApp channel with an up to 2-hour* SLA during onboarding.
               </div>
             </div>
           </div>

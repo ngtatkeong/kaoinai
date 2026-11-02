@@ -25,7 +25,7 @@ const comparisonData: ComparisonRow[] = [
     feature: 'Time to Value & Setup',
     description: 'How long before you see your first data health scan and lineage map?',
     kaoinai: {
-      highlight: '< 1 Day (Automated schema discovery & lineage mapping)',
+      highlight: 'Up to < 1 Day* (Automated schema discovery & lineage mapping)',
       positive: true
     },
     legacy: {
@@ -45,11 +45,11 @@ const comparisonData: ComparisonRow[] = [
       positive: true
     },
     legacy: {
-      text: '$30,000 – $100,000+ / yr commit plus $25,000 consulting retainers',
+      text: '$30,000 – $100,000+ / yr* commit plus $25,000* consulting retainers',
       positive: false
     },
     manual: {
-      text: 'Hidden $60k+ in wasted developer & analyst hours every quarter',
+      text: 'Hidden $60k+* in wasted developer & analyst hours every year',
       positive: false
     }
   },
@@ -57,7 +57,7 @@ const comparisonData: ComparisonRow[] = [
     feature: 'User Accessibility',
     description: 'Who in your company can extract answers and audit data?',
     kaoinai: {
-      highlight: 'Plain English for Everyone (Ops, Product, Execs)',
+      highlight: 'AI DB Knowledgebase & Living Catalog (No SQL expertise needed)',
       positive: true
     },
     legacy: {
@@ -245,6 +245,11 @@ export default function Comparison() {
           <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white to-transparent sm:hidden" aria-hidden="true" />
         </div>
 
+        {/* Footnote Disclaimer */}
+        <p className="text-[11px] text-slate-500 text-center -mt-6 mb-8 max-w-4xl mx-auto leading-relaxed">
+          * Implementation durations, TCO projections, legacy pricing ($30k–$100k+/yr license + $25k retainers), and internal manual waste ($60k+/yr based on ~20–25 weekly hours of ad-hoc SQL troubleshooting and schema firefighting at a loaded $45–$60/hr wage rate) are representative estimates evaluated against baseline legacy enterprise tooling (3–9 month systems integration engagements) and an organization&apos;s earlier manual baseline (undocumented schemas, spreadsheets, and developer tickets).
+        </p>
+
         {/* Action Row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-2xl bg-teal-50/80 border border-teal-100 text-center sm:text-left">
           <div className="flex items-center gap-3">
@@ -253,10 +258,10 @@ export default function Comparison() {
             </div>
             <div>
               <h4 className="font-bold text-slate-900 text-sm sm:text-base">
-                Try KaoinAI risk-free for 14 days on your actual schema
+                Try KaoinAI risk-free for 14 days on your actual schema (On-Prem / Private VPC)
               </h4>
               <p className="text-xs text-slate-600">
-                No credit card required • Zero raw data stored • First health scan delivered in under 1 day
+                14-Day Free Trial available exclusively on On-Prem / VPC deployments • Zero data egress • No credit card required (Cloud is paid)
               </p>
             </div>
           </div>
@@ -265,7 +270,7 @@ export default function Comparison() {
               onClick={handleScrollToCta}
               className="bg-teal-600 hover:bg-teal-700 text-white font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-sm transition-colors"
             >
-              Deploy 14-Day Pilot
+              Deploy 14-Day On-Prem Pilot
               <ArrowRight size={14} className="ml-1.5" />
             </Button>
             <a

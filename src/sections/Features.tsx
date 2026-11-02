@@ -46,8 +46,8 @@ const features = [
   },
   {
     icon: Brain,
-    title: 'Ask Data — Natural Language',
-    description: 'Query your ERP data in plain English. No SQL required. Get instant answers, visualizations, and export options.',
+    title: 'AI-Aided DB Knowledgebase',
+    description: 'Living, AI-curated database knowledgebase that maps tribal schema logic, foreign key semantics, and table definitions so teams instantly understand every dataset.',
     color: 'from-amber-500 to-orange-600',
     bgColor: 'bg-amber-50',
   },
@@ -60,8 +60,8 @@ const features = [
   },
   {
     icon: FileSearch,
-    title: 'Smart Data Catalog',
-    description: 'AI-generated documentation, business glossary, usage statistics, and intelligent search across all your data assets.',
+    title: 'AI-Enhanced Data Catalog',
+    description: 'Self-updating data catalog with AI-synthesized table documentation, business glossaries, and automated semantic indexing that eliminates undocumented schema debt.',
     color: 'from-teal-500 to-teal-600',
     bgColor: 'bg-teal-50',
   },
@@ -209,11 +209,11 @@ export default function Features() {
         <div className="mt-12 sm:mt-16 bg-gradient-brand rounded-2xl p-6 sm:p-8 lg:p-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
             <div>
-              <div className="text-2xl sm:text-4xl font-bold text-white">14+</div>
+              <div className="text-2xl sm:text-4xl font-bold text-white">Up to 14+*</div>
               <div className="text-teal-200 text-xs sm:text-sm mt-1">Core Modules</div>
             </div>
             <div>
-              <div className="text-2xl sm:text-4xl font-bold text-white">6+</div>
+              <div className="text-2xl sm:text-4xl font-bold text-white">Up to 6+*</div>
               <div className="text-teal-200 text-xs sm:text-sm mt-1">Compliance Standards</div>
             </div>
             <div>
@@ -226,6 +226,11 @@ export default function Features() {
             </div>
           </div>
         </div>
+
+        {/* Footnote Disclaimer */}
+        <p className="text-[11px] text-gray-500 text-center mt-4 max-w-4xl mx-auto leading-relaxed">
+          * Core modules, compliance frameworks, and catalog comprehension depth are evaluated against an organization&apos;s baseline data posture prior to KaoinAI (e.g. unindexed tables, manual static spreadsheets, and isolated point solutions). Coverage reflects full enterprise licensing configurations including Singapore PDPA, GDPR, MAS TRM, ISO 27001, and custom regulatory mapping rules.
+        </p>
       </div>
     </section>
   )

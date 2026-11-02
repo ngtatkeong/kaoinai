@@ -449,7 +449,7 @@ Host Direct Email: tk.ng@kaoinai.com`
               </div>
 
               <p className="text-xs text-gray-600 mt-4 leading-relaxed bg-teal-50/50 p-3 rounded-xl border border-teal-100/60">
-                "Direct calendar consultations with zero sales fluff. We'll examine your data sources, assess zero-ingestion architecture, and map out your PDPA/RoPA timeline."
+                "Direct calendar consultations with no sales pressure. We'll examine your data sources, assess the read-only architecture, and map out your PDPA/RoPA timeline."
               </p>
 
               <div className="mt-4 pt-3 flex items-center justify-between">
@@ -533,6 +533,21 @@ Host Direct Email: tk.ng@kaoinai.com`
                     <a href="mailto:hello@kaoinai.com" className="text-xs font-medium text-gray-900 hover:text-[#0f766e] transition-colors">
                       hello@kaoinai.com
                     </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-teal-50 text-[#0f766e] flex items-center justify-center shrink-0 mt-0.5">
+                    <UserCheck size={16} />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider block">Data Protection Officer (DPO)</span>
+                    <a href="mailto:tk.ng@kaoinai.com" className="text-xs font-semibold text-teal-950 hover:text-[#0f766e] transition-colors block">
+                      Ng Tat Keong &bull; tk.ng@kaoinai.com
+                    </a>
+                    <span className="text-[10px] text-gray-500 block">
+                      Statutory PDPA Notices, DSAR &amp; <Link to="/dpa" className="text-teal-600 underline font-medium">PDPA Agreement</Link>
+                    </span>
                   </div>
                 </div>
 

@@ -28,6 +28,7 @@ export type EventPayloads = {
     email: string;
     source: string;
     reference_id?: string;
+    deployment_mode?: string;
   };
   faq_toggle: {
     question: string;
@@ -94,6 +95,12 @@ export type EventPayloads = {
     date: string;
     time: string;
     ref: string;
+  };
+  copy_dpa_agreement: {
+    type: string;
+  };
+  print_dpa_agreement: {
+    type: string;
   };
 };
 

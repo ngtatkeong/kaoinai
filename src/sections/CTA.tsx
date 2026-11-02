@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowRight, Mail, CheckCircle2, Calendar, Sparkles, FileText } from 'lucide-react'
+import { ArrowRight, Mail, CheckCircle2, Calendar, Sparkles, FileText, Server, Cloud } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { trackEvent } from '@/lib/analytics'
@@ -8,6 +8,7 @@ import LeadMagnetModal from '@/components/LeadMagnetModal'
 
 export default function CTA() {
   const [email, setEmail] = useState('')
+  const [deploymentType, setDeploymentType] = useState<'onprem' | 'cloud'>('onprem')
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [refId, setRefId] = useState('')
@@ -25,9 +26,10 @@ export default function CTA() {
       const formData = new FormData()
       formData.append('email', email.trim())
       formData.append('_replyto', email.trim())
-      formData.append('inquiry_type', '14-Day Free Pilot Activation')
+      formData.append('deployment_mode', deploymentType === 'onprem' ? 'On-Premises / Private VPC (14-Day Free Trial)' : 'Managed Cloud SaaS (Dedicated Cloud Instance - Paid / Founding Cohort)')
+      formData.append('inquiry_type', deploymentType === 'onprem' ? '14-Day Free Pilot Activation (On-Premises / VPC)' : 'Managed Cloud SaaS Enterprise Inquiry')
       formData.append('reference_id', generatedRef)
-      formData.append('_subject', `[New Free Pilot Request #${generatedRef}] from ${email.trim()}`)
+      formData.append('_subject', `[${deploymentType === 'onprem' ? '14-Day Free On-Prem Pilot' : 'Managed Cloud SaaS'}] Request #${generatedRef} from ${email.trim()}`)
       formData.append('recipient', 'tk.ng@kaoinai.com')
 
       await fetch('https://formspree.io/f/xyegdyyj', {
@@ -40,7 +42,7 @@ export default function CTA() {
     } finally {
       setLoading(false)
       setSubmitted(true)
-      trackEvent('submit_lead', { email, source: 'cta_form', reference_id: generatedRef })
+      trackEvent('submit_lead', { email, source: 'cta_form', reference_id: generatedRef, deployment_mode: deploymentType })
     }
   }
 
@@ -54,25 +56,33 @@ export default function CTA() {
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-100 border border-teal-200 text-teal-700 text-xs font-semibold mb-6">
-          <Sparkles size={14} className="text-teal-600" />
+          <Sparkles size={14} className="text-teal-500" />
           <span>Enterprise Security • Singapore PDPA &amp; MAS TRM Compliant</span>
         </div>
 
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-teal-950 mb-4 sm:mb-6 tracking-tight">
           Ready to Automate Your Data Governance?
         </h2>
-        <p className="text-sm sm:text-lg text-teal-900/70 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
-          Join engineering and compliance leaders who trust KaoinAI to automate table-bound DPIAs, detect schema drift, and eliminate PII exposure in under 48 hours.
+        <p className="text-sm sm:text-lg text-teal-900/70 max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed">
+          Join engineering and compliance leaders who trust KaoinAI to automate table-bound DPIAs, detect schema drift, and eliminate PII exposure in up to 48 hours*.
         </p>
+
+        {/* Free trial exclusivity badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs font-semibold mb-6">
+          <CheckCircle2 size={14} className="text-emerald-600 shrink-0" />
+          <span>14-Day Free Private VPC/Docker Trial (Zero Data Egress) or Apply for $0 Founding Enterprise Cohort</span>
+        </div>
 
         {submitted ? (
           <div className="max-w-md mx-auto bg-white backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-green-200 text-teal-950 shadow-lg shadow-teal-100 animate-fade-in text-center space-y-3">
             <div className="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto">
               <CheckCircle2 size={28} />
             </div>
-            <h3 className="text-xl font-bold">14-Day Pilot Request Logged!</h3>
+            <h3 className="text-xl font-bold">
+              {deploymentType === 'onprem' ? '14-Day Free On-Prem Trial Logged!' : 'Managed Cloud Request Logged!'}
+            </h3>
             <p className="text-sm text-teal-900/70">
-              We have acknowledged your registration for <strong className="text-teal-950">{email}</strong>.
+              We have acknowledged your registration for <strong className="text-teal-950">{email}</strong> ({deploymentType === 'onprem' ? 'On-Premises / Private VPC' : 'Managed Cloud SaaS'}).
             </p>
             <div className="inline-block px-3 py-1.5 rounded-lg bg-teal-50 text-xs font-mono font-bold text-teal-700 border border-teal-200">
               Ref ID: {refId}
@@ -81,7 +91,7 @@ export default function CTA() {
               Need immediate onboarding support?
             </p>
             <a
-              href={getWhatsAppUrl(`Hi KaoinAI, I just requested a 14-day free pilot (Ref: ${refId}) for ${email}. Could you assist with onboarding?`)}
+              href={getWhatsAppUrl(`Hi KaoinAI, I just requested a ${deploymentType === 'onprem' ? '14-day free on-premises trial' : 'managed cloud deployment'} (Ref: ${refId}) for ${email}. Could you assist with onboarding?`)}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs shadow-sm transition-all"
@@ -91,9 +101,56 @@ export default function CTA() {
           </div>
         ) : (
           <div className="space-y-6">
+            {/* Deployment selector toggle */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 max-w-md mx-auto bg-white/80 p-1.5 rounded-2xl border border-teal-200 text-xs shadow-xs">
+              <button
+                type="button"
+                onClick={() => setDeploymentType('onprem')}
+                className={`flex-1 w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl font-bold transition-all cursor-pointer ${
+                  deploymentType === 'onprem'
+                    ? 'bg-teal-600 text-white shadow-sm'
+                    : 'text-teal-700 hover:text-teal-950'
+                }`}
+              >
+                <Server size={14} />
+                <span>On-Prem / Private VPC</span>
+                <span className="text-[10px] bg-emerald-500 text-white font-extrabold px-1.5 py-0.5 rounded-md">
+                  14-Day Free Trial
+                </span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setDeploymentType('cloud')}
+                className={`flex-1 w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl font-bold transition-all cursor-pointer ${
+                  deploymentType === 'cloud'
+                    ? 'bg-teal-600 text-white shadow-sm'
+                    : 'text-teal-700 hover:text-teal-950'
+                }`}
+              >
+                <Cloud size={14} />
+                <span>Managed Cloud (SaaS)</span>
+                <span className="text-[10px] bg-teal-100 text-teal-800 font-semibold px-1.5 py-0.5 rounded-md">
+                  Paid / $0 Cohort
+                </span>
+              </button>
+            </div>
+
+            {/* Explanatory note based on selected deployment */}
+            <div className="text-xs max-w-lg mx-auto">
+              {deploymentType === 'onprem' ? (
+                <p className="text-emerald-800 font-medium">
+                  ✨ <strong>On-Premises / VPC:</strong> Includes 14-day free evaluation trial in your own Docker/Kubernetes environment. Zero data egress, no credit card required.
+                </p>
+              ) : (
+                <p className="text-teal-800 font-medium">
+                  ☁️ <strong>Managed Cloud:</strong> Dedicated AWS Singapore cluster with backups &amp; SLA. <em>(Free trial is on-prem only; Cloud is available as paid plan or via Founding Cohort slot.)</em>
+                </p>
+              )}
+            </div>
+
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 justify-center items-center max-w-lg mx-auto">
               <div className="relative w-full">
-                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-teal-600" size={18} />
+                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-teal-400" size={18} />
                 <Input
                   type="email"
                   required
@@ -109,20 +166,20 @@ export default function CTA() {
                 size="lg"
                 className="bg-teal-600 text-white hover:bg-teal-700 transition-colors px-8 py-5 sm:py-6 text-sm font-semibold whitespace-nowrap group w-full sm:w-auto rounded-xl shadow-lg shadow-teal-200"
               >
-                {loading ? 'Initiating...' : 'Deploy 14-Day Pilot'}
+                {loading ? 'Initiating...' : (deploymentType === 'onprem' ? 'Deploy 14-Day Free Trial' : 'Inquire Managed Cloud')}
                 <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </form>
 
             <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-teal-900/70">
               <span className="flex items-center gap-1.5">
+                <CheckCircle2 size={14} className="text-green-600" /> Free trial strictly On-Prem / VPC
+              </span>
+              <span className="flex items-center gap-1.5">
                 <CheckCircle2 size={14} className="text-green-600" /> No credit card required
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 size={14} className="text-green-600" /> Zero raw data stored
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 size={14} className="text-green-600" /> VPC or Cloud in 48 Hours
               </span>
             </div>
 
@@ -153,6 +210,11 @@ export default function CTA() {
                 Get Free Checklist (PDF)
               </Button>
             </div>
+
+            {/* Footnote Disclaimer */}
+            <p className="text-[11px] text-teal-900/50 text-center max-w-2xl mx-auto -mt-2 mb-2 leading-relaxed">
+              * Setup and PII remediation timeframes of up to 48 hours are measured against typical enterprise baselines of multi-week manual remediation and unindexed staging audits. Actual speed depends on single-instance deployment coordination with internal database administrators.
+            </p>
 
             <div className="pt-6 border-t border-teal-200/70 flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-teal-900/60">
               <a

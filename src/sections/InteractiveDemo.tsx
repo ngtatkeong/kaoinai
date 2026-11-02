@@ -47,12 +47,12 @@ const scenarios: Scenario[] = [
     icon: TrendingUp,
     badgeColor: 'bg-amber-100 text-amber-800 border-amber-200',
     prompt: 'Find enterprise accounts with LTV > $5,000 who have not logged in or placed an order in the last 45 days.',
-    executionTime: '118ms',
-    confidenceScore: '99.6%',
-    summary: 'Detected 42 at-risk customer accounts representing $284,500 in ARR across Stripe and PostgreSQL CRM.',
+    executionTime: 'Down to 118ms*',
+    confidenceScore: 'Up to 99.6%*',
+    summary: 'Detected up to 42* at-risk customer accounts representing up to $284,500* in ARR across Stripe and PostgreSQL CRM.',
     insights: [
-      'Top at-risk account: OmniLogistics SG (LTV: $48,200) — Inactive for 48 days',
-      'Average decline in weekly query frequency prior to inactivity: 74%',
+      'Top at-risk account: OmniLogistics SG (LTV: up to $48,200*) — Inactive for up to 48 days*',
+      'Average decline in weekly query frequency prior to inactivity: up to 74%*',
       'Automated retention webhook generated for HubSpot & Slack #cs-vip'
     ],
     sql: `SELECT 
@@ -73,7 +73,7 @@ ORDER BY total_ltv DESC;`,
       sources: ['Stripe Invoices API', 'PostgreSQL (production_crm)'],
       transformation: 'KaoinAI Semantic Aggregator & Recency Normalizer',
       destination: 'Snowflake (finance_mart.vip_churn_alerts)',
-      latency: 'Real-time sync (0.4s)'
+      latency: 'Real-time sync (down to 0.4s*)'
     }
   },
   {
@@ -83,11 +83,11 @@ ORDER BY total_ltv DESC;`,
     icon: ShieldAlert,
     badgeColor: 'bg-red-100 text-red-800 border-red-200',
     prompt: 'Scan all staging, developer, and analytics tables for unmasked Singapore NRIC, phone numbers, or credit card numbers.',
-    executionTime: '164ms',
-    confidenceScore: '99.9%',
-    summary: 'Identified 3 unmasked PII columns in staging database. Auto-generated dynamic SHA-256 masking rules without disrupting engineering.',
+    executionTime: 'Down to 164ms*',
+    confidenceScore: 'Up to 99.9%*',
+    summary: 'Identified up to 3* unmasked PII columns in staging database. Auto-generated dynamic SHA-256 masking rules without disrupting engineering.',
     insights: [
-      'CRITICAL: Table `staging_leads_2026` contains 1,420 unmasked NRIC identifiers',
+      'CRITICAL: Table `staging_leads_2026` contains up to 1,420* unmasked NRIC identifiers',
       'WARNING: Column `users_backup_temp.phone` exposed to read-only dev roles',
       'Remediation applied: Automated dynamic column masking policy injected via proxy layer'
     ],
@@ -117,11 +117,11 @@ ORDER BY table_name, column_name;`,
     icon: Database,
     badgeColor: 'bg-teal-100 text-teal-800 border-teal-200',
     prompt: 'Why does Stripe MRR show $142,500 while our executive dashboard reports $136,800 for March?',
-    executionTime: '210ms',
-    confidenceScore: '98.8%',
-    summary: 'Root cause pinpointed in 3.2 seconds: 43 foreign currency transactions stalled during an upstream webhook retry failure.',
+    executionTime: 'Down to 210ms*',
+    confidenceScore: 'Up to 98.8%*',
+    summary: 'Root cause pinpointed in down to 3.2 seconds*: up to 43* foreign currency transactions stalled during an upstream webhook retry failure.',
     insights: [
-      'Discrepancy delta: Exactly $5,700 across 43 EUR/GBP cross-border checkouts',
+      'Discrepancy delta: Up to $5,700* across up to 43* EUR/GBP cross-border checkouts',
       'Failed node: `dbt_transforms.stg_stripe_webhooks` timed out at 04:15 UTC due to FX rate API rate-limiting',
       'Recommended action: 1-click retry pipeline already queued with zero manual code edits'
     ],
@@ -150,7 +150,7 @@ GROUP BY s.month, s.stripe_mrr, b.bi_mrr;`,
       sources: ['Stripe Webhooks', 'Kafka Event Bus'],
       transformation: 'dbt Core -> Currency Converter -> BI Mart',
       destination: 'Metabase / Tableau Executive Boardroom View',
-      latency: 'Lineage mapped in 210ms'
+      latency: 'Lineage mapped in down to 210ms*'
     }
   },
   {
@@ -160,11 +160,11 @@ GROUP BY s.month, s.stripe_mrr, b.bi_mrr;`,
     icon: GitFork,
     badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
     prompt: 'Deduplicate and merge customer profiles across Shopify, Salesforce, and Zendesk into unified Golden Records.',
-    executionTime: '175ms',
-    confidenceScore: '99.3%',
-    summary: 'Consolidated 2,140 fragmented customer touchpoints into 1,680 unified Golden Records with 100% auditable history.',
+    executionTime: 'Down to 175ms*',
+    confidenceScore: 'Up to 99.3%*',
+    summary: 'Consolidated up to 2,140* fragmented customer touchpoints into up to 1,680* unified Golden Records with up to 100%* auditable history.',
     insights: [
-      'Resolved 460 customer identity collisions with fuzzy Jaro-Winkler + phone hash matching',
+      'Resolved up to 460* customer identity collisions with fuzzy Jaro-Winkler + phone hash matching',
       'Linked Shopify checkout emails with historical Zendesk enterprise support tickets',
       'Golden Record ID generated and broadcasted back to downstream operational systems'
     ],
@@ -197,12 +197,12 @@ GROUP BY golden_customer_id, authoritative_company, primary_email, canonical_pho
     icon: ShieldCheck,
     badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
     prompt: 'Show all database tables containing PII bound directly to our statutory DPIA assessments and Singapore PDPA / GDPR Data Inventory.',
-    executionTime: '142ms',
-    confidenceScore: '99.8%',
-    summary: 'Directly linked 14 production database tables containing PII to DPIA-2026-08 and active Data Inventory (RoPA) with real-time schema drift tracking.',
+    executionTime: 'Down to 142ms*',
+    confidenceScore: 'Up to 99.8%*',
+    summary: 'Directly linked up to 14* production database tables containing PII to DPIA-2026-08 and active Data Inventory (RoPA) with real-time schema drift tracking.',
     insights: [
       'Physical Table Binding: `rds.customer_kyc` & `snowflake.orders` directly bound to DPIA Registry (Risk Level: Low / AES-256 Tokenized)',
-      'Automated RoPA Generation: Legal Basis (PDPA §13 Contractual Necessity) & Retention (MAS TRM 7 Years) mapped per column',
+      'Automated RoPA Generation: Legal Basis (PDPA §13 Contractual Necessity) & Retention (MAS TRM up to 7 Years*) mapped per column',
       'Schema Drift Shield: Auto-detected newly migrated column `user_biometrics` in PostgreSQL; immediately flagged DPIA drift & queued impact assessment'
     ],
     sql: `/* KaoinAI Table-Bound DPIA & Living Data Inventory (RoPA) Engine */
@@ -288,7 +288,7 @@ export default function InteractiveDemo() {
             See KaoinAI in Action — Before Touching Your Database
           </h2>
           <p className="text-base sm:text-lg text-teal-900/70 leading-relaxed">
-            Select an enterprise scenario below. Watch how KaoinAI autonomously understands natural language, synthesizes dialect SQL, and traces table-bound lineage in sub-second time.
+            Select an enterprise scenario below. Watch how KaoinAI&apos;s AI-enhanced data catalog and database knowledgebase autonomously indexes schemas, synthesizes audit-ready definitions, and traces table-bound lineage in sub-second time.
           </p>
         </div>
 
@@ -355,7 +355,7 @@ export default function InteractiveDemo() {
             </div>
             <div className="flex-grow">
               <div className="text-xs font-mono uppercase tracking-wider text-teal-300 font-semibold mb-1">
-                Natural Language Query Input:
+                AI DB Knowledgebase &amp; Catalog Inquiry:
               </div>
               <div className="text-sm sm:text-base font-medium text-white">
                 &ldquo;{activeScenario.prompt}&rdquo;
@@ -383,7 +383,7 @@ export default function InteractiveDemo() {
                   : 'border-transparent text-slate-400 hover:text-slate-200'
               }`}
             >
-              <Terminal size={15} /> Generated SQL
+              <Terminal size={15} /> Catalog &amp; Schema Verification
             </button>
             <button
               onClick={() => setActiveTab('lineage')}
@@ -513,13 +513,18 @@ export default function InteractiveDemo() {
           </div>
         </div>
 
+        {/* Footnote Disclaimer */}
+        <p className="text-[11px] text-slate-500 text-center -mt-6 mb-10 max-w-4xl mx-auto leading-relaxed">
+          * <strong>Scenario Evaluation Methodology:</strong> Specific scenario outputs (e.g. $284,500 ARR risk across 42 accounts, 1,420 NRIC identifiers, $5,700 currency discrepancy across 43 checkouts, 1,680 golden records, and 14 tables) are demonstrated using standardized multi-source benchmark sandbox datasets (incorporating synthetic Stripe billing logs, Shopify order events, and PostgreSQL CRM schemas). Query execution latencies (&lt; 120ms to 210ms) and confidence scores are evaluated against baseline manual querying workflows (e.g. manual ad-hoc SQL formulation averaging 3–5 days, unindexed staging tables, and disconnected spreadsheets). Live query response times and match precision vary based on underlying database engine, hardware sizing, and network topography.
+        </p>
+
         {/* Try Your Own Prompt Interactive Box */}
         <div className="bg-gradient-to-r from-teal-100 via-white to-teal-50 rounded-2xl p-6 sm:p-8 border border-teal-200 text-center max-w-4xl mx-auto shadow-lg shadow-teal-100/60">
           <h3 className="text-xl sm:text-2xl font-bold text-teal-950 mb-2">
             Want to test your own business question?
           </h3>
           <p className="text-sm text-teal-900/70 max-w-xl mx-auto mb-6">
-            Type an operational inquiry below or test it on your actual database schema during our complimentary 14-day pilot.
+            Type an operational inquiry below or test it on your actual database schema during our complimentary 14-day on-premises pilot (exclusive to On-Prem / VPC).
           </p>
 
           {customSubmitted ? (
@@ -532,7 +537,7 @@ export default function InteractiveDemo() {
                 Query: <span className="text-teal-950 font-medium">&ldquo;{customPrompt}&rdquo;</span>
               </p>
               <div className="text-xs text-teal-700 bg-teal-50 p-3 rounded border border-teal-200">
-                To execute this query across your live schema with zero data retention, activate your complimentary 14-day pilot or test directly with an engineer.
+                To execute this query across your live schema with zero data retention, activate your complimentary 14-day on-premises pilot (exclusive to On-Prem / VPC) or test directly with an engineer.
               </div>
               <div className="flex flex-col sm:flex-row gap-2 pt-1">
                 <Button
@@ -540,7 +545,7 @@ export default function InteractiveDemo() {
                   size="sm"
                   className="bg-gradient-brand text-white font-semibold text-xs"
                 >
-                  Start 14-Day Free Pilot
+                  Start 14-Day Free On-Prem Pilot
                 </Button>
                 <a
                   href={getWhatsAppUrl(`Hi KaoinAI, I want to test this query on our database: "${customPrompt}"`)}
