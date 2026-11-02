@@ -303,7 +303,7 @@ export default function MaturityRiskAudit({ asHeading1 = false }: MaturityRiskAu
                 <IconComponent size={24} />
               </div>
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-teal-600 font-mono">
+                <span className="text-xs font-bold uppercase tracking-wider text-teal-700 font-mono">
                   {currentQ.dimension}
                 </span>
                 <h3 className="text-xl sm:text-2xl font-bold text-teal-950 mt-1 leading-snug">

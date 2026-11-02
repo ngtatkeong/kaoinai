@@ -69,7 +69,7 @@ export default function Footer() {
               </div>
 
               <div className="flex items-center gap-3 text-xs text-teal-800">
-                <Mail size={15} className="text-teal-500 shrink-0" />
+                <Mail size={15} className="text-teal-600 shrink-0" />
                 <a href="mailto:hello@kaoinai.com" className="hover:text-teal-950 transition-colors">
                   hello@kaoinai.com (General & Support)
                 </a>
@@ -83,13 +83,13 @@ export default function Footer() {
                 </span>
               </div>
               <div className="flex items-center gap-3 text-xs text-teal-800">
-                <Mail size={15} className="text-teal-500 shrink-0" />
+                <Mail size={15} className="text-teal-600 shrink-0" />
                 <a href="mailto:partners@kaoinai.com" className="hover:text-teal-950 transition-colors">
                   partners@kaoinai.com (ERP & Channel Partners)
                 </a>
               </div>
               <div className="flex items-center gap-3 text-xs text-teal-800">
-                <MapPin size={15} className="text-teal-500 shrink-0" />
+                <MapPin size={15} className="text-teal-600 shrink-0" />
                 <span>Kuala Lumpur, Malaysia • Global Cloud SaaS</span>
               </div>
             </div>

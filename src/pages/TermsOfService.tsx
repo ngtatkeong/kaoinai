@@ -149,7 +149,7 @@ export default function TermsOfService() {
             For formal legal notices, service of process, or inquiries concerning these Terms:
           </p>
           <p className="text-xs text-slate-800">
-            <strong>Legal Counsel &amp; DPO:</strong> KaoinAI Pte. Ltd. • <a href="mailto:legal@kaoinai.com" className="text-teal-600 hover:underline">legal@kaoinai.com</a> / <a href="mailto:tk.ng@kaoinai.com" className="text-teal-600 hover:underline">tk.ng@kaoinai.com</a> (Attn: Ng Tat Keong, DPO)
+            <strong>Legal Counsel &amp; DPO:</strong> KaoinAI Pte. Ltd. • <a href="mailto:legal@kaoinai.com" className="text-teal-700 hover:underline">legal@kaoinai.com</a> / <a href="mailto:tk.ng@kaoinai.com" className="text-teal-600 hover:underline">tk.ng@kaoinai.com</a> (Attn: Ng Tat Keong, DPO)
           </p>
         </section>
       </div>

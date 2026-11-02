@@ -546,7 +546,7 @@ Host Direct Email: tk.ng@kaoinai.com`
                       Ng Tat Keong &bull; tk.ng@kaoinai.com
                     </a>
                     <span className="text-[10px] text-gray-500 block">
-                      Statutory PDPA Notices, DSAR &amp; <Link to="/dpa" className="text-teal-600 underline font-medium">PDPA Agreement</Link>
+                      Statutory PDPA Notices, DSAR &amp; <Link to="/dpa" className="text-teal-700 underline font-medium">PDPA Agreement</Link>
                     </span>
                   </div>
                 </div>

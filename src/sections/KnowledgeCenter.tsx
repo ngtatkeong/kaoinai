@@ -409,7 +409,7 @@ export default function KnowledgeCenter() {
               <GraduationCap size={26} />
             </div>
             <div>
-              <div className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-1">
+              <div className="text-xs font-bold text-teal-700 uppercase tracking-wider mb-1">
                 Executive & Technical Advisory
               </div>
               <h3 className="text-xl sm:text-2xl font-bold">

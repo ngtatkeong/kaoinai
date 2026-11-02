@@ -144,7 +144,7 @@ export default function DataProtectionAgreement() {
               </span>
               <p className="font-bold text-slate-900 text-sm">KaoinAI Pte. Ltd.</p>
               <p className="text-slate-600 mt-1">Incorporated in the Republic of Singapore</p>
-              <p className="text-slate-600">Company DPO: <strong>Ng Tat Keong</strong> (<a href="mailto:tk.ng@kaoinai.com" className="text-teal-600 hover:underline">tk.ng@kaoinai.com</a>)</p>
+              <p className="text-slate-600">Company DPO: <strong>Ng Tat Keong</strong> (<a href="mailto:tk.ng@kaoinai.com" className="text-teal-700 hover:underline">tk.ng@kaoinai.com</a>)</p>
               <p className="text-slate-600">Operational Hubs: Singapore &amp; Kuala Lumpur</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
@@ -239,7 +239,7 @@ export default function DataProtectionAgreement() {
               <li>Description of the nature of the breach, including affected system nodes and timestamps.</li>
               <li>Estimated number of records or data subjects potentially impacted.</li>
               <li>Root-cause technical diagnosis and immediate remedial containment actions taken.</li>
-              <li>Direct point of contact for the incident: DPO Ng Tat Keong (<a href="mailto:tk.ng@kaoinai.com" className="text-teal-600 hover:underline">tk.ng@kaoinai.com</a>).</li>
+              <li>Direct point of contact for the incident: DPO Ng Tat Keong (<a href="mailto:tk.ng@kaoinai.com" className="text-teal-700 hover:underline">tk.ng@kaoinai.com</a>).</li>
             </ul>
           </div>
         </section>

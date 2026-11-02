@@ -85,7 +85,7 @@ export default function ProblemSolution() {
                   <h4 className="text-xl font-bold text-teal-950 tracking-tight flex items-center gap-2">
                     <span>KaoinAI Autonomous Governance</span>
                   </h4>
-                  <p className="text-xs text-teal-600 font-medium">Continuous, schema-bound, and operational in up to 1 day*</p>
+                  <p className="text-xs text-teal-700 font-medium">Continuous, schema-bound, and operational in up to 1 day*</p>
                 </div>
               </div>
               <ul className="space-y-4 sm:space-y-5">

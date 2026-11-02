@@ -56,7 +56,7 @@ export default function CTA() {
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-100 border border-teal-200 text-teal-700 text-xs font-semibold mb-6">
-          <Sparkles size={14} className="text-teal-500" />
+          <Sparkles size={14} className="text-teal-600" />
           <span>Enterprise Security • Singapore PDPA &amp; MAS TRM Compliant</span>
         </div>
 
@@ -150,7 +150,7 @@ export default function CTA() {
 
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 justify-center items-center max-w-lg mx-auto">
               <div className="relative w-full">
-                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-teal-400" size={18} />
+                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-teal-600" size={18} />
                 <Input
                   type="email"
                   required
