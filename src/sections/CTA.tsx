@@ -70,7 +70,7 @@ export default function CTA() {
         {/* Free trial exclusivity badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs font-semibold mb-6">
           <CheckCircle2 size={14} className="text-emerald-600 shrink-0" />
-          <span>14-Day Free Evaluation Trial: Exclusively for Self-Hosted On-Prem / VPC (Cloud is dedicated paid SaaS)</span>
+          <span>14-Day Free Private VPC/Docker Trial (Zero Data Egress) or Apply for $0 Founding Enterprise Cohort</span>
         </div>
 
         {submitted ? (

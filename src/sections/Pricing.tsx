@@ -61,7 +61,7 @@ const plans: PricingPlan[] = [
       'Assisted VPC Peering & Docker Compose Kickoff',
       'Standard Technical Support'
     ],
-    cta: 'Claim $0 Slot (Starter)'
+    cta: 'Start 14-Day Free VPC Trial'
   },
   {
     name: 'Growth',
@@ -97,7 +97,7 @@ const plans: PricingPlan[] = [
       'White-Glove On-Premise Installation & Hardening Call',
       'Dedicated Slack Connect & WhatsApp Senior Architect'
     ],
-    cta: 'Claim $0 Slot (Growth)'
+    cta: 'Start 14-Day Free VPC Trial'
   },
   {
     name: 'Enterprise',
@@ -130,7 +130,7 @@ const plans: PricingPlan[] = [
       'Up to 99.99%* Architecture SLA with Up to 1-Hour* Severity-1 Response',
       'Dedicated Named Principal Architect on Call'
     ],
-    cta: 'Claim $0 Slot (Enterprise)'
+    cta: 'Schedule Architecture Review'
   }
 ]
 
@@ -379,7 +379,7 @@ export default function Pricing() {
                     <ArrowRight size={15} className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                   <p className="text-[11px] text-center text-emerald-700 font-semibold mt-2">
-                    🎯 First 3 Customers: $0 / mo (100% Free Lifetime Pilot)
+                    🎯 Founding Cohort: 100% Waived Software & Onboarding for First 3 Customers
                   </p>
                 </div>
               </div>

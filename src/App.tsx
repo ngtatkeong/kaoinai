@@ -3,14 +3,14 @@ import { Routes, Route, useLocation } from 'react-router'
 import Navigation from './sections/Navigation'
 import Hero from './sections/Hero'
 import TrustedBy from './components/TrustedBy'
-import ProductShowcase from './sections/ProductShowcase'
-import Integrations from './sections/Integrations'
-import InteractiveDemo from './sections/InteractiveDemo'
 import ProblemSolution from './sections/ProblemSolution'
+import ProductShowcase from './sections/ProductShowcase'
+import InteractiveDemo from './sections/InteractiveDemo'
+import Integrations from './sections/Integrations'
 import Features from './sections/Features'
 import SecurityTrust from './sections/SecurityTrust'
-import CaseStudies from './sections/CaseStudies'
 import Comparison from './sections/Comparison'
+import CaseStudies from './sections/CaseStudies'
 import HowItWorks from './sections/HowItWorks'
 import RoiCalculator from './sections/RoiCalculator'
 import MaturityRiskAudit from './sections/MaturityRiskAudit'
@@ -65,8 +65,8 @@ function RouteSeo() {
 
     const staticMeta: Record<string, { title: string; desc: string; url: string }> = {
       '/': {
-        title: 'KaoinAI — Autonomous Data Governance & Living Compliance',
-        desc: 'Autonomous Data Governance & Living Compliance. Connect PostgreSQL, Snowflake & ERPs in minutes — table-bound DPIA, PDPA & MAS TRM compliance, column lineage & MDM.',
+        title: 'KaoinAI — AI-Enhanced Data Catalog & Living DB Knowledgebase',
+        desc: 'AI-Enhanced Data Catalog & Living DB Knowledgebase for enterprise databases. Eliminate LLM hallucinations, map undocumented schemas, and automate Singapore PDPA & MAS TRM living compliance.',
         url: 'https://kaoinai.com/',
       },
       '/audit': {
@@ -151,7 +151,6 @@ function RouteSeo() {
         if (parts.length === 2) {
           el.setAttribute(parts[0], parts[1].replace(/["']/g, ''))
           el.setAttribute(attr, value)
-          document.head.appendChild(el)
         }
       }
     }
@@ -189,17 +188,17 @@ function Home() {
     <main>
       <Hero />
       <TrustedBy />
-      <ProductShowcase />
-      <Integrations />
-      <InteractiveDemo />
       <ProblemSolution />
+      <ProductShowcase />
+      <InteractiveDemo />
+      <Integrations />
       <Features />
       <SecurityTrust />
-      <CaseStudies />
       <Comparison />
+      <CaseStudies />
       <HowItWorks />
-      <MaturityRiskAudit />
       <RoiCalculator />
+      <MaturityRiskAudit />
       <Pricing />
       <KnowledgeCenter />
       <FAQ />
@@ -208,7 +207,7 @@ function Home() {
   )
 }
 
-function App() {
+export default function App() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#fcfbfe] via-[#f8f3fe]/80 to-[#fcfbfe] selection:bg-purple-100 selection:text-[#5b2d6e] flex flex-col justify-between overflow-x-hidden relative">
       <AnimatedBackground />
@@ -238,5 +237,3 @@ function App() {
     </div>
   )
 }
-
-export default App
