@@ -121,6 +121,21 @@ export default function ThreeDDataMesh() {
     setIsAutoRotating(true)
   }
 
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!containerRef.current || e.touches.length === 0) return
+    setIsAutoRotating(false)
+    const touch = e.touches[0]
+    const rect = containerRef.current.getBoundingClientRect()
+    const x = touch.clientX - rect.left - rect.width / 2
+    const y = touch.clientY - rect.top - rect.height / 2
+    setRotY((x / (rect.width / 2)) * 32)
+    setRotX(-(y / (rect.height / 2)) * 26)
+  }
+
+  const handleTouchEnd = () => {
+    setIsAutoRotating(true)
+  }
+
   // Gentle idle 3D orbital animation
   useEffect(() => {
     if (!isAutoRotating) return
@@ -171,6 +186,8 @@ export default function ThreeDDataMesh() {
         ref={containerRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
         className="relative h-[320px] sm:h-[360px] flex items-center justify-center cursor-grab active:cursor-grabbing perspective-[1000px] overflow-hidden"
       >
         {/* Orbital 3D Rings */}
