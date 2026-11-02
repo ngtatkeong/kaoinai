@@ -163,7 +163,7 @@ export default function Navigation() {
 
   const handleStartTrial = () => {
     setMobileMenuOpen(false)
-    trackEvent('click_cta', { location: 'navbar', label: 'Nav Start Free Trial' })
+    trackEvent('click_cta', { location: 'navbar', label: 'Nav Talk to us' })
     if (isContactPage) {
       navigate('/#contact-cta')
     } else {
@@ -315,7 +315,7 @@ export default function Navigation() {
                 className="bg-gradient-brand text-white hover:opacity-95 text-xs font-semibold px-4 sm:px-5 py-2 shadow-sm rounded-lg"
                 onClick={handleStartTrial}
               >
-                14-Day Pilot (On-Prem)
+                Talk to us
                 <ArrowRight size={13} className="ml-1.5" />
               </Button>
             </div>
