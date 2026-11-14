@@ -246,7 +246,16 @@ export default function Features() {
       </div>
 
       {/* Lazy-Loaded Feature Detail Modal */}
-      <Suspense fallback={null}>
+      <Suspense fallback={
+        selectedFeatureId ? (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs">
+            <div className="bg-white p-5 rounded-2xl shadow-xl flex items-center gap-3">
+              <div className="w-5 h-5 border-2 border-purple-600 border-t-transparent rounded-full animate-spin" />
+              <span className="text-xs font-semibold text-gray-700">Loading feature specifications...</span>
+            </div>
+          </div>
+        ) : null
+      }>
         {selectedFeatureId && (
           <FeatureDetailModal
             key={selectedFeatureId}

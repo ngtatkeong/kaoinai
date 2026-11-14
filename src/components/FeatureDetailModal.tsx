@@ -32,13 +32,39 @@ export default function FeatureDetailModal({
 
   const feature = featureId ? featureDetails[featureId] : null
 
-  // Keyboard accessibility: Escape to close
+  // Keyboard accessibility: Focus trap, focus restoration, and Escape to close
   useEffect(() => {
     if (!feature) return
+
+    const previousActiveElement = document.activeElement as HTMLElement | null
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         onClose()
+        return
+      }
+
+      // Focus trap for Tab and Shift+Tab (WCAG 2.1.2)
+      if (e.key === 'Tab' && modalRef.current) {
+        const focusableElements = modalRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )
+        if (focusableElements.length === 0) return
+
+        const firstElement = focusableElements[0]
+        const lastElement = focusableElements[focusableElements.length - 1]
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            e.preventDefault()
+            lastElement.focus()
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            e.preventDefault()
+            firstElement.focus()
+          }
+        }
       }
     }
 
@@ -50,6 +76,9 @@ export default function FeatureDetailModal({
     return () => {
       document.body.style.overflow = originalOverflow
       window.removeEventListener('keydown', handleKeyDown)
+      if (previousActiveElement && typeof previousActiveElement.focus === 'function') {
+        previousActiveElement.focus()
+      }
     }
   }, [feature, onClose])
 
@@ -311,7 +340,7 @@ export default function FeatureDetailModal({
         </div>
 
         {/* Modal Sticky Footer Action Bar */}
-        <div className="p-4 sm:p-5 border-t border-gray-100 bg-slate-50/90 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
+        <div className="p-4 sm:p-5 pb-[max(1rem,env(safe-area-inset-bottom))] border-t border-gray-100 bg-slate-50/90 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
           <div className="text-xs text-gray-500 text-center sm:text-left">
             Ready to evaluate <strong className="text-gray-900 font-semibold">{feature.title}</strong> in your environment?
           </div>
