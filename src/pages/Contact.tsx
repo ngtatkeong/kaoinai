@@ -155,6 +155,7 @@ export default function Contact() {
   const [bookingConfirmed, setBookingConfirmed] = useState(false)
   const [bookingRefId, setBookingRefId] = useState('')
   const [bookingGCalUrl, setBookingGCalUrl] = useState('')
+  const [bookingSubmissionError, setBookingSubmissionError] = useState(false)
 
   // Inquiry Form State
   const [name, setName] = useState('')
@@ -215,6 +216,7 @@ export default function Contact() {
     setBookingConfirmed(false)
     setBookingRefId('')
     setBookingGCalUrl('')
+    setBookingSubmissionError(false)
   }
 
   // Booking submit handler
@@ -253,6 +255,7 @@ Host Direct Email: tk.ng@kaoinai.com`
       durationMinutes: selectedDuration,
     })
 
+    let submissionFailed = false
     try {
       const formData = new FormData()
       formData.append('booking_type', 'Google Calendar 1-on-1 Consultation')
@@ -275,11 +278,15 @@ Host Direct Email: tk.ng@kaoinai.com`
       )
       formData.append('recipient', 'tk.ng@kaoinai.com')
 
-      await fetch('https://formspree.io/f/xyegdyyj', {
+      const response = await fetch('https://formspree.io/f/xyegdyyj', {
         method: 'POST',
         body: formData,
         headers: { Accept: 'application/json' },
       }).catch(() => null)
+
+      if (!response || !response.ok) {
+        submissionFailed = true
+      }
 
       trackEvent('book_calendar_slot', {
         name: bookingName,
@@ -292,15 +299,13 @@ Host Direct Email: tk.ng@kaoinai.com`
 
       setBookingRefId(refId)
       setBookingGCalUrl(gcalUrl)
+      setBookingSubmissionError(submissionFailed)
       setBookingConfirmed(true)
-
-      // Open Google Calendar in new tab automatically
-      window.open(gcalUrl, '_blank', 'noopener,noreferrer')
     } catch {
       setBookingRefId(refId)
       setBookingGCalUrl(gcalUrl)
+      setBookingSubmissionError(true)
       setBookingConfirmed(true)
-      window.open(gcalUrl, '_blank', 'noopener,noreferrer')
     } finally {
       setBookingLoading(false)
     }
@@ -630,13 +635,25 @@ Host Direct Email: tk.ng@kaoinai.com`
                       <div>
                         <div className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-700 uppercase tracking-wider">
                           <span className="w-2 h-2 rounded-full bg-purple-600 animate-pulse" />
-                          Google Calendar Invite Generated
+                          Priority Consultation Request Logged
                         </div>
                         <h2 className="text-xl sm:text-2xl font-extrabold text-gray-900 mt-0.5">
                           1-on-1 Session with TK Ng
                         </h2>
                       </div>
                     </div>
+
+                    {bookingSubmissionError && (
+                      <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs flex items-start gap-2.5 animate-in fade-in">
+                        <AlertCircle size={16} className="text-amber-600 shrink-0 mt-0.5" />
+                        <div>
+                          <strong>Notification blocked by browser/adblocker:</strong>
+                          <p className="mt-0.5 text-amber-800 leading-relaxed">
+                            Formspree was unable to deliver your booking automatically. Please click <strong>Send 1-Click WhatsApp Confirmation</strong> below or email <strong>tk.ng@kaoinai.com</strong> with Reference ID <code className="font-mono font-bold text-[#5b2d6e]">{bookingRefId}</code> to ensure your slot is reserved.
+                          </p>
+                        </div>
+                      </div>
+                    )}
 
                     {/* Booking Reference Box */}
                     <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-6 space-y-4">
@@ -751,13 +768,22 @@ Host Direct Email: tk.ng@kaoinai.com`
                     <div>
                       <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-purple-50 text-[#5b2d6e] text-xs font-bold mb-2">
                         <Sparkles size={13} />
-                        <span>Direct Host: TK Ng &bull; tk.ng@kaoinai.com</span>
+                        <span>Direct Architecture Host: TK Ng &bull; tk.ng@kaoinai.com</span>
                       </div>
                       <h2 className="text-2xl font-bold text-gray-900">Schedule 1-on-1 Discovery</h2>
-                      <p className="text-xs text-gray-500 mt-1 leading-relaxed">
-                        Reserve a dedicated Google Meet video call with our Principal AI &amp; Data Governance Architect.
-                        Invite is automatically synchronized to <strong>tk.ng@kaoinai.com</strong>.
-                      </p>
+                      <div className="mt-3 p-3.5 rounded-xl bg-purple-50/70 border border-purple-100 text-xs text-gray-700 space-y-1.5">
+                        <div className="flex items-center gap-2 font-semibold text-[#5b2d6e]">
+                          <CalendarCheck size={14} />
+                          <span>Priority Consultation Request</span>
+                        </div>
+                        <p className="leading-relaxed text-gray-600">
+                          Submit your preferred window below. TK Ng will review your consultation request and email you the formal calendar invitation with the direct Google Meet video conference link.
+                        </p>
+                        <div className="flex items-center gap-2 text-[11px] font-medium text-purple-900/80 pt-0.5">
+                          <Clock size={12} className="text-[#5b2d6e]" />
+                          <span>All times shown in Singapore Time (SGT, UTC+8).</span>
+                        </div>
+                      </div>
                     </div>
 
                     {/* Step 1: Session Duration */}

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router'
 import { ArrowRight, Mail, CheckCircle2, Calendar, Sparkles, FileText, Server, Cloud } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -230,14 +231,14 @@ export default function CTA() {
                 <span>💬 WhatsApp Us: <strong>{WHATSAPP_DISPLAY}</strong></span>
               </a>
               <span className="hidden sm:inline text-purple-300">•</span>
-              <a
-                href="mailto:sales@kaoinai.com?subject=KaoinAI%20Architecture%20Demo%20Request"
+              <Link
+                to="/contact"
                 className="inline-flex items-center gap-1.5 text-purple-700 hover:text-purple-900 font-medium underline underline-offset-4"
-                onClick={() => trackEvent('click_cta', { location: 'footer', label: 'Book Demo via Email' })}
+                onClick={() => trackEvent('click_cta', { location: 'footer', label: 'Schedule Consultation via CTA' })}
               >
                 <Calendar size={14} />
-                Book a 15-Minute Live Demo
-              </a>
+                Schedule 1-on-1 Consultation with TK Ng
+              </Link>
             </div>
           </div>
         )}

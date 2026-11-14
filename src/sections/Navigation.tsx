@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
-import { ArrowRight, Menu, X, ChevronDown } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Menu, X, ChevronDown, Calendar } from 'lucide-react'
 import { trackEvent } from '@/lib/analytics'
 import { getWhatsAppUrl, WHATSAPP_NUMBER, WHATSAPP_DISPLAY } from '@/lib/whatsapp'
 import AnnouncementBar from '@/components/AnnouncementBar'
@@ -11,7 +10,6 @@ const primaryNavLinks = [
   { label: 'Live Demo', href: '#demo' },
   { label: 'Features', href: '#features' },
   { label: 'Maturity Audit', href: '#audit' },
-  { label: 'Knowledge Center', href: '#knowledge-center' },
   { label: 'Pricing', href: '#pricing' },
 ]
 
@@ -26,21 +24,36 @@ const moreLinks = [
   { label: 'FAQ', href: '#faq', description: 'Frequently asked technical questions' },
 ]
 
-// Complete directory for mobile screens
-const allMobileNavLinks = [
-  { label: 'Product Tour UI', href: '#product-tour' },
-  { label: 'Live Demo', href: '#demo' },
-  { label: 'Features', href: '#features' },
-  { label: 'Engineering Blog', href: '/blog' },
-  { label: 'Maturity Audit', href: '#audit' },
-  { label: 'Knowledge Center', href: '#knowledge-center' },
-  { label: 'Security & Trust', href: '/security' },
-  { label: 'PDPA Agreement (DPA)', href: '/dpa' },
-  { label: 'Case Studies', href: '#case-studies' },
-  { label: 'Compare vs Legacy', href: '#compare' },
-  { label: 'Pricing ($0 First 3)', href: '#pricing' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'Contact', href: '/contact' },
+// Categorized directory for mobile drawer
+const mobileNavCategories = [
+  {
+    category: 'Platform',
+    items: [
+      { label: 'Live Demo', href: '#demo' },
+      { label: 'Features', href: '#features' },
+      { label: 'Maturity Audit', href: '#audit' },
+      { label: 'Pricing ($0 First 3)', href: '#pricing' },
+    ],
+  },
+  {
+    category: 'Enterprise & Trust',
+    items: [
+      { label: 'Product Tour UI', href: '#product-tour' },
+      { label: 'Security & Trust Whitepaper', href: '/security' },
+      { label: 'PDPA Agreement (DPA)', href: '/dpa' },
+      { label: 'Case Studies', href: '#case-studies' },
+      { label: 'Compare vs Legacy', href: '#compare' },
+    ],
+  },
+  {
+    category: 'Knowledge',
+    items: [
+      { label: 'Knowledge Center', href: '#knowledge-center' },
+      { label: 'Engineering Blog', href: '/blog' },
+      { label: 'FAQ', href: '#faq' },
+    ],
+  },
+]
 ]
 
 export default function Navigation() {
@@ -53,6 +66,7 @@ export default function Navigation() {
   const location = useLocation()
   const navigate = useNavigate()
 
+  const isLandingPage = location.pathname === '/'
   const isContactPage = location.pathname === '/contact'
   const whatsappUrl = getWhatsAppUrl()
 
@@ -169,16 +183,6 @@ export default function Navigation() {
     }, 180)
   }
 
-  const handleStartTrial = () => {
-    setMobileMenuOpen(false)
-    trackEvent('click_cta', { location: 'navbar', label: 'Nav Start Free Trial' })
-    if (isContactPage) {
-      navigate('/#cta')
-    } else {
-      scrollToAnchor('cta')
-    }
-  }
-
   const isMoreActive = moreLinks.some((item) => activeSection === item.href.replace('#', ''))
 
   return (
@@ -216,7 +220,7 @@ export default function Navigation() {
               return (
                 <a
                   key={link.href}
-                  href={isContactPage && link.href.startsWith('#') ? '/' + link.href : link.href}
+                  href={!isLandingPage && link.href.startsWith('#') ? '/' + link.href : link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={`text-sm font-semibold tracking-wide transition-all cursor-pointer whitespace-nowrap px-3 py-1.5 rounded-xl ${
                     isActive
@@ -261,7 +265,7 @@ export default function Navigation() {
                       return (
                         <a
                           key={item.href}
-                          href={isContactPage && item.href.startsWith('#') ? '/' + item.href : item.href}
+                          href={!isLandingPage && item.href.startsWith('#') ? '/' + item.href : item.href}
                           onClick={(e) => {
                             setMoreOpen(false)
                             handleNavClick(e, item.href)
@@ -318,14 +322,14 @@ export default function Navigation() {
                 <span>WhatsApp: {WHATSAPP_NUMBER}</span>
               </a>
 
-              <Button
-                size="sm"
-                className="bg-gradient-brand text-white hover:opacity-95 text-xs font-semibold px-4 sm:px-5 py-2 shadow-sm rounded-lg"
-                onClick={handleStartTrial}
+              <Link
+                to="/contact"
+                onClick={() => trackEvent('click_cta', { location: 'navbar', label: 'Nav Book Consultation' })}
+                className="inline-flex items-center gap-1.5 bg-gradient-brand text-white hover:opacity-95 text-xs font-semibold px-4 sm:px-5 py-2 shadow-sm rounded-lg transition-all"
               >
-                14-Day Pilot (On-Prem)
-                <ArrowRight size={13} className="ml-1.5" />
-              </Button>
+<Calendar size={13} />
+                <span>Book Consultation</span>
+              </Link>
             </div>
 
             {/* Mobile Actions: WhatsApp quick icon + Mobile dropdown toggle */}
@@ -358,33 +362,43 @@ export default function Navigation() {
           </div>
         </div>
 
-        {/* Mobile Dropdown (Complete all-section directory) */}
+        {/* Mobile Dropdown (Categorized Directory) */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-gray-100 bg-white/98 backdrop-blur-xl px-4 py-4 space-y-1.5 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200 max-h-[70vh] overflow-y-auto">
-            {allMobileNavLinks.map((link) => (
-              <a
-                key={link.href}
-                href={isContactPage && link.href.startsWith('#') ? '/' + link.href : link.href}
-                onClick={(e) => {
-                  handleNavClick(e, link.href)
-                  setMobileMenuOpen(false)
-                }}
-                className="block px-3 py-2 rounded-lg text-sm font-semibold text-gray-700 hover:text-[#5b2d6e] hover:bg-purple-50 transition-colors"
-              >
-                {link.label}
-              </a>
+          <div className="lg:hidden border-t border-gray-100 bg-white/98 backdrop-blur-xl px-4 py-4 space-y-4 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200 max-h-[75vh] overflow-y-auto">
+            {mobileNavCategories.map((group) => (
+              <div key={group.category} className="space-y-1">
+                <div className="px-3 text-[10px] font-bold text-gray-400 uppercase tracking-wider">
+                  {group.category}
+                </div>
+                <div className="space-y-0.5">
+                  {group.items.map((link) => (
+                    <a
+                      key={link.label}
+                      href={!isLandingPage && link.href.startsWith('#') ? '/' + link.href : link.href}
+                      onClick={(e) => {
+                        handleNavClick(e, link.href)
+                        setMobileMenuOpen(false)
+                      }}
+                      className="block px-3 py-2 rounded-lg text-sm font-semibold text-gray-700 hover:text-[#5b2d6e] hover:bg-purple-50 transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
             ))}
-            <div className="pt-2 border-t border-gray-100">
-              <Button
-                className="w-full bg-gradient-brand text-white text-xs font-semibold py-2.5 rounded-lg"
+            <div className="pt-2 border-t border-gray-100 space-y-2">
+              <Link
+                to="/contact"
                 onClick={() => {
                   setMobileMenuOpen(false)
-                  handleStartTrial()
+                  trackEvent('click_cta', { location: 'mobile_nav', label: 'Mobile Nav Book Consultation' })
                 }}
+                className="w-full flex items-center justify-center gap-2 bg-gradient-brand text-white text-xs font-semibold py-2.5 rounded-lg shadow-sm"
               >
-                Deploy 14-Day Pilot (On-Prem)
-                <ArrowRight size={13} className="ml-1.5" />
-              </Button>
+<Calendar size={14} />
+                <span>Book 1-on-1 Consultation</span>
+              </Link>
             </div>
           </div>
         )}

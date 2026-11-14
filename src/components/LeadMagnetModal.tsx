@@ -113,7 +113,7 @@ export default function LeadMagnetModal({ isOpen, onClose }: LeadMagnetModalProp
 
             <div className="space-y-2 pt-2">
               <a
-                href="/2026-SME-Data-Governance-PDPA-Checklist.pdf"
+                href="/downloads/2026-SME-Data-Governance-PDPA-Checklist.pdf"
                 download="2026-SME-Data-Governance-PDPA-Checklist.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
