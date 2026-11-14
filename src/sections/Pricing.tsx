@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router'
 import { 
   Check, 
   CheckCircle2, 
@@ -7,7 +8,9 @@ import {
   Sparkles, 
   Wrench, 
   Cloud, 
-  Server
+  Server,
+  Landmark,
+  Award
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { trackEvent } from '@/lib/analytics'
@@ -156,12 +159,17 @@ export default function Pricing() {
             To establish our flagship reference architectures in Singapore &amp; ASEAN, <strong>pricing is $0 for our first 3 customers only</strong>. Full enterprise platform license, zero data egress deployment, and architecture onboarding are completely complimentary in exchange for collaboration &amp; product feedback.
           </p>
 
-          {/* Cohort Status Counter */}
+          {/* Cohort Status Counter & Singapore Grant Badges */}
           <div className="flex flex-wrap items-center justify-center gap-3 mt-6">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-emerald-200 shadow-xs text-xs">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span className="font-bold text-slate-800">Cohort Quota:</span>
               <span className="text-emerald-700 font-semibold">1 Claimed (Fintech, SG) • 2 Slots Remaining at $0</span>
+            </div>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/90 border border-blue-200 shadow-xs text-xs text-blue-900">
+              <Landmark size={13} className="text-blue-700" />
+              <span className="font-semibold">Singapore EDG &amp; PSG Eligible:</span>
+              <span className="text-blue-700 font-bold">Up to 50%–70% grant support for qualifying SMEs</span>
             </div>
           </div>
 
@@ -465,20 +473,30 @@ export default function Pricing() {
               <p className="text-xs sm:text-sm text-purple-900/70 mt-1.5 max-w-xl leading-relaxed">
                 We are admitting our initial cohort of 3 regulated enterprise teams in Singapore &amp; ASEAN at <strong>$0 platform pricing</strong>. Selected partners receive dedicated solutions architecture, custom connector prioritization, and zero software licensing costs in exchange for product feedback and collaboration.
               </p>
+              <div className="mt-2.5 flex flex-wrap items-center gap-2 text-[11px] text-purple-950/80 font-medium">
+                <span className="inline-flex items-center gap-1 bg-white/80 px-2 py-0.5 rounded border border-purple-200">
+                  <CheckCircle2 size={12} className="text-emerald-600" /> 1 Slot Claimed (Fintech, SG)
+                </span>
+                <span className="inline-flex items-center gap-1 bg-white/80 px-2 py-0.5 rounded border border-purple-200 font-bold text-emerald-800">
+                  <Sparkles size={12} className="text-emerald-600" /> 2 Slots Remaining at $0
+                </span>
+                <span className="inline-flex items-center gap-1 bg-blue-50 px-2 py-0.5 rounded border border-blue-200 text-blue-900">
+                  <Award size={12} className="text-blue-700" /> PSG / EDG Grant Ready
+                </span>
+              </div>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-2.5 shrink-0 w-full md:w-auto relative z-10">
-            <Button
-              size="lg"
-              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs sm:text-sm px-5 py-3.5 rounded-xl shadow transition-colors"
+            <Link
+              to="/contact?topic=%240%20Founding%20Customer%20Cohort%20(First%203%20Only)"
               onClick={() => {
-                trackEvent('click_cta', { location: 'pricing', label: `Apply $0 Cohort (${deploymentMode})` })
-                document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' })
+                trackEvent('click_cta', { location: 'pricing_cohort', label: `Apply $0 Cohort Instant Booking (${deploymentMode})` })
               }}
+              className="inline-flex items-center justify-center bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs sm:text-sm px-5 py-3.5 rounded-xl shadow transition-colors cursor-pointer"
             >
-              Claim $0 Slot
+              Reserve $0 Founding Slot
               <ArrowRight size={14} className="ml-1.5" />
-            </Button>
+            </Link>
             <a
               href={getWhatsAppUrl(`Hi KaoinAI, I would like to inquire about claiming one of the $0 founding customer slots for our team (${isOnPrem ? 'On-Prem / Private VPC' : 'Managed Cloud'}).`)}
               target="_blank"

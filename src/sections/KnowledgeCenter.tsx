@@ -109,6 +109,26 @@ const publications: Publication[] = [
     ]
   },
   {
+    id: 'agent-field-manual',
+    code: 'KAI-UNIV-WP-2026-11',
+    title: '2026 Singapore PDPA & MAS TRM Autonomous Agent Data Governance Field Manual',
+    subtitle: 'The zero-egress engineering architecture for governing autonomous LLM agents, database MCP tools, and living RoPA inventories.',
+    category: 'compliance',
+    categoryLabel: 'Regulatory & Compliance',
+    badgeColor: 'bg-emerald-100 text-emerald-900 border-emerald-200',
+    fileSize: 'Online Research & PDF',
+    pages: '12 Min Read • Technical Field Manual',
+    fileName: '2026-Singapore-PDPA-MAS-TRM-Agent-Governance-Manual.pdf',
+    fileUrl: '/blog/2026-singapore-pdpa-mas-trm-autonomous-agent-governance',
+    description: 'A comprehensive, engineering-first field manual for data architects navigating Singapore PDPA §26D, MAS TRM Chapter 5, and IMDA Model AI Governance for autonomous agents querying enterprise databases.',
+    topics: [
+      'Singapore PDPA §26D (10% turnover / S$1M) & MAS TRM compliance',
+      'The database MCP tool egress vector & context window leakage',
+      'Zero-egress proxy architecture & deterministic HMAC-SHA256 masking',
+      'Table-bound DPIA binding & CDC schema drift event loops'
+    ]
+  },
+  {
     id: 'ai-handbook',
     code: 'KAI-UNIV-HB-2026-05',
     title: '2026 Enterprise Data Governance & AI-Readiness Handbook',
@@ -364,17 +384,28 @@ export default function KnowledgeCenter() {
 
               {/* Action Buttons */}
               <div className="pt-3 border-t border-slate-100 space-y-2">
-                <a
-                  href={pub.fileUrl}
-                  download={pub.fileName}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => handleDownload(pub)}
-                  className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-gradient-brand text-white font-bold text-xs shadow-sm hover:opacity-95 active:scale-[0.99] transition-all"
-                >
-                  <Download size={14} />
-                  <span>Download Whitepaper (PDF)</span>
-                </a>
+                {pub.fileUrl.startsWith('/blog/') ? (
+                  <a
+                    href={pub.fileUrl}
+                    onClick={() => handleDownload(pub)}
+                    className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-gradient-brand text-white font-bold text-xs shadow-sm hover:opacity-95 active:scale-[0.99] transition-all"
+                  >
+                    <FileText size={14} />
+                    <span>Read Full Field Manual (Web &amp; Guide)</span>
+                  </a>
+                ) : (
+                  <a
+                    href={pub.fileUrl}
+                    download={pub.fileName}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => handleDownload(pub)}
+                    className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-gradient-brand text-white font-bold text-xs shadow-sm hover:opacity-95 active:scale-[0.99] transition-all"
+                  >
+                    <Download size={14} />
+                    <span>Download Whitepaper (PDF)</span>
+                  </a>
+                )}
                 <a
                   href={getWhatsAppUrl(`Hi KaoinAI, I downloaded "${pub.title}" (${pub.code}) and would like to discuss implementing this framework in our systems.`)}
                   target="_blank"

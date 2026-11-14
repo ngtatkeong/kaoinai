@@ -13,7 +13,8 @@ import {
   ArrowRight,
   Clock,
   CheckCircle2,
-  ShieldCheck
+  ShieldCheck,
+  RefreshCw
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { trackEvent } from '@/lib/analytics'
@@ -41,19 +42,219 @@ interface Scenario {
 
 const scenarios: Scenario[] = [
   {
+    id: 'pii-masking',
+    title: 'Automated PII Masking & Hashing',
+    category: 'Zero-Egress Security',
+    icon: ShieldCheck,
+    badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+    prompt: 'Scan PostgreSQL kyc_records and Snowflake analytics_mart for Singapore NRIC/FIN, phone numbers, and PAN; enforce dynamic SHA-256 masking.',
+    executionTime: 'Down to 142ms*',
+    confidenceScore: 'Up to 99.9%*',
+    summary: 'Scanned 1.4M rows across 12 staging & analytics tables. Detected 4 unmasked PII columns (NRIC, FIN, phone, PAN). Automatically provisioned dynamic SHA-256 view policies without disrupting upstream ingestion.',
+    insights: [
+      'PostgreSQL Schema: Enforced deterministic HMAC-SHA256 tokenization on public.customers.nric_fin with Modulo-11 checksum verification',
+      'Snowflake Role Policy: Dynamic MASKING POLICY sg_pii_mask applied to staging_leads.phone_number and card_pan for analyst roles',
+      'Zero-Egress Guarantee: Masking transformation executed entirely inside customer VPC kernel with 0 external LLM transmission'
+    ],
+    sql: `/* Scenario 1: Automated PII Masking & Dynamic Hashing (PostgreSQL / Snowflake) */
+-- Step 1: Detect unmasked PII across structured catalogs
+SELECT 
+  table_schema, 
+  table_name, 
+  column_name, 
+  data_type,
+  kaoinai.detect_pii_pattern(column_name, sample_data) AS detected_pii_type,
+  kaoinai.entropy_score(sample_data) AS entropy_confidence
+FROM information_schema.columns
+WHERE table_schema NOT IN ('pg_catalog', 'information_schema')
+  AND kaoinai.detect_pii_pattern(column_name, sample_data) IN ('SG_NRIC', 'SG_FIN', 'PHONE_SG', 'CREDIT_CARD_PAN');
+
+-- Step 2: Inject zero-egress dynamic SHA-256 masking policy
+CREATE OR REPLACE MASKING POLICY pii_sha256_mask AS (val STRING) 
+RETURNS STRING ->
+  CASE 
+    WHEN CURRENT_ROLE() IN ('COMPLIANCE_OFFICER', 'DPO_ADMIN') THEN val
+    WHEN val RLIKE '^[STFGM][0-9]{7}[A-Z]$' THEN 
+      SUBSTR(val, 1, 1) || '*****' || SUBSTR(val, 7, 3) -- Masked NRIC: S*****123A
+    ELSE SHA2(CONCAT(val, CURRENT_ACCOUNT_SALT()), 256)
+  END;
+
+-- Step 3: Apply masking policy concurrently to target columns
+ALTER TABLE public.customers MODIFY COLUMN nric_fin SET MASKING POLICY pii_sha256_mask;
+ALTER TABLE public.customers MODIFY COLUMN phone_number SET MASKING POLICY pii_sha256_mask;`,
+    lineage: {
+      sources: ['PostgreSQL (rds_prod.customer_kyc)', 'Snowflake (staging_leads)'],
+      transformation: 'KaoinAI Zero-Egress Kernel & HMAC-SHA256 Tokenizer',
+      destination: 'Compliant Analytics Mart (finance_bi.customers_masked)',
+      latency: 'Continuous sync (down to 142ms*)'
+    }
+  },
+  {
+    id: 'dpia-drift',
+    title: 'Table-Bound DPIA & Schema Drift',
+    category: 'Privacy by Design',
+    icon: ShieldAlert,
+    badgeColor: 'bg-red-100 text-red-800 border-red-200',
+    prompt: 'Audit all production database tables against statutory DPIA records; detect schema drift when new sensitive biometric or financial fields are migrated.',
+    executionTime: 'Down to 118ms*',
+    confidenceScore: 'Up to 99.8%*',
+    summary: 'Bound 18 production database tables directly to Singapore PDPA §26D & GDPR Article 30 inventories. Debezium CDC captured ALTER TABLE drift: column "user_device_fingerprint" added without DPIA clearance.',
+    insights: [
+      'Physical Table Binding: Linked rds_prod.kyc_verification to DPIA-2026-SG-04 (Risk Tier: Low with AES-256 tokenization)',
+      'CDC Schema Drift Alert: Debezium CDC detected ALTER TABLE users ADD COLUMN user_device_fingerprint; flagged DPIA drift & halted unmasked query egress',
+      'Statutory Living RoPA: Record of Processing Activities automatically updated with legal processing basis (PDPA §13 Consent) & MAS TRM 7-year retention'
+    ],
+    sql: `/* Scenario 2: Table-Bound DPIA & CDC Schema Drift Alert */
+-- Query 1: Real-time introspection joining physical columns to living DPIA registry
+SELECT 
+  t.table_schema,
+  t.table_name,
+  c.column_name,
+  c.data_type,
+  dpia.assessment_id,
+  dpia.risk_tier,
+  dpia.mitigation_status,
+  ropa.legal_basis,
+  ropa.retention_period_years,
+  ropa.cross_border_safeguard,
+  drift.drift_event_id,
+  drift.detected_at,
+  drift.drift_status
+FROM information_schema.tables t
+JOIN information_schema.columns c 
+  ON t.table_name = c.table_name AND t.table_schema = c.table_schema
+LEFT JOIN kaoinai.dpia_registry dpia 
+  ON t.table_name = dpia.target_table_name
+LEFT JOIN kaoinai.data_inventory_ropa ropa 
+  ON c.table_name = ropa.bound_table_name AND c.column_name = ropa.bound_column_name
+LEFT JOIN kaoinai.schema_drift_events drift 
+  ON c.table_name = drift.table_name AND c.column_name = drift.column_name
+WHERE drift.drift_status = 'PENDING_DPIA_SIGNOFF'
+ORDER BY dpia.risk_tier DESC, drift.detected_at DESC;`,
+    lineage: {
+      sources: ['Debezium CDC Stream', 'PostgreSQL (production_db)', 'Snowflake Data Warehouse'],
+      transformation: 'KaoinAI Table-Level DPIA Binder & Living RoPA Engine',
+      destination: 'Audit-Ready Singapore PDPC & GDPR Article 30 Export',
+      latency: 'Continuous schema synchronization (down to 118ms*)'
+    }
+  },
+  {
+    id: 'golden-record-mdm',
+    title: 'SQL Golden Record MDM Deduplication',
+    category: 'Master Data Management',
+    icon: GitFork,
+    badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+    prompt: 'Deduplicate and merge customer profiles across Shopify, Salesforce CRM, and Zendesk into unified Golden Records with survivorship rules.',
+    executionTime: 'Down to 165ms*',
+    confidenceScore: 'Up to 99.4%*',
+    summary: 'Consolidated 4,820 fragmented customer profiles across 3 disparate systems into 3,610 authoritative Golden Records with 100% auditable survivorship provenance.',
+    insights: [
+      'Fuzzy Entity Resolution: Jaro-Winkler similarity (>0.88) and E.164 phone normalization resolved 620 customer duplicate identity collisions',
+      'Authoritative Survivorship: Prioritized verified corporate domain from Salesforce, verified billing address from Shopify, and active mobile from Zendesk',
+      'Operational UUID Broadcast: Canonical Golden Record UUIDs synchronized back to downstream operational systems via CDC stream'
+    ],
+    sql: `/* Scenario 3: SQL Golden Record Deduplication (Master Data Management) */
+WITH staged_entities AS (
+  SELECT 
+    s.customer_id AS source_shopify_id,
+    sf.lead_id AS source_salesforce_id,
+    z.user_id AS source_zendesk_id,
+    -- Survivorship: Salesforce verified company > Shopify billing company
+    COALESCE(sf.verified_company_name, s.billing_company, 'Individual Consumer') AS canonical_company_name,
+    -- Survivorship: Work email > Shopify checkout email > Zendesk email
+    COALESCE(sf.work_email, s.email, z.email) AS primary_email,
+    -- Canonical E.164 phone normalization
+    kaoinai.normalize_e164_phone(COALESCE(sf.mobile, s.phone, z.phone)) AS canonical_phone,
+    -- Fuzzy Jaro-Winkler similarity scoring
+    kaoinai.jaro_winkler_similarity(s.full_name, sf.contact_name) AS match_confidence
+  FROM shopify_db.customers s
+  FULL OUTER JOIN salesforce_db.accounts sf 
+    ON LOWER(s.email) = LOWER(sf.work_email) 
+    OR kaoinai.clean_phone(s.phone) = kaoinai.clean_phone(sf.mobile)
+  FULL OUTER JOIN zendesk_db.users z 
+    ON LOWER(s.email) = LOWER(z.email)
+)
+SELECT 
+  kaoinai.generate_deterministic_uuid(primary_email, canonical_phone) AS golden_record_id,
+  canonical_company_name,
+  primary_email,
+  canonical_phone,
+  COUNT(*) OVER (PARTITION BY primary_email) AS source_entity_frequency,
+  'ACTIVE_SURVIVORSHIP_RULE_V2' AS resolution_strategy,
+  CURRENT_TIMESTAMP AS golden_record_created_at
+FROM staged_entities
+WHERE match_confidence >= 0.88 OR match_confidence IS NULL;`,
+    lineage: {
+      sources: ['Shopify Store DB', 'Salesforce CRM API', 'Zendesk Support DB'],
+      transformation: 'KaoinAI MDM Rule Engine & Fuzzy Jaro-Winkler Resolution',
+      destination: 'Customer 360 Golden Record Mart (PostgreSQL)',
+      latency: 'Continuous sync via CDC (down to 165ms*)'
+    }
+  },
+  {
+    id: 'query-optimization',
+    title: 'Autonomous Index & Query Tuning',
+    category: 'Performance & IOPS',
+    icon: Database,
+    badgeColor: 'bg-purple-100 text-purple-800 border-purple-200',
+    prompt: 'Analyze slow customer transaction queries on PostgreSQL/Snowflake; generate optimal composite B-Tree indexes and reduce disk IOPS.',
+    executionTime: 'Down to 88ms*',
+    confidenceScore: 'Up to 99.7%*',
+    summary: 'Analyzed pg_stat_statements slow query log on 12.4M-row transactions table. Replaced sequential table scan with targeted composite index, achieving 84% reduction in disk IOPS and 12x query acceleration.',
+    insights: [
+      'Bottleneck Identification: EXPLAIN ANALYZE pinpointed Seq Scan on transactions table (12.4M rows, execution time: 4,200ms, buffer reads: 412,000)',
+      'Autonomous Synthesis: Formulated optimal composite index CREATE INDEX CONCURRENTLY idx_tx_customer_status_date ON transactions (customer_id, status, created_at DESC)',
+      'Empirical Benchmark: Post-index EXPLAIN ANALYZE showed Index Scan with execution time dropped to 38ms (84% reduction in physical disk IOPS)'
+    ],
+    sql: `/* Scenario 4: Autonomous Query & Index Optimization (84% IOPS Reduction) */
+-- Step 1: Query Execution Plan Before Optimization (Sequential Scan on 12.4M rows)
+-- EXPLAIN (ANALYZE, BUFFERS) 
+-- Result: Execution Time: 4,218.42 ms | Buffers: shared read=412,890 (High Disk IOPS)
+
+-- Step 2: KaoinAI Synthesized Index Injection
+CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_transactions_composite_perf 
+ON public.transactions (customer_id, transaction_status, created_at DESC)
+INCLUDE (amount_sgd, currency);
+
+-- Step 3: Verified Optimized Execution Query (Index Only Scan)
+EXPLAIN (ANALYZE, BUFFERS)
+SELECT 
+  customer_id,
+  transaction_status,
+  DATE_TRUNC('month', created_at) AS tx_month,
+  SUM(amount_sgd) AS monthly_spend_sgd,
+  COUNT(*) AS total_transactions
+FROM public.transactions
+WHERE customer_id = 'cust_sg_8842'
+  AND transaction_status = 'SETTLED'
+  AND created_at >= CURRENT_DATE - INTERVAL '180 days'
+GROUP BY 1, 2, 3
+ORDER BY tx_month DESC;
+
+-- Output Verification:
+-- Index Only Scan using idx_transactions_composite_perf
+-- Execution Time: 34.18 ms (123x speedup) | Buffers: shared hit=48, read=0 (84% IOPS reduction)`,
+    lineage: {
+      sources: ['PostgreSQL pg_stat_statements', 'AWS RDS Performance Insights', 'Snowflake Query History'],
+      transformation: 'KaoinAI Autonomous Optimizer & EXPLAIN Plan Synthesizer',
+      destination: 'Optimized Query Engine (Sub-50ms Execution Target)',
+      latency: 'Continuous query tuning (down to 88ms*)'
+    }
+  },
+  {
     id: 'churn',
-    title: 'VIP Churn Risk Detection',
+    title: 'VIP Churn & Revenue Lineage',
     category: 'Revenue Protection',
     icon: TrendingUp,
     badgeColor: 'bg-amber-100 text-amber-800 border-amber-200',
-    prompt: 'Find enterprise accounts with LTV > $5,000 who have not logged in or placed an order in the last 45 days.',
+    prompt: 'Find enterprise accounts with LTV > $5,000 who have not logged in or placed an order in the last 45 days, tracing upstream payment webhooks.',
     executionTime: 'Down to 118ms*',
     confidenceScore: 'Up to 99.6%*',
-    summary: 'Detected up to 42* at-risk customer accounts representing up to $284,500* in ARR across Stripe and PostgreSQL CRM.',
+    summary: 'Detected up to 42* at-risk customer accounts representing up to $284,500* in ARR across Stripe and PostgreSQL CRM with deterministic query lineage.',
     insights: [
-      'Top at-risk account: OmniLogistics SG (LTV: up to $48,200*) — Inactive for up to 48 days*',
-      'Average decline in weekly query frequency prior to inactivity: up to 74%*',
-      'Automated retention webhook generated for HubSpot & Slack #cs-vip'
+      'Top At-Risk Account: OmniLogistics SG (LTV: up to $48,200*) — Inactive for up to 48 days*',
+      'Query Activity Anomaly: Average decline in weekly database query frequency prior to churn: up to 74%*',
+      'Automated Retention Webhook: Webhook payload synthesized for HubSpot and Slack #cs-vip alerts'
     ],
     sql: `SELECT 
   c.id, 
@@ -75,162 +276,6 @@ ORDER BY total_ltv DESC;`,
       destination: 'Snowflake (finance_mart.vip_churn_alerts)',
       latency: 'Real-time sync (down to 0.4s*)'
     }
-  },
-  {
-    id: 'compliance',
-    title: 'PDPA / PII Data Leak Audit',
-    category: 'Regulatory Compliance',
-    icon: ShieldAlert,
-    badgeColor: 'bg-red-100 text-red-800 border-red-200',
-    prompt: 'Scan all staging, developer, and analytics tables for unmasked Singapore NRIC, phone numbers, or credit card numbers.',
-    executionTime: 'Down to 164ms*',
-    confidenceScore: 'Up to 99.9%*',
-    summary: 'Identified up to 3* unmasked PII columns in staging database. Auto-generated dynamic SHA-256 masking rules without disrupting engineering.',
-    insights: [
-      'CRITICAL: Table `staging_leads_2026` contains up to 1,420* unmasked NRIC identifiers',
-      'WARNING: Column `users_backup_temp.phone` exposed to read-only dev roles',
-      'Remediation applied: Automated dynamic column masking policy injected via proxy layer'
-    ],
-    sql: `/* KaoinAI Autonomous Compliance Inspector */
-SELECT 
-  table_schema, 
-  table_name, 
-  column_name, 
-  data_type,
-  kaoinai.entropy_score(sample_data) AS entropy,
-  kaoinai.detect_pii_pattern(column_name, sample_data) AS detected_pattern
-FROM information_schema.columns
-WHERE table_schema NOT IN ('pg_catalog', 'information_schema')
-  AND kaoinai.detect_pii_pattern(column_name, sample_data) IN ('SG_NRIC', 'PHONE_SG', 'CREDIT_CARD_PAN')
-ORDER BY table_name, column_name;`,
-    lineage: {
-      sources: ['AWS RDS Staging', 'BigQuery Analytics Sandbox'],
-      transformation: 'KaoinAI Privacy Shield & Pattern Classifier',
-      destination: 'Compliance Dashboard (PDPA/GDPR Audit Log)',
-      latency: 'Instant automated remediation'
-    }
-  },
-  {
-    id: 'reconciliation',
-    title: 'Revenue Discrepancy Lineage',
-    category: 'Financial Truth',
-    icon: Database,
-    badgeColor: 'bg-purple-100 text-purple-800 border-purple-200',
-    prompt: 'Why does Stripe MRR show $142,500 while our executive dashboard reports $136,800 for March?',
-    executionTime: 'Down to 210ms*',
-    confidenceScore: 'Up to 98.8%*',
-    summary: 'Root cause pinpointed in down to 3.2 seconds*: up to 43* foreign currency transactions stalled during an upstream webhook retry failure.',
-    insights: [
-      'Discrepancy delta: Up to $5,700* across up to 43* EUR/GBP cross-border checkouts',
-      'Failed node: `dbt_transforms.stg_stripe_webhooks` timed out at 04:15 UTC due to FX rate API rate-limiting',
-      'Recommended action: 1-click retry pipeline already queued with zero manual code edits'
-    ],
-    sql: `WITH stripe_totals AS (
-  SELECT DATE_TRUNC('month', created) AS month, SUM(amount_net) / 100.0 AS stripe_mrr
-  FROM raw_stripe.charges
-  WHERE status = 'paid' AND refund_status IS NULL
-  GROUP BY 1
-),
-bi_totals AS (
-  SELECT DATE_TRUNC('month', transaction_date) AS month, SUM(usd_equivalent) AS bi_mrr
-  FROM analytics_mart.fct_monthly_revenue
-  GROUP BY 1
-)
-SELECT 
-  s.month,
-  s.stripe_mrr,
-  b.bi_mrr,
-  (s.stripe_mrr - b.bi_mrr) AS variance_usd,
-  ARRAY_AGG(DISTINCT err.failure_reason) AS upstream_error_log
-FROM stripe_totals s
-FULL OUTER JOIN bi_totals b ON s.month = b.month
-LEFT JOIN telemetry.pipeline_failures err ON s.month = DATE_TRUNC('month', err.failed_at)
-GROUP BY s.month, s.stripe_mrr, b.bi_mrr;`,
-    lineage: {
-      sources: ['Stripe Webhooks', 'Kafka Event Bus'],
-      transformation: 'dbt Core -> Currency Converter -> BI Mart',
-      destination: 'Metabase / Tableau Executive Boardroom View',
-      latency: 'Lineage mapped in down to 210ms*'
-    }
-  },
-  {
-    id: 'dedup',
-    title: 'Customer Master Record Unification',
-    category: 'Master Data Management',
-    icon: GitFork,
-    badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
-    prompt: 'Deduplicate and merge customer profiles across Shopify, Salesforce, and Zendesk into unified Golden Records.',
-    executionTime: 'Down to 175ms*',
-    confidenceScore: 'Up to 99.3%*',
-    summary: 'Consolidated up to 2,140* fragmented customer touchpoints into up to 1,680* unified Golden Records with up to 100%* auditable history.',
-    insights: [
-      'Resolved up to 460* customer identity collisions with fuzzy Jaro-Winkler + phone hash matching',
-      'Linked Shopify checkout emails with historical Zendesk enterprise support tickets',
-      'Golden Record ID generated and broadcasted back to downstream operational systems'
-    ],
-    sql: `/* KaoinAI Autonomous Entity Resolution & Golden Record Pipeline */
-SELECT 
-  kaoinai.generate_golden_id(s.customer_id, sf.lead_id, z.user_id) AS golden_customer_id,
-  COALESCE(sf.verified_company, s.billing_company) AS authoritative_company,
-  COALESCE(sf.work_email, s.email, z.email) AS primary_email,
-  kaoinai.merge_phone(sf.mobile, s.phone) AS canonical_phone,
-  COUNT(DISTINCT s.order_id) AS lifetime_shopify_orders,
-  MAX(z.last_ticket_date) AS recent_support_touchpoint
-FROM shopify_db.customers s
-FULL OUTER JOIN salesforce_db.accounts sf 
-  ON LOWER(s.email) = LOWER(sf.work_email) 
-  OR kaoinai.clean_phone(s.phone) = kaoinai.clean_phone(sf.mobile)
-FULL OUTER JOIN zendesk_db.users z 
-  ON LOWER(s.email) = LOWER(z.email)
-GROUP BY golden_customer_id, authoritative_company, primary_email, canonical_phone;`,
-    lineage: {
-      sources: ['Shopify Store DB', 'Salesforce CRM', 'Zendesk Support'],
-      transformation: 'KaoinAI MDM Rule Engine & Fuzzy Entity Resolution',
-      destination: 'Customer 360 Golden Mart (PostgreSQL)',
-      latency: 'Continuous sync via CDC'
-    }
-  },
-  {
-    id: 'dpia-inventory',
-    title: 'Table-Bound DPIA & Inventory',
-    category: 'Privacy by Design',
-    icon: ShieldCheck,
-    badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
-    prompt: 'Show all database tables containing PII bound directly to our statutory DPIA assessments and Singapore PDPA / GDPR Data Inventory.',
-    executionTime: 'Down to 142ms*',
-    confidenceScore: 'Up to 99.8%*',
-    summary: 'Directly linked up to 14* production database tables containing PII to DPIA-2026-08 and active Data Inventory (RoPA) with real-time schema drift tracking.',
-    insights: [
-      'Physical Table Binding: `rds.customer_kyc` & `snowflake.orders` directly bound to DPIA Registry (Risk Level: Low / AES-256 Tokenized)',
-      'Automated RoPA Generation: Legal Basis (PDPA §13 Contractual Necessity) & Retention (MAS TRM up to 7 Years*) mapped per column',
-      'Schema Drift Shield: Auto-detected newly migrated column `user_biometrics` in PostgreSQL; immediately flagged DPIA drift & queued impact assessment'
-    ],
-    sql: `/* KaoinAI Table-Bound DPIA & Living Data Inventory (RoPA) Engine */
-SELECT 
-  t.table_schema,
-  t.table_name,
-  c.column_name,
-  dpia.assessment_id,
-  dpia.risk_tier,
-  dpia.mitigation_status,
-  ropa.legal_basis,
-  ropa.retention_period_years,
-  ropa.cross_border_safeguard
-FROM information_schema.tables t
-JOIN information_schema.columns c 
-  ON t.table_name = c.table_name AND t.table_schema = c.table_schema
-JOIN kaoinai.data_inventory_ropa ropa 
-  ON c.table_name = ropa.bound_table_name AND c.column_name = ropa.bound_column_name
-JOIN kaoinai.dpia_registry dpia 
-  ON t.table_name = dpia.target_table_name
-WHERE ropa.contains_pii = TRUE
-ORDER BY dpia.risk_tier DESC, t.table_name, c.column_name;`,
-    lineage: {
-      sources: ['PostgreSQL (rds_prod.customer_kyc)', 'Snowflake (finance_mart.orders)'],
-      transformation: 'KaoinAI Table-Level DPIA Binder & Living RoPA Generator',
-      destination: 'Audit-Ready PDPA / GDPR Article 30 Compliance Export',
-      latency: 'Continuous schema synchronization'
-    }
   }
 ]
 
@@ -240,6 +285,22 @@ export default function InteractiveDemo() {
   const [copied, setCopied] = useState(false)
   const [customPrompt, setCustomPrompt] = useState('')
   const [customSubmitted, setCustomSubmitted] = useState(false)
+  const [isSimulating, setIsSimulating] = useState(false)
+  const [simulationNotice, setSimulationNotice] = useState<string | null>(null)
+
+  const handleRunSimulation = () => {
+    setIsSimulating(true)
+    setSimulationNotice('Executing query against connected catalogs & verifying zero-egress kernel...')
+    trackEvent('click_cta', { location: 'demo_simulation', label: activeScenario.id })
+
+    setTimeout(() => {
+      setIsSimulating(false)
+      setSimulationNotice(`Executed successfully in ${activeScenario.executionTime}. Plan verified with 0 data egress.`)
+      setTimeout(() => {
+        setSimulationNotice(null)
+      }, 4000)
+    }, 650)
+  }
 
   const handleCopy = () => {
     navigator.clipboard.writeText(activeScenario.sql)
@@ -349,19 +410,48 @@ export default function InteractiveDemo() {
           </div>
 
           {/* Prompt Bar */}
-          <div className="p-4 sm:p-5 bg-white/[0.03] border-b border-white/10 flex items-start gap-3 backdrop-blur-md">
-            <div className="w-7 h-7 rounded-lg bg-purple-600/30 text-purple-300 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
-              <Play size={14} className="fill-purple-300" />
-            </div>
-            <div className="flex-grow">
-              <div className="text-xs font-mono uppercase tracking-wider text-purple-300 font-semibold mb-1">
-                AI DB Knowledgebase &amp; Catalog Inquiry:
+          <div className="p-4 sm:p-5 bg-white/[0.03] border-b border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 backdrop-blur-md">
+            <div className="flex items-start gap-3 flex-grow">
+              <div className="w-7 h-7 rounded-lg bg-purple-600/30 text-purple-300 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                <Play size={14} className="fill-purple-300" />
               </div>
-              <div className="text-sm sm:text-base font-medium text-white">
-                &ldquo;{activeScenario.prompt}&rdquo;
+              <div className="flex-grow">
+                <div className="text-xs font-mono uppercase tracking-wider text-purple-300 font-semibold mb-1">
+                  AI DB Knowledgebase &amp; Catalog Inquiry:
+                </div>
+                <div className="text-sm sm:text-base font-medium text-white">
+                  &ldquo;{activeScenario.prompt}&rdquo;
+                </div>
               </div>
             </div>
+
+            <button
+              type="button"
+              onClick={handleRunSimulation}
+              disabled={isSimulating}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-mono text-xs font-semibold shrink-0 transition-all shadow-md cursor-pointer disabled:opacity-50"
+            >
+              {isSimulating ? (
+                <>
+                  <RefreshCw size={13} className="animate-spin text-purple-200" />
+                  <span>Simulating...</span>
+                </>
+              ) : (
+                <>
+                  <Play size={12} className="fill-white" />
+                  <span>Execute Simulation</span>
+                </>
+              )}
+            </button>
           </div>
+
+          {/* Simulation Notice Bar */}
+          {simulationNotice && (
+            <div className="px-5 py-2.5 bg-purple-950/80 border-b border-purple-500/30 text-xs font-mono text-purple-200 flex items-center gap-2 animate-in fade-in duration-150">
+              <Sparkles size={13} className="text-emerald-400 shrink-0" />
+              <span>{simulationNotice}</span>
+            </div>
+          )}
 
           {/* View Mode Tabs */}
           <div className="bg-white/[0.02] border-b border-white/10 px-4 sm:px-6 flex gap-2">
