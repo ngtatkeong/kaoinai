@@ -1,4 +1,5 @@
 import { useState, lazy, Suspense } from 'react'
+import { useSearchParams } from 'react-router'
 import { 
   Shield, 
   CheckCircle, 
@@ -8,18 +9,20 @@ import {
   FileSearch, 
   TrendingUp, 
   AlertTriangle, 
-  Zap,
-  BarChart3,
-  Leaf,
-  ShieldCheck,
-  Layers,
-  Globe,
-  ArrowRight
+  Zap, 
+  BarChart3, 
+  Leaf, 
+  ShieldCheck, 
+  Layers, 
+  Globe, 
+  ArrowRight,
+  Sparkles
 } from 'lucide-react'
 import { trackEvent } from '@/lib/analytics'
 import LeadMagnetModal from '@/components/LeadMagnetModal'
 
-const FeatureDetailModal = lazy(() => import('@/components/FeatureDetailModal'))
+const loadFeatureDetailModal = () => import('@/components/FeatureDetailModal')
+const FeatureDetailModal = lazy(loadFeatureDetailModal)
 
 const features = [
   {
@@ -137,8 +140,33 @@ const features = [
 ]
 
 export default function Features() {
-  const [selectedFeatureId, setSelectedFeatureId] = useState<string | null>(null)
+  const [searchParams, setSearchParams] = useSearchParams()
+  const [localFeatureId, setLocalFeatureId] = useState<string | null>(null)
   const [leadMagnetOpen, setLeadMagnetOpen] = useState(false)
+
+  // Query parameter support (?feature=data-governance)
+  const paramFeatureId = searchParams.get('feature')
+  const selectedFeatureId = localFeatureId || (paramFeatureId && features.some(f => f.id === paramFeatureId) ? paramFeatureId : null)
+
+  const handleOpenDetails = (id: string) => {
+    setLocalFeatureId(id)
+    setSearchParams(prev => {
+      const next = new URLSearchParams(prev)
+      next.set('feature', id)
+      return next
+    }, { replace: true })
+    const feature = features.find(f => f.id === id)
+    trackEvent('explore_feature', { feature_name: feature ? feature.title : id })
+  }
+
+  const handleCloseDetails = () => {
+    setLocalFeatureId(null)
+    setSearchParams(prev => {
+      const next = new URLSearchParams(prev)
+      next.delete('feature')
+      return next
+    }, { replace: true })
+  }
 
   return (
     <section id="features" className="py-24 sm:py-32 bg-purple-50/60 scroll-mt-20">
@@ -153,7 +181,7 @@ export default function Features() {
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
             From governance to analytics, KaoinAI covers every aspect of modern data management. 
-            Click any capability below to inspect production workflows, code artifacts, and compliance guarantees.
+            Click any feature below for more details—including end-to-end production workflows, supported database engines, real code artifacts, and compliance guarantees.
           </p>
         </div>
 
@@ -162,29 +190,37 @@ export default function Features() {
             <button
               key={feature.id}
               type="button"
-              onClick={() => {
-                setSelectedFeatureId(feature.id)
-                trackEvent('explore_feature', { feature_name: feature.title })
-              }}
+              onClick={() => handleOpenDetails(feature.id)}
+              onMouseEnter={loadFeatureDetailModal}
+              onFocus={loadFeatureDetailModal}
               className="group bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 hover:border-purple-300 hover:shadow-xl active:scale-[0.99] transition-all duration-300 flex flex-col justify-between text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
               aria-haspopup="dialog"
+              aria-label={`View more details for ${feature.title}`}
             >
               <div>
                 <div className={`w-14 h-14 rounded-2xl ${feature.bgColor} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-xs`}>
                   <feature.icon size={26} className={`text-transparent bg-clip-text bg-gradient-to-br ${feature.color}`} style={{ color: 'inherit' }} />
                 </div>
-                <div className="flex items-center justify-between gap-2 mb-2">
+                <div className="flex items-start justify-between gap-2 mb-2">
                   <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#5b2d6e] transition-colors">{feature.title}</h3>
-                  <span className="text-[11px] font-semibold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-full shrink-0 group-hover:bg-purple-100 transition-colors">
-                    Details &rarr;
+                  <span className="text-xs font-bold text-purple-700 bg-purple-50 group-hover:bg-[#5b2d6e] group-hover:text-white px-3 py-1 rounded-full border border-purple-200 transition-all shrink-0 shadow-2xs">
+                    More Details &rarr;
                   </span>
                 </div>
                 <p className="text-sm text-gray-600 leading-relaxed mb-4">{feature.description}</p>
               </div>
 
-              <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-[#5b2d6e]">
-                <span>Explore workflow &amp; code</span>
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              <div className="pt-4 border-t border-gray-100 mt-2 w-full">
+                <div className="flex items-center justify-between py-2.5 px-3.5 rounded-xl bg-purple-50/70 group-hover:bg-gradient-brand group-hover:text-white text-[#5b2d6e] border border-purple-100 group-hover:border-transparent transition-all shadow-2xs w-full">
+                  <span className="text-xs font-bold flex items-center gap-1.5">
+                    <Sparkles size={13} className="text-purple-600 group-hover:text-purple-200" />
+                    <span>More Details</span>
+                  </span>
+                  <span className="text-xs font-bold flex items-center gap-1">
+                    <span className="text-[11px] opacity-85 font-medium hidden sm:inline">Workflow &amp; Code</span>
+                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform shrink-0" />
+                  </span>
+                </div>
               </div>
             </button>
           ))}
@@ -211,35 +247,68 @@ export default function Features() {
             </p>
 
             <div className="grid sm:grid-cols-3 gap-5">
-              <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <div className="w-10 h-10 rounded-xl bg-purple-100 text-[#5b2d6e] flex items-center justify-center font-bold mb-3">
-                  1
+              <button
+                type="button"
+                onClick={() => handleOpenDetails('table-bound-dpia')}
+                onMouseEnter={loadFeatureDetailModal}
+                className="p-5 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200/80 hover:border-purple-300 hover:shadow-md transition-all text-left flex flex-col justify-between group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+              >
+                <div>
+                  <div className="w-10 h-10 rounded-xl bg-purple-100 text-[#5b2d6e] flex items-center justify-center font-bold mb-3 group-hover:scale-105 transition-transform">
+                    1
+                  </div>
+                  <h4 className="font-bold text-gray-900 group-hover:text-[#5b2d6e] text-base mb-1 transition-colors">Physical Table Binding</h4>
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-3">
+                    Every table with PII (Postgres, Snowflake, MySQL) is directly associated with its statutory DPIA assessment, legal processing basis, and retention schedule.
+                  </p>
                 </div>
-                <h4 className="font-bold text-gray-900 text-base mb-1">Physical Table Binding</h4>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                  Every table with PII (Postgres, Snowflake, MySQL) is directly associated with its statutory DPIA assessment, legal processing basis, and retention schedule.
-                </p>
-              </div>
+                <div className="pt-2 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-[#5b2d6e] w-full">
+                  <span>More Details: Table-Bound DPIA</span>
+                  <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                </div>
+              </button>
 
-              <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <div className="w-10 h-10 rounded-xl bg-purple-100 text-[#5b2d6e] flex items-center justify-center font-bold mb-3">
-                  2
+              <button
+                type="button"
+                onClick={() => handleOpenDetails('schema-shifts')}
+                onMouseEnter={loadFeatureDetailModal}
+                className="p-5 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200/80 hover:border-purple-300 hover:shadow-md transition-all text-left flex flex-col justify-between group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+              >
+                <div>
+                  <div className="w-10 h-10 rounded-xl bg-purple-100 text-[#5b2d6e] flex items-center justify-center font-bold mb-3 group-hover:scale-105 transition-transform">
+                    2
+                  </div>
+                  <h4 className="font-bold text-gray-900 group-hover:text-[#5b2d6e] text-base mb-1 transition-colors">Autonomous Drift Alerts</h4>
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-3">
+                    When migrations add new columns or modify data structures, KaoinAI immediately flags unclassified PII, preventing compliance documentation lag.
+                  </p>
                 </div>
-                <h4 className="font-bold text-gray-900 text-base mb-1">Autonomous Drift Alerts</h4>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                  When migrations add new columns or modify data structures, KaoinAI immediately flags unclassified PII, preventing compliance documentation lag.
-                </p>
-              </div>
+                <div className="pt-2 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-[#5b2d6e] w-full">
+                  <span>More Details: Schema Shifts</span>
+                  <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                </div>
+              </button>
 
-              <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <div className="w-10 h-10 rounded-xl bg-purple-100 text-[#5b2d6e] flex items-center justify-center font-bold mb-3">
-                  3
+              <button
+                type="button"
+                onClick={() => handleOpenDetails('dpo-toolkit')}
+                onMouseEnter={loadFeatureDetailModal}
+                className="p-5 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200/80 hover:border-purple-300 hover:shadow-md transition-all text-left flex flex-col justify-between group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+              >
+                <div>
+                  <div className="w-10 h-10 rounded-xl bg-purple-100 text-[#5b2d6e] flex items-center justify-center font-bold mb-3 group-hover:scale-105 transition-transform">
+                    3
+                  </div>
+                  <h4 className="font-bold text-gray-900 group-hover:text-[#5b2d6e] text-base mb-1 transition-colors">One-Click RoPA Export</h4>
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-3">
+                    Export complete statutory Records of Processing Activities (RoPA) with column-level PII mappings, ready for Singapore PDPC or GDPR supervisory audits in seconds.
+                  </p>
                 </div>
-                <h4 className="font-bold text-gray-900 text-base mb-1">One-Click RoPA Export</h4>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                  Export complete statutory Records of Processing Activities (RoPA) with column-level PII mappings, ready for Singapore PDPC or GDPR supervisory audits in seconds.
-                </p>
-              </div>
+                <div className="pt-2 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-[#5b2d6e] w-full">
+                  <span>More Details: DPO Toolkit</span>
+                  <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                </div>
+              </button>
             </div>
           </div>
         </div>
@@ -260,7 +329,7 @@ export default function Features() {
           <FeatureDetailModal
             key={selectedFeatureId}
             featureId={selectedFeatureId}
-            onClose={() => setSelectedFeatureId(null)}
+            onClose={handleCloseDetails}
             onOpenLeadMagnet={() => setLeadMagnetOpen(true)}
           />
         )}
