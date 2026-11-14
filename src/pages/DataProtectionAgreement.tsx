@@ -308,7 +308,7 @@ export default function DataProtectionAgreement() {
             className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold shadow-xs transition-colors"
           >
             <Mail size={14} />
-            <span>Request Custom Countersigned DPA from TK Ng</span>
+            <span>Request Custom Countersigned DPA</span>
           </a>
           <Link
             to="/privacy"
