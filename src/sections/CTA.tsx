@@ -237,7 +237,7 @@ export default function CTA() {
                 onClick={() => trackEvent('click_cta', { location: 'footer', label: 'Schedule Consultation via CTA' })}
               >
                 <Calendar size={14} />
-                Schedule Consultation with Our Consultants
+                Schedule Consultation with Our Consultant
               </Link>
             </div>
           </div>

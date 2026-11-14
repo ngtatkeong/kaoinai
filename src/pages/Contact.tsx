@@ -129,7 +129,7 @@ function generateGoogleCalendarUrl({
     dates: `${startIso}/${endIso}`,
     details: details,
     location: 'Google Meet / Virtual Video Call',
-    add: 'consultants@kaoinai.com',
+    add: 'consultant@kaoinai.com',
   })
 
   return `https://calendar.google.com/calendar/render?${params.toString()}`
@@ -178,7 +178,7 @@ export default function Contact() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' })
-    document.title = 'Schedule Consultation with Our Consultants | Contact Us — KaoinAI'
+    document.title = 'Schedule Consultation with Our Consultant | Contact Us — KaoinAI'
   }, [])
 
   const handleCopyRef = () => {
@@ -237,7 +237,7 @@ export default function Contact() {
     const meetingTitle = `KaoinAI: ${sessionName} with Senior Consultant & ${bookingName.trim()}`
     const meetingDetails = `1-on-1 Consultation with KaoinAI Senior Data Governance Consultant
 
-Host: KaoinAI Senior Consultants (consultants@kaoinai.com)
+Host: KaoinAI Senior Consultant (consultant@kaoinai.com)
 Attendee: ${bookingName.trim()} (${bookingEmail.trim()})
 Company: ${bookingCompany.trim() || 'Not Specified'}
 Session: ${sessionName}
@@ -245,7 +245,7 @@ Date & Time: ${formattedDate} at ${slotLabel}
 Topic / Focus: ${bookingTopic}
 Agenda / Questions: ${bookingNotes.trim() || 'None provided'}
 Booking Ref: ${refId}
-Consultant Direct Email: consultants@kaoinai.com`
+Consultant Direct Email: consultant@kaoinai.com`
 
     const gcalUrl = generateGoogleCalendarUrl({
       title: meetingTitle,
@@ -259,7 +259,7 @@ Consultant Direct Email: consultants@kaoinai.com`
     try {
       const formData = new FormData()
       formData.append('booking_type', 'Google Calendar 1-on-1 Consultation')
-      formData.append('host', 'KaoinAI Senior Consultant (consultants@kaoinai.com)')
+      formData.append('host', 'KaoinAI Senior Consultant (consultant@kaoinai.com)')
       formData.append('name', bookingName.trim())
       formData.append('email', bookingEmail.trim())
       formData.append('_replyto', bookingEmail.trim())
@@ -424,14 +424,14 @@ Consultant Direct Email: consultants@kaoinai.com`
               
               <div className="flex items-start gap-4">
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#5b2d6e] to-[#8d448b] text-white flex items-center justify-center font-extrabold text-xl shadow-md shrink-0 ring-4 ring-purple-50">
-                  TK
+                  <UserCheck size={28} className="text-white" />
                 </div>
                 <div className="min-w-0">
                   <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-purple-50 text-[#5b2d6e] text-[11px] font-bold mb-1 border border-purple-100">
                     <UserCheck size={12} />
-                    <span>Senior Enterprise Consultants</span>
+                    <span>Senior Enterprise Consultant</span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 tracking-tight">Our Consultants</h3>
+                  <h3 className="text-xl font-bold text-gray-900 tracking-tight">Our Consultant</h3>
                   <p className="text-xs font-semibold text-gray-600">Enterprise AI &amp; Data Governance Practice</p>
                 </div>
               </div>
@@ -439,8 +439,8 @@ Consultant Direct Email: consultants@kaoinai.com`
               <div className="mt-4 pt-3.5 border-t border-gray-100 space-y-2.5 text-xs text-gray-600">
                 <div className="flex items-center gap-2">
                   <Mail size={14} className="text-[#5b2d6e] shrink-0" />
-                  <a href="mailto:consultants@kaoinai.com" className="font-semibold text-gray-900 hover:text-[#5b2d6e] transition-colors underline decoration-purple-200">
-                    consultants@kaoinai.com
+                  <a href="mailto:consultant@kaoinai.com" className="font-semibold text-gray-900 hover:text-[#5b2d6e] transition-colors underline decoration-purple-200">
+                    consultant@kaoinai.com
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
@@ -454,7 +454,7 @@ Consultant Direct Email: consultants@kaoinai.com`
               </div>
 
               <p className="text-xs text-gray-600 mt-4 leading-relaxed bg-purple-50/50 p-3 rounded-xl border border-purple-100/60">
-                "Direct calendar consultations with our senior enterprise consultants — zero sales fluff. We'll examine your data sources, assess zero-ingestion architecture, and map out your PDPA/RoPA timeline."
+                "Direct calendar consultations with our senior consultant — zero sales fluff. We'll examine your data sources, assess zero-ingestion architecture, and map out your PDPA/RoPA timeline."
               </p>
 
               <div className="mt-4 pt-3 flex items-center justify-between">
@@ -467,7 +467,7 @@ Consultant Direct Email: consultants@kaoinai.com`
                   <span>Book Free Session</span>
                 </button>
                 <a
-                  href="https://calendar.google.com/calendar/u/0/r?add=consultants@kaoinai.com"
+                  href="https://calendar.google.com/calendar/u/0/r?add=consultant@kaoinai.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-[11px] text-gray-500 hover:text-gray-900 transition-colors"
@@ -602,7 +602,7 @@ Consultant Direct Email: consultants@kaoinai.com`
                 }`}
               >
                 <Calendar size={16} className={activeTab === 'calendar' ? 'text-[#5b2d6e]' : 'text-gray-500'} />
-                <span>Book 1-on-1 with TK</span>
+                <span>Book 1-on-1 with Our Consultant</span>
                 <span className="hidden sm:inline-flex px-2 py-0.5 rounded-full text-[10px] bg-purple-100 text-[#5b2d6e] font-semibold">
                   Google Calendar
                 </span>
@@ -638,7 +638,7 @@ Consultant Direct Email: consultants@kaoinai.com`
                           Priority Consultation Request Logged
                         </div>
                         <h2 className="text-xl sm:text-2xl font-extrabold text-gray-900 mt-0.5">
-                          1-on-1 Session with Our Consultants
+                          1-on-1 Session with Our Consultant
                         </h2>
                       </div>
                     </div>
@@ -649,7 +649,7 @@ Consultant Direct Email: consultants@kaoinai.com`
                         <div>
                           <strong>Notification blocked by browser/adblocker:</strong>
                           <p className="mt-0.5 text-amber-800 leading-relaxed">
-                            Formspree was unable to deliver your booking automatically. Please click <strong>Send 1-Click WhatsApp Confirmation</strong> below or email <strong>consultants@kaoinai.com</strong> with Reference ID <code className="font-mono font-bold text-[#5b2d6e]">{bookingRefId}</code> to ensure your slot is reserved.
+                            Formspree was unable to deliver your booking automatically. Please click <strong>Send 1-Click WhatsApp Confirmation</strong> below or email <strong>consultant@kaoinai.com</strong> with Reference ID <code className="font-mono font-bold text-[#5b2d6e]">{bookingRefId}</code> to ensure your slot is reserved.
                           </p>
                         </div>
                       </div>
@@ -689,7 +689,7 @@ Consultant Direct Email: consultants@kaoinai.com`
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs">
                         <div>
                           <span className="text-gray-400 block font-medium">Host</span>
-                          <span className="font-semibold text-gray-900">KaoinAI Senior Consultants &bull; consultants@kaoinai.com</span>
+                          <span className="font-semibold text-gray-900">KaoinAI Senior Consultant &bull; consultant@kaoinai.com</span>
                         </div>
                         <div>
                           <span className="text-gray-400 block font-medium">Session Duration</span>
@@ -733,7 +733,7 @@ Consultant Direct Email: consultants@kaoinai.com`
                         <ExternalLink size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </a>
 
-                      {/* WhatsApp Confirmation to TK */}
+                      {/* WhatsApp Confirmation to Consultant */}
                       <a
                         href={getWhatsAppUrl(
                           `Hi KaoinAI, I have booked a consultation session on Google Calendar.\n\n• Ref ID: ${bookingRefId}\n• Date: ${selectedDate}\n• Time: ${TIME_SLOTS.find(s => s.time === selectedTime)?.label || selectedTime}\n• Topic: ${bookingTopic}\n• Attendee: ${bookingName} (${bookingEmail})\n\nLooking forward to meeting with you!`
@@ -768,7 +768,7 @@ Consultant Direct Email: consultants@kaoinai.com`
                     <div>
                       <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-purple-50 text-[#5b2d6e] text-xs font-bold mb-2">
                         <Sparkles size={13} />
-                        <span>Direct Architecture Host: KaoinAI Senior Consultants &bull; consultants@kaoinai.com</span>
+                        <span>Direct Architecture Host: KaoinAI Senior Consultant &bull; consultant@kaoinai.com</span>
                       </div>
                       <h2 className="text-2xl font-bold text-gray-900">Schedule 1-on-1 Discovery</h2>
                       <div className="mt-3 p-3.5 rounded-xl bg-purple-50/70 border border-purple-100 text-xs text-gray-700 space-y-1.5">
@@ -777,7 +777,7 @@ Consultant Direct Email: consultants@kaoinai.com`
                           <span>Priority Consultation Request</span>
                         </div>
                         <p className="leading-relaxed text-gray-600">
-                          Submit your preferred window below. Our consultants will review your consultation request and email you the formal calendar invitation with the direct Google Meet video conference link.
+                          Submit your preferred window below. Our consultant will review your consultation request and email you the formal calendar invitation with the direct Google Meet video conference link.
                         </p>
                         <div className="flex items-center gap-2 text-[11px] font-medium text-purple-900/80 pt-0.5">
                           <Clock size={12} className="text-[#5b2d6e]" />
@@ -861,12 +861,12 @@ Consultant Direct Email: consultants@kaoinai.com`
                           3. Select Time Slot (Singapore Time &bull; SGT UTC+8)
                         </label>
                         <a
-                          href="https://calendar.google.com/calendar/u/0/r?add=tk.ng@kaoinai.com"
+                          href="https://calendar.google.com/calendar/u/0/r?add=consultant@kaoinai.com"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1 text-[11px] text-[#5b2d6e] font-semibold hover:underline"
                         >
-                          <span>Check TK's Schedule</span>
+                          <span>Check Consultant's Schedule</span>
                           <ExternalLink size={10} />
                         </a>
                       </div>
@@ -991,7 +991,7 @@ Consultant Direct Email: consultants@kaoinai.com`
                     </Button>
 
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-2 pt-1 text-[11px] text-gray-500 text-center sm:text-left">
-                      <span>✓ Dispatches invite to our senior consultants</span>
+                      <span>✓ Dispatches invite to our consultant</span>
                       <span>✓ Auto-attaches Google Meet video link</span>
                     </div>
                   </form>
@@ -1099,7 +1099,7 @@ Consultant Direct Email: consultants@kaoinai.com`
                     <div className="flex items-center gap-2.5 px-4 py-3 bg-purple-50/80 border border-purple-100 rounded-xl text-xs text-purple-900">
                       <ShieldCheck size={18} className="text-[#5b2d6e] shrink-0" />
                       <span>
-                        A notification copy has been transmitted directly to our senior consultants (<strong>consultants@kaoinai.com</strong>). We will review your data requirements and respond directly to <strong>{email}</strong>.
+                        A notification copy has been transmitted directly to our consultant (<strong>consultant@kaoinai.com</strong>). We will review your data requirements and respond directly to <strong>{email}</strong>.
                       </span>
                     </div>
 

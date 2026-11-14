@@ -75,8 +75,8 @@ function RouteSeo() {
         url: 'https://kaoinai.com/audit',
       },
       '/contact': {
-        title: 'Schedule Consultation with Our Consultants | Contact Us — KaoinAI',
-        desc: 'Book a 1-on-1 Google Calendar session with KaoinAI. Discuss autonomous data governance, table-bound DPIA, PDPA & MAS TRM compliance for your databases.',
+        title: 'Schedule Consultation with Our Consultant | Contact Us — KaoinAI',
+        desc: 'Book a 1-on-1 Google Calendar session with our consultant. Discuss autonomous data governance, table-bound DPIA, PDPA & MAS TRM compliance for your databases.',
         url: 'https://kaoinai.com/contact',
       },
       '/privacy': {
