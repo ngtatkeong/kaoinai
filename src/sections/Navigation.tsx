@@ -256,11 +256,11 @@ export default function Navigation() {
 
               {moreOpen && (
                 <div 
-                  className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-72 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-80 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
                   onMouseEnter={handleMoreEnter}
                   onMouseLeave={handleMoreLeave}
                 >
-                  <div className="bg-white/98 backdrop-blur-xl rounded-2xl shadow-xl border border-purple-100/80 p-2 space-y-1">
+                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-200/90 p-2.5 space-y-1 ring-1 ring-black/5">
                     {moreLinks.map((item) => {
                       const isItemActive = !isContactPage && activeSection === item.href.replace('#', '')
                       return (
@@ -365,7 +365,7 @@ export default function Navigation() {
 
         {/* Mobile Dropdown (Categorized Directory) */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-gray-100 bg-white/98 backdrop-blur-xl px-4 py-4 space-y-4 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200 max-h-[75vh] overflow-y-auto">
+          <div className="lg:hidden border-t border-gray-100 bg-white px-4 py-4 space-y-4 shadow-xl border-b border-gray-200 animate-in fade-in slide-in-from-top-2 duration-200 max-h-[75vh] overflow-y-auto">
             {mobileNavCategories.map((group) => (
               <div key={group.category} className="space-y-1">
                 <div className="px-3 text-[10px] font-bold text-gray-400 uppercase tracking-wider">
