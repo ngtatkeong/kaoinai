@@ -54,7 +54,6 @@ const mobileNavCategories = [
     ],
   },
 ]
-]
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
@@ -140,10 +139,12 @@ export default function Navigation() {
   }, [location.pathname])
 
   // Close mobile menu on route change
-  useEffect(() => {
+  const [prevPath, setPrevPath] = useState(location.pathname)
+  if (prevPath !== location.pathname) {
+    setPrevPath(location.pathname)
     setMobileMenuOpen(false)
     setMoreOpen(false)
-  }, [location.pathname])
+  }
 
   const scrollToAnchor = useCallback((id: string) => {
     const el = document.getElementById(id)
