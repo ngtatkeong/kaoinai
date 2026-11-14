@@ -189,10 +189,11 @@ export default function Navigation() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled || mobileMenuOpen
-          ? 'bg-white/90 backdrop-blur-xl shadow-xs border-b border-purple-100/60'
-          : 'bg-white/80 border-b border-gray-100/60'
+        scrolled || mobileMenuOpen || moreOpen
+          ? 'bg-white shadow-xs border-b border-purple-100/80'
+          : 'bg-white/95 backdrop-blur-md border-b border-gray-100'
       }`}
+      style={{ backgroundColor: (scrolled || mobileMenuOpen || moreOpen) ? '#ffffff' : undefined }}
     >
       {hasAnnouncement && (
         <AnnouncementBar onDismiss={() => setHasAnnouncement(false)} />
@@ -245,7 +246,7 @@ export default function Navigation() {
                 onClick={() => setMoreOpen(!moreOpen)}
                 className={`flex items-center gap-1 text-sm font-semibold tracking-wide transition-all cursor-pointer px-3 py-1.5 rounded-xl ${
                   isMoreActive || moreOpen
-                    ? 'text-[#5b2d6e] font-bold bg-purple-100/70 border border-purple-200/80 shadow-2xs'
+                    ? 'text-[#5b2d6e] font-bold bg-purple-100 border border-purple-200 shadow-2xs'
                     : 'text-gray-600 hover:text-[#5b2d6e] hover:bg-purple-50/50'
                 }`}
                 aria-expanded={moreOpen}
@@ -260,7 +261,7 @@ export default function Navigation() {
                   onMouseEnter={handleMoreEnter}
                   onMouseLeave={handleMoreLeave}
                 >
-                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-200/90 p-2.5 space-y-1 ring-1 ring-black/5">
+                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 p-2.5 space-y-1 ring-1 ring-black/5" style={{ backgroundColor: '#ffffff', opacity: 1 }}>
                     {moreLinks.map((item) => {
                       const isItemActive = !isContactPage && activeSection === item.href.replace('#', '')
                       return (
@@ -365,7 +366,7 @@ export default function Navigation() {
 
         {/* Mobile Dropdown (Categorized Directory) */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-gray-100 bg-white px-4 py-4 space-y-4 shadow-xl border-b border-gray-200 animate-in fade-in slide-in-from-top-2 duration-200 max-h-[75vh] overflow-y-auto">
+          <div className="lg:hidden border-t border-gray-100 bg-white px-4 py-4 space-y-4 shadow-xl border-b border-gray-200 animate-in fade-in slide-in-from-top-2 duration-200 max-h-[75vh] overflow-y-auto" style={{ backgroundColor: '#ffffff', opacity: 1 }}>
             {mobileNavCategories.map((group) => (
               <div key={group.category} className="space-y-1">
                 <div className="px-3 text-[10px] font-bold text-gray-400 uppercase tracking-wider">
