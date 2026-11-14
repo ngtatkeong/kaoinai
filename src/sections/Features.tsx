@@ -1,3 +1,4 @@
+import { useState, lazy, Suspense } from 'react'
 import { 
   Shield, 
   CheckCircle, 
@@ -12,11 +13,17 @@ import {
   Leaf,
   ShieldCheck,
   Layers,
-  Globe
+  Globe,
+  ArrowRight
 } from 'lucide-react'
+import { trackEvent } from '@/lib/analytics'
+import LeadMagnetModal from '@/components/LeadMagnetModal'
+
+const FeatureDetailModal = lazy(() => import('@/components/FeatureDetailModal'))
 
 const features = [
   {
+    id: 'data-governance',
     icon: Shield,
     title: 'Data Governance (DG)',
     description: 'Enterprise-grade governance framework with role-based access control, audit trails, and compliance reporting for SOX, GDPR, HIPAA, and PDPA.',
@@ -24,6 +31,7 @@ const features = [
     bgColor: 'bg-purple-50',
   },
   {
+    id: 'data-quality',
     icon: CheckCircle,
     title: 'Data Quality (DQ)',
     description: 'AI-powered quality monitoring with intelligent rule suggestions, natural language rule creation, completeness metrics, and violation tracking.',
@@ -31,6 +39,7 @@ const features = [
     bgColor: 'bg-green-50',
   },
   {
+    id: 'master-data-management',
     icon: Database,
     title: 'Master Data Management (MDM)',
     description: 'Automatic golden record creation, hierarchy management, deduplication, and cross-system master data synchronization.',
@@ -38,6 +47,7 @@ const features = [
     bgColor: 'bg-blue-50',
   },
   {
+    id: 'table-bound-dpia',
     icon: ShieldCheck,
     title: 'Table-Bound DPIA & Data Inventory',
     description: 'Binds statutory DPIAs and living Data Inventories (RoPA) directly to physical database tables & columns containing PII, with automated drift alerts and dynamic masking.',
@@ -45,6 +55,7 @@ const features = [
     bgColor: 'bg-red-50',
   },
   {
+    id: 'ai-db-knowledgebase',
     icon: Brain,
     title: 'AI-Aided DB Knowledgebase',
     description: 'Living, AI-curated database knowledgebase that maps tribal schema logic, foreign key semantics, and table definitions so teams instantly understand every dataset.',
@@ -52,6 +63,7 @@ const features = [
     bgColor: 'bg-amber-50',
   },
   {
+    id: 'data-lineage',
     icon: GitBranch,
     title: 'Data Lineage',
     description: 'End-to-end column-level lineage tracing. Understand where your data comes from, how it transforms, and what it impacts.',
@@ -59,6 +71,7 @@ const features = [
     bgColor: 'bg-teal-50',
   },
   {
+    id: 'data-catalog',
     icon: FileSearch,
     title: 'AI-Enhanced Data Catalog',
     description: 'Self-updating data catalog with AI-synthesized table documentation, business glossaries, and automated semantic indexing that eliminates undocumented schema debt.',
@@ -66,6 +79,7 @@ const features = [
     bgColor: 'bg-violet-50',
   },
   {
+    id: 'auto-insights',
     icon: TrendingUp,
     title: 'Auto-Insights',
     description: 'Proactive anomaly detection, trend analysis, correlation discovery, and AI-generated actionable recommendations.',
@@ -73,6 +87,7 @@ const features = [
     bgColor: 'bg-pink-50',
   },
   {
+    id: 'dbt-transformations',
     icon: Zap,
     title: 'Data Transformations (dbt)',
     description: 'Create dbt models using natural language. Auto-generate SQL, YAML, tests, and documentation. Deploy to dbt Cloud in one click.',
@@ -80,6 +95,7 @@ const features = [
     bgColor: 'bg-yellow-50',
   },
   {
+    id: 'risk-scoring',
     icon: AlertTriangle,
     title: 'Risk Scoring',
     description: 'Identify data risks before they become problems. Automated risk assessment with severity classification and remediation guidance.',
@@ -87,6 +103,7 @@ const features = [
     bgColor: 'bg-orange-50',
   },
   {
+    id: 'esg-analytics',
     icon: Leaf,
     title: 'ESG Analytics',
     description: 'Track and report Environmental, Social, and Governance metrics. AI-powered ESG insights aligned with global standards.',
@@ -94,6 +111,7 @@ const features = [
     bgColor: 'bg-emerald-50',
   },
   {
+    id: 'schema-shifts',
     icon: BarChart3,
     title: 'Schema Shifts Detection',
     description: 'Automatically detect schema changes, track drift, and get alerted when your database structure evolves unexpectedly.',
@@ -101,6 +119,7 @@ const features = [
     bgColor: 'bg-indigo-50',
   },
   {
+    id: 'data-architect',
     icon: Layers,
     title: 'Data Architect & Optimization',
     description: 'Autonomous schema analysis, normal form validation, index optimization recommendations, and SQL query efficiency tuning.',
@@ -108,6 +127,7 @@ const features = [
     bgColor: 'bg-cyan-50',
   },
   {
+    id: 'dpo-toolkit',
     icon: Globe,
     title: 'DPO Toolkit & ASEAN Compliance',
     description: 'Dedicated Data Protection Officer toolkit covering Singapore PDPA, Malaysia PDPA (2024), and Indonesia UU PDP with DSR workflows and review queues.',
@@ -117,6 +137,9 @@ const features = [
 ]
 
 export default function Features() {
+  const [selectedFeatureId, setSelectedFeatureId] = useState<string | null>(null)
+  const [leadMagnetOpen, setLeadMagnetOpen] = useState(false)
+
   return (
     <section id="features" className="py-24 sm:py-32 bg-purple-50/60 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -130,24 +153,40 @@ export default function Features() {
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
             From governance to analytics, KaoinAI covers every aspect of modern data management. 
-            No more piecing together expensive point solutions.
+            Click any capability below to inspect production workflows, code artifacts, and compliance guarantees.
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {features.map((feature, i) => (
-            <div
-              key={i}
-              className="group bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 hover:border-purple-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+          {features.map((feature) => (
+            <button
+              key={feature.id}
+              type="button"
+              onClick={() => {
+                setSelectedFeatureId(feature.id)
+                trackEvent('explore_feature', { feature_name: feature.title })
+              }}
+              className="group bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 hover:border-purple-300 hover:shadow-xl active:scale-[0.99] transition-all duration-300 flex flex-col justify-between text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+              aria-haspopup="dialog"
             >
               <div>
-                <div className={`w-14 h-14 rounded-2xl ${feature.bgColor} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform`}>
+                <div className={`w-14 h-14 rounded-2xl ${feature.bgColor} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-xs`}>
                   <feature.icon size={26} className={`text-transparent bg-clip-text bg-gradient-to-br ${feature.color}`} style={{ color: 'inherit' }} />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2.5">{feature.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{feature.description}</p>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#5b2d6e] transition-colors">{feature.title}</h3>
+                  <span className="text-[11px] font-semibold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-full shrink-0 group-hover:bg-purple-100 transition-colors">
+                    Details &rarr;
+                  </span>
+                </div>
+                <p className="text-sm text-gray-600 leading-relaxed mb-4">{feature.description}</p>
               </div>
-            </div>
+
+              <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-[#5b2d6e]">
+                <span>Explore workflow &amp; code</span>
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </div>
+            </button>
           ))}
         </div>
 
@@ -188,7 +227,7 @@ export default function Features() {
                 </div>
                 <h4 className="font-bold text-gray-900 text-base mb-1">Autonomous Drift Alerts</h4>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                  When a developer introduces a new table or column containing customer identifiers, KaoinAI detects it via CDC and instantly triggers a DPIA drift notification.
+                  When migrations add new columns or modify data structures, KaoinAI immediately flags unclassified PII, preventing compliance documentation lag.
                 </p>
               </div>
 
@@ -196,42 +235,33 @@ export default function Features() {
                 <div className="w-10 h-10 rounded-xl bg-purple-100 text-[#5b2d6e] flex items-center justify-center font-bold mb-3">
                   3
                 </div>
-                <h4 className="font-bold text-gray-900 text-base mb-1">1-Click Statutory Data Inventory (RoPA)</h4>
+                <h4 className="font-bold text-gray-900 text-base mb-1">One-Click RoPA Export</h4>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                  Export auditable Data Inventories customized to Singapore PDPA, Malaysia PDPA (Daftar Pemprosesan), Indonesia UU PDP (Inventaris Data Pribadi), and GDPR Article 30 backed by live schema proof.
+                  Export complete statutory Records of Processing Activities (RoPA) with column-level PII mappings, ready for Singapore PDPC or GDPR supervisory audits in seconds.
                 </p>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Stats bar */}
-        <div className="mt-12 sm:mt-16 bg-gradient-brand rounded-2xl p-6 sm:p-8 lg:p-12">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
-            <div>
-              <div className="text-2xl sm:text-4xl font-bold text-white">Up to 14+*</div>
-              <div className="text-purple-200 text-xs sm:text-sm mt-1">Core Modules</div>
-            </div>
-            <div>
-              <div className="text-2xl sm:text-4xl font-bold text-white">Up to 6+*</div>
-              <div className="text-purple-200 text-xs sm:text-sm mt-1">Compliance Standards</div>
-            </div>
-            <div>
-              <div className="text-2xl sm:text-4xl font-bold text-white">AI</div>
-              <div className="text-purple-200 text-xs sm:text-sm mt-1">Native Throughout</div>
-            </div>
-            <div>
-              <div className="text-2xl sm:text-4xl font-bold text-white">1</div>
-              <div className="text-purple-200 text-xs sm:text-sm mt-1">Unified Platform</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Footnote Disclaimer */}
-        <p className="text-[11px] text-gray-500 text-center mt-4 max-w-4xl mx-auto leading-relaxed">
-          * Core modules, compliance frameworks, and catalog comprehension depth are evaluated against an organization&apos;s baseline data posture prior to KaoinAI (e.g. unindexed tables, manual static spreadsheets, and isolated point solutions). Coverage reflects full enterprise licensing configurations including Singapore PDPA, GDPR, MAS TRM, ISO 27001, and custom regulatory mapping rules.
-        </p>
       </div>
+
+      {/* Lazy-Loaded Feature Detail Modal */}
+      <Suspense fallback={null}>
+        {selectedFeatureId && (
+          <FeatureDetailModal
+            key={selectedFeatureId}
+            featureId={selectedFeatureId}
+            onClose={() => setSelectedFeatureId(null)}
+            onOpenLeadMagnet={() => setLeadMagnetOpen(true)}
+          />
+        )}
+      </Suspense>
+
+      {/* Shared Lead Magnet Modal for Whitepaper / Checklist */}
+      <LeadMagnetModal
+        isOpen={leadMagnetOpen}
+        onClose={() => setLeadMagnetOpen(false)}
+      />
     </section>
   )
 }

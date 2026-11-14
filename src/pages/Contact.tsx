@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import { Link } from 'react-router'
+import { Link, useSearchParams } from 'react-router'
 import { 
   Mail, 
   MapPin, 
@@ -148,6 +148,15 @@ export default function Contact() {
   const [bookingName, setBookingName] = useState('')
   const [bookingEmail, setBookingEmail] = useState('')
   const [bookingCompany, setBookingCompany] = useState('')
+  const [searchParams] = useSearchParams()
+
+  useEffect(() => {
+    const topicParam = searchParams.get('topic')
+    if (topicParam) {
+      setBookingTopic(topicParam)
+      setActiveTab('calendar')
+    }
+  }, [searchParams])
   const [bookingPhone, setBookingPhone] = useState('')
   const [bookingTopic, setBookingTopic] = useState('Data Governance & RoPA / Data Inventory Pilot')
   const [bookingNotes, setBookingNotes] = useState('')
@@ -950,6 +959,9 @@ Consultant Direct Email: consultant@kaoinai.com`
                           onChange={(e) => setBookingTopic(e.target.value)}
                           className="w-full h-11 sm:h-10 px-3 py-2 text-base sm:text-sm bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 text-gray-800"
                         >
+                          {!['Data Governance & RoPA / Data Inventory Pilot', 'Automated PII Scanning & Masking Demo', '$0 Founding Customer Cohort (First 3 Only)', 'ERP & Enterprise Connectors (SAP / NetSuite / Postgres)', 'Custom Architecture & Compliance Strategy'].includes(bookingTopic) && (
+                            <option value={bookingTopic}>Topic: {bookingTopic}</option>
+                          )}
                           <option value="Data Governance & RoPA / Data Inventory Pilot">
                             Data Governance &amp; RoPA / Data Inventory Pilot (SG / MY / ID)
                           </option>
